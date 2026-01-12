@@ -261,7 +261,8 @@ Este projeto é uma conversão do dashboard Power BI original mantendo:
 
 ---
 
-**Desenvolvido por:** João Domingues Pereira  
-**Versão:** 1.0.0  
-**Data:** Janeiro 2026  
-**Tecnologia:** ReactJS + Webpack
+## Credits
+- **Desenvolvido por:** João Domingues Pereira  
+- **Versão:** 1.0.0  
+- **Data:** Janeiro 2026  
+- **Tecnologia:** ReactJS + Webpack
