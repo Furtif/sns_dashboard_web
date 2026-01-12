@@ -223,9 +223,9 @@ export const loadAllData = async () => {
     ] = await Promise.all([
       loadCSV('fact_atendimentos_urgencia_mensal.csv'),
       loadCSV('fact_monitorizacao_sazonal.csv'),
-      loadCSV('dim_instituicao.csv'),
-      loadCSV('dim_regiao.csv'),
-      loadCSV('dim_indicador.csv')
+      loadCSV('dim/dim_instituicao.csv'),
+      loadCSV('dim/dim_regiao.csv'),
+      loadCSV('dim/dim_indicador.csv')
     ]);
 
     console.log('✅ Dados carregados:', {
