@@ -249,7 +249,7 @@ O projeto não requer variáveis de ambiente para desenvolvimento.
 
 ## 📄 Licença
 
-MIT License - Ver arquivo LICENSE no projeto original.
+MIT License - Ver arquivo LICENSE neste projeto.
 
 ## 🤝 Contribuição
 
