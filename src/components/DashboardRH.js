@@ -322,8 +322,15 @@ const DashboardRH = ({ data }) => {
 
         {/* Produtividade vs Rácio */}
         <div className="chart-container">
-          <h3 className="chart-title">Análise de Produtividade vs Rácio Enf./Méd.</h3>
-          <ResponsiveContainer width="100%" height={300}>
+          <h3 className="chart-title">Análise de Produtividade vs Rácio Enfermeiro/Médico</h3>
+          <div className="mb-3 p-3 bg-blue-50 rounded-lg">
+            <p className="text-sm text-blue-800">
+              <strong>Análise:</strong> Este gráfico mostra a relação entre o rácio de enfermeiros por médico e a produtividade (atendimentos por médico).
+              Instituições com rácio < 2.0 (abaixo da meta OMS) aparecem em <span className="text-red-600">vermelho</span>,
+              enquanto instituições eficientes aparecem em <span className="text-green-600">verde</span>.
+            </p>
+          </div>
+          <ResponsiveContainer width="100%" height={350}>
             <ScatterChart data={productivityData.slice(0, 50)}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis 
@@ -331,36 +338,101 @@ const DashboardRH = ({ data }) => {
                 name="Rácio Enf./Méd."
                 tick={{ fontSize: 12 }}
                 domain={[0, 'dataMax']}
+                label={{ value: 'Rácio Enfermeiro/Médico', position: 'insideBottom', offset: -5 }}
               />
               <YAxis 
                 dataKey="atendimentosPorMedico" 
                 name="Atendimentos por Médico"
                 tick={{ fontSize: 12 }}
+                label={{ value: 'Atendimentos por Médico', angle: -90, position: 'insideLeft' }}
               />
               <Tooltip 
                 cursor={{ strokeDasharray: '3 3' }}
                 content={({ active, payload }) => {
                   if (active && payload && payload.length) {
                     const data = payload[0].payload;
+                    const isBelowTarget = data.racioEnfermeiroMedico < 2.0;
                     return (
-                      <div className="bg-white p-3 border rounded shadow-lg">
-                        <p className="font-semibold">{data.instituicaoNome}</p>
-                        <p className="text-sm">Tipo: {data.tipo}</p>
-                        <p className="text-sm">Rácio: {formatDecimal(data.racioEnfermeiroMedico)}</p>
-                        <p className="text-sm">Produtividade: {formatNumber(data.atendimentosPorMedico)}</p>
-                        <p className="text-sm">Total: {formatNumber(data.totalAtendimentos)}</p>
+                      <div className={`p-3 border rounded shadow-lg ${isBelowTarget ? 'bg-red-50 border-red-200' : 'bg-white'}`}>
+                        <p className="font-semibold text-sm">{data.instituicaoNome}</p>
+                        <p className="text-xs text-gray-600">Tipo: {data.tipo}</p>
+                        <p className={`text-sm ${isBelowTarget ? 'text-red-700 font-semibold' : ''}`}>
+                          Rácio: {formatDecimal(data.racioEnfermeiroMedico)}
+                          {isBelowTarget && ' ⚠️ Abaixo da meta OMS'}
+                        </p>
+                        <p className="text-sm">Produtividade: {formatNumber(data.atendimentosPorMedico)} atend./médico</p>
+                        <p className="text-sm">Total: {formatNumber(data.totalAtendimentos)} atendimentos</p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {data.racioEnfermeiroMedico >= 2.0 ? '✅ Adequado' : '❌ Crítico'}
+                        </p>
                       </div>
                     );
                   }
                   return null;
                 }}
               />
+              <ReferenceLine x={2.0} stroke="#dc2626" strokeDasharray="5 5" strokeWidth={2} />
+              <ReferenceLine y={productivityData.reduce((sum, d) => sum + d.atendimentosPorMedico, 0) / productivityData.length} 
+                            stroke="#6b7280" strokeDasharray="3 3" strokeWidth={1} />
               <Scatter 
                 dataKey="atendimentosPorMedico" 
-                fill="#1e40af"
+                fill={(data) => data.racioEnfermeiroMedico < 2.0 ? '#dc2626' : '#059669'}
+                shape={(props) => {
+                  const { cx, cy, payload } = props;
+                  const isBelowTarget = payload.racioEnfermeiroMedico < 2.0;
+                  return (
+                    <circle 
+                      cx={cx} 
+                      cy={cy} 
+                      r={6} 
+                      fill={isBelowTarget ? '#dc2626' : '#059669'}
+                      stroke={isBelowTarget ? '#991b1b' : '#047857'}
+                      strokeWidth={2}
+                      fillOpacity={0.8}
+                    />
+                  );
+                }}
+              />
+              <Legend 
+                content={() => (
+                  <div className="flex justify-center gap-4 mt-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-green-600 rounded-full"></div>
+                      <span className="text-xs">Adequado (Rácio ≥ 2.0)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                      <span className="text-xs">Crítico (Rácio < 2.0)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-0 border-t-2 border-gray-400 border-dashed"></div>
+                      <span className="text-xs">Meta OMS</span>
+                    </div>
+                  </div>
+                )}
               />
             </ScatterChart>
           </ResponsiveContainer>
+          <div className="mt-3 grid grid-cols-3 gap-2 text-xs">
+            <div className="text-center p-2 bg-gray-50 rounded">
+              <div className="font-semibold text-gray-700">
+                {formatNumber(productivityData.filter(d => d.racioEnfermeiroMedico >= 2.0).length)}
+              </div>
+              <div className="text-gray-600">Instituições Adequadas</div>
+            </div>
+            <div className="text-center p-2 bg-red-50 rounded">
+              <div className="font-semibold text-red-700">
+                {formatNumber(productivityData.filter(d => d.racioEnfermeiroMedico < 2.0).length)}
+              </div>
+              <div className="text-red-600">Instituições Críticas</div>
+            </div>
+            <div className="text-center p-2 bg-blue-50 rounded">
+              <div className="font-semibold text-blue-700">
+                {formatDecimal(productivityData.reduce((sum, d) => sum + d.racioEnfermeiroMedico, 0) / productivityData.length)}
+              </div>
+              <div className="text-blue-600">Rácio Médio</div>
+            </div>
+          </div>
         </div>
       </div>
 
