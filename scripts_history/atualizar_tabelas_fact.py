@@ -21,9 +21,9 @@ print(f"Data: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n")
 print("📂 A carregar tabelas dimensão...")
 
 # Carregar dimensões
-dim_instituicao = pd.read_csv('../public/data/dim_instituicao.csv', sep=';', encoding='utf-8-sig')
-dim_regiao = pd.read_csv('../public/data/dim_regiao.csv', sep=';', encoding='utf-8-sig')
-dim_indicador = pd.read_csv('../public/data/dim_indicador.csv', sep=';', encoding='utf-8-sig')
+dim_instituicao = pd.read_csv('../public/data/dim/dim_instituicao.csv', sep=';', encoding='utf-8-sig')
+dim_regiao = pd.read_csv('../public/data/dim/dim_regiao.csv', sep=';', encoding='utf-8-sig')
+dim_indicador = pd.read_csv('../public/data/dim/dim_indicador.csv', sep=';', encoding='utf-8-sig')
 
 print(f"  ✓ dim_instituicao: {len(dim_instituicao)} registos")
 print(f"  ✓ dim_regiao: {len(dim_regiao)} registos")
