@@ -249,7 +249,7 @@ O projeto não requer variáveis de ambiente para desenvolvimento.
 
 ## 📄 Licença
 
-MIT License - Ver arquivo LICENSE neste projeto.
+Educational Community License v2.0 (ECL-2.0) - Ver arquivo LICENSE neste projeto.
 
 ## 🤝 Contribuição
 
