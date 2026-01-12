@@ -1,3 +1,16 @@
-/dist/
+# Project files
+.idea/
+*.iml
+*_single*
+*_ignore*
+
+# Protoc files
+out/
+
+*.pyc
+*.DS_Store
+temp.*
+
 /node_modules/
+/dist/
 *.csv.backup_*
