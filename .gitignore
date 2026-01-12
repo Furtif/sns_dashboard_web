@@ -1,16 +1,3 @@
-# Project files
-.idea/
-*.iml
-*_single*
-*_ignore*
-
-# Protoc files
-out/
-
-*.pyc
-*.DS_Store
-temp.*
-
-/node_modules/
 /dist/
+/node_modules/
 *.csv.backup_*
