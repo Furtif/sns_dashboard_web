@@ -163,7 +163,11 @@ const DashboardExecutivo = ({ data }) => {
               />
               <YAxis tick={{ fontSize: 12 }} />
               <Tooltip 
-                formatter={(value, name) => [formatNumber(value), name === 'totalAtendimentos' ? 'Total' : 'Urgências Falsas']}
+                formatter={(value, name) => [
+                  formatNumber(value), 
+                  name === 'totalAtendimentos' ? 'Total Atendimentos' : 
+                  name === 'urgenciasFalsas' ? 'Urgências Falsas' : name
+                ]}
                 labelFormatter={(label) => `Período: ${label}`}
               />
               <Legend />

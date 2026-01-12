@@ -95,14 +95,14 @@ const DashboardOperacional = ({ data }) => {
   };
 
   const getEfficiencyColor = (percent) => {
-    if (percent >= 35) return '#dc2626';
+    if (percent >= 35) return '#ec4899';
     if (percent >= 25) return '#ea580c';
     if (percent >= 15) return '#ca8a04';
     return '#16a34a';
   };
 
   const getRacioColor = (racio) => {
-    if (racio < 1.5) return '#dc2626';
+    if (racio < 1.5) return '#ec4899';
     if (racio < 2) return '#ea580c';
     return '#16a34a';
   };
@@ -271,7 +271,7 @@ const DashboardOperacional = ({ data }) => {
                 yAxisId="left"
                 type="monotone" 
                 dataKey="percentUrgenciasFalsas" 
-                stroke="#dc2626" 
+                stroke="#16a34a" 
                 strokeWidth={2}
                 name="% Urgências Falsas"
               />
