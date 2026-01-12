@@ -21,7 +21,7 @@ Este projeto converteu o dashboard Power BI original para uma aplicação web mo
 ## 🏗️ Estrutura do Projeto
 
 ```
-reactjs_dashboard/
+sns_dashboard_web/
 ├── public/
 │   ├── index.html
 │   └── data/           # Dados CSV copiados do projeto original
@@ -58,7 +58,7 @@ reactjs_dashboard/
 
 1. **Navegar para o diretório do projeto:**
    ```bash
-   cd reactjs_dashboard
+   cd sns_dashboard_web
    ```
 
 2. **Instalar dependências:**
