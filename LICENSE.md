@@ -1,4 +1,4 @@
-Copyright (c) 2026 João Domingues Pereira and contributors
+Copyright (c) 2019 --=FurtiF™=--
 
 Licensed under the
 	Educational Community License, Version 2.0 (the "License"); you may
@@ -12,5 +12,3 @@ Licensed under the
 	BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
 	or implied. See the License for the specific language governing
 	permissions and limitations under the License.
-	
-More info at https://spdx.org/licenses/ECL-2.0.html
