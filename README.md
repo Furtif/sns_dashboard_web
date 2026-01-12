@@ -1,4 +1,4 @@
-# SNS Dashboard - Poetugal [![Test Build](https://github.com/Furtif/sns_dashboard_web/actions/workflows/test.yml/badge.svg)](https://github.com/Furtif/sns_dashboard_web/actions)
+# SNS Dashboard - Portugal [![Test Build](https://github.com/Furtif/sns_dashboard_web/actions/workflows/test.yml/badge.svg)](https://github.com/Furtif/sns_dashboard_web/actions)
 
 Dashboard interativo para análise de ineficiências hospitalares do Serviço Nacional de Saúde de Portugal, convertido do Power BI para ReactJS.
 
