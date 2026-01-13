@@ -206,31 +206,6 @@ for dataset, status in resultados.items():
     emoji = "✅" if status == "OK" else "❌"
     print(f"{emoji} {dataset.capitalize()}: {status}")
 
-print("\n" + "=" * 80)
-print("PRÓXIMOS PASSOS NO POWER BI")
-print("=" * 80)
-print("""
-1. Abra o ficheiro .pbix no Power BI Desktop
-2. Vá a 'Página Inicial' → 'Transformar dados' → 'Atualizar Origem de Dados'
-3. OU simplesmente clique em 'Atualizar' no ribbon
-4. O Power BI irá:
-   ✓ Ler os novos ficheiros CSV atualizados
-   ✓ Manter todas as relações entre tabelas
-   ✓ Manter todas as medidas DAX
-   ✓ Manter todas as visualizações e formatações
-   ✓ Manter todos os bookmarks e slicers
-
-IMPORTANTE:
-• Os nomes das colunas são os MESMOS (garante compatibilidade)
-• A estrutura dos ficheiros é IDÊNTICA (garante relações)
-• Apenas os DADOS foram atualizados (linhas novas adicionadas)
-
-Se surgirem erros:
-1. Verifique se os ficheiros estão na mesma pasta
-2. Confirme que os nomes dos ficheiros não mudaram
-3. Use 'Editar Consultas' para verificar caminhos das fontes
-""")
-
 print("=" * 80)
 print("✓ ATUALIZAÇÃO CONCLUÍDA")
 print("=" * 80)
