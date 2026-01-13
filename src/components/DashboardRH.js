@@ -412,7 +412,7 @@ const DashboardRH = ({ data }) => {
               <thead>
                 <tr>
                   <th>Instituição</th>
-                  <th className="hidden-mobile">Tipo</th>
+                  <th className="text-right">Tipo</th>
                   <th className="text-right">Atend./Médico</th>
                   <th className="text-right">Rácio</th>
                 </tr>
@@ -430,7 +430,7 @@ const DashboardRH = ({ data }) => {
                         </div>
                       </div>
                     </td>
-                    <td className="hidden-mobile">{inst.tipo}</td>
+                    <td className="text-right">{inst.tipo}</td>
                     <td className="text-right font-medium">
                       <span 
                         className="px-2 py-1 rounded text-xs font-medium"
@@ -470,7 +470,7 @@ const DashboardRH = ({ data }) => {
               <thead>
                 <tr>
                   <th>Instituição</th>
-                  <th className="hidden-mobile">Tipo</th>
+                  <th className="text-right">Tipo</th>
                   <th className="text-right">Rácio</th>
                   <th className="text-right">Défice</th>
                 </tr>
@@ -494,7 +494,7 @@ const DashboardRH = ({ data }) => {
                             </div>
                           </div>
                         </td>
-                        <td className="hidden-mobile">{inst.tipo}</td>
+                        <td className="text-right">{inst.tipo}</td>
                         <td className="text-right">
                           <span 
                             className="px-2 py-1 rounded text-xs font-medium text-white"
