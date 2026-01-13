@@ -378,11 +378,11 @@ const DashboardRH = ({ data }) => {
               <div className="metric-label">{region.instituicoes} instituições</div>
               <div className="mt-3 space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Profissionais:</span>
+                  <span className="text-gray-600">Profissionais: </span>
                   <span className="font-medium">{formatNumber(region.totalProfissionais)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Rácio Enf./Méd.:</span>
+                  <span className="text-gray-600">Rácio Enf./Méd.: </span>
                   <span 
                     className="font-medium"
                     style={{ color: getRacioColor(region.racioEnfermeiroMedico) }}
@@ -391,7 +391,7 @@ const DashboardRH = ({ data }) => {
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Atend./Médico:</span>
+                  <span className="text-gray-600">Atend./Médico: </span>
                   <span className="font-medium">{formatNumber(region.atendimentosPorMedico)}</span>
                 </div>
               </div>

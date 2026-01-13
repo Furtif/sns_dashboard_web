@@ -361,11 +361,11 @@ const DashboardFinanceiro = ({ data }) => {
 
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">% Urgências Falsas:</span>
+                    <span className="text-gray-600">% Urgências Falsas: </span>
                     <span className="font-medium">{formatPercent(type.percentUrgenciasFalsas)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">% Desperdício:</span>
+                    <span className="text-gray-600">% Desperdício: </span>
                     <span className="font-medium">{formatPercent(type.percentDesperdicio)}</span>
                   </div>
                 </div>
