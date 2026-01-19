@@ -31,10 +31,10 @@ sns_dashboard_web/
 │       ├── atendimentos_urgencia_triagem_manchester.csv
 │       ├── monitorizacao_sazonal_csh.csv
 │       ├── trabalhadores_grupo_profissional.csv
-│       ├── dim/
-│       │   ├── dim_instituicao.csv
-│       │   ├── dim_regiao.csv
-│       │   └── dim_indicador.csv
+│       └── dim/
+│           ├── dim_instituicao.csv
+│           ├── dim_regiao.csv
+│           └── dim_indicador.csv
 ├── src/
 │   ├── components/      # 8 componentes React especializados
 │   │   ├── DashboardExecutivo.js      # Visão macro para decisores
