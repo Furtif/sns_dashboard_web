@@ -10,8 +10,8 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
     { value: 'last12', label: 'Últimos 12 meses', months: 12 },
     { value: 'last24', label: 'Últimos 24 meses', months: 24 },
     { value: 'last36', label: 'Últimos 36 meses', months: 36 },
-    { value: 'currentYear', label: 'Ano 2025 (completo)', months: 'current' },
-    { value: 'lastYear', label: 'Ano 2024', months: 'previous' },
+    { value: 'currentYear', label: 'Ano 2026 (completo)', months: 'current' },
+    { value: 'lastYear', label: 'Ano 2025', months: 'previous' },
     { value: 'last2years', label: 'Últimos 2 anos', months: 24 },
     { value: 'all', label: 'Todo o período (2016-2026)', months: 'all' },
     { value: 'custom', label: 'Personalizado', months: 'custom' }

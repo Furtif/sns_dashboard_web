@@ -126,7 +126,7 @@ function App() {
           <div className="header-content">
             <div>
               <h1 className="flex items-center gap-2">
-                <a href="/" className="flex items-center gap-2 text-inherit hover:text-inherit focus:text-inherit active:text-inherit" style={{textDecoration: 'none', color: 'inherit'}}>
+                <a href="/" className="flex items-center gap-2 text-inherit hover:text-inherit focus:text-inherit active:text-inherit" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <span>🏥</span>
                   SNS Dashboard
                 </a>
@@ -198,21 +198,30 @@ function App() {
                 <span className="footer-icon">🏥</span>
                 <strong>SNS Dashboard</strong>
               </div>
-              <span className="footer-tagline">Análise de Ineficiências Hospitalares</span>
+              <div className="footer-data-info"><a
+                href="/"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
+                Análise de Ineficiências Hospitalares
+              </a>
+              </div>
             </div>
             <div className="footer-author">
               <div className="footer-author-header">
                 <span className="footer-icon">💻</span>
                 <strong>Desenvolvido por:</strong>
               </div>
-              <a
-                href="https://github.com/Furtif"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                --=FurtiF™=--
-              </a>
+              <div className="footer-data-info">
+                <a
+                  href="https://www.gp-informatique.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  George Pereira | GP Informatique
+                </a>
+              </div>
             </div>
             <div className="footer-data">
               <div className="footer-data-header">
