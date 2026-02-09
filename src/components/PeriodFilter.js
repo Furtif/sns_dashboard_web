@@ -55,7 +55,7 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
         break;
         
       case 'lastYear':
-        // Usar 2024 como "ano anterior" ao último ano completo (2025)
+        // Usar 2025 como "ano anterior" ao último ano completo (2025)
         start = new Date(2025, 0, 1);
         end = new Date(2025, 11, 31);
         break;
