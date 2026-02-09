@@ -13,7 +13,7 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
     { value: 'currentYear', label: 'Ano 2025 (completo)', months: 'current' },
     { value: 'lastYear', label: 'Ano 2024', months: 'previous' },
     { value: 'last2years', label: 'Últimos 2 anos', months: 24 },
-    { value: 'all', label: 'Todo o período (2016-2025)', months: 'all' },
+    { value: 'all', label: 'Todo o período (2016-2026)', months: 'all' },
     { value: 'custom', label: 'Personalizado', months: 'custom' }
   ];
 
@@ -49,15 +49,15 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
         break;
         
       case 'currentYear':
-        // Usar o último ano completo com dados (2025) em vez do ano atual (2026)
-        start = new Date(2025, 0, 1);
-        end = new Date(2025, 11, 31);
+        // Usar o último ano completo com dados (2026) em vez do ano atual (2026)
+        start = new Date(2026, 0, 1);
+        end = new Date(2026, 11, 31);
         break;
         
       case 'lastYear':
         // Usar 2024 como "ano anterior" ao último ano completo (2025)
-        start = new Date(2024, 0, 1);
-        end = new Date(2024, 11, 31);
+        start = new Date(2025, 0, 1);
+        end = new Date(2025, 11, 31);
         break;
         
       case 'last2years':
@@ -227,7 +227,7 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
         <div className="text-sm text-blue-700">
           <strong>ℹ️ Informações:</strong>
           <ul className="mt-1 ml-4 list-disc">
-            <li>Período completo dos dados: Janeiro 2016 a Dezembro 2025</li>
+            <li>Período completo dos dados: Janeiro 2016 a Dezembro 2026</li>
             <li>Use seleção rápida para filtros predefinidos</li>
             <li>Personalizado permite datas específicas</li>
             <li>Filtros afetam todos os dashboards simultaneamente</li>

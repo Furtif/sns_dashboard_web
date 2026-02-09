@@ -89,7 +89,7 @@ function App() {
             A carregar dados do Serviço Nacional de Saúde...
           </p>
           <p className="text-sm text-gray-400 mt-2">
-            Análise de ineficiências hospitalares (2016-2025)
+            Análise de ineficiências hospitalares (2016-2026)
           </p>
         </div>
       </div>
@@ -132,7 +132,7 @@ function App() {
                 </a>
               </h1>
               <p className="header-subtitle">
-                Análise de Ineficiências Hospitalares (2016-2025)
+                Análise de Ineficiências Hospitalares (2016-2026)
               </p>
             </div>
             <div className="hidden-mobile">
@@ -226,7 +226,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="footer-link"
                 >
-                  Portal Transparência SNS | Período: 2016-2025
+                  Portal Transparência SNS | Período: 2016-2026
                 </a>
               </div>
             </div>

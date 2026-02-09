@@ -134,7 +134,7 @@ const DashboardOperacional = ({ data }) => {
           </p>
           <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
             <div className="text-sm text-yellow-700">
-              <strong>Dica:</strong> Os dados estão disponíveis de 2016 a 2025. 
+              <strong>Dica:</strong> Os dados estão disponíveis de 2016 a 2026. 
               Use o filtro "Todo o período" ou "Últimos 24 meses" para garantir dados.
             </div>
           </div>

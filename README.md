@@ -191,7 +191,7 @@ O dashboard foi projetado com uma abordagem mobile-first:
 ## 📊 Fonte de Dados
 
 - **Origem**: Portal da Transparência do SNS (transparencia.sns.gov.pt)
-- **Período**: 2016-2025 (9.75 anos de dados históricos)
+- **Período**: 2016-2026 (9.75 anos de dados históricos)
 - **Volume**: 8 arquivos CSV com 36.000+ registros totais
   - 4.131 registros mensais de atendimentos
   - 32.870 registros diários de monitorização
