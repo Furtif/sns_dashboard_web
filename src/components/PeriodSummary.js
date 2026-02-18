@@ -1,30 +1,11 @@
 import React from 'react';
+import { formatNumber, formatCurrency, formatPercent } from '../utils/formatters';
 
 const PeriodSummary = ({ data, dateRange }) => {
   if (!data || !dateRange.start || !dateRange.end) {
     return null;
   }
 
-  const formatNumber = (num) => {
-    if (num === null || num === undefined || isNaN(num)) {
-      return '0';
-    }
-    return new Intl.NumberFormat('pt-PT').format(Math.round(num));
-  };
-
-  const formatCurrency = (num) => {
-    if (num === null || num === undefined || isNaN(num)) {
-      return '€0';
-    }
-    return new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' }).format(num);
-  };
-
-  const formatPercent = (num) => {
-    if (num === null || num === undefined || isNaN(num)) {
-      return '0.0%';
-    }
-    return `${parseFloat(num).toFixed(1)}%`;
-  };
 
   const formatPeriod = (date) => {
     return new Intl.DateTimeFormat('pt-PT', {

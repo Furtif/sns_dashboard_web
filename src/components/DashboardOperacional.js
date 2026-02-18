@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter } from 'recharts';
+import { formatNumber, formatPercent } from '../utils/formatters';
 
 const DashboardOperacional = ({ data }) => {
   const [selectedRegion, setSelectedRegion] = useState('');
@@ -83,16 +84,6 @@ const DashboardOperacional = ({ data }) => {
     }
   }, [data]);
 
-  const formatNumber = (num) => {
-    return new Intl.NumberFormat('pt-PT').format(Math.round(num));
-  };
-
-  const formatPercent = (num) => {
-    if (num === null || num === undefined || isNaN(num)) {
-      return '0.0%';
-    }
-    return `${parseFloat(num).toFixed(1)}%`;
-  };
 
   const getEfficiencyColor = (percent) => {
     if (percent >= 35) return '#ec4899';
@@ -352,7 +343,7 @@ const DashboardOperacional = ({ data }) => {
                     <td className="font-medium">
                       <div className="font-semibold">{inst.instituicaoNome}</div>
                       <div className="text-xs text-gray-500 mobile-only">
-                        {inst.tipo} • {formatNumber(inst.atendimentosPorMes)}/mês
+                        {inst.tipo} {formatNumber(inst.atendimentosPorMes)}/mês
                       </div>
                     </td>
                     <td style={{ verticalAlign: 'middle' }}>{inst.tipo}</td>
@@ -398,7 +389,7 @@ const DashboardOperacional = ({ data }) => {
                     <td className="font-medium">
                       <div className="font-semibold">{inst.instituicaoNome}</div>
                       <div className="text-xs text-gray-500 mobile-only">
-                        {inst.tipo} • Rácio: {inst.racioEnfermeiroMedico.toFixed(2)}
+                        {inst.tipo} Rácio: {inst.racioEnfermeiroMedico.toFixed(2)}
                       </div>
                     </td>
                     <td style={{ verticalAlign: 'middle' }}>{inst.tipo}</td>

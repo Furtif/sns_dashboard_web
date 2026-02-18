@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { formatNumber, formatCurrency, formatPercent } from '../utils/formatters';
 
 const DashboardExecutivo = ({ data }) => {
   const [timeSeriesData, setTimeSeriesData] = useState([]);
@@ -44,20 +45,6 @@ const DashboardExecutivo = ({ data }) => {
     }
   }, [data]);
 
-  const formatNumber = (num) => {
-    return new Intl.NumberFormat('pt-PT').format(Math.round(num));
-  };
-
-  const formatCurrency = (num) => {
-    return new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' }).format(num);
-  };
-
-  const formatPercent = (num) => {
-    if (num === null || num === undefined || isNaN(num)) {
-      return '0.0%';
-    }
-    return `${parseFloat(num).toFixed(1)}%`;
-  };
 
   const getScoreColor = (score) => {
     if (score >= 65) return '#dc2626';

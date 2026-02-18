@@ -7,6 +7,7 @@ import DataUpdateManager from './components/DataUpdateManager';
 import PeriodFilter from './components/PeriodFilter';
 import PeriodSummary from './components/PeriodSummary';
 import { loadAllData, calculateMetrics, clearCache, filterByPeriod, filterMonitorizacaoByPeriod } from './utils/dataLoader';
+import { formatNumber } from './utils/formatters';
 
 function App() {
   const [activeTab, setActiveTab] = useState('executivo');
@@ -137,7 +138,7 @@ function App() {
             </div>
             <div className="hidden-mobile">
               <div className="text-sm">
-                <div>📊 {data?.totalAtendimentos?.toLocaleString('pt-PT')} atendimentos</div>
+                <div>📊 {formatNumber(data?.totalAtendimentos)} atendimentos</div>
                 <div>⚠️ {data?.percentUrgenciasFalsas?.toFixed(1)}% urgências falsas</div>
               </div>
             </div>

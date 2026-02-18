@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { formatCurrency, formatNumber, formatPercent } from '../utils/formatters';
 
 const DashboardFinanceiro = ({ data }) => {
   const [regionData, setRegionData] = useState([]);
@@ -112,20 +113,6 @@ const DashboardFinanceiro = ({ data }) => {
     }
   }, [data]);
 
-  const formatCurrency = (num) => {
-    return new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' }).format(num);
-  };
-
-  const formatNumber = (num) => {
-    return new Intl.NumberFormat('pt-PT').format(Math.round(num));
-  };
-
-  const formatPercent = (num) => {
-    if (num === null || num === undefined || isNaN(num)) {
-      return '0.0%';
-    }
-    return `${parseFloat(num).toFixed(1)}%`;
-  };
 
   const getWasteColor = (percent) => {
     if (percent >= 20) return '#dc2626';
@@ -432,11 +419,11 @@ const DashboardFinanceiro = ({ data }) => {
         <div className="mt-6 p-4 bg-orange-50 border border-orange-200 rounded-lg">
           <h4 className="font-semibold text-orange-800 mb-2">💡 Recomendações Financeiras</h4>
           <ul className="text-sm text-orange-700 space-y-1">
-            <li>• Investir em cuidados de saúde primários para reduzir urgências falsas</li>
-            <li>• Implementar triagem avançada para desviar casos não urgentes</li>
-            <li>• Campanhas de educação pública sobre uso adequado das urgências</li>
-            <li>• Telemedicina para consultas de baixa complexidade</li>
-            <li>• Revisão de protocolos para otimizar fluxos de atendimento</li>
+            <li> Investir em cuidados de saúde primários para reduzir urgências falsas</li>
+            <li> Implementar triagem avançada para desviar casos não urgentes</li>
+            <li> Campanhas de educação pública sobre uso adequado das urgências</li>
+            <li> Telemedicina para consultas de baixa complexidade</li>
+            <li> Revisão de protocolos para otimizar fluxos de atendimento</li>
           </ul>
         </div>
       </div>

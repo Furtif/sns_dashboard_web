@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, LineChart, Line, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
+import { formatNumber, formatCurrency, formatDecimal } from '../utils/formatters';
 
 const DashboardRH = ({ data }) => {
   const [institutionRH, setInstitutionRH] = useState([]);
@@ -163,16 +164,6 @@ const DashboardRH = ({ data }) => {
     }
   }, [data]);
 
-  const formatNumber = (num) => {
-    return new Intl.NumberFormat('pt-PT').format(Math.round(num));
-  };
-
-  const formatDecimal = (num) => {
-    if (num === null || num === undefined || isNaN(num)) {
-      return '0.00';
-    }
-    return new Intl.NumberFormat('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(num);
-  };
 
   const getRacioColor = (racio) => {
     if (racio < 1.5) return '#dc2626';
@@ -425,7 +416,7 @@ const DashboardRH = ({ data }) => {
                         <div>
                           <div>{inst.instituicaoNome}</div>
                           <div className="text-xs text-gray-500 mobile-only">
-                            {inst.tipo} • Rácio: {formatDecimal(inst.racioEnfermeiroMedico)}
+                            {inst.tipo} Rácio: {formatDecimal(inst.racioEnfermeiroMedico)}
                           </div>
                         </div>
                       </div>
@@ -489,7 +480,7 @@ const DashboardRH = ({ data }) => {
                             <div>
                               <div>{inst.instituicaoNome}</div>
                               <div className="text-xs text-gray-500 mobile-only">
-                                {inst.tipo} • Défice: {formatNumber(deficitEnfermeiros)}
+                                {inst.tipo} Défice: {formatNumber(deficitEnfermeiros)}
                               </div>
                             </div>
                           </div>
@@ -524,19 +515,19 @@ const DashboardRH = ({ data }) => {
           <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
             <h4 className="font-semibold text-red-800 mb-2">🚨 Alertas Críticos</h4>
             <ul className="text-sm text-red-700 space-y-1">
-              <li>• {institutionRH.filter(inst => inst.racioEnfermeiroMedico < 1.5).length} instituições com défice crítico de enfermeiros</li>
-              <li>• Rácio nacional ({formatDecimal(racioNacional)}) abaixo da meta OMS (2.0)</li>
-              <li>• Necessidade de {formatNumber(Math.max(0, totalMedicosNacional * 2 - totalEnfermeirosNacional))} enfermeiros adicionais</li>
+              <li> {institutionRH.filter(inst => inst.racioEnfermeiroMedico < 1.5).length} instituições com défice crítico de enfermeiros</li>
+              <li> Rácio nacional ({formatDecimal(racioNacional)}) abaixo da meta OMS (2.0)</li>
+              <li> Necessidade de {formatNumber(Math.max(0, totalMedicosNacional * 2 - totalEnfermeirosNacional))} enfermeiros adicionais</li>
             </ul>
           </div>
 
           <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
             <h4 className="font-semibold text-green-800 mb-2">✅ Oportunidades de Melhoria</h4>
             <ul className="text-sm text-green-700 space-y-1">
-              <li>• Implementar programa de contratação de enfermeiros</li>
-              <li>• Otimizar escalas e distribuição de profissionais</li>
-              <li>• Investir em formação e especialização</li>
-              <li>• Revisar modelos de alocação por região</li>
+              <li> Implementar programa de contratação de enfermeiros</li>
+              <li> Otimizar escalas e distribuição de profissionais</li>
+              <li> Investir em formação e especialização</li>
+              <li> Revisar modelos de alocação por região</li>
             </ul>
           </div>
         </div>
@@ -566,7 +557,7 @@ const DashboardRH = ({ data }) => {
 
             <div className="metric-card border-purple-200 bg-purple-50">
               <div className="metric-value" style={{ color: '#7c3aed' }}>
-                {((totalMedicosNacional * 2 - totalEnfermeirosNacional) * 50000).toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' })}
+                {formatCurrency((totalMedicosNacional * 2 - totalEnfermeirosNacional) * 50000)}
               </div>
               <div className="metric-label">Investimento Estimado</div>
               <div className="text-sm text-purple-700 mt-2">

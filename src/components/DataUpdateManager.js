@@ -348,11 +348,11 @@ const DataUpdateManager = ({ onDataUpdated }) => {
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
           <h4 className="font-semibold text-gray-800 mb-2">ℹ️ Informações Importantes</h4>
           <ul className="text-sm text-gray-700 space-y-1">
-            <li>• <strong>Fonte de Dados:</strong> Simulação local para demonstração</li>
-            <li>• <strong>Atualização Real:</strong> Em produção, integrar com scripts Python reais</li>
-            <li>• <strong>Backup Automático:</strong> Criado antes de cada atualização</li>
-            <li>• <strong>Histórico:</strong> Mantém últimas 10 atualizações</li>
-            <li>• <strong>Segurança:</strong> Validação de dados antes de aplicar</li>
+            <li><strong>Fonte de Dados:</strong> Simulação local para demonstração</li>
+            <li><strong>Atualização Real:</strong> Em produção, integrar com scripts Python reais</li>
+            <li><strong>Backup Automático:</strong> Criado antes de cada atualização</li>
+            <li><strong>Histórico:</strong> Mantém últimas 10 atualizações</li>
+            <li><strong>Segurança:</strong> Validação de dados antes de aplicar</li>
           </ul>
         </div>
       </div>
