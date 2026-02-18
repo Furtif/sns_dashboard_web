@@ -226,7 +226,7 @@ try:
     if os.path.exists('../public/data/fact_atendimentos_urgencia_mensal.csv'):
         # Criar estrutura de backups por ano/mês
         now = datetime.now()
-        backup_dir = f'../public/data/backups/{datetime.now().strftime('%d-%m-%Y')}'
+        backup_dir = f'../backups/data/{datetime.now().strftime('%d-%m-%Y')}'
         os.makedirs(backup_dir, exist_ok=True)
         
         # Usar nome original do arquivo
@@ -317,7 +317,7 @@ try:
     if os.path.exists('../public/data/fact_monitorizacao_sazonal.csv'):
         # Criar estrutura de backups por ano/mês
         now = datetime.now()
-        backup_dir = f'../public/data/backups/{datetime.now().strftime('%d-%m-%Y')}'
+        backup_dir = f'../backups/data/{datetime.now().strftime('%d-%m-%Y')}'
         os.makedirs(backup_dir, exist_ok=True)
         
         # Usar nome original do arquivo

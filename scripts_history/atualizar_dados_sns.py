@@ -48,7 +48,7 @@ def descarregar_dataset(config, nome_dataset):
         if os.path.exists(config['nome_original']):
             # Criar estrutura de backups por ano/mês
             now = datetime.now()
-            backup_dir = f'../public/data/backups/{datetime.now().strftime('%d-%m-%Y')}'
+            backup_dir = f'../backups/data/{datetime.now().strftime('%d-%m-%Y')}'
             os.makedirs(backup_dir, exist_ok=True)
             
             # Usar nome original do arquivo
