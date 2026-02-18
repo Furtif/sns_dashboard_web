@@ -46,7 +46,20 @@ def descarregar_dataset(config, nome_dataset):
     try:
         # Verificar se ficheiro antigo existe (backup)
         if os.path.exists(config['nome_original']):
-            backup_name = f"{config['nome_original']}.backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+            # Criar estrutura de backups por ano/mês
+            now = datetime.now()
+            backup_dir = f'../public/data/backups/{datetime.now().strftime('%d-%m-%Y')}'
+            os.makedirs(backup_dir, exist_ok=True)
+            
+            # Usar nome original do arquivo
+            original_name = config['nome_original'].split('/')[-1]
+            backup_name = f"{backup_dir}/{original_name}"
+            
+            # Apagar backup existente se já existir
+            if os.path.exists(backup_name):
+                os.remove(backup_name)
+                print(f"🗑️ Backup existente removido: {backup_name}")
+            
             os.rename(config['nome_original'], backup_name)
             print(f"✓ Backup criado: {backup_name}")
         

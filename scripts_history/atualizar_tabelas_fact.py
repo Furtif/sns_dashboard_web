@@ -222,9 +222,21 @@ try:
         'Despesa', 'NumDoentes', 'CustoMedio'
     ]
     
-    # Criar backup
+    # Criar backup em pasta separada por ano/mês
     if os.path.exists('../public/data/fact_atendimentos_urgencia_mensal.csv'):
-        backup_name = f"../public/data/fact_atendimentos_urgencia_mensal.csv.backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        # Criar estrutura de backups por ano/mês
+        now = datetime.now()
+        backup_dir = f'../public/data/backups/{datetime.now().strftime('%d-%m-%Y')}'
+        os.makedirs(backup_dir, exist_ok=True)
+        
+        # Usar nome original do arquivo
+        backup_name = f"{backup_dir}/fact_atendimentos_urgencia_mensal.csv"
+        
+        # Apagar backup existente se já existir
+        if os.path.exists(backup_name):
+            os.remove(backup_name)
+            print(f"  🗑️ Backup existente removido: {backup_name}")
+        
         os.rename('../public/data/fact_atendimentos_urgencia_mensal.csv', backup_name)
         print(f"  ✓ Backup criado: {backup_name}")
     
@@ -301,9 +313,21 @@ try:
     # Ordenar por data
     fact_monit = fact_monit.sort_values(['TimeKey', 'RegiaoID', 'IndicadorID'])
     
-    # Criar backup
+    # Criar backup em pasta separada por ano/mês
     if os.path.exists('../public/data/fact_monitorizacao_sazonal.csv'):
-        backup_name = f"../public/data/fact_monitorizacao_sazonal.csv.backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        # Criar estrutura de backups por ano/mês
+        now = datetime.now()
+        backup_dir = f'../public/data/backups/{datetime.now().strftime('%d-%m-%Y')}'
+        os.makedirs(backup_dir, exist_ok=True)
+        
+        # Usar nome original do arquivo
+        backup_name = f"{backup_dir}/fact_monitorizacao_sazonal.csv"
+        
+        # Apagar backup existente se já existir
+        if os.path.exists(backup_name):
+            os.remove(backup_name)
+            print(f"  🗑️ Backup existente removido: {backup_name}")
+        
         os.rename('../public/data/fact_monitorizacao_sazonal.csv', backup_name)
         print(f"  ✓ Backup criado: {backup_name}")
     
