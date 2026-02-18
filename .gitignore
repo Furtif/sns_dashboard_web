@@ -1,4 +1,3 @@
 /dist/
 /node_modules/
-*.csv.backup_*
 /backups/
