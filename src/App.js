@@ -3,7 +3,6 @@ import DashboardExecutivo from './components/DashboardExecutivo';
 import DashboardOperacional from './components/DashboardOperacional';
 import DashboardFinanceiro from './components/DashboardFinanceiro';
 import DashboardRH from './components/DashboardRH';
-import DataUpdateManager from './components/DataUpdateManager';
 import PeriodFilter from './components/PeriodFilter';
 import PeriodSummary from './components/PeriodSummary';
 import { loadAllData, calculateMetrics, clearCache, filterByPeriod, filterMonitorizacaoByPeriod } from './utils/dataLoader';
@@ -64,16 +63,11 @@ function App() {
     }
   };
 
-  const handleDataUpdate = () => {
-    loadData();
-  };
-
   const tabs = [
     { id: 'executivo', name: '📊 Executivo', component: DashboardExecutivo },
     { id: 'operacional', name: '⚙️ Operacional', component: DashboardOperacional },
     { id: 'financeiro', name: '💰 Financeiro', component: DashboardFinanceiro },
-    { id: 'rh', name: '👥 Recursos Humanos', component: DashboardRH },
-    { id: 'atualizar', name: '🔄 Atualizar Dados', component: DataUpdateManager }
+    { id: 'rh', name: '👥 Recursos Humanos', component: DashboardRH }
   ];
 
   const ActiveComponent = tabs.find(tab => tab.id === activeTab)?.component;
@@ -163,8 +157,8 @@ function App() {
 
       {/* Main Content */}
       <main className="container py-6">
-        {/* Filtro de Período - aparece em todos os dashboards exceto no de atualização */}
-        {activeTab !== 'atualizar' && data && (
+        {/* Filtro de Período */}
+        {data && (
           <>
             <PeriodFilter
               onDateRangeChange={handleDateRangeChange}
@@ -183,8 +177,7 @@ function App() {
 
         {ActiveComponent && (
           <ActiveComponent
-            data={activeTab === 'atualizar' ? data : data}
-            onDataUpdated={handleDataUpdate}
+            data={data}
             dateRange={dateRange}
           />
         )}
