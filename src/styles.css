@@ -784,14 +784,16 @@ body {
   .footer-content {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     text-align: left;
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
   
   .footer-content > div {
     width: auto;
     flex: 1;
+    min-width: 200px;
   }
   
   .footer-brand {
@@ -816,7 +818,12 @@ body {
   }
   
   .footer-content {
-    gap: 2rem;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+  }
+  
+  .footer-content > div {
+    min-width: 180px;
   }
 }
 

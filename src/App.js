@@ -192,19 +192,20 @@ function App() {
                 <span className="footer-icon">🏥</span>
                 <strong>SNS Dashboard</strong>
               </div>
-              <div className="footer-data-info"><a
-                href="/"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                Análise de Ineficiências Hospitalares
-              </a>
+              <div className="footer-data-info">
+                <a
+                  href="/"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  Análise de Ineficiências Hospitalares
+                </a>
               </div>
             </div>
-            <div className="footer-author">
-              <div className="footer-author-header">
+            <div className="footer-brand">
+              <div className="footer-logo">
                 <span className="footer-icon">💻</span>
-                <strong>Desenvolvido por:</strong>
+                <strong>Desenvolvimento:</strong>
               </div>
               <div className="footer-data-info">
                 <a
@@ -213,12 +214,12 @@ function App() {
                   rel="noopener noreferrer"
                   className="footer-link"
                 >
-                  George Pereira | GP Informatique
+                  George Pereira (versão gratuita) | GP Informatique
                 </a>
               </div>
             </div>
-            <div className="footer-data">
-              <div className="footer-data-header">
+            <div className="footer-brand">
+              <div className="footer-logo">
                 <span className="footer-icon">📊</span>
                 <strong>Fonte de Dados:</strong>
               </div>
@@ -229,7 +230,23 @@ function App() {
                   rel="noopener noreferrer"
                   className="footer-link"
                 >
-                  Portal Transparência SNS | Período: 2016-2026
+                  Portal Transparência SNS
+                </a>
+              </div>
+            </div>
+            <div className="footer-brand">
+              <div className="footer-logo">
+                <span className="footer-icon">🏗️</span>
+                <strong>Estrutura Base:</strong>
+              </div>
+              <div className="footer-data-info">
+                <a
+                  href="https://github.com/JoaojPereira/sns_dashboard"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  João Pereira (PowerPi pagante) | GitHub
                 </a>
               </div>
             </div>
