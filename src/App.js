@@ -214,7 +214,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="footer-link"
                 >
-                  George Pereira (versão gratuita) | GP Informatique
+                  George Pereira | GP Informatique
                 </a>
               </div>
             </div>
@@ -231,22 +231,6 @@ function App() {
                   className="footer-link"
                 >
                   Portal Transparência SNS
-                </a>
-              </div>
-            </div>
-            <div className="footer-brand">
-              <div className="footer-logo">
-                <span className="footer-icon">🏗️</span>
-                <strong>Estrutura Base:</strong>
-              </div>
-              <div className="footer-data-info">
-                <a
-                  href="https://github.com/JoaojPereira/sns_dashboard"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-link"
-                >
-                  João Pereira (PowerPi pagante) | GitHub
                 </a>
               </div>
             </div>
