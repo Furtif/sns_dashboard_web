@@ -75,10 +75,10 @@ module.exports = {
     hot: true,
     open: '/sns_dashboard_web/',
     historyApiFallback: {
-      index: '/sns_dashboard_web/index.html',
+      index: '/index.html',
     },
     devMiddleware: {
-      publicPath: '/sns_dashboard_web/',
+      publicPath: '/',
     },
   },
 };
