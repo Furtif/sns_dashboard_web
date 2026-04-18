@@ -256,8 +256,15 @@ describe('dataLoader', () => {
         ObitosCovid: 0,
         InternamentosCovid: 0
       }]);
-      // dadosCovidCompletos deve estar vazio quando não há período COVID
-      expect(metrics.dadosCovidCompletos).toEqual([]);
+      // dadosCovidCompletos agora inclui todos os dados desde 2016 (não só período COVID)
+      expect(metrics.dadosCovidCompletos).toEqual([{
+        TotalAtendimentos: 100,
+        CasosCovid: 0,
+        PercentCovid: 0,
+        IsCovidPeriod: false,
+        ObitosCovid: 0,
+        InternamentosCovid: 0
+      }]);
     });
   });
 
