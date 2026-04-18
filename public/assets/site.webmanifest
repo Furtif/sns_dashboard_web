@@ -1,7 +1,7 @@
 ﻿{
     "name": "SNS Dashboard",
     "short_name": "SNS PT",
-    "description": "GP Informatique intervient en Aveyron pour l'installation, le dépannage et la maintenance informatique. Ordinateurs, smartphones, particuliers et professionnels.",
+    "description": "Dashboard interativo para análise de ineficiências hospitalares do Serviço Nacional de Saúde de Portugal.",
     "start_url": "/",
     "scope": "/",
     "display": "standalone",
@@ -9,12 +9,12 @@
     "theme_color": "#ffffff",
     "icons": [
         {
-            "src": "https://gp-informatique.ct.ws/assets/android-chrome-512x512.png",
+            "src": "./assets/android-chrome-512x512.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "https://gp-informatique.ct.ws/assets/android-chrome-512x512.png",
+            "src": "./assets/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
