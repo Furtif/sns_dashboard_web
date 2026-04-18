@@ -43,7 +43,7 @@ const DashboardExecutivo = ({ data }) => {
 
       setTriagemData(triagem);
 
-      // Preparar dados COVID-19 para série temporal (sempre 2020-2022, independente do filtro)
+      // Preparar dados COVID-19 para série temporal (2016-atualidade, independente do filtro)
       const covidData = (data.dadosCovidCompletos || [])
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
@@ -204,7 +204,7 @@ const DashboardExecutivo = ({ data }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução Temporal */}
         <div className="chart-container">
-          <h3 className="chart-title">Evolução dos Atendimentos no Período</h3>
+          <h3 className="chart-title">Evolução dos Atendimentos (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={timeSeriesData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -362,7 +362,7 @@ const DashboardExecutivo = ({ data }) => {
       {/* Gráfico COVID-19 */}
       {covidTimeSeriesData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">Evolução COVID-19 nas Urgências (Mar 2020 - Dez 2022)</h3>
+          <h3 className="chart-title">Evolução COVID-19 e Gripe Sazonal nas Urgências (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidTimeSeriesData}>
               <CartesianGrid strokeDasharray="3 3" />

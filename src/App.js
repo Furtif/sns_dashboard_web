@@ -43,19 +43,39 @@ function App() {
     setDateRange({ start, end });
 
     if (rawData && start && end) {
-      // Filtrar dados por período usando funções especializadas
+      // Dados filtrados para métricas (respeita período selecionado)
+      const filteredAtendimentos = filterByPeriod(rawData.atendimentos, start, end);
+      const filteredMonitorizacao = filterMonitorizacaoByPeriod(rawData.monitorizacao, start, end);
+
+      // Calcular métricas com dados filtrados
       const filteredData = {
         ...rawData,
-        atendimentos: filterByPeriod(rawData.atendimentos, start, end),
-        monitorizacao: filterMonitorizacaoByPeriod(rawData.monitorizacao, start, end),
-        // Manter dimensões (instituições, regiões, indicadores) sem filtro
+        atendimentos: filteredAtendimentos,
+        monitorizacao: filteredMonitorizacao,
         instituicoes: rawData.instituicoes,
         regioes: rawData.regioes,
         indicadores: rawData.indicadores
       };
-
       const metrics = calculateMetrics(filteredData);
-      setData(metrics);
+
+      // MAS manter dados completos (2016-atualidade) para gráficos temporais
+      // Isso garante que gráficos mostrem evolução completa independente do filtro
+      const completeData = {
+        ...rawData,
+        atendimentos: rawData.atendimentos, // Dados completos para gráficos
+        monitorizacao: filteredMonitorizacao,
+        instituicoes: rawData.instituicoes,
+        regioes: rawData.regioes,
+        indicadores: rawData.indicadores
+      };
+      const completeMetrics = calculateMetrics(completeData);
+
+      // Combinar: métricas filtradas + dados completos para gráficos
+      setData({
+        ...metrics,
+        dadosBrutos: completeMetrics.dadosBrutos, // Dados completos para gráficos
+        dadosCovidCompletos: completeMetrics.dadosCovidCompletos // Dados completos para gráfico COVID
+      });
     } else if (rawData) {
       // Se não houver filtro, usar todos os dados
       const metrics = calculateMetrics(rawData);

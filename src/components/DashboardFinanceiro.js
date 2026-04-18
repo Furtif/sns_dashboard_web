@@ -111,7 +111,7 @@ const DashboardFinanceiro = ({ data }) => {
 
       setWasteAnalysis(wasteArray);
 
-      // Preparar dados de custos COVID-19 por período (sempre 2020-2022)
+      // Preparar dados de custos COVID-19 por período (2016-atualidade)
       const covidCosts = (data.dadosCovidCompletos || [])
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
@@ -271,7 +271,7 @@ const DashboardFinanceiro = ({ data }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução de Custos */}
         <div className="chart-container">
-          <h3 className="chart-title">Evolução de Custos e Desperdício no Período</h3>
+          <h3 className="chart-title">Evolução de Custos e Desperdício (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={costEvolution}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -449,7 +449,7 @@ const DashboardFinanceiro = ({ data }) => {
       {/* Gráfico COVID-19 Financeiro */}
       {covidCostData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">Impacto Financeiro COVID-19 nas Urgências</h3>
+          <h3 className="chart-title">Impacto Financeiro COVID-19 e Gripe Sazonal (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidCostData}>
               <CartesianGrid strokeDasharray="3 3" />

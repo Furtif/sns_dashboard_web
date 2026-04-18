@@ -18,9 +18,9 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
   ];
 
   useEffect(() => {
-    // Definir padrão para últimos 24 meses após o componente montar
+    // Definir padrão para todo o período (2016-atualidade) após o componente montar
     const timer = setTimeout(() => {
-      handleQuickSelect('last24');
+      handleQuickSelect('all');
     }, 100);
     
     return () => clearTimeout(timer);

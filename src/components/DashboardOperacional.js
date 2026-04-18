@@ -82,7 +82,7 @@ const DashboardOperacional = ({ data }) => {
 
       setInstitutionData(instArray);
 
-      // Preparar dados operacionais COVID-19 (sempre 2020-2022)
+      // Preparar dados operacionais COVID-19 (2016-atualidade)
       const covidOpData = (data.dadosCovidCompletos || [])
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
@@ -310,7 +310,7 @@ const DashboardOperacional = ({ data }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução Mensal */}
         <div className="chart-container">
-          <h3 className="chart-title">Evolução Mensal de Indicadores</h3>
+          <h3 className="chart-title">Evolução Mensal de Indicadores (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={monthlyData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -398,7 +398,7 @@ const DashboardOperacional = ({ data }) => {
       {/* Gráfico COVID-19 Operacional */}
       {covidOperationalData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">Evolução Operacional COVID-19 nas Urgências</h3>
+          <h3 className="chart-title">Evolução Operacional COVID-19 e Gripe Sazonal (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidOperationalData}>
               <CartesianGrid strokeDasharray="3 3" />
