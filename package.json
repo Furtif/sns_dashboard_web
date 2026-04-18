@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
-    "build": "webpack --mode production",
+    "build": "npm run update-csv && webpack --mode production",
     "update-csv": "cd scripts_history && python atualizar_dados_sns.py && python atualizar_tabelas_fact.py && cd ..",
-    "test": "echo ok",
-    "obfuscate": "npm run build && node -e \"const fs = require('fs'); const path = require('path'); const jsFiles = fs.readdirSync('dist').filter(f => f.startsWith('bundle.') && f.endsWith('.js') && !f.includes('.map') && !f.includes('.LICENSE')); if (jsFiles.length > 0) { const file = jsFiles[0]; const { execSync } = require('child_process'); console.log('Obfuscating:', file); execSync(`npx javascript-obfuscator dist/${file} --output dist/${file} --compact true --debug-protection true --options-preset high-obfuscation`, { stdio: 'inherit' }); console.log('Obfuscation completed!'); } else { console.error('No main JS file found'); process.exit(1); }\"",
-    "obfuscate:dev": "node -e \"const fs = require('fs'); const path = require('path'); try { const jsFiles = fs.readdirSync('dist').filter(f => f.startsWith('bundle.') && f.endsWith('.js') && !f.includes('.map') && !f.includes('.LICENSE')); if (jsFiles.length > 0) { const file = jsFiles[0]; const { execSync } = require('child_process'); console.log('Obfuscating:', file); execSync(`npx javascript-obfuscator dist/${file} --output dist/${file} --compact true --debug-protection true --options-preset high-obfuscation`, { stdio: 'inherit' }); console.log('Obfuscation completed!'); } else { console.error('Build directory not found. Run npm run build first.'); process.exit(1); } } catch (error) { if (error.code === 'ENOENT') { console.error('Build directory not found. Run npm run build first.'); } else { console.error('Error:', error.message); } process.exit(1); }\""
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [
     "sns",
@@ -50,7 +50,12 @@
     "webpack-dev-server": "^5.2.3"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "copy-webpack-plugin": "^13.0.1",
-    "javascript-obfuscator": "^5.3.0"
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
   }
 }
