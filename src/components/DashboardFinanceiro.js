@@ -477,8 +477,9 @@ const DashboardFinanceiro = ({ data }) => {
                 yAxisId="left"
                 type="monotone" 
                 dataKey="custoCovid" 
-                stroke="#7c3aed" 
-                strokeWidth={2}
+                stroke="#f97316" 
+                strokeWidth={3}
+                dot={{ fill: '#f97316', strokeWidth: 2, r: 4 }}
                 name="Custo COVID"
               />
               <Line 
@@ -486,15 +487,17 @@ const DashboardFinanceiro = ({ data }) => {
                 type="monotone" 
                 dataKey="desperdicioCovid" 
                 stroke="#dc2626" 
-                strokeWidth={2}
+                strokeWidth={3}
+                dot={{ fill: '#dc2626', strokeWidth: 2, r: 4 }}
                 name="Desperdício COVID"
               />
               <Line 
                 yAxisId="right"
                 type="monotone" 
                 dataKey="casosCovid" 
-                stroke="#2563eb" 
-                strokeWidth={2}
+                stroke="#0891b2" 
+                strokeWidth={3}
+                dot={{ fill: '#0891b2', strokeWidth: 2, r: 4 }}
                 name="Casos COVID"
               />
             </LineChart>
