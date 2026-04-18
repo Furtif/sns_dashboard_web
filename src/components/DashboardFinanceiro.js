@@ -111,9 +111,8 @@ const DashboardFinanceiro = ({ data }) => {
 
       setWasteAnalysis(wasteArray);
 
-      // Preparar dados de custos COVID-19 por período
-      const covidCosts = data.dadosBrutos
-        .filter(row => row.IsCovidPeriod && row.CasosCovid > 0)
+      // Preparar dados de custos COVID-19 por período (sempre 2020-2022)
+      const covidCosts = (data.dadosCovidCompletos || [])
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           const covidCost = (row.CasosCovid || 0) * 200; // Custo estimado COVID: 200€

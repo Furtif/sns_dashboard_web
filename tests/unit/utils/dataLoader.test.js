@@ -256,6 +256,8 @@ describe('dataLoader', () => {
         ObitosCovid: 0,
         InternamentosCovid: 0
       }]);
+      // dadosCovidCompletos deve estar vazio quando não há período COVID
+      expect(metrics.dadosCovidCompletos).toEqual([]);
     });
   });
 

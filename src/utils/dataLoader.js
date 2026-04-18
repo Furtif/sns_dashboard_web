@@ -265,7 +265,10 @@ export const calculateMetrics = (data) => {
     // Dados adicionais para análises
     instituicoes: instituicoes || [],
     regioes: regioes || [],
-    dadosBrutos: atendimentosComCovid
+    dadosBrutos: atendimentosComCovid,
+    
+    // Dados COVID-19 completos (2020-2022) para gráfico independente do filtro de período
+    dadosCovidCompletos: atendimentosComCovid.filter(row => row.IsCovidPeriod && row.CasosCovid > 0)
   };
 };
 

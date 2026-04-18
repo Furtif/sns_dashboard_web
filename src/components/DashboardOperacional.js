@@ -82,9 +82,8 @@ const DashboardOperacional = ({ data }) => {
 
       setInstitutionData(instArray);
 
-      // Preparar dados operacionais COVID-19
-      const covidOpData = data.dadosBrutos
-        .filter(row => row.IsCovidPeriod && row.CasosCovid > 0)
+      // Preparar dados operacionais COVID-19 (sempre 2020-2022)
+      const covidOpData = (data.dadosCovidCompletos || [])
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           if (existing) {

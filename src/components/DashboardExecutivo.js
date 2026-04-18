@@ -43,9 +43,8 @@ const DashboardExecutivo = ({ data }) => {
 
       setTriagemData(triagem);
 
-      // Preparar dados COVID-19 para série temporal
-      const covidData = data.dadosBrutos
-        .filter(row => row.IsCovidPeriod && row.CasosCovid > 0)
+      // Preparar dados COVID-19 para série temporal (sempre 2020-2022, independente do filtro)
+      const covidData = (data.dadosCovidCompletos || [])
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           if (existing) {
