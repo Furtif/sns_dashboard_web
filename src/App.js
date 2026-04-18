@@ -121,7 +121,7 @@ function App() {
           <div className="header-content">
             <div>
               <h1 className="flex items-center gap-2">
-                <a href="/" className="flex items-center gap-2 text-inherit hover:text-inherit focus:text-inherit active:text-inherit" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <a href="./" className="flex items-center gap-2 text-inherit hover:text-inherit focus:text-inherit active:text-inherit" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <span>🏥</span>
                   SNS Dashboard
                 </a>
@@ -194,7 +194,7 @@ function App() {
               </div>
               <div className="footer-data-info">
                 <a
-                  href="/"
+                  href="./"
                   rel="noopener noreferrer"
                   className="footer-link"
                 >
