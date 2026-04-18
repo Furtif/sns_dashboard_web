@@ -384,10 +384,10 @@ export const calculateMetrics = (data) => {
     // Dados adicionais para análises
     instituicoes: instituicoes || [],
     regioes: regioes || [],
-    dadosBrutos: atendimentosComCovid,
+    dadosBrutos: [...atendimentosComCovid], // Cópia para evitar erro read-only
     
     // Dados COVID-19 completos (2016-atualidade) para gráfico independente do filtro de período
-    dadosCovidCompletos: atendimentosComCovid
+    dadosCovidCompletos: [...atendimentosComCovid] // Cópia para evitar erro read-only
   };
 };
 
