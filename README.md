@@ -4,20 +4,18 @@ Dashboard interativo para análise de ineficiências hospitalares do Serviço Na
 
 ## 📊 Visão Geral
 
-Este projeto converteu o dashboard Power BI original para uma aplicação web moderna em ReactJS, mantendo toda a inteligência analítica e adicionando novas funcionalidades. A aplicação oferece análise completa de dados hospitalares com interface responsiva e sistema de atualização de dados integrado.
+Este projeto converteu o dashboard Power BI original para uma aplicação web moderna em ReactJS, mantendo toda a inteligência analítica. A aplicação oferece análise completa de dados hospitalares com interface responsiva.
 
 ### 🎯 Funcionalidades Principais
 
-- **5 Dashboards Especializados**: Executivo, Operacional, Financeiro, Recursos Humanos e Gestor de Atualização
+- **4 Dashboards Especializados**: Executivo, Operacional, Financeiro e Recursos Humanos
 - **Filtro de Período Temporal**: Seleção rápida ou personalizada por datas com resumo dinâmico
-- **Sistema de Atualização de Dados**: Interface web completa para atualizar CSVs com simulação Python
 - **Design 100% Responsivo**: Otimizado para desktop, tablet e mobile com breakpoints adaptativos
 - **Análise em Tempo Real**: KPIs e métricas atualizadas dinamicamente com cache inteligente
 - **Gráficos Interativos**: Visualizações modernas com Recharts e tooltips informativos
 - **Filtros Dinâmicos**: Por região, instituição e período com navegação por tabs
 - **Alertas Automáticos**: Identificação de situações críticas com sistema de cores
 - **Resumo do Período**: Estatísticas detalhadas do filtro temporal aplicado
-- **Sistema de Backup**: Histórico completo das atualizações de dados
 
 ## 🏗️ Estrutura do Projeto
 
@@ -36,23 +34,25 @@ sns_dashboard_web/
 │           ├── dim_regiao.csv
 │           └── dim_indicador.csv
 ├── src/
-│   ├── components/      # 8 componentes React especializados
+│   ├── components/      # 6 componentes React
 │   │   ├── DashboardExecutivo.js      # Visão macro para decisores
 │   │   ├── DashboardOperacional.js    # Análise detalhada operacional
 │   │   ├── DashboardFinanceiro.js     # Custos e desperdício
-│   │   ├── DashboardRH.js            # Recursos humanos
-│   │   ├── DataUpdateManager.js      # Sistema completo de atualização
-│   │   ├── PeriodFilter.js           # Filtro de período temporal
-│   │   └── PeriodSummary.js          # Resumo do período filtrado
+│   │   ├── DashboardRH.js             # Recursos humanos
+│   │   ├── PeriodFilter.js            # Filtro de período temporal
+│   │   └── PeriodSummary.js           # Resumo do período filtrado
 │   ├── utils/          # Utilitários de processamento de dados
 │   │   ├── dataLoader.js            # Carregamento e cache de CSVs
-│   │   └── dataManager.js           # Sistema de gestão de dados
+│   │   └── formatters.js            # Formatação de números e moeda
 │   ├── App.js          # Componente principal com navegação
 │   ├── index.js        # Ponto de entrada React
-│   └── styles.css      # Estilos responsivos (1063 linhas)
+│   └── styles.css      # Estilos responsivos (1070 linhas)
+├── scripts_history/    # Scripts Python para atualização local de dados
+│   ├── atualizar_dados_sns.py
+│   └── atualizar_tabelas_fact.py
 ├── dist/               # Build de produção gerado automaticamente
-├── webpack.config.js   # Configuração completa do webpack
-└── package.json        # Dependências e scripts de automação
+├── webpack.config.js   # Configuração do webpack
+└── package.json        # Dependências e scripts
 ```
 
 ## 🚀 Como Usar
@@ -88,42 +88,17 @@ sns_dashboard_web/
    - Gera pasta `dist/` otimizada
    - Arquivos minificados e bundle único
 
-5. **Atualizar Dados (opcional):**
+5. **Atualizar Dados (opcional, requer Python):**
    ```bash
    npm run update-csv
    ```
-   - Executa scripts Python de atualização
-   - Requer ambiente Python configurado
+   - Executa scripts Python de atualização local
 
-### 🔄 Sistema de Atualização de Dados
+### 🔄 Scripts de Atualização de Dados (Local)
 
-O dashboard inclui um gestor completo de atualização de dados totalmente em JavaScript:
-
-#### Funcionalidades
-- **Atualização Local**: Simulação completa de scripts Python
-- **Backup Automático**: Criado antes de cada atualização
-- **Histórico Completo**: Mantém últimas 10 atualizações
-- **Gestão de Backups**: Restaurar versões anteriores
-- **Feedback em Tempo Real**: Status detalhado das operações
-- **Dados Mock**: Geração automática de dados realistas
-
-#### Scripts Disponíveis
-1. **Atualizar Dados de Atendimentos**: Dados de urgência com triagem Manchester
-2. **Atualizar Dados de Monitorização**: Dados diários de monitorização sazonal
-3. **Atualizar Cadastro de Instituições**: Dados das instituições e regiões
-4. **Atualizar Todos os Dados**: Execução sequencial de todos os scripts
-
-#### Componentes
-- `dataManager.js`: Sistema completo de gestão de dados
-- `DataUpdateManager.js`: Interface de atualização
-- Funções de backup e restauração
-- Geração de dados mock realistas
-
-#### Características Técnicas
-- **Cache Inteligente**: Dados carregados uma vez
-- **Validação Robusta**: Verificação antes de aplicar
-- **Simulação Realista**: Dados com sazonalidade e tendências
-- **Interface Amigável**: Status visual e feedback claro
+Scripts Python disponíveis em `scripts_history/` para atualização local dos CSVs:
+- `atualizar_dados_sns.py`: Atualiza dados do portal da transparência
+- `atualizar_tabelas_fact.py`: Processa e gera tabelas fato
 
 ## 📊 Dashboards Disponíveis
 
@@ -151,12 +126,6 @@ O dashboard inclui um gestor completo de atualização de dados totalmente em Ja
 - **Alertas**: Défice de enfermeiros vs meta OMS
 - **Rankings**: Produtividade e eficiência
 
-### 🔄 Gestor de Atualização
-- **Objetivo**: Sistema web para atualizar dados via scripts Python
-- **Scripts**: Atendimentos, monitorização, instituições, atualização completa
-- **Logs**: Histórico de atualizações com status e estatísticas
-- **Simulação**: Mock API para demonstração
-
 ## 📱 Design Responsivo
 
 O dashboard foi projetado com uma abordagem mobile-first:
@@ -173,60 +142,41 @@ O dashboard foi projetado com uma abordagem mobile-first:
 - **Gráficos**: Redimensionamento automático
 - **Cards**: KPIs empilhados em mobile
 
-## 🔄 Sistema de Atualização de Dados
-
-### Funcionalidades
-- **Interface Web**: Executar scripts Python diretamente do dashboard
-- **Múltiplos Scripts**: Atualização seletiva ou completa
-- **Status em Tempo Real**: Feedback visual do progresso
-- **Histórico**: Logs detalhados das atualizações
-- **Recarregamento Automático**: Dados atualizados após update
-
-### Scripts Disponíveis
-1. **update_atendimentos.py**: Dados de atendimentos de urgência
-2. **update_monitorizacao.py**: Dados diários de monitorização
-3. **update_instituicoes.py**: Cadastro de instituições
-4. **update_all.py**: Execução completa de todos os scripts
-
-## 📊 Fonte de Dados
+##  Fonte de Dados
 
 - **Origem**: Portal da Transparência do SNS (transparencia.sns.gov.pt)
-- **Período**: 2016-2026 (9.75 anos de dados históricos)
-- **Volume**: 8 arquivos CSV com 36.000+ registros totais
-  - 4.131 registros mensais de atendimentos
-  - 32.870 registros diários de monitorização
-  - Dados dimensionais de instituições, regiões e indicadores
+- **Período**: 2016-2026 (10 anos de dados históricos)
+- **Volume**: 8 arquivos CSV com dados hospitalares
 - **Atualização**: Diária para monitorização, mensal para atendimentos
 - **Estrutura**: Star Schema preservado do Power BI original
 
 ## 🎨 Tecnologias Utilizadas
 
 ### Frontend Core
-- **React 19.2.3**: Biblioteca principal de componentes com hooks modernos
-- **React DOM 19.2.3**: Renderização eficiente no browser
-- **Recharts 3.6.0**: Biblioteca completa para gráficos interativos SVG
-- **CSS3 Puro**: 1063 linhas de estilos responsivos sem frameworks externos
+- **React 19.2.4**: Biblioteca principal de componentes com hooks modernos
+- **React DOM 19.2.4**: Renderização eficiente no browser
+- **Recharts 3.7.0**: Biblioteca completa para gráficos interativos SVG
+- **CSS3 Puro**: 1070 linhas de estilos responsivos sem frameworks externos
 
 ### Build & Development
-- **Webpack 5.104.1**: Bundler moderno com otimizações avançadas
-- **Webpack Dev Server 5.2.2**: Servidor de desenvolvimento com HMR
+- **Webpack 5.105.0**: Bundler moderno com otimizações
+- **Webpack Dev Server 5.2.3**: Servidor de desenvolvimento com HMR
 - **Babel**: Transpilação JavaScript moderno (ES6+) para compatibilidade
-- **Babel Presets**: Env e React para sintaxe moderna
 
 ### Processamento de Dados
-- **Papa Parse 5.5.3**: Parser robusto para arquivos CSV com delimitador personalizado
+- **Papa Parse 5.5.3**: Parser robusto para arquivos CSV
 - **JavaScript Nativo**: Cálculos complexos baseados nas medidas DAX originais
-- **Cache Inteligente**: Sistema Map-based para performance otimizada
+- **Cache**: Sistema Map-based para performance otimizada
 
 ### Development Tools
-- **CSS Loader 7.1.2**: Processamento de CSS no webpack
+- **CSS Loader 7.1.3**: Processamento de CSS no webpack
 - **Style Loader 4.0.0**: Injeção de estilos dinâmicos
 - **Copy Webpack Plugin 13.0.1**: Cópia automática de assets estáticos
-- **HTML Webpack Plugin 5.6.5**: Geração automática de HTML
+- **HTML Webpack Plugin 5.6.6**: Geração automática de HTML
 
 ## 📈 Métricas e Indicadores
 
-O dashboard implementa mais de 50 métricas baseadas nas medidas DAX originais:
+O dashboard implementa métricas baseadas nas medidas DAX originais:
 
 ### Principais Indicadores
 - **Score de Ineficiência Global**: 0-100 (quanto maior, pior)
@@ -251,19 +201,18 @@ O dashboard implementa mais de 50 métricas baseadas nas medidas DAX originais:
 ## 🔧 Configuração e Arquitetura
 
 ### Estrutura Técnica
-- **Component-based**: 8 componentes React especializados e reutilizáveis
+- **Component-based**: 6 componentes React especializados
 - **State Management**: React hooks para estado local e compartilhado
 - **Data Flow**: Unidirectional com props e callbacks
-- **Cache System**: Map-based para performance otimizada
+- **Cache System**: Map-based para evitar recargas desnecessárias
 
 ### Personalização
-- **Cores e Temas**: 1063 linhas de CSS com variáveis customizáveis
+- **Cores e Temas**: CSS com variáveis customizáveis
 - **Métricas**: Configuradas em `utils/dataLoader.js` (339 linhas)
 - **Layout**: CSS Grid system com breakpoints responsivos
 - **Gráficos**: Configurações Recharts em cada componente
 
 ### Performance
-- **Lazy Loading**: Componentes carregados sob demanda
 - **Cache Inteligente**: Dados carregados uma vez e mantidos em cache
 - **Bundle Otimizado**: Webpack com tree-shaking e minificação
 - **Responsive Design**: Media queries eficientes para todos os dispositivos
@@ -271,24 +220,17 @@ O dashboard implementa mais de 50 métricas baseadas nas medidas DAX originais:
 ## 📝 Notas de Desenvolvimento
 
 ### Conversão Power BI → React
-- **Medidas DAX**: 50+ medidas convertidas para JavaScript mantendo lógica idêntica
+- **Medidas DAX**: Convertidas para JavaScript mantendo lógica idêntica
 - **Star Schema**: Preservada estrutura de dados original com tabelas fato e dimensão
 - **Visualizações**: Recriadas com Recharts mantendo interatividade e tooltips
 - **Filtros**: Implementados com estado React e navegação por tabs
 - **Responsividade**: Adaptada de desktop-first para mobile-first
 
 ### Arquitetura de Componentes
-- **App.js**: Componente principal (241 linhas) com gerenciamento de estado global
+- **App.js**: Componente principal (245 linhas) com gerenciamento de estado global
 - **Dashboards**: 4 componentes especializados com métricas específicas
-- **DataUpdateManager**: Sistema completo de atualização com simulação Python
 - **PeriodFilter/Summary**: Componentes reutilizáveis para filtragem temporal
-- **Utils**: dataLoader.js (339 linhas) e dataManager.js para processamento
-
-### Performance e Otimizações
-- **Cache Strategy**: Map-based para evitar recargas desnecessárias
-- **Bundle Size**: Otimizado com webpack configurações avançadas
-- **Memory Management**: Cleanup adequado de event listeners e timeouts
-- **Responsive Breakpoints**: Mobile (<640px), Tablet (640-1024px), Desktop (>1024px)
+- **Utils**: dataLoader.js (339 linhas) e formatters.js (37 linhas)
 
 ## 🚀 Deploy e Produção
 
@@ -305,12 +247,6 @@ npm run build
 2. **Configuração**: Servidor estático (Apache, Nginx, Vercel, Netlify)
 3. **Dados**: Verificar se CSVs estão em `/data/` no servidor
 4. **HTTPS**: Configurar certificado SSL para produção
-
-### Considerações Técnicas
-- **Dados Estáticos**: CSVs servidos como assets estáticos
-- **API Backend**: Sistema de atualização requer backend Python real
-- **Cache**: Configurar headers adequados para assets estáticos
-- **Performance**: Considerar CDN para distribuição global
 
 ### Hospedagem Recomendada
 - **Vercel/Netlify**: Ideal para frontend estático
@@ -349,11 +285,10 @@ Este projeto é uma conversão do dashboard Power BI original mantendo:
 ## 📊 Estatísticas do Projeto
 
 - **Versão**: 1.0.0  
-- **Desenvolvimento**: Janeiro 2026
-- **Tecnologia**: React 19.2.3 + Webpack 5.104.1
-- **Linhas de Código**: 3.000+ linhas (JS + CSS)
-- **Componentes**: 8 componentes React especializados
-- **Arquivos de Dados**: 8 CSVs com 36.000+ registros
+- **Tecnologia**: React 19.2.4 + Webpack 5.105.0
+- **Linhas de Código**: ~3000+ linhas (JS + CSS)
+- **Componentes**: 6 componentes React
+- **Arquivos de Dados**: 8 CSVs
 - **Métricas**: 50+ indicadores de performance hospitalar
 - **Licença**: ECL-2.0 (Educational Community License)
 
