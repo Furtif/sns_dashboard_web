@@ -57,10 +57,9 @@ const DashboardRH = ({ data }) => {
             enfermeirosPorMes: inst.enfermeiros / inst.mesesComDados,
             coberturaDados: (inst.mesesComDados / data.dadosBrutos.filter(r => r.InstituicaoID === inst.instituicaoId).length) * 100
           };
-        })
-        .sort((a, b) => b.totalAtendimentos - a.totalAtendimentos);
-
-      setInstitutionRH(instArray);
+        });
+      const instArraySorted = [...instArray].sort((a, b) => b.totalAtendimentos - a.totalAtendimentos);
+      setInstitutionRH(instArraySorted);
 
       // Preparar série temporal RH
       const monthlyRH = data.dadosBrutos
@@ -97,10 +96,9 @@ const DashboardRH = ({ data }) => {
             atendimentosPorMedico: totalMedicos > 0 ? item.totalAtendimentos / totalMedicos : 0,
             atendimentosPorEnfermeiro: item.enfermeiros > 0 ? item.totalAtendimentos / item.enfermeiros : 0
           };
-        })
-        .sort((a, b) => a.period.localeCompare(b.period));
-
-      setTimeSeriesRH(monthlyRH);
+        });
+      const monthlyRHSorted = [...monthlyRH].sort((a, b) => a.period.localeCompare(b.period));
+      setTimeSeriesRH(monthlyRHSorted);
 
       // Análise de produtividade
       const productivity = instArray
@@ -113,10 +111,9 @@ const DashboardRH = ({ data }) => {
           totalAtendimentos: inst.totalAtendimentos,
           totalMedicos: inst.totalMedicos,
           enfermeiros: inst.enfermeiros
-        }))
-        .sort((a, b) => b.atendimentosPorMedico - a.atendimentosPorMedico);
-
-      setProductivityData(productivity);
+        }));
+      const productivitySorted = [...productivity].sort((a, b) => b.atendimentosPorMedico - a.atendimentosPorMedico);
+      setProductivityData(productivitySorted);
 
       // Dados por região
       const regions = {};

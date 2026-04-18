@@ -69,10 +69,9 @@ const DashboardFinanceiro = ({ data }) => {
           ...item,
           percentDesperdicio: item.custoTotal > 0 ? (item.custoDesperdicado / item.custoTotal) * 100 : 0,
           custoMedioPorAtendimento: item.totalAtendimentos > 0 ? item.custoTotal / item.totalAtendimentos : 0
-        }))
-        .sort((a, b) => a.period.localeCompare(b.period));
-
-      setCostEvolution(monthly);
+        }));
+      const monthlySorted = [...monthly].sort((a, b) => a.period.localeCompare(b.period));
+      setCostEvolution(monthlySorted);
 
       // Análise de desperdício por tipo de instituição
       const wasteByType = {};
@@ -131,10 +130,9 @@ const DashboardFinanceiro = ({ data }) => {
             });
           }
           return acc;
-        }, [])
-        .sort((a, b) => a.period.localeCompare(b.period));
-
-      setCovidCostData(covidCosts);
+        }, []);
+      const covidCostsSorted = [...covidCosts].sort((a, b) => a.period.localeCompare(b.period));
+      setCovidCostData(covidCostsSorted);
     }
   }, [data]);
 

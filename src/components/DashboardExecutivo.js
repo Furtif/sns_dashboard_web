@@ -26,10 +26,9 @@ const DashboardExecutivo = ({ data }) => {
             });
           }
           return acc;
-        }, [])
-        .sort((a, b) => a.period.localeCompare(b.period));
-
-      setTimeSeriesData(seriesData);
+        }, []);
+      const seriesDataSorted = [...seriesData].sort((a, b) => a.period.localeCompare(b.period));
+      setTimeSeriesData(seriesDataSorted);
 
       // Preparar dados para gráfico de triagem
       const triagem = [
@@ -60,10 +59,9 @@ const DashboardExecutivo = ({ data }) => {
             });
           }
           return acc;
-        }, [])
-        .sort((a, b) => a.period.localeCompare(b.period));
-
-      setCovidTimeSeriesData(covidData);
+        }, []);
+      const covidDataSorted = [...covidData].sort((a, b) => a.period.localeCompare(b.period));
+      setCovidTimeSeriesData(covidDataSorted);
     }
   }, [data]);
 

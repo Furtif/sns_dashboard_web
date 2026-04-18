@@ -40,9 +40,8 @@ const DashboardOperacional = ({ data }) => {
           racioEnfermeiroMedico: item.medicos > 0 ? item.enfermeiros / item.medicos : 0,
           atendimentosPorMedico: item.medicos > 0 ? item.totalAtendimentos / item.medicos : 0
         }))
-        .sort((a, b) => a.period.localeCompare(b.period));
-
-      setMonthlyData(monthly);
+      const monthlySorted = [...monthly].sort((a, b) => a.period.localeCompare(b.period));
+      setMonthlyData(monthlySorted);
 
       // Preparar dados por instituição
       const institutions = {};
@@ -78,9 +77,8 @@ const DashboardOperacional = ({ data }) => {
           atendimentosPorMedico: inst.medicos > 0 ? inst.totalAtendimentos / inst.medicos : 0,
           atendimentosPorMes: inst.totalAtendimentos / inst.meses
         }))
-        .sort((a, b) => b.totalAtendimentos - a.totalAtendimentos);
-
-      setInstitutionData(instArray);
+      const instArraySorted = [...instArray].sort((a, b) => b.totalAtendimentos - a.totalAtendimentos);
+      setInstitutionData(instArraySorted);
 
       // Preparar dados operacionais COVID-19 (2016-atualidade)
       const covidOpData = (data.dadosCovidCompletos || [])
@@ -107,10 +105,9 @@ const DashboardOperacional = ({ data }) => {
             });
           }
           return acc;
-        }, [])
-        .sort((a, b) => a.period.localeCompare(b.period));
-
-      setCovidOperationalData(covidOpData);
+        }, []);
+      const covidOpDataSorted = [...covidOpData].sort((a, b) => a.period.localeCompare(b.period));
+      setCovidOperationalData(covidOpDataSorted);
     }
   }, [data]);
 
