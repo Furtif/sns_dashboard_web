@@ -136,6 +136,16 @@ function App() {
                 <div>⚠️ {data?.percentUrgenciasFalsas?.toFixed(1)}% urgências falsas</div>
               </div>
             </div>
+            <div>
+              <a
+                href="./download/SNS%20PT_v1.apk"
+                download
+                className="mobile-download-btn"
+                title="Descarregar App Android"
+              >
+                📱 Install APK
+              </a>
+            </div>
           </div>
         </div>
       </header>

@@ -570,6 +570,30 @@ body {
   box-shadow: none;
 }
 
+/* Mobile Download Button */
+.mobile-download-btn {
+  background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-download-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
 /* Footer */
 .footer {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
