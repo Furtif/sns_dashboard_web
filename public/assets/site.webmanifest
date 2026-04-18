@@ -2,19 +2,19 @@
     "name": "SNS Dashboard",
     "short_name": "SNS PT",
     "description": "Dashboard interativo para análise de ineficiências hospitalares do Serviço Nacional de Saúde de Portugal.",
-    "start_url": "./",
-    "scope": "./",
+    "start_url": "https://furtif.github.io/sns_dashboard_web",
+    "scope": "https://furtif.github.io/sns_dashboard_web",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
     "icons": [
         {
-            "src": "android-chrome-192x192.png",
+            "src": "https://furtif.github.io/sns_dashboard_web/assets/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "android-chrome-512x512.png",
+            "src": "https://furtif.github.io/sns_dashboard_web/assets/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
