@@ -159,7 +159,7 @@ export const generateDataToCurrentMonth = (atendimentos) => {
 
   // Encontrar último período nos dados
   const periods = atendimentos.map(row => row.Período).filter(p => p);
-  const lastPeriod = periods.sort().pop();
+  const lastPeriod = [...periods].sort().pop(); // Criar cópia para evitar erro read-only
   if (!lastPeriod) return atendimentos;
 
   const [lastYear, lastMonth] = lastPeriod.split('-').map(Number);

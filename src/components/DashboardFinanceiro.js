@@ -365,7 +365,7 @@ const DashboardFinanceiro = ({ data }) => {
                 </tr>
               </thead>
               <tbody>
-                {regionData
+                {[...regionData]
                   .sort((a, b) => b.custoDesperdicado - a.custoDesperdicado)
                   .map((region) => (
                     <tr key={region.regiaoId}>

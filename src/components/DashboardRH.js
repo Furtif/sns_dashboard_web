@@ -465,7 +465,7 @@ const DashboardRH = ({ data }) => {
                 </tr>
               </thead>
               <tbody>
-                {institutionRH
+                {[...institutionRH]
                   .filter(inst => inst.racioEnfermeiroMedico < 1.5)
                   .sort((a, b) => a.racioEnfermeiroMedico - b.racioEnfermeiroMedico)
                   .slice(0, 10)
