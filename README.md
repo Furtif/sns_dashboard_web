@@ -294,7 +294,7 @@ Este projeto é uma conversão do dashboard Power BI original mantendo:
 
 ## 👨‍💻 Créditos
 
-- **Inicial Desenvolvido em "PowerBi" por:** [sns_dashboard](https://github.com/JoaojPereira/sns_dashboard) 
+- **Inicial Desenvolvido por [JoaojPereira](https://github.com/JoaojPereira) em "PowerBi" em:** [sns_dashboard](https://github.com/JoaojPereira/sns_dashboard) 
 - **Maintainer:** [--=FurtiF™=--](https://github.com/Furtif)
 - **Dados Oficiais:** [Portal Transparência SNS](https://transparencia.sns.gov.pt)
 - **Tecnologia:** ReactJS + Webpack + Recharts
