@@ -13,7 +13,7 @@ export const loadCSV = async (filename, options = {}) => {
   }
 
   return new Promise((resolve, reject) => {
-    Papa.parse(`/data/${filename}`, {
+    Papa.parse(`data/${filename}`, {
       download: true,
       header: true,
       delimiter: ';',
