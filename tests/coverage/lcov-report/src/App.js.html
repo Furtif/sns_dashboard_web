@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/39</span>
+                <span class='fraction'>0/43</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/38</span>
+                <span class='fraction'>0/42</span>
             </div>
         
             
@@ -317,7 +317,27 @@
 <a name='L252'></a><a href='#L252'>252</a>
 <a name='L253'></a><a href='#L253'>253</a>
 <a name='L254'></a><a href='#L254'>254</a>
-<a name='L255'></a><a href='#L255'>255</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a>
+<a name='L258'></a><a href='#L258'>258</a>
+<a name='L259'></a><a href='#L259'>259</a>
+<a name='L260'></a><a href='#L260'>260</a>
+<a name='L261'></a><a href='#L261'>261</a>
+<a name='L262'></a><a href='#L262'>262</a>
+<a name='L263'></a><a href='#L263'>263</a>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a>
+<a name='L269'></a><a href='#L269'>269</a>
+<a name='L270'></a><a href='#L270'>270</a>
+<a name='L271'></a><a href='#L271'>271</a>
+<a name='L272'></a><a href='#L272'>272</a>
+<a name='L273'></a><a href='#L273'>273</a>
+<a name='L274'></a><a href='#L274'>274</a>
+<a name='L275'></a><a href='#L275'>275</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -364,8 +384,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -374,7 +396,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -616,19 +656,39 @@ function <span class="fstat-no" title="function not covered" >App(</span>) {
 <span class="cstat-no" title="statement not covered" >    setDateRange({ start, end });</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    if (rawData &amp;&amp; start &amp;&amp; end) {</span>
-      // Filtrar dados por período usando funções especializadas
+      // Dados filtrados para métricas (respeita período selecionado)
+      const filteredAtendimentos = <span class="cstat-no" title="statement not covered" >filterByPeriod(rawData.atendimentos, start, end);</span>
+      const filteredMonitorizacao = <span class="cstat-no" title="statement not covered" >filterMonitorizacaoByPeriod(rawData.monitorizacao, start, end);</span>
+&nbsp;
+      // Calcular métricas com dados filtrados
       const filteredData = <span class="cstat-no" title="statement not covered" >{</span>
         ...rawData,
-        atendimentos: filterByPeriod(rawData.atendimentos, start, end),
-        monitorizacao: filterMonitorizacaoByPeriod(rawData.monitorizacao, start, end),
-        // Manter dimensões (instituições, regiões, indicadores) sem filtro
+        atendimentos: filteredAtendimentos,
+        monitorizacao: filteredMonitorizacao,
         instituicoes: rawData.instituicoes,
         regioes: rawData.regioes,
         indicadores: rawData.indicadores
       };
-&nbsp;
       const metrics = <span class="cstat-no" title="statement not covered" >calculateMetrics(filteredData);</span>
-<span class="cstat-no" title="statement not covered" >      setData(metrics);</span>
+&nbsp;
+      // MAS manter dados completos (2016-atualidade) para gráficos temporais
+      // Isso garante que gráficos mostrem evolução completa independente do filtro
+      const completeData = <span class="cstat-no" title="statement not covered" >{</span>
+        ...rawData,
+        atendimentos: rawData.atendimentos, // Dados completos para gráficos
+        monitorizacao: filteredMonitorizacao,
+        instituicoes: rawData.instituicoes,
+        regioes: rawData.regioes,
+        indicadores: rawData.indicadores
+      };
+      const completeMetrics = <span class="cstat-no" title="statement not covered" >calculateMetrics(completeData);</span>
+&nbsp;
+      // Combinar: métricas filtradas + dados completos para gráficos
+<span class="cstat-no" title="statement not covered" >      setData({</span>
+        ...metrics,
+        dadosBrutos: completeMetrics.dadosBrutos, // Dados completos para gráficos
+        dadosCovidCompletos: completeMetrics.dadosCovidCompletos // Dados completos para gráfico COVID
+      });
     } else <span class="cstat-no" title="statement not covered" >if (rawData) {</span>
       // Se não houver filtro, usar todos os dados
       const metrics = <span class="cstat-no" title="statement not covered" >calculateMetrics(rawData);</span>
@@ -832,7 +892,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-18T20:06:50.294Z
+                at 2026-04-18T21:16:43.318Z
             </div>
         <script src="../prettify.js"></script>
         <script>
