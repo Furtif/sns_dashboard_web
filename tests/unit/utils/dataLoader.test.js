@@ -247,7 +247,15 @@ describe('dataLoader', () => {
 
       expect(metrics.instituicoes).toEqual([{ InstituicaoID: 1 }]);
       expect(metrics.regioes).toEqual([{ RegiaoID: 1 }]);
-      expect(metrics.dadosBrutos).toEqual([{ TotalAtendimentos: 100 }]);
+      // dadosBrutos agora inclui campos COVID-19
+      expect(metrics.dadosBrutos).toEqual([{
+        TotalAtendimentos: 100,
+        CasosCovid: 0,
+        PercentCovid: 0,
+        IsCovidPeriod: false,
+        ObitosCovid: 0,
+        InternamentosCovid: 0
+      }]);
     });
   });
 
