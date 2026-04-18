@@ -73,7 +73,12 @@ module.exports = {
     compress: true,
     port: 3000,
     hot: true,
-    open: true,
-    historyApiFallback: true,
+    open: '/sns_dashboard_web/',
+    historyApiFallback: {
+      index: '/sns_dashboard_web/index.html',
+    },
+    devMiddleware: {
+      publicPath: '/sns_dashboard_web/',
+    },
   },
 };

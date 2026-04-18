@@ -6,6 +6,7 @@ const DashboardFinanceiro = ({ data }) => {
   const [regionData, setRegionData] = useState([]);
   const [costEvolution, setCostEvolution] = useState([]);
   const [wasteAnalysis, setWasteAnalysis] = useState([]);
+  const [covidCostData, setCovidCostData] = useState([]);
 
   useEffect(() => {
     if (data && data.dadosBrutos && data.instituicoes) {
@@ -109,6 +110,32 @@ const DashboardFinanceiro = ({ data }) => {
         }));
 
       setWasteAnalysis(wasteArray);
+
+      // Preparar dados de custos COVID-19 por período
+      const covidCosts = data.dadosBrutos
+        .filter(row => row.IsCovidPeriod && row.CasosCovid > 0)
+        .reduce((acc, row) => {
+          const existing = acc.find(item => item.period === row.Período);
+          const covidCost = (row.CasosCovid || 0) * 200; // Custo estimado COVID: 200€
+          const covidWaste = (row.CasosCovid || 0) * 80; // Desperdício adicional COVID
+          
+          if (existing) {
+            existing.custoCovid += covidCost;
+            existing.desperdicioCovid += covidWaste;
+            existing.casosCovid += row.CasosCovid || 0;
+          } else {
+            acc.push({
+              period: row.Período,
+              custoCovid: covidCost,
+              desperdicioCovid: covidWaste,
+              casosCovid: row.CasosCovid || 0
+            });
+          }
+          return acc;
+        }, [])
+        .sort((a, b) => a.period.localeCompare(b.period));
+
+      setCovidCostData(covidCosts);
     }
   }, [data]);
 
@@ -195,6 +222,51 @@ const DashboardFinanceiro = ({ data }) => {
           </div>
         </div>
       </div>
+
+      {/* KPIs COVID-19 Financeiro */}
+      {data.totalCasosCovid > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
+            <div className="metric-value" style={{ color: '#7c3aed' }}>
+              {formatCurrency(data.totalCasosCovid * 200)}
+            </div>
+            <div className="metric-label">Custo Total COVID</div>
+            <div className="metric-change neutral">
+              200€ por caso estimado
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+            <div className="metric-value" style={{ color: '#dc2626' }}>
+              {formatCurrency(data.totalCasosCovid * 80)}
+            </div>
+            <div className="metric-label">Desperdício COVID</div>
+            <div className="metric-change negative">
+              Custos adicionais pandemia
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
+            <div className="metric-value" style={{ color: '#2563eb' }}>
+              {formatCurrency(data.totalInternamentosCovid * 2500)}
+            </div>
+            <div className="metric-label">Custo Internamentos</div>
+            <div className="metric-change neutral">
+              2500€ por internamento
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
+            <div className="metric-value" style={{ color: '#059669' }}>
+              {formatPercent(data.percentCovidGlobal)}
+            </div>
+            <div className="metric-label">Impacto COVID/Urgências</div>
+            <div className="metric-change neutral">
+              Percentagem do total
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Gráficos Financeiros */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -374,6 +446,61 @@ const DashboardFinanceiro = ({ data }) => {
           </div>
         </div>
       </div>
+
+      {/* Gráfico COVID-19 Financeiro */}
+      {covidCostData.length > 0 && (
+        <div className="chart-container mb-6">
+          <h3 className="chart-title">Impacto Financeiro COVID-19 nas Urgências</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={covidCostData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis 
+                dataKey="period" 
+                tick={{ fontSize: 12 }}
+                angle={-45}
+                textAnchor="end"
+                height={60}
+              />
+              <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
+              <Tooltip 
+                formatter={(value, name) => [
+                  name.includes('custo') || name.includes('desperdicio') ? formatCurrency(value) : formatNumber(value), 
+                  name === 'custoCovid' ? 'Custo COVID' :
+                  name === 'desperdicioCovid' ? 'Desperdício COVID' :
+                  name === 'casosCovid' ? 'Casos COVID' : name
+                ]}
+                labelFormatter={(label) => `Período: ${label}`}
+              />
+              <Legend />
+              <Line 
+                yAxisId="left"
+                type="monotone" 
+                dataKey="custoCovid" 
+                stroke="#7c3aed" 
+                strokeWidth={2}
+                name="Custo COVID"
+              />
+              <Line 
+                yAxisId="left"
+                type="monotone" 
+                dataKey="desperdicioCovid" 
+                stroke="#dc2626" 
+                strokeWidth={2}
+                name="Desperdício COVID"
+              />
+              <Line 
+                yAxisId="right"
+                type="monotone" 
+                dataKey="casosCovid" 
+                stroke="#2563eb" 
+                strokeWidth={2}
+                name="Casos COVID"
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      )}
 
       {/* Projeções e Impacto */}
       <div className="card">

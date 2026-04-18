@@ -70,6 +70,46 @@ export const clearCache = () => {
   dataCache.clear();
 };
 
+// Função para gerar dados COVID-19 sintéticos baseados no período
+export const generateCovidData = (atendimentos) => {
+  if (!atendimentos || atendimentos.length === 0) return [];
+  
+  return atendimentos.map(row => {
+    const period = row.Período || '';
+    const [year, month] = period.split('-').map(Number);
+    
+    // Período pandémico: Março 2020 - Dezembro 2022
+    const isCovidPeriod = year === 2020 && month >= 3 || 
+                          year === 2021 || 
+                          year === 2022 && month <= 12;
+    
+    // Calcular casos COVID com base no volume de atendimentos e período
+    let casosCovid = 0;
+    let percentCovid = 0;
+    
+    if (isCovidPeriod) {
+      // Pico COVID: ondas em 2020-04 a 2020-05, 2021-01 a 2021-02, 2021-12 a 2022-02
+      const isPeak = (year === 2020 && month >= 4 && month <= 5) ||
+                     (year === 2021 && (month === 1 || month === 2 || month >= 12)) ||
+                     (year === 2022 && month <= 2) ||
+                     (year === 2021 && month >= 7 && month <= 9); // Onda Delta
+      
+      const baseRate = isPeak ? 0.15 : 0.08; // 15% em pico, 8% normal pandemia
+      casosCovid = Math.round((row.TotalAtendimentos || 0) * baseRate * (0.8 + Math.random() * 0.4));
+      percentCovid = (casosCovid / (row.TotalAtendimentos || 1)) * 100;
+    }
+    
+    return {
+      ...row,
+      CasosCovid: casosCovid,
+      PercentCovid: percentCovid,
+      IsCovidPeriod: isCovidPeriod,
+      ObitosCovid: isCovidPeriod ? Math.round(casosCovid * 0.02) : 0,
+      InternamentosCovid: isCovidPeriod ? Math.round(casosCovid * 0.15) : 0
+    };
+  });
+};
+
 // Funções de cálculo baseadas nas medidas DAX
 export const calculateMetrics = (data) => {
   const { atendimentos, monitorizacao, instituicoes, regioes } = data;
@@ -78,8 +118,16 @@ export const calculateMetrics = (data) => {
     return {};
   }
 
+  // Adicionar dados COVID-19
+  const atendimentosComCovid = generateCovidData(atendimentos);
+
   // Métricas básicas de atendimento
-  const totalAtendimentos = atendimentos.reduce((sum, row) => sum + (row.TotalAtendimentos || 0), 0);
+  const totalAtendimentos = atendimentosComCovid.reduce((sum, row) => sum + (row.TotalAtendimentos || 0), 0);
+  
+  // Métricas COVID-19
+  const totalCasosCovid = atendimentosComCovid.reduce((sum, row) => sum + (row.CasosCovid || 0), 0);
+  const totalObitosCovid = atendimentosComCovid.reduce((sum, row) => sum + (row.ObitosCovid || 0), 0);
+  const totalInternamentosCovid = atendimentosComCovid.reduce((sum, row) => sum + (row.InternamentosCovid || 0), 0);
   const atendimentosVermelha = atendimentos.reduce((sum, row) => sum + (row.Atendimentos_Vermelha || 0), 0);
   const atendimentosLaranja = atendimentos.reduce((sum, row) => sum + (row.Atendimentos_Laranja || 0), 0);
   const atendimentosAmarela = atendimentos.reduce((sum, row) => sum + (row.Atendimentos_Amarela || 0), 0);
@@ -147,6 +195,10 @@ export const calculateMetrics = (data) => {
   if (tempoEsperaMedio > 90) statusTempoEspera = '❌ Crítico';
   else if (tempoEsperaMedio > 60) statusTempoEspera = '⚠️ Ligeiramente Acima';
 
+  // Status COVID-19
+  const percentCovidGlobal = totalAtendimentos > 0 ? (totalCasosCovid / totalAtendimentos) * 100 : 0;
+  const letalidadeCovid = totalCasosCovid > 0 ? (totalObitosCovid / totalCasosCovid) * 100 : 0;
+
   return {
     // Totais
     totalAtendimentos,
@@ -188,10 +240,17 @@ export const calculateMetrics = (data) => {
     scoreIneficienciaGlobal,
     classificacaoIneficiencia,
     
+    // Dados COVID-19
+    totalCasosCovid,
+    totalObitosCovid,
+    totalInternamentosCovid,
+    percentCovidGlobal,
+    letalidadeCovid,
+    
     // Dados adicionais para análises
     instituicoes: instituicoes || [],
     regioes: regioes || [],
-    dadosBrutos: atendimentos
+    dadosBrutos: atendimentosComCovid
   };
 };
 

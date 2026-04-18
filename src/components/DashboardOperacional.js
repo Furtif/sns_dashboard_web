@@ -7,6 +7,7 @@ const DashboardOperacional = ({ data }) => {
   const [selectedInstitution, setSelectedInstitution] = useState('');
   const [institutionData, setInstitutionData] = useState([]);
   const [monthlyData, setMonthlyData] = useState([]);
+  const [covidOperationalData, setCovidOperationalData] = useState([]);
 
   useEffect(() => {
     if (data && data.dadosBrutos) {
@@ -80,6 +81,37 @@ const DashboardOperacional = ({ data }) => {
         .sort((a, b) => b.totalAtendimentos - a.totalAtendimentos);
 
       setInstitutionData(instArray);
+
+      // Preparar dados operacionais COVID-19
+      const covidOpData = data.dadosBrutos
+        .filter(row => row.IsCovidPeriod && row.CasosCovid > 0)
+        .reduce((acc, row) => {
+          const existing = acc.find(item => item.period === row.Período);
+          if (existing) {
+            existing.casosCovid += row.CasosCovid || 0;
+            existing.obitosCovid += row.ObitosCovid || 0;
+            existing.internamentosCovid += row.InternamentosCovid || 0;
+            existing.percentUrgenciasFalsas = (existing.urgenciasFalsas + (row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0)) / 
+                                               (existing.totalAtendimentos + (row.TotalAtendimentos || 0)) * 100;
+            existing.urgenciasFalsas += (row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0);
+            existing.totalAtendimentos += row.TotalAtendimentos || 0;
+          } else {
+            const urgenciasFalsas = (row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0);
+            acc.push({
+              period: row.Período,
+              casosCovid: row.CasosCovid || 0,
+              obitosCovid: row.ObitosCovid || 0,
+              internamentosCovid: row.InternamentosCovid || 0,
+              urgenciasFalsas: urgenciasFalsas,
+              totalAtendimentos: row.TotalAtendimentos || 0,
+              percentUrgenciasFalsas: (row.TotalAtendimentos || 0) > 0 ? (urgenciasFalsas / row.TotalAtendimentos) * 100 : 0
+            });
+          }
+          return acc;
+        }, [])
+        .sort((a, b) => a.period.localeCompare(b.period));
+
+      setCovidOperationalData(covidOpData);
     }
   }, [data]);
 
@@ -230,6 +262,51 @@ const DashboardOperacional = ({ data }) => {
         </div>
       </div>
 
+      {/* KPIs COVID-19 Operacional */}
+      {data.totalCasosCovid > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
+            <div className="metric-value" style={{ color: '#7c3aed' }}>
+              {formatNumber(data.totalCasosCovid)}
+            </div>
+            <div className="metric-label">Casos COVID-19</div>
+            <div className="metric-change neutral">
+              Nas urgências
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+            <div className="metric-value" style={{ color: '#dc2626' }}>
+              {formatNumber(data.totalObitosCovid)}
+            </div>
+            <div className="metric-label">Óbitos COVID-19</div>
+            <div className="metric-change negative">
+              {data.letalidadeCovid?.toFixed(2) || '0'}% letalidade
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
+            <div className="metric-value" style={{ color: '#2563eb' }}>
+              {formatNumber(data.totalInternamentosCovid)}
+            </div>
+            <div className="metric-label">Internamentos COVID</div>
+            <div className="metric-change neutral">
+              {data.totalCasosCovid > 0 ? ((data.totalInternamentosCovid / data.totalCasosCovid) * 100).toFixed(1) : '0'}% taxa
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
+            <div className="metric-value" style={{ color: '#059669' }}>
+              {formatPercent(data.percentCovidGlobal)}
+            </div>
+            <div className="metric-label">Impacto COVID</div>
+            <div className="metric-change neutral">
+              % do total urgências
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Gráficos Operacionais */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução Mensal */}
@@ -318,6 +395,70 @@ const DashboardOperacional = ({ data }) => {
           </ResponsiveContainer>
         </div>
       </div>
+
+      {/* Gráfico COVID-19 Operacional */}
+      {covidOperationalData.length > 0 && (
+        <div className="chart-container mb-6">
+          <h3 className="chart-title">Evolução Operacional COVID-19 nas Urgências</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={covidOperationalData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis 
+                dataKey="period" 
+                tick={{ fontSize: 12 }}
+                angle={-45}
+                textAnchor="end"
+                height={60}
+              />
+              <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
+              <Tooltip 
+                formatter={(value, name) => [
+                  name.includes('percent') ? formatPercent(value) : formatNumber(value), 
+                  name === 'casosCovid' ? 'Casos COVID' :
+                  name === 'obitosCovid' ? 'Óbitos COVID' :
+                  name === 'internamentosCovid' ? 'Internamentos COVID' :
+                  name === 'percentUrgenciasFalsas' ? '% Urgências Falsas' : name
+                ]}
+                labelFormatter={(label) => `Período: ${label}`}
+              />
+              <Legend />
+              <Line 
+                yAxisId="left"
+                type="monotone" 
+                dataKey="casosCovid" 
+                stroke="#7c3aed" 
+                strokeWidth={2}
+                name="Casos COVID"
+              />
+              <Line 
+                yAxisId="left"
+                type="monotone" 
+                dataKey="obitosCovid" 
+                stroke="#dc2626" 
+                strokeWidth={2}
+                name="Óbitos COVID"
+              />
+              <Line 
+                yAxisId="left"
+                type="monotone" 
+                dataKey="internamentosCovid" 
+                stroke="#2563eb" 
+                strokeWidth={2}
+                name="Internamentos COVID"
+              />
+              <Line 
+                yAxisId="right"
+                type="monotone" 
+                dataKey="percentUrgenciasFalsas" 
+                stroke="#ea580c" 
+                strokeWidth={2}
+                name="% Urgências Falsas"
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      )}
 
       {/* Tabelas de Ranking */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">

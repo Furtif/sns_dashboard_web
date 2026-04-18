@@ -5,6 +5,7 @@ import { formatNumber, formatCurrency, formatPercent } from '../utils/formatters
 const DashboardExecutivo = ({ data }) => {
   const [timeSeriesData, setTimeSeriesData] = useState([]);
   const [triagemData, setTriagemData] = useState([]);
+  const [covidTimeSeriesData, setCovidTimeSeriesData] = useState([]);
 
   useEffect(() => {
     if (data && data.dadosBrutos) {
@@ -41,6 +42,29 @@ const DashboardExecutivo = ({ data }) => {
       ].filter(item => item.value > 0);
 
       setTriagemData(triagem);
+
+      // Preparar dados COVID-19 para série temporal
+      const covidData = data.dadosBrutos
+        .filter(row => row.IsCovidPeriod && row.CasosCovid > 0)
+        .reduce((acc, row) => {
+          const existing = acc.find(item => item.period === row.Período);
+          if (existing) {
+            existing.casosCovid += row.CasosCovid || 0;
+            existing.obitosCovid += row.ObitosCovid || 0;
+            existing.internamentosCovid += row.InternamentosCovid || 0;
+          } else {
+            acc.push({
+              period: row.Período,
+              casosCovid: row.CasosCovid || 0,
+              obitosCovid: row.ObitosCovid || 0,
+              internamentosCovid: row.InternamentosCovid || 0
+            });
+          }
+          return acc;
+        }, [])
+        .sort((a, b) => a.period.localeCompare(b.period));
+
+      setCovidTimeSeriesData(covidData);
     }
   }, [data]);
 
@@ -131,6 +155,51 @@ const DashboardExecutivo = ({ data }) => {
           </div>
         </div>
       </div>
+
+      {/* KPIs COVID-19 */}
+      {data.totalCasosCovid > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
+            <div className="metric-value" style={{ color: '#7c3aed' }}>
+              {formatNumber(data.totalCasosCovid)}
+            </div>
+            <div className="metric-label">Casos COVID-19</div>
+            <div className="metric-change neutral">
+              Nas urgências
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+            <div className="metric-value" style={{ color: '#dc2626' }}>
+              {formatNumber(data.totalObitosCovid)}
+            </div>
+            <div className="metric-label">Óbitos COVID-19</div>
+            <div className="metric-change negative">
+              Letalidade: {data.letalidadeCovid?.toFixed(2) || '0'}%
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
+            <div className="metric-value" style={{ color: '#2563eb' }}>
+              {formatNumber(data.totalInternamentosCovid)}
+            </div>
+            <div className="metric-label">Internamentos COVID</div>
+            <div className="metric-change neutral">
+              {data.totalCasosCovid > 0 ? ((data.totalInternamentosCovid / data.totalCasosCovid) * 100).toFixed(1) : '0'}% dos casos
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
+            <div className="metric-value" style={{ color: '#059669' }}>
+              {formatPercent(data.percentCovidGlobal)}
+            </div>
+            <div className="metric-label">% COVID/Urgências</div>
+            <div className="metric-change neutral">
+              Do total de atendimentos
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Gráficos Principais */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -290,6 +359,57 @@ const DashboardExecutivo = ({ data }) => {
           </div>
         </div>
       </div>
+
+      {/* Gráfico COVID-19 */}
+      {covidTimeSeriesData.length > 0 && (
+        <div className="chart-container mb-6">
+          <h3 className="chart-title">Evolução COVID-19 nas Urgências (2020-2022)</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={covidTimeSeriesData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis 
+                dataKey="period" 
+                tick={{ fontSize: 12 }}
+                angle={-45}
+                textAnchor="end"
+                height={60}
+              />
+              <YAxis tick={{ fontSize: 12 }} />
+              <Tooltip 
+                formatter={(value, name) => [
+                  formatNumber(value), 
+                  name === 'casosCovid' ? 'Casos COVID' : 
+                  name === 'obitosCovid' ? 'Óbitos COVID' : 
+                  name === 'internamentosCovid' ? 'Internamentos COVID' : name
+                ]}
+                labelFormatter={(label) => `Período: ${label}`}
+              />
+              <Legend />
+              <Line 
+                type="monotone" 
+                dataKey="casosCovid" 
+                stroke="#7c3aed" 
+                strokeWidth={2}
+                name="Casos COVID"
+              />
+              <Line 
+                type="monotone" 
+                dataKey="obitosCovid" 
+                stroke="#dc2626" 
+                strokeWidth={2}
+                name="Óbitos COVID"
+              />
+              <Line 
+                type="monotone" 
+                dataKey="internamentosCovid" 
+                stroke="#2563eb" 
+                strokeWidth={2}
+                name="Internamentos COVID"
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      )}
 
       {/* Alertas e Recomendações */}
       {(data.percentUrgenciasFalsas >= 25 || data.scoreIneficienciaGlobal >= 35) && (
