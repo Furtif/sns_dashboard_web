@@ -1,4 +1,11 @@
-# SNS Dashboard - Portugal [![Test Build](https://github.com/Furtif/sns_dashboard_web/actions/workflows/test.yml/badge.svg)](https://github.com/Furtif/sns_dashboard_web/actions)
+# SNS Dashboard - Portugal
+
+[![Test Build](https://github.com/Furtif/sns_dashboard_web/actions/workflows/test.yml/badge.svg)](https://github.com/Furtif/sns_dashboard_web/actions/workflows/test.yml)
+[![Coverage](https://img.shields.io/badge/coverage-89%25-brightgreen.svg)](tests/coverage/lcov-report/index.html)
+[![Tests](https://img.shields.io/badge/tests-47%20passed-brightgreen.svg)]()
+[![License](https://img.shields.io/badge/license-ECL--2.0-blue.svg)](LICENSE.md)
+[![React](https://img.shields.io/badge/react-19.2.4-blue.svg)](https://reactjs.org/)
+[![Node](https://img.shields.io/badge/node-20%2B-green.svg)]()
 
 Dashboard interativo para análise de ineficiências hospitalares do Serviço Nacional de Saúde de Portugal, convertido do Power BI para ReactJS.
 
@@ -47,12 +54,26 @@ sns_dashboard_web/
 │   ├── App.js          # Componente principal com navegação
 │   ├── index.js        # Ponto de entrada React
 │   └── styles.css      # Estilos responsivos (1070 linhas)
+├── tests/               # Testes unitários e de integração
+│   ├── setup/           # Configuração de testes
+│   │   └── setupTests.js
+│   ├── unit/            # Testes unitários
+│   │   ├── components/  # Testes de componentes
+│   │   │   ├── PeriodFilter.simple.test.js
+│   │   │   └── PeriodSummary.test.js
+│   │   └── utils/       # Testes de utilitários
+│   │       ├── dataLoader.test.js
+│   │       └── formatters.test.js
+│   └── coverage/        # Relatórios de cobertura
+│       └── lcov-report/
 ├── scripts_history/    # Scripts Python para atualização local de dados
 │   ├── atualizar_dados_sns.py
 │   └── atualizar_tabelas_fact.py
-├── dist/               # Build de produção gerado automaticamente
-├── webpack.config.js   # Configuração do webpack
-└── package.json        # Dependências e scripts
+├── babel.config.js   # Configuração Babel para testes
+├── jest.config.js    # Configuração Jest
+├── dist/             # Build de produção gerado automaticamente
+├── webpack.config.js # Configuração do webpack
+└── package.json      # Dependências e scripts
 ```
 
 ## 🚀 Como Usar
@@ -88,7 +109,14 @@ sns_dashboard_web/
    - Gera pasta `dist/` otimizada
    - Arquivos minificados e bundle único
 
-5. **Atualizar Dados (opcional, requer Python):**
+5. **Executar Testes:**
+   ```bash
+   npm test              # Executa todos os testes
+   npm run test:watch    # Modo watch para desenvolvimento
+   npm run test:coverage # Com relatório de cobertura
+   ```
+
+6. **Atualizar Dados (opcional, requer Python):**
    ```bash
    npm run update-csv
    ```
@@ -231,6 +259,68 @@ O dashboard implementa métricas baseadas nas medidas DAX originais:
 - **Dashboards**: 4 componentes especializados com métricas específicas
 - **PeriodFilter/Summary**: Componentes reutilizáveis para filtragem temporal
 - **Utils**: dataLoader.js (339 linhas) e formatters.js (37 linhas)
+
+## 🧪 Testes
+
+O projeto inclui uma suite completa de testes unitários com Jest e Testing Library.
+
+### Cobertura Atual
+
+| Módulo | Statements | Branch | Functions | Lines |
+|--------|-----------|--------|-----------|-------|
+| **formatters.js** | 100% | 100% | 100% | 100% |
+| **dataLoader.js** | 88% | 86% | 90% | 91% |
+| **PeriodSummary.js** | 87.5% | 71% | 100% | 87.5% |
+| **PeriodFilter.js** | 25% | 29% | 43% | 23% |
+
+### Executar Testes
+
+```bash
+# Executar todos os testes
+npm test
+
+# Modo watch (re-executa em alterações)
+npm run test:watch
+
+# Com relatório de cobertura detalhado
+npm run test:coverage
+```
+
+### Estrutura de Testes
+
+```
+tests/
+├── setup/
+│   └── setupTests.js          # Configuração global do Testing Library
+├── unit/
+│   ├── components/            # Testes de componentes React
+│   │   ├── PeriodFilter.simple.test.js
+│   │   └── PeriodSummary.test.js
+│   └── utils/                 # Testes de utilitários
+│       ├── dataLoader.test.js
+│       └── formatters.test.js
+└── coverage/                  # Relatórios LCOV gerados automaticamente
+```
+
+### Tecnologias de Teste
+
+- **Jest 29.7.0**: Framework de testes com ambiente jsdom
+- **Testing Library**: Testes focados em comportamento do utilizador
+  - `@testing-library/react` 16.3.0
+  - `@testing-library/jest-dom` 6.6.3
+  - `@testing-library/user-event` 14.6.1
+- **Babel**: Transpilação para testes ES6+
+
+### CI/CD
+
+Os testes são executados automaticamente em:
+- **Push** para branches `main`, `master`, `dev`
+- **Pull Requests** para branches principais
+- **Matrix**: Node.js 20.x e 22.x em Ubuntu e Windows
+
+Relatórios de cobertura são arquivados por 30 dias no GitHub Actions.
+
+---
 
 ## 🚀 Deploy e Produção
 
