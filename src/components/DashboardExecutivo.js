@@ -362,7 +362,7 @@ const DashboardExecutivo = ({ data }) => {
       {/* Gráfico COVID-19 */}
       {covidTimeSeriesData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">Evolução COVID-19 nas Urgências (2020-2022)</h3>
+          <h3 className="chart-title">Evolução COVID-19 nas Urgências (Mar 2020 - Dez 2022)</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidTimeSeriesData}>
               <CartesianGrid strokeDasharray="3 3" />
