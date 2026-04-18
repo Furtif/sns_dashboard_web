@@ -98,8 +98,7 @@ const DashboardRH = ({ data }) => {
             atendimentosPorEnfermeiro: item.enfermeiros > 0 ? item.totalAtendimentos / item.enfermeiros : 0
           };
         })
-        .sort((a, b) => a.period.localeCompare(b.period))
-        .slice(-24); // Últimos 24 meses
+        .sort((a, b) => a.period.localeCompare(b.period));
 
       setTimeSeriesRH(monthlyRH);
 
@@ -115,8 +114,7 @@ const DashboardRH = ({ data }) => {
           totalMedicos: inst.totalMedicos,
           enfermeiros: inst.enfermeiros
         }))
-        .sort((a, b) => b.atendimentosPorMedico - a.atendimentosPorMedico)
-        .slice(0, 20);
+        .sort((a, b) => b.atendimentosPorMedico - a.atendimentosPorMedico);
 
       setProductivityData(productivity);
 
@@ -259,7 +257,7 @@ const DashboardRH = ({ data }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução Temporal RH */}
         <div className="chart-container">
-          <h3 className="chart-title">Evolução de Recursos Humanos (24 meses)</h3>
+          <h3 className="chart-title">Evolução de Recursos Humanos no Período</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={timeSeriesRH}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -315,7 +313,7 @@ const DashboardRH = ({ data }) => {
         <div className="chart-container">
           <h3 className="chart-title">Análise de Produtividade vs Rácio Enf./Méd.</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <ScatterChart data={productivityData.slice(0, 50)}>
+            <ScatterChart data={productivityData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis 
                 dataKey="racioEnfermeiroMedico" 

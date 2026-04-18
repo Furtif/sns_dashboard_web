@@ -39,8 +39,7 @@ const DashboardOperacional = ({ data }) => {
           racioEnfermeiroMedico: item.medicos > 0 ? item.enfermeiros / item.medicos : 0,
           atendimentosPorMedico: item.medicos > 0 ? item.totalAtendimentos / item.medicos : 0
         }))
-        .sort((a, b) => a.period.localeCompare(b.period))
-        .slice(-12); // Últimos 12 meses
+        .sort((a, b) => a.period.localeCompare(b.period));
 
       setMonthlyData(monthly);
 
@@ -282,7 +281,7 @@ const DashboardOperacional = ({ data }) => {
         <div className="chart-container">
           <h3 className="chart-title">Análise de Eficiência vs Volume</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <ScatterChart data={filteredInstitutions.slice(0, 50)}>
+            <ScatterChart data={filteredInstitutions}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis 
                 dataKey="atendimentosPorMes" 

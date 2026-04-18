@@ -69,8 +69,7 @@ const DashboardFinanceiro = ({ data }) => {
           percentDesperdicio: item.custoTotal > 0 ? (item.custoDesperdicado / item.custoTotal) * 100 : 0,
           custoMedioPorAtendimento: item.totalAtendimentos > 0 ? item.custoTotal / item.totalAtendimentos : 0
         }))
-        .sort((a, b) => a.period.localeCompare(b.period))
-        .slice(-24); // Últimos 24 meses
+        .sort((a, b) => a.period.localeCompare(b.period));
 
       setCostEvolution(monthly);
 
@@ -201,7 +200,7 @@ const DashboardFinanceiro = ({ data }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução de Custos */}
         <div className="chart-container">
-          <h3 className="chart-title">Evolução de Custos e Desperdício (24 meses)</h3>
+          <h3 className="chart-title">Evolução de Custos e Desperdício no Período</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={costEvolution}>
               <CartesianGrid strokeDasharray="3 3" />

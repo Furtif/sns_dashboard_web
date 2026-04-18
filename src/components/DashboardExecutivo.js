@@ -26,8 +26,7 @@ const DashboardExecutivo = ({ data }) => {
           }
           return acc;
         }, [])
-        .sort((a, b) => a.period.localeCompare(b.period))
-        .slice(-24); // Últimos 24 meses
+        .sort((a, b) => a.period.localeCompare(b.period));
 
       setTimeSeriesData(seriesData);
 
@@ -137,7 +136,7 @@ const DashboardExecutivo = ({ data }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução Temporal */}
         <div className="chart-container">
-          <h3 className="chart-title">Evolução dos Atendimentos (24 meses)</h3>
+          <h3 className="chart-title">Evolução dos Atendimentos no Período</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={timeSeriesData}>
               <CartesianGrid strokeDasharray="3 3" />

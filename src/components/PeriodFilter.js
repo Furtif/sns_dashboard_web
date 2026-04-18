@@ -49,9 +49,9 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
         break;
         
       case 'currentYear':
-        // Usar o último ano completo com dados (2026) em vez do ano atual (2026)
-        start = new Date(2026, 0, 1);
-        end = new Date(2026, 11, 31);
+        // Ano corrente desde 01/01 até hoje (data atual)
+        start = new Date(now.getFullYear(), 0, 1);
+        end = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         break;
         
       case 'lastYear':
@@ -66,9 +66,9 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
         break;
         
       case 'all':
-        // Dados começam em 2016
+        // Dados desde 2016 até hoje (data atual)
         start = new Date(2016, 0, 1);
-        end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+        end = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         break;
         
       case 'custom':
