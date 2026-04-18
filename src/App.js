@@ -70,11 +70,11 @@ function App() {
       };
       const completeMetrics = calculateMetrics(completeData);
 
-      // Combinar: métricas filtradas + dados completos para gráficos
+      // Combinar: métricas filtradas + dados filtrados para gráficos + dados completos apenas para COVID
       setData({
         ...metrics,
-        dadosBrutos: completeMetrics.dadosBrutos, // Dados completos para gráficos
-        dadosCovidCompletos: completeMetrics.dadosCovidCompletos // Dados completos para gráfico COVID
+        dadosBrutos: metrics.dadosBrutos, // Dados filtrados para gráficos de atendimentos
+        dadosCovidCompletos: completeMetrics.dadosCovidCompletos // Dados completos apenas para gráfico COVID
       });
     } else if (rawData) {
       // Se não houver filtro, usar todos os dados
