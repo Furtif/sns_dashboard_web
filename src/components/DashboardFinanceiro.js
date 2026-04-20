@@ -218,52 +218,53 @@ const DashboardFinanceiro = ({ data }) => {
             Urgência vs Centro Saúde
           </div>
         </div>
+      </div>
 
-        {/* KPIs COVID-19 Financeiro */}
-        {data.totalCasosCovid > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
-              <div className="metric-value" style={{ color: '#7c3aed' }}>
-                {formatCurrency(data.totalCasosCovid * 200)}
-              </div>
-              <div className="metric-label">Custo Total COVID</div>
-              <div className="metric-change neutral">
-                200€ por caso estimado
-              </div>
+      {/* KPIs COVID-19 Financeiro */}
+      {data.totalCasosCovid > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div style={{ height: '1px' }}></div>
+          <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
+            <div className="metric-value" style={{ color: '#7c3aed' }}>
+              {formatCurrency(data.totalCasosCovid * 200)}
             </div>
-
-            <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
-              <div className="metric-value" style={{ color: '#dc2626' }}>
-                {formatCurrency(data.totalCasosCovid * 80)}
-              </div>
-              <div className="metric-label">Desperdício COVID</div>
-              <div className="metric-change negative">
-                Custos adicionais pandemia
-              </div>
-            </div>
-
-            <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
-              <div className="metric-value" style={{ color: '#2563eb' }}>
-                {formatCurrency(data.totalInternamentosCovid * 2500)}
-              </div>
-              <div className="metric-label">Custo Internamentos</div>
-              <div className="metric-change neutral">
-                2500€ por internamento
-              </div>
-            </div>
-
-            <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
-              <div className="metric-value" style={{ color: '#059669' }}>
-                {formatPercent(data.percentCovidGlobal)}
-              </div>
-              <div className="metric-label">Impacto COVID/Urgências</div>
-              <div className="metric-change neutral">
-                Percentagem do total
-              </div>
+            <div className="metric-label">Custo Total COVID</div>
+            <div className="metric-change neutral">
+              200€ por caso estimado
             </div>
           </div>
-        )}
-      </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+            <div className="metric-value" style={{ color: '#dc2626' }}>
+              {formatCurrency(data.totalCasosCovid * 80)}
+            </div>
+            <div className="metric-label">Desperdício COVID</div>
+            <div className="metric-change negative">
+              Custos adicionais pandemia
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
+            <div className="metric-value" style={{ color: '#2563eb' }}>
+              {formatCurrency(data.totalInternamentosCovid * 2500)}
+            </div>
+            <div className="metric-label">Custo Internamentos</div>
+            <div className="metric-change neutral">
+              2500€ por internamento
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
+            <div className="metric-value" style={{ color: '#059669' }}>
+              {formatPercent(data.percentCovidGlobal)}
+            </div>
+            <div className="metric-label">Impacto COVID/Urgências</div>
+            <div className="metric-change neutral">
+              Percentagem do total
+            </div>
+          </div>
+        </div>
+      )}
       <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Financeiros */}

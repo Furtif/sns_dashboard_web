@@ -260,52 +260,53 @@ const DashboardOperacional = ({ data }) => {
             Período selecionado
           </div>
         </div>
+      </div>
 
-        {/* KPIs COVID-19 Operacional */}
-        {data.totalCasosCovid > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
-              <div className="metric-value" style={{ color: '#7c3aed' }}>
-                {formatNumber(data.totalCasosCovid)}
-              </div>
-              <div className="metric-label">Casos COVID-19</div>
-              <div className="metric-change neutral">
-                Nas urgências
-              </div>
+      {/* KPIs COVID-19 Operacional */}
+      {data.totalCasosCovid > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div style={{ height: '1px' }}></div>
+          <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
+            <div className="metric-value" style={{ color: '#7c3aed' }}>
+              {formatNumber(data.totalCasosCovid)}
             </div>
-
-            <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
-              <div className="metric-value" style={{ color: '#dc2626' }}>
-                {formatNumber(data.totalObitosCovid)}
-              </div>
-              <div className="metric-label">Óbitos COVID-19</div>
-              <div className="metric-change negative">
-                {data.letalidadeCovid?.toFixed(2) || '0'}% letalidade
-              </div>
-            </div>
-
-            <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
-              <div className="metric-value" style={{ color: '#2563eb' }}>
-                {formatNumber(data.totalInternamentosCovid)}
-              </div>
-              <div className="metric-label">Internamentos COVID</div>
-              <div className="metric-change neutral">
-                {data.totalCasosCovid > 0 ? ((data.totalInternamentosCovid / data.totalCasosCovid) * 100).toFixed(1) : '0'}% taxa
-              </div>
-            </div>
-
-            <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
-              <div className="metric-value" style={{ color: '#059669' }}>
-                {formatPercent(data.percentCovidGlobal)}
-              </div>
-              <div className="metric-label">Impacto COVID</div>
-              <div className="metric-change neutral">
-                % do total urgências
-              </div>
+            <div className="metric-label">Casos COVID-19</div>
+            <div className="metric-change neutral">
+              Nas urgências
             </div>
           </div>
-        )}
-      </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+            <div className="metric-value" style={{ color: '#dc2626' }}>
+              {formatNumber(data.totalObitosCovid)}
+            </div>
+            <div className="metric-label">Óbitos COVID-19</div>
+            <div className="metric-change negative">
+              {data.letalidadeCovid?.toFixed(2) || '0'}% letalidade
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
+            <div className="metric-value" style={{ color: '#2563eb' }}>
+              {formatNumber(data.totalInternamentosCovid)}
+            </div>
+            <div className="metric-label">Internamentos COVID</div>
+            <div className="metric-change neutral">
+              {data.totalCasosCovid > 0 ? ((data.totalInternamentosCovid / data.totalCasosCovid) * 100).toFixed(1) : '0'}% taxa
+            </div>
+          </div>
+
+          <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
+            <div className="metric-value" style={{ color: '#059669' }}>
+              {formatPercent(data.percentCovidGlobal)}
+            </div>
+            <div className="metric-label">Impacto COVID</div>
+            <div className="metric-change neutral">
+              % do total urgências
+            </div>
+          </div>
+        </div>
+      )}
       <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Operacionais */}
