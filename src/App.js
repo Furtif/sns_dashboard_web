@@ -15,6 +15,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [dateRange, setDateRange] = useState({ start: null, end: null });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const loadData = async () => {
     try {
@@ -134,7 +135,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Header */}
       <header className="header">
         <div className="container">
@@ -172,7 +173,8 @@ function App() {
 
       {/* Navigation */}
       <div className="container">
-        <nav className="nav-tabs">
+        {/* Desktop Navigation */}
+        <nav className="nav-tabs desktop-only">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -183,10 +185,43 @@ function App() {
             </button>
           ))}
         </nav>
+
+        {/* Mobile Navigation - Hamburger Menu */}
+        <div className="mobile-nav">
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Menu"
+          >
+            <span className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span className="mobile-menu-text">{tabs.find(t => t.id === activeTab)?.name}</span>
+          </button>
+
+          {mobileMenuOpen && (
+            <nav className="mobile-nav-menu">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => {
+                    setActiveTab(tab.id);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`mobile-nav-tab ${activeTab === tab.id ? 'active' : ''}`}
+                >
+                  {tab.name}
+                </button>
+              ))}
+            </nav>
+          )}
+        </div>
       </div>
 
       {/* Main Content */}
-      <main className="container py-6">
+      <main className="container py-6 flex-1">
         {/* Filtro de Período */}
         {data && (
           <>

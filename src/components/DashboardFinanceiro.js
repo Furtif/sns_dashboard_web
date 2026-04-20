@@ -369,12 +369,12 @@ const DashboardFinanceiro = ({ data }) => {
                   .sort((a, b) => b.custoDesperdicado - a.custoDesperdicado)
                   .map((region) => (
                     <tr key={region.regiaoId}>
-                      <td className="font-medium">{region.regiaoNome}</td>
-                      <td className="text-right">{formatCurrency(region.custoTotal)}</td>
-                      <td className="text-right font-medium text-red-600">
+                      <td className="font-medium" data-label="Região">{region.regiaoNome}</td>
+                      <td className="text-right" data-label="Custo Total">{formatCurrency(region.custoTotal)}</td>
+                      <td className="text-right font-medium text-red-600" data-label="Desperdício">
                         {formatCurrency(region.custoDesperdicado)}
                       </td>
-                      <td className="text-right">
+                      <td className="text-right" data-label="% Desperdício">
                         <span
                           className="px-2 py-1 rounded text-xs font-medium"
                           style={{
@@ -540,6 +540,7 @@ const DashboardFinanceiro = ({ data }) => {
         </div>
 
         <div className="mt-6 p-4 bg-orange-50 border border-orange-200 rounded-lg">
+          <div style={{ height: '10px' }}></div>
           <h4 className="font-semibold text-orange-800 mb-2">💡 Recomendações Financeiras</h4>
           <ul className="text-sm text-orange-700 space-y-1">
             <li> Investir em cuidados de saúde primários para reduzir urgências falsas</li>

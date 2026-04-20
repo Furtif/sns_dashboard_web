@@ -486,17 +486,17 @@ const DashboardOperacional = ({ data }) => {
               <tbody>
                 {topInstitutions.map((inst, index) => (
                   <tr key={inst.instituicaoId}>
-                    <td className="font-medium">
+                    <td className="font-medium" data-label="Instituição">
                       <div className="font-semibold">{inst.instituicaoNome}</div>
                       <div className="text-xs text-gray-500 mobile-only">
-                        {inst.tipo} {formatNumber(inst.atendimentosPorMes)}/mês
+                        Vol: {formatNumber(inst.atendimentosPorMes)}/mês
                       </div>
                     </td>
-                    <td style={{ verticalAlign: 'middle' }}>{inst.tipo}</td>
-                    <td className="text-right font-medium">
+                    <td style={{ verticalAlign: 'middle' }} data-label="Tipo">{inst.tipo}</td>
+                    <td className="text-right font-medium" data-label="Atendimentos">
                       {formatNumber(inst.totalAtendimentos)}
                     </td>
-                    <td className="text-right">
+                    <td className="text-right" data-label="% Falsas">
                       <span
                         className="px-2 py-1 rounded text-xs font-medium"
                         style={{
@@ -532,14 +532,11 @@ const DashboardOperacional = ({ data }) => {
               <tbody>
                 {worstEfficiency.map((inst, index) => (
                   <tr key={inst.instituicaoId}>
-                    <td className="font-medium">
+                    <td className="font-medium" data-label="Instituição">
                       <div className="font-semibold">{inst.instituicaoNome}</div>
-                      <div className="text-xs text-gray-500 mobile-only">
-                        {inst.tipo} Rácio: {inst.racioEnfermeiroMedico.toFixed(2)}
-                      </div>
                     </td>
-                    <td style={{ verticalAlign: 'middle' }}>{inst.tipo}</td>
-                    <td className="text-right">
+                    <td style={{ verticalAlign: 'middle' }} data-label="Tipo">{inst.tipo}</td>
+                    <td className="text-right" data-label="% Falsas">
                       <span
                         className="px-2 py-1 rounded text-xs font-medium text-white"
                         style={{ backgroundColor: getEfficiencyColor(inst.percentUrgenciasFalsas) }}
@@ -547,7 +544,7 @@ const DashboardOperacional = ({ data }) => {
                         {formatPercent(inst.percentUrgenciasFalsas)}
                       </span>
                     </td>
-                    <td className="text-right">
+                    <td className="text-right" data-label="Rácio">
                       <span
                         className="px-2 py-1 rounded text-xs font-medium"
                         style={{

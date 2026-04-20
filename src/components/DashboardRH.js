@@ -407,7 +407,7 @@ const DashboardRH = ({ data }) => {
               <tbody>
                 {productivityData.slice(0, 10).map((inst, index) => (
                   <tr key={inst.instituicaoNome}>
-                    <td className="font-medium">
+                    <td className="font-medium" data-label="Instituição">
                       <div className="flex items-center gap-2">
                         <div>
                           <div>{inst.instituicaoNome}</div>
@@ -417,8 +417,8 @@ const DashboardRH = ({ data }) => {
                         </div>
                       </div>
                     </td>
-                    <td className="text-right">{inst.tipo}</td>
-                    <td className="text-right font-medium">
+                    <td className="text-right" data-label="Tipo">{inst.tipo}</td>
+                    <td className="text-right font-medium" data-label="Atend./Médico">
                       <span 
                         className="px-2 py-1 rounded text-xs font-medium"
                         style={{ 
@@ -429,7 +429,7 @@ const DashboardRH = ({ data }) => {
                         {formatNumber(inst.atendimentosPorMedico)}
                       </span>
                     </td>
-                    <td className="text-right">
+                    <td className="text-right" data-label="Rácio">
                       <span 
                         className="px-2 py-1 rounded text-xs font-medium"
                         style={{ 
@@ -471,7 +471,7 @@ const DashboardRH = ({ data }) => {
                     const deficitEnfermeiros = Math.max(0, inst.totalMedicos * 2 - inst.enfermeiros);
                     return (
                       <tr key={inst.instituicaoId}>
-                        <td className="font-medium">
+                        <td className="font-medium" data-label="Instituição">
                           <div className="flex items-center gap-2">
                             <div>
                               <div>{inst.instituicaoNome}</div>
@@ -481,8 +481,8 @@ const DashboardRH = ({ data }) => {
                             </div>
                           </div>
                         </td>
-                        <td className="text-right">{inst.tipo}</td>
-                        <td className="text-right">
+                        <td className="text-right" data-label="Tipo">{inst.tipo}</td>
+                        <td className="text-right" data-label="Rácio">
                           <span 
                             className="px-2 py-1 rounded text-xs font-medium text-white"
                             style={{ backgroundColor: '#dc2626' }}
@@ -490,7 +490,7 @@ const DashboardRH = ({ data }) => {
                             {formatDecimal(inst.racioEnfermeiroMedico)}
                           </span>
                         </td>
-                        <td className="text-right font-medium text-red-600">
+                        <td className="text-right font-medium text-red-600" data-label="Défice">
                           {formatNumber(deficitEnfermeiros)}
                         </td>
                       </tr>
@@ -528,7 +528,8 @@ const DashboardRH = ({ data }) => {
           </div>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6">                 
+          <div style={{ height: '10px' }}></div>
           <h4 className="font-semibold mb-3">Projeção de Impacto - Meta OMS</h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="metric-card border-blue-200 bg-blue-50">

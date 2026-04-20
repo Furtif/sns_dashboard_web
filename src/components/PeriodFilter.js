@@ -223,7 +223,8 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
       </div>
 
       {/* Informações Adicionais */}
-      <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+      <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">        
+        <div style={{ height: '10px' }}></div>
         <div className="text-sm text-blue-700">
           <strong>ℹ️ Informações:</strong>
           <ul className="mt-1 ml-4 list-disc">
