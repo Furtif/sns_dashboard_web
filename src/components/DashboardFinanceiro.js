@@ -397,26 +397,22 @@ const DashboardFinanceiro = ({ data }) => {
           <div className="card-header">
             <h3 className="card-title">Desperdício por Tipo de Instituição</h3>
           </div>
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {wasteAnalysis.map((type) => (
-              <div key={type.tipo} className="border rounded-lg p-4">
-                <div className="flex justify-between items-center mb-2">
-                  <h4 className="font-semibold text-lg">{type.tipo}</h4>
-                  <span className="text-sm text-gray-500">{type.instituicoes} instituições</span>
+              <div key={type.tipo} className="metric-card">
+                <div className="metric-value" style={{ color: '#1e40af' }}>
+                  {type.tipo}
                 </div>
-
-                <div className="grid grid-cols-2 gap-4 mb-3">
-                  <div>
-                    <div className="text-sm text-gray-600">Custo Total</div>
-                    <div className="font-medium">{formatCurrency(type.custoTotal)}</div>
+                <div className="metric-label">{type.instituicoes} instituições</div>
+                <div className="mt-3 space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Custo Total: </span>
+                    <span className="font-medium">{formatCurrency(type.custoTotal)}</span>
                   </div>
-                  <div>
-                    <div className="text-sm text-gray-600">Desperdício</div>
-                    <div className="font-medium text-red-600">{formatCurrency(type.custoDesperdicado)}</div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Desperdício: </span>
+                    <span className="font-medium text-red-600">{formatCurrency(type.custoDesperdicado)}</span>
                   </div>
-                </div>
-
-                <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">% Urgências Falsas: </span>
                     <span className="font-medium">{formatPercent(type.percentUrgenciasFalsas)}</span>
@@ -426,7 +422,6 @@ const DashboardFinanceiro = ({ data }) => {
                     <span className="font-medium">{formatPercent(type.percentDesperdicio)}</span>
                   </div>
                 </div>
-
                 <div className="mt-3">
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div

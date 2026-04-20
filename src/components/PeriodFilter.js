@@ -35,17 +35,17 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
     switch (value) {
       case 'last12':
         start = new Date(now.getFullYear(), now.getMonth() - 12, 1);
-        end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+        end = now;
         break;
-        
+
       case 'last24':
         start = new Date(now.getFullYear(), now.getMonth() - 24, 1);
-        end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+        end = now;
         break;
-        
+
       case 'last36':
         start = new Date(now.getFullYear(), now.getMonth() - 36, 1);
-        end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+        end = now;
         break;
         
       case 'currentYear':
@@ -62,13 +62,13 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
         
       case 'last2years':
         start = new Date(now.getFullYear(), now.getMonth() - 24, 1);
-        end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+        end = now;
         break;
         
       case 'all':
         // Dados desde 2016 até hoje (data atual)
         start = new Date(2016, 0, 1);
-        end = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        end = now;
         break;
         
       case 'custom':
@@ -227,7 +227,7 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
         <div className="text-sm text-blue-700">
           <strong>ℹ️ Informações:</strong>
           <ul className="mt-1 ml-4 list-disc">
-            <li>Período completo dos dados: Janeiro 2016 a Dezembro 2026</li>
+            <li>Período completo dos dados: Janeiro 2016 até {new Date().toLocaleDateString('pt-PT', { month: 'long', year: 'numeric' })}</li>
             <li>Use seleção rápida para filtros predefinidos</li>
             <li>Personalizado permite datas específicas</li>
             <li>Filtros afetam todos os dashboards simultaneamente</li>
