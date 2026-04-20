@@ -412,7 +412,7 @@ const DashboardRH = ({ data }) => {
                         <div>
                           <div>{inst.instituicaoNome}</div>
                           <div className="text-xs text-gray-500 mobile-only">
-                            {inst.tipo} Rácio: {formatDecimal(inst.racioEnfermeiroMedico)}
+                            Total: {formatNumber(inst.totalAtendimentos)}
                           </div>
                         </div>
                       </div>
