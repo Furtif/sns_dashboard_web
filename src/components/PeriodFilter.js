@@ -228,6 +228,8 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
           <strong>ℹ️ Informações:</strong>
           <ul className="mt-1 ml-4 list-disc">
             <li>Período completo dos dados: Janeiro 2016 até {new Date().toLocaleDateString('pt-PT', { month: 'long', year: 'numeric' })}</li>
+            <li>Dados de atendimentos: baseados em dados públicos do SNS (transparência.sns.gov.pt)</li>
+            <li>Dados COVID-19: estimados algoritmicamente com base em padrões históricos reais de Portugal</li>
             <li>Use seleção rápida para filtros predefinidos</li>
             <li>Personalizado permite datas específicas</li>
             <li>Filtros afetam todos os dashboards simultaneamente</li>
