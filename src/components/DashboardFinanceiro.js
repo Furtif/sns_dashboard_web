@@ -27,7 +27,7 @@ const DashboardFinanceiro = ({ data }) => {
         if (regions[row.RegiaoID]) {
           const totalAtendimentos = row.TotalAtendimentos || 0;
           const urgenciasFalsas = (row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0);
-          
+
           regions[row.RegiaoID].totalAtendimentos += totalAtendimentos;
           regions[row.RegiaoID].urgenciasFalsas += urgenciasFalsas;
           regions[row.RegiaoID].custoTotal += totalAtendimentos * 150;
@@ -50,7 +50,7 @@ const DashboardFinanceiro = ({ data }) => {
           const existing = acc.find(item => item.period === row.Período);
           const totalAtendimentos = row.TotalAtendimentos || 0;
           const urgenciasFalsas = (row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0);
-          
+
           if (existing) {
             existing.custoTotal += totalAtendimentos * 150;
             existing.custoDesperdicado += urgenciasFalsas * 120;
@@ -91,7 +91,7 @@ const DashboardFinanceiro = ({ data }) => {
         if (institution && wasteByType[institution.Tipo]) {
           const totalAtendimentos = row.TotalAtendimentos || 0;
           const urgenciasFalsas = (row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0);
-          
+
           wasteByType[institution.Tipo].totalAtendimentos += totalAtendimentos;
           wasteByType[institution.Tipo].urgenciasFalsas += urgenciasFalsas;
           wasteByType[institution.Tipo].custoTotal += totalAtendimentos * 150;
@@ -116,7 +116,7 @@ const DashboardFinanceiro = ({ data }) => {
           const existing = acc.find(item => item.period === row.Período);
           const covidCost = (row.CasosCovid || 0) * 200; // Custo estimado COVID: 200€
           const covidWaste = (row.CasosCovid || 0) * 80; // Desperdício adicional COVID
-          
+
           if (existing) {
             existing.custoCovid += covidCost;
             existing.desperdicioCovid += covidWaste;
@@ -162,7 +162,7 @@ const DashboardFinanceiro = ({ data }) => {
           </p>
           <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
             <div className="text-sm text-yellow-700">
-              <strong>Dica:</strong> Os dados estão disponíveis de 2016 a 2026. 
+              <strong>Dica:</strong> Os dados estão disponíveis de 2016 a 2026.
               Use o filtro "Todo o período" ou "Últimos 24 meses" para garantir dados.
             </div>
           </div>
@@ -179,7 +179,7 @@ const DashboardFinanceiro = ({ data }) => {
     <div className="fade-in">
       {/* KPIs Financeiros */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}>
           <div className="metric-value" style={{ color: '#1e40af' }}>
             {formatCurrency(totalCustoNacional)}
           </div>
@@ -189,7 +189,7 @@ const DashboardFinanceiro = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
           <div className="metric-value" style={{ color: getWasteColor(percentDesperdicioNacional) }}>
             {formatCurrency(totalDesperdicioNacional)}
           </div>
@@ -199,7 +199,7 @@ const DashboardFinanceiro = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
           <div className="metric-value" style={{ color: '#059669' }}>
             {formatCurrency(data.custoEstimadoPorEpisodio)}
           </div>
@@ -209,7 +209,7 @@ const DashboardFinanceiro = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #ea580c' }}>
           <div className="metric-value" style={{ color: '#ea580c' }}>
             {formatCurrency(120)}
           </div>
@@ -218,52 +218,53 @@ const DashboardFinanceiro = ({ data }) => {
             Urgência vs Centro Saúde
           </div>
         </div>
+
+        {/* KPIs COVID-19 Financeiro */}
+        {data.totalCasosCovid > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
+              <div className="metric-value" style={{ color: '#7c3aed' }}>
+                {formatCurrency(data.totalCasosCovid * 200)}
+              </div>
+              <div className="metric-label">Custo Total COVID</div>
+              <div className="metric-change neutral">
+                200€ por caso estimado
+              </div>
+            </div>
+
+            <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+              <div className="metric-value" style={{ color: '#dc2626' }}>
+                {formatCurrency(data.totalCasosCovid * 80)}
+              </div>
+              <div className="metric-label">Desperdício COVID</div>
+              <div className="metric-change negative">
+                Custos adicionais pandemia
+              </div>
+            </div>
+
+            <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
+              <div className="metric-value" style={{ color: '#2563eb' }}>
+                {formatCurrency(data.totalInternamentosCovid * 2500)}
+              </div>
+              <div className="metric-label">Custo Internamentos</div>
+              <div className="metric-change neutral">
+                2500€ por internamento
+              </div>
+            </div>
+
+            <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
+              <div className="metric-value" style={{ color: '#059669' }}>
+                {formatPercent(data.percentCovidGlobal)}
+              </div>
+              <div className="metric-label">Impacto COVID/Urgências</div>
+              <div className="metric-change neutral">
+                Percentagem do total
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-
-      {/* KPIs COVID-19 Financeiro */}
-      {data.totalCasosCovid > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
-            <div className="metric-value" style={{ color: '#7c3aed' }}>
-              {formatCurrency(data.totalCasosCovid * 200)}
-            </div>
-            <div className="metric-label">Custo Total COVID</div>
-            <div className="metric-change neutral">
-              200€ por caso estimado
-            </div>
-          </div>
-
-          <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
-            <div className="metric-value" style={{ color: '#dc2626' }}>
-              {formatCurrency(data.totalCasosCovid * 80)}
-            </div>
-            <div className="metric-label">Desperdício COVID</div>
-            <div className="metric-change negative">
-              Custos adicionais pandemia
-            </div>
-          </div>
-
-          <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
-            <div className="metric-value" style={{ color: '#2563eb' }}>
-              {formatCurrency(data.totalInternamentosCovid * 2500)}
-            </div>
-            <div className="metric-label">Custo Internamentos</div>
-            <div className="metric-change neutral">
-              2500€ por internamento
-            </div>
-          </div>
-
-          <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
-            <div className="metric-value" style={{ color: '#059669' }}>
-              {formatPercent(data.percentCovidGlobal)}
-            </div>
-            <div className="metric-label">Impacto COVID/Urgências</div>
-            <div className="metric-change neutral">
-              Percentagem do total
-            </div>
-          </div>
-        </div>
-      )}
+      <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Financeiros */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -273,8 +274,8 @@ const DashboardFinanceiro = ({ data }) => {
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={costEvolution}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="period" 
+              <XAxis
+                dataKey="period"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
@@ -282,37 +283,37 @@ const DashboardFinanceiro = ({ data }) => {
               />
               <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
               <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
-              <Tooltip 
+              <Tooltip
                 formatter={(value, name) => [
-                  name.includes('percent') ? formatPercent(value) : formatCurrency(value), 
+                  name.includes('percent') ? formatPercent(value) : formatCurrency(value),
                   name === 'custoTotal' ? 'Custo Total' :
-                  name === 'custoDesperdicado' ? 'Custo Desperdiçado' :
-                  name === 'percentDesperdicio' ? '% Desperdício' : name
+                    name === 'custoDesperdicado' ? 'Custo Desperdiçado' :
+                      name === 'percentDesperdicio' ? '% Desperdício' : name
                 ]}
                 labelFormatter={(label) => `Período: ${label}`}
               />
               <Legend />
-              <Line 
+              <Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="custoTotal" 
-                stroke="#1e40af" 
+                type="monotone"
+                dataKey="custoTotal"
+                stroke="#1e40af"
                 strokeWidth={2}
                 name="Custo Total"
               />
-              <Line 
+              <Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="custoDesperdicado" 
-                stroke="#dc2626" 
+                type="monotone"
+                dataKey="custoDesperdicado"
+                stroke="#dc2626"
                 strokeWidth={2}
                 name="Custo Desperdiçado"
               />
-              <Line 
+              <Line
                 yAxisId="right"
-                type="monotone" 
-                dataKey="percentDesperdicio" 
-                stroke="#ea580c" 
+                type="monotone"
+                dataKey="percentDesperdicio"
+                stroke="#ea580c"
                 strokeWidth={2}
                 name="% Desperdício"
               />
@@ -373,9 +374,9 @@ const DashboardFinanceiro = ({ data }) => {
                         {formatCurrency(region.custoDesperdicado)}
                       </td>
                       <td className="text-right">
-                        <span 
+                        <span
                           className="px-2 py-1 rounded text-xs font-medium"
-                          style={{ 
+                          style={{
                             backgroundColor: getWasteColor(region.percentDesperdicio) + '20',
                             color: getWasteColor(region.percentDesperdicio)
                           }}
@@ -402,7 +403,7 @@ const DashboardFinanceiro = ({ data }) => {
                   <h4 className="font-semibold text-lg">{type.tipo}</h4>
                   <span className="text-sm text-gray-500">{type.instituicoes} instituições</span>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4 mb-3">
                   <div>
                     <div className="text-sm text-gray-600">Custo Total</div>
@@ -427,15 +428,15 @@ const DashboardFinanceiro = ({ data }) => {
 
                 <div className="mt-3">
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div 
-                      className="bg-red-600 h-2 rounded-full transition-all duration-300" 
+                    <div
+                      className="bg-red-600 h-2 rounded-full transition-all duration-300"
                       style={{ width: `${Math.min(type.percentDesperdicio, 100)}%` }}
                     ></div>
                   </div>
                   <div className="text-xs text-gray-500 mt-1">
-                    {type.percentDesperdicio >= 20 ? 'Crítico' : 
-                     type.percentDesperdicio >= 15 ? 'Elevado' :
-                     type.percentDesperdicio >= 10 ? 'Moderado' : 'Aceitável'}
+                    {type.percentDesperdicio >= 20 ? 'Crítico' :
+                      type.percentDesperdicio >= 15 ? 'Elevado' :
+                        type.percentDesperdicio >= 10 ? 'Moderado' : 'Aceitável'}
                   </div>
                 </div>
               </div>
@@ -451,8 +452,8 @@ const DashboardFinanceiro = ({ data }) => {
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidCostData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="period" 
+              <XAxis
+                dataKey="period"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
@@ -460,39 +461,39 @@ const DashboardFinanceiro = ({ data }) => {
               />
               <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
               <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
-              <Tooltip 
+              <Tooltip
                 formatter={(value, name) => [
-                  name.includes('custo') || name.includes('desperdicio') ? formatCurrency(value) : formatNumber(value), 
+                  name.includes('custo') || name.includes('desperdicio') ? formatCurrency(value) : formatNumber(value),
                   name === 'custoCovid' ? 'Custo COVID' :
-                  name === 'desperdicioCovid' ? 'Desperdício COVID' :
-                  name === 'casosCovid' ? 'Casos COVID' : name
+                    name === 'desperdicioCovid' ? 'Desperdício COVID' :
+                      name === 'casosCovid' ? 'Casos COVID' : name
                 ]}
                 labelFormatter={(label) => `Período: ${label}`}
               />
               <Legend />
-              <Line 
+              <Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="custoCovid" 
-                stroke="#f97316" 
+                type="monotone"
+                dataKey="custoCovid"
+                stroke="#f97316"
                 strokeWidth={3}
                 dot={{ fill: '#f97316', strokeWidth: 2, r: 4 }}
                 name="Custo COVID"
               />
-              <Line 
+              <Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="desperdicioCovid" 
-                stroke="#dc2626" 
+                type="monotone"
+                dataKey="desperdicioCovid"
+                stroke="#dc2626"
                 strokeWidth={3}
                 dot={{ fill: '#dc2626', strokeWidth: 2, r: 4 }}
                 name="Desperdício COVID"
               />
-              <Line 
+              <Line
                 yAxisId="right"
-                type="monotone" 
-                dataKey="casosCovid" 
-                stroke="#0891b2" 
+                type="monotone"
+                dataKey="casosCovid"
+                stroke="#0891b2"
                 strokeWidth={3}
                 dot={{ fill: '#0891b2', strokeWidth: 2, r: 4 }}
                 name="Casos COVID"

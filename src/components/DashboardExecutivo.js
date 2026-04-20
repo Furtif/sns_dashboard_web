@@ -99,7 +99,7 @@ const DashboardExecutivo = ({ data }) => {
           </p>
           <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
             <div className="text-sm text-yellow-700">
-              <strong>Dica:</strong> Os dados estão disponíveis de 2016 a 2026. 
+              <strong>Dica:</strong> Os dados estão disponíveis de 2016 a 2026.
               Use o filtro "Todo o período" ou "Últimos 24 meses" para garantir dados.
             </div>
           </div>
@@ -112,7 +112,7 @@ const DashboardExecutivo = ({ data }) => {
     <div className="fade-in">
       {/* KPIs Principais */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}>
           <div className="metric-value" style={{ color: '#1e40af' }}>
             {formatNumber(data.totalAtendimentos)}
           </div>
@@ -122,7 +122,7 @@ const DashboardExecutivo = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
           <div className="metric-value" style={{ color: getScoreColor(data.scoreIneficienciaGlobal) }}>
             {data.scoreIneficienciaGlobal?.toFixed(1) || '0'}
           </div>
@@ -132,7 +132,7 @@ const DashboardExecutivo = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
           <div className="metric-value" style={{ color: data.percentUrgenciasFalsas >= 35 ? '#dc2626' : data.percentUrgenciasFalsas >= 25 ? '#ea580c' : '#16a34a' }}>
             {formatPercent(data.percentUrgenciasFalsas)}
           </div>
@@ -142,7 +142,7 @@ const DashboardExecutivo = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
           <div className="metric-value" style={{ color: '#059669' }}>
             {formatCurrency(data.custoDesperdicadoEstimado)}
           </div>
@@ -151,52 +151,53 @@ const DashboardExecutivo = ({ data }) => {
             Estimativa anual
           </div>
         </div>
+
+        {/* KPIs COVID-19 */}
+        {data.totalCasosCovid > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
+              <div className="metric-value" style={{ color: '#7c3aed' }}>
+                {formatNumber(data.totalCasosCovid)}
+              </div>
+              <div className="metric-label">Casos COVID-19</div>
+              <div className="metric-change neutral">
+                Nas urgências
+              </div>
+            </div>
+
+            <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+              <div className="metric-value" style={{ color: '#dc2626' }}>
+                {formatNumber(data.totalObitosCovid)}
+              </div>
+              <div className="metric-label">Óbitos COVID-19</div>
+              <div className="metric-change negative">
+                Letalidade: {data.letalidadeCovid?.toFixed(2) || '0'}%
+              </div>
+            </div>
+
+            <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
+              <div className="metric-value" style={{ color: '#2563eb' }}>
+                {formatNumber(data.totalInternamentosCovid)}
+              </div>
+              <div className="metric-label">Internamentos COVID</div>
+              <div className="metric-change neutral">
+                {data.totalCasosCovid > 0 ? ((data.totalInternamentosCovid / data.totalCasosCovid) * 100).toFixed(1) : '0'}% dos casos
+              </div>
+            </div>
+
+            <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
+              <div className="metric-value" style={{ color: '#059669' }}>
+                {formatPercent(data.percentCovidGlobal)}
+              </div>
+              <div className="metric-label">% COVID/Urgências</div>
+              <div className="metric-change neutral">
+                Do total de atendimentos
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-
-      {/* KPIs COVID-19 */}
-      {data.totalCasosCovid > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
-            <div className="metric-value" style={{ color: '#7c3aed' }}>
-              {formatNumber(data.totalCasosCovid)}
-            </div>
-            <div className="metric-label">Casos COVID-19</div>
-            <div className="metric-change neutral">
-              Nas urgências
-            </div>
-          </div>
-
-          <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
-            <div className="metric-value" style={{ color: '#dc2626' }}>
-              {formatNumber(data.totalObitosCovid)}
-            </div>
-            <div className="metric-label">Óbitos COVID-19</div>
-            <div className="metric-change negative">
-              Letalidade: {data.letalidadeCovid?.toFixed(2) || '0'}%
-            </div>
-          </div>
-
-          <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
-            <div className="metric-value" style={{ color: '#2563eb' }}>
-              {formatNumber(data.totalInternamentosCovid)}
-            </div>
-            <div className="metric-label">Internamentos COVID</div>
-            <div className="metric-change neutral">
-              {data.totalCasosCovid > 0 ? ((data.totalInternamentosCovid / data.totalCasosCovid) * 100).toFixed(1) : '0'}% dos casos
-            </div>
-          </div>
-
-          <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
-            <div className="metric-value" style={{ color: '#059669' }}>
-              {formatPercent(data.percentCovidGlobal)}
-            </div>
-            <div className="metric-label">% COVID/Urgências</div>
-            <div className="metric-change neutral">
-              Do total de atendimentos
-            </div>
-          </div>
-        </div>
-      )}
+      <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Principais */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -206,34 +207,34 @@ const DashboardExecutivo = ({ data }) => {
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={timeSeriesData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="period" 
+              <XAxis
+                dataKey="period"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
                 height={60}
               />
               <YAxis tick={{ fontSize: 12 }} />
-              <Tooltip 
+              <Tooltip
                 formatter={(value, name) => [
-                  formatNumber(value), 
-                  name === 'totalAtendimentos' ? 'Total Atendimentos' : 
-                  name === 'urgenciasFalsas' ? 'Urgências Falsas' : name
+                  formatNumber(value),
+                  name === 'totalAtendimentos' ? 'Total Atendimentos' :
+                    name === 'urgenciasFalsas' ? 'Urgências Falsas' : name
                 ]}
                 labelFormatter={(label) => `Período: ${label}`}
               />
               <Legend />
-              <Line 
-                type="monotone" 
-                dataKey="totalAtendimentos" 
-                stroke="#1e40af" 
+              <Line
+                type="monotone"
+                dataKey="totalAtendimentos"
+                stroke="#1e40af"
                 strokeWidth={2}
                 name="Total Atendimentos"
               />
-              <Line 
-                type="monotone" 
-                dataKey="urgenciasFalsas" 
-                stroke="#dc2626" 
+              <Line
+                type="monotone"
+                dataKey="urgenciasFalsas"
+                stroke="#dc2626"
                 strokeWidth={2}
                 name="Urgências Falsas"
               />
@@ -336,19 +337,19 @@ const DashboardExecutivo = ({ data }) => {
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">% Desperdício</span>
               <span className="font-semibold" style={{ marginLeft: '0.5rem', letterSpacing: '0.02em' }}>
-                {data.despesaTotalEstimada > 0 ? 
-                  formatPercent((data.custoDesperdicadoEstimado / data.despesaTotalEstimada) * 100) : 
+                {data.despesaTotalEstimada > 0 ?
+                  formatPercent((data.custoDesperdicadoEstimado / data.despesaTotalEstimada) * 100) :
                   'N/A'
                 }
               </span>
             </div>
             <div className="mt-2">
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-red-600 h-2 rounded-full" 
-                  style={{ 
-                    width: `${data.despesaTotalEstimada > 0 ? 
-                      (data.custoDesperdicadoEstimado / data.despesaTotalEstimada) * 100 : 0}%` 
+                <div
+                  className="bg-red-600 h-2 rounded-full"
+                  style={{
+                    width: `${data.despesaTotalEstimada > 0 ?
+                      (data.custoDesperdicadoEstimado / data.despesaTotalEstimada) * 100 : 0}%`
                   }}
                 ></div>
               </div>
@@ -364,44 +365,44 @@ const DashboardExecutivo = ({ data }) => {
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidTimeSeriesData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="period" 
+              <XAxis
+                dataKey="period"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
                 height={60}
               />
               <YAxis tick={{ fontSize: 12 }} />
-              <Tooltip 
+              <Tooltip
                 formatter={(value, name) => [
-                  formatNumber(value), 
-                  name === 'casosCovid' ? 'Casos COVID' : 
-                  name === 'obitosCovid' ? 'Óbitos COVID' : 
-                  name === 'internamentosCovid' ? 'Internamentos COVID' : name
+                  formatNumber(value),
+                  name === 'casosCovid' ? 'Casos COVID' :
+                    name === 'obitosCovid' ? 'Óbitos COVID' :
+                      name === 'internamentosCovid' ? 'Internamentos COVID' : name
                 ]}
                 labelFormatter={(label) => `Período: ${label}`}
               />
               <Legend />
-              <Line 
-                type="monotone" 
-                dataKey="casosCovid" 
-                stroke="#f97316" 
+              <Line
+                type="monotone"
+                dataKey="casosCovid"
+                stroke="#f97316"
                 strokeWidth={3}
                 dot={{ fill: '#f97316', strokeWidth: 2, r: 4 }}
                 name="Casos COVID"
               />
-              <Line 
-                type="monotone" 
-                dataKey="obitosCovid" 
-                stroke="#dc2626" 
+              <Line
+                type="monotone"
+                dataKey="obitosCovid"
+                stroke="#dc2626"
                 strokeWidth={3}
                 dot={{ fill: '#dc2626', strokeWidth: 2, r: 4 }}
                 name="Óbitos COVID"
               />
-              <Line 
-                type="monotone" 
-                dataKey="internamentosCovid" 
-                stroke="#0891b2" 
+              <Line
+                type="monotone"
+                dataKey="internamentosCovid"
+                stroke="#0891b2"
                 strokeWidth={3}
                 dot={{ fill: '#0891b2', strokeWidth: 2, r: 4 }}
                 name="Internamentos COVID"
@@ -420,25 +421,25 @@ const DashboardExecutivo = ({ data }) => {
           <div className="space-y-2">
             {data.percentUrgenciasFalsas >= 35 && (
               <div className="text-sm text-orange-700">
-                <strong>Crítico:</strong> Percentagem de urgências falsas muito elevada. 
+                <strong>Crítico:</strong> Percentagem de urgências falsas muito elevada.
                 Recomenda-se campanha de sensibilização e reforço de cuidados de saúde primários.
               </div>
             )}
             {data.racioEnfermeiroMedico < 1.5 && (
               <div className="text-sm text-orange-700">
-                <strong>Recursos Humanos:</strong> Défice crítico de enfermeiros. 
+                <strong>Recursos Humanos:</strong> Défice crítico de enfermeiros.
                 Rácio recomendado OMS: 2:1 (enfermeiros:médicos).
               </div>
             )}
             {data.tempoEsperaMedio > 90 && (
               <div className="text-sm text-orange-700">
-                <strong>Tempos de Espera:</strong> Valores perigosos acima de 90 minutos. 
+                <strong>Tempos de Espera:</strong> Valores perigosos acima de 90 minutos.
                 Necessária intervenção imediata no fluxo de triagem.
               </div>
             )}
             {data.scoreIneficienciaGlobal >= 50 && (
               <div className="text-sm text-orange-700">
-                <strong>Score Global:</strong> Sistema com baixa eficiência geral. 
+                <strong>Score Global:</strong> Sistema com baixa eficiência geral.
                 Recomenda-se auditoria completa e plano de melhoria.
               </div>
             )}

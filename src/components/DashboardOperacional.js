@@ -88,8 +88,8 @@ const DashboardOperacional = ({ data }) => {
             existing.casosCovid += row.CasosCovid || 0;
             existing.obitosCovid += row.ObitosCovid || 0;
             existing.internamentosCovid += row.InternamentosCovid || 0;
-            existing.percentUrgenciasFalsas = (existing.urgenciasFalsas + (row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0)) / 
-                                               (existing.totalAtendimentos + (row.TotalAtendimentos || 0)) * 100;
+            existing.percentUrgenciasFalsas = (existing.urgenciasFalsas + (row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0)) /
+              (existing.totalAtendimentos + (row.TotalAtendimentos || 0)) * 100;
             existing.urgenciasFalsas += (row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0);
             existing.totalAtendimentos += row.TotalAtendimentos || 0;
           } else {
@@ -152,7 +152,7 @@ const DashboardOperacional = ({ data }) => {
           </p>
           <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
             <div className="text-sm text-yellow-700">
-              <strong>Dica:</strong> Os dados estão disponíveis de 2016 a 2026. 
+              <strong>Dica:</strong> Os dados estão disponíveis de 2016 a 2026.
               Use o filtro "Todo o período" ou "Últimos 24 meses" para garantir dados.
             </div>
           </div>
@@ -167,7 +167,7 @@ const DashboardOperacional = ({ data }) => {
       <div className="filters">
         <div className="filter-group">
           <label className="filter-label">Região:</label>
-          <select 
+          <select
             className="filter-select"
             value={selectedRegion}
             onChange={(e) => setSelectedRegion(e.target.value)}
@@ -183,7 +183,7 @@ const DashboardOperacional = ({ data }) => {
 
         <div className="filter-group">
           <label className="filter-label">Instituição:</label>
-          <select 
+          <select
             className="filter-select"
             value={selectedInstitution}
             onChange={(e) => setSelectedInstitution(e.target.value)}
@@ -200,7 +200,7 @@ const DashboardOperacional = ({ data }) => {
 
       {/* KPIs Operacionais */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
           <div className="metric-value" style={{ color: '#1e40af' }}>
             {filteredInstitutions.length}
           </div>
@@ -210,12 +210,14 @@ const DashboardOperacional = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
-          <div className="metric-value" style={{ color: getEfficiencyColor(
-            filteredInstitutions.reduce((sum, inst) => sum + inst.percentUrgenciasFalsas, 0) / filteredInstitutions.length
-          ) }}>
-            {filteredInstitutions.length > 0 ? 
-              formatPercent(filteredInstitutions.reduce((sum, inst) => sum + inst.percentUrgenciasFalsas, 0) / filteredInstitutions.length) : 
+        <div className="metric-card" style={{ borderLeft: '4px solid #8f2800ff' }}>
+          <div className="metric-value" style={{
+            color: getEfficiencyColor(
+              filteredInstitutions.reduce((sum, inst) => sum + inst.percentUrgenciasFalsas, 0) / filteredInstitutions.length
+            )
+          }}>
+            {filteredInstitutions.length > 0 ?
+              formatPercent(filteredInstitutions.reduce((sum, inst) => sum + inst.percentUrgenciasFalsas, 0) / filteredInstitutions.length) :
               '0%'
             }
           </div>
@@ -225,15 +227,17 @@ const DashboardOperacional = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
-          <div className="metric-value" style={{ color: getRacioColor(
-            filteredInstitutions.filter(i => i.racioEnfermeiroMedico > 0)
-              .reduce((sum, inst) => sum + inst.racioEnfermeiroMedico, 0) / 
+        <div className="metric-card" style={{ borderLeft: '4px solid #3aed4979' }}>
+          <div className="metric-value" style={{
+            color: getRacioColor(
+              filteredInstitutions.filter(i => i.racioEnfermeiroMedico > 0)
+                .reduce((sum, inst) => sum + inst.racioEnfermeiroMedico, 0) /
               filteredInstitutions.filter(i => i.racioEnfermeiroMedico > 0).length
-          ) }}>
+            )
+          }}>
             {filteredInstitutions.filter(i => i.racioEnfermeiroMedico > 0).length > 0 ?
               (filteredInstitutions.filter(i => i.racioEnfermeiroMedico > 0)
-                .reduce((sum, inst) => sum + inst.racioEnfermeiroMedico, 0) / 
+                .reduce((sum, inst) => sum + inst.racioEnfermeiroMedico, 0) /
                 filteredInstitutions.filter(i => i.racioEnfermeiroMedico > 0).length).toFixed(2) :
               'N/A'
             }
@@ -244,9 +248,9 @@ const DashboardOperacional = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
           <div className="metric-value" style={{ color: '#059669' }}>
-            {filteredInstitutions.length > 0 ? 
+            {filteredInstitutions.length > 0 ?
               formatNumber(filteredInstitutions.reduce((sum, inst) => sum + inst.totalAtendimentos, 0)) :
               '0'
             }
@@ -256,52 +260,53 @@ const DashboardOperacional = ({ data }) => {
             Período selecionado
           </div>
         </div>
+
+        {/* KPIs COVID-19 Operacional */}
+        {data.totalCasosCovid > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
+              <div className="metric-value" style={{ color: '#7c3aed' }}>
+                {formatNumber(data.totalCasosCovid)}
+              </div>
+              <div className="metric-label">Casos COVID-19</div>
+              <div className="metric-change neutral">
+                Nas urgências
+              </div>
+            </div>
+
+            <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+              <div className="metric-value" style={{ color: '#dc2626' }}>
+                {formatNumber(data.totalObitosCovid)}
+              </div>
+              <div className="metric-label">Óbitos COVID-19</div>
+              <div className="metric-change negative">
+                {data.letalidadeCovid?.toFixed(2) || '0'}% letalidade
+              </div>
+            </div>
+
+            <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
+              <div className="metric-value" style={{ color: '#2563eb' }}>
+                {formatNumber(data.totalInternamentosCovid)}
+              </div>
+              <div className="metric-label">Internamentos COVID</div>
+              <div className="metric-change neutral">
+                {data.totalCasosCovid > 0 ? ((data.totalInternamentosCovid / data.totalCasosCovid) * 100).toFixed(1) : '0'}% taxa
+              </div>
+            </div>
+
+            <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
+              <div className="metric-value" style={{ color: '#059669' }}>
+                {formatPercent(data.percentCovidGlobal)}
+              </div>
+              <div className="metric-label">Impacto COVID</div>
+              <div className="metric-change neutral">
+                % do total urgências
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-
-      {/* KPIs COVID-19 Operacional */}
-      {data.totalCasosCovid > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
-            <div className="metric-value" style={{ color: '#7c3aed' }}>
-              {formatNumber(data.totalCasosCovid)}
-            </div>
-            <div className="metric-label">Casos COVID-19</div>
-            <div className="metric-change neutral">
-              Nas urgências
-            </div>
-          </div>
-
-          <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
-            <div className="metric-value" style={{ color: '#dc2626' }}>
-              {formatNumber(data.totalObitosCovid)}
-            </div>
-            <div className="metric-label">Óbitos COVID-19</div>
-            <div className="metric-change negative">
-              {data.letalidadeCovid?.toFixed(2) || '0'}% letalidade
-            </div>
-          </div>
-
-          <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
-            <div className="metric-value" style={{ color: '#2563eb' }}>
-              {formatNumber(data.totalInternamentosCovid)}
-            </div>
-            <div className="metric-label">Internamentos COVID</div>
-            <div className="metric-change neutral">
-              {data.totalCasosCovid > 0 ? ((data.totalInternamentosCovid / data.totalCasosCovid) * 100).toFixed(1) : '0'}% taxa
-            </div>
-          </div>
-
-          <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
-            <div className="metric-value" style={{ color: '#059669' }}>
-              {formatPercent(data.percentCovidGlobal)}
-            </div>
-            <div className="metric-label">Impacto COVID</div>
-            <div className="metric-change neutral">
-              % do total urgências
-            </div>
-          </div>
-        </div>
-      )}
+      <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Operacionais */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -311,8 +316,8 @@ const DashboardOperacional = ({ data }) => {
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={monthlyData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="period" 
+              <XAxis
+                dataKey="period"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
@@ -320,29 +325,29 @@ const DashboardOperacional = ({ data }) => {
               />
               <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
               <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
-              <Tooltip 
+              <Tooltip
                 formatter={(value, name) => [
-                  name.includes('percent') ? formatPercent(value) : formatNumber(value), 
+                  name.includes('percent') ? formatPercent(value) : formatNumber(value),
                   name === 'percentUrgenciasFalsas' ? '% Urgências Falsas' :
-                  name === 'racioEnfermeiroMedico' ? 'Rácio Enf./Méd.' :
-                  name === 'atendimentosPorMedico' ? 'Atend./Médico' : name
+                    name === 'racioEnfermeiroMedico' ? 'Rácio Enf./Méd.' :
+                      name === 'atendimentosPorMedico' ? 'Atend./Médico' : name
                 ]}
                 labelFormatter={(label) => `Período: ${label}`}
               />
               <Legend />
-              <Line 
+              <Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="percentUrgenciasFalsas" 
-                stroke="#16a34a" 
+                type="monotone"
+                dataKey="percentUrgenciasFalsas"
+                stroke="#16a34a"
                 strokeWidth={2}
                 name="% Urgências Falsas"
               />
-              <Line 
+              <Line
                 yAxisId="right"
-                type="monotone" 
-                dataKey="racioEnfermeiroMedico" 
-                stroke="#2563eb" 
+                type="monotone"
+                dataKey="racioEnfermeiroMedico"
+                stroke="#2563eb"
                 strokeWidth={2}
                 name="Rácio Enf./Méd."
               />
@@ -356,17 +361,17 @@ const DashboardOperacional = ({ data }) => {
           <ResponsiveContainer width="100%" height={300}>
             <ScatterChart data={filteredInstitutions}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="atendimentosPorMes" 
+              <XAxis
+                dataKey="atendimentosPorMes"
                 name="Volume Mensal"
                 tick={{ fontSize: 12 }}
               />
-              <YAxis 
-                dataKey="percentUrgenciasFalsas" 
+              <YAxis
+                dataKey="percentUrgenciasFalsas"
                 name="% Urgências Falsas"
                 tick={{ fontSize: 12 }}
               />
-              <Tooltip 
+              <Tooltip
                 cursor={{ strokeDasharray: '3 3' }}
                 content={({ active, payload }) => {
                   if (active && payload && payload.length) {
@@ -383,8 +388,8 @@ const DashboardOperacional = ({ data }) => {
                   return null;
                 }}
               />
-              <Scatter 
-                dataKey="percentUrgenciasFalsas" 
+              <Scatter
+                dataKey="percentUrgenciasFalsas"
                 fill="#1e40af"
               />
             </ScatterChart>
@@ -399,8 +404,8 @@ const DashboardOperacional = ({ data }) => {
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidOperationalData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="period" 
+              <XAxis
+                dataKey="period"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
@@ -408,49 +413,49 @@ const DashboardOperacional = ({ data }) => {
               />
               <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
               <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
-              <Tooltip 
+              <Tooltip
                 formatter={(value, name) => [
-                  name.includes('percent') ? formatPercent(value) : formatNumber(value), 
+                  name.includes('percent') ? formatPercent(value) : formatNumber(value),
                   name === 'casosCovid' ? 'Casos COVID' :
-                  name === 'obitosCovid' ? 'Óbitos COVID' :
-                  name === 'internamentosCovid' ? 'Internamentos COVID' :
-                  name === 'percentUrgenciasFalsas' ? '% Urgências Falsas' : name
+                    name === 'obitosCovid' ? 'Óbitos COVID' :
+                      name === 'internamentosCovid' ? 'Internamentos COVID' :
+                        name === 'percentUrgenciasFalsas' ? '% Urgências Falsas' : name
                 ]}
                 labelFormatter={(label) => `Período: ${label}`}
               />
               <Legend />
-              <Line 
+              <Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="casosCovid" 
-                stroke="#f97316" 
+                type="monotone"
+                dataKey="casosCovid"
+                stroke="#f97316"
                 strokeWidth={3}
                 dot={{ fill: '#f97316', strokeWidth: 2, r: 4 }}
                 name="Casos COVID"
               />
-              <Line 
+              <Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="obitosCovid" 
-                stroke="#dc2626" 
+                type="monotone"
+                dataKey="obitosCovid"
+                stroke="#dc2626"
                 strokeWidth={3}
                 dot={{ fill: '#dc2626', strokeWidth: 2, r: 4 }}
                 name="Óbitos COVID"
               />
-              <Line 
+              <Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="internamentosCovid" 
-                stroke="#0891b2" 
+                type="monotone"
+                dataKey="internamentosCovid"
+                stroke="#0891b2"
                 strokeWidth={3}
                 dot={{ fill: '#0891b2', strokeWidth: 2, r: 4 }}
                 name="Internamentos COVID"
               />
-              <Line 
+              <Line
                 yAxisId="right"
-                type="monotone" 
-                dataKey="percentUrgenciasFalsas" 
-                stroke="#65a30d" 
+                type="monotone"
+                dataKey="percentUrgenciasFalsas"
+                stroke="#65a30d"
                 strokeWidth={2}
                 strokeDasharray="5 5"
                 name="% Urgências Falsas"
@@ -491,9 +496,9 @@ const DashboardOperacional = ({ data }) => {
                       {formatNumber(inst.totalAtendimentos)}
                     </td>
                     <td className="text-right">
-                      <span 
+                      <span
                         className="px-2 py-1 rounded text-xs font-medium"
-                        style={{ 
+                        style={{
                           backgroundColor: getEfficiencyColor(inst.percentUrgenciasFalsas) + '20',
                           color: getEfficiencyColor(inst.percentUrgenciasFalsas)
                         }}
@@ -534,7 +539,7 @@ const DashboardOperacional = ({ data }) => {
                     </td>
                     <td style={{ verticalAlign: 'middle' }}>{inst.tipo}</td>
                     <td className="text-right">
-                      <span 
+                      <span
                         className="px-2 py-1 rounded text-xs font-medium text-white"
                         style={{ backgroundColor: getEfficiencyColor(inst.percentUrgenciasFalsas) }}
                       >
@@ -542,9 +547,9 @@ const DashboardOperacional = ({ data }) => {
                       </span>
                     </td>
                     <td className="text-right">
-                      <span 
+                      <span
                         className="px-2 py-1 rounded text-xs font-medium"
-                        style={{ 
+                        style={{
                           backgroundColor: getRacioColor(inst.racioEnfermeiroMedico) + '20',
                           color: getRacioColor(inst.racioEnfermeiroMedico)
                         }}
@@ -572,7 +577,7 @@ const DashboardOperacional = ({ data }) => {
 
             const avgPercentFalsas = tipoData.reduce((sum, inst) => sum + inst.percentUrgenciasFalsas, 0) / tipoData.length;
             const avgRacio = tipoData.filter(i => i.racioEnfermeiroMedico > 0)
-              .reduce((sum, inst) => sum + inst.racioEnfermeiroMedico, 0) / 
+              .reduce((sum, inst) => sum + inst.racioEnfermeiroMedico, 0) /
               tipoData.filter(i => i.racioEnfermeiroMedico > 0).length;
 
             return (

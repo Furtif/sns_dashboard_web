@@ -209,7 +209,7 @@ const DashboardRH = ({ data }) => {
     <div className="fade-in">
       {/* KPIs RH */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}>
           <div className="metric-value" style={{ color: '#1e40af' }}>
             {formatNumber(totalProfissionaisNacional)}
           </div>
@@ -219,7 +219,7 @@ const DashboardRH = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #9b6411ff' }}>
           <div className="metric-value" style={{ color: getRacioColor(racioNacional) }}>
             {formatDecimal(racioNacional)}
           </div>
@@ -229,7 +229,7 @@ const DashboardRH = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #059669' }}>
           <div className="metric-value" style={{ color: '#059669' }}>
             {formatNumber(Math.round(avgProductivity))}
           </div>
@@ -239,7 +239,7 @@ const DashboardRH = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card">
+        <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
           <div className="metric-value" style={{ color: '#7c3aed' }}>
             {institutionRH.length}
           </div>
@@ -249,6 +249,7 @@ const DashboardRH = ({ data }) => {
           </div>
         </div>
       </div>
+      <div style={{ height: '20px' }}></div>
 
       {/* Gráficos RH */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
