@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/105</span>
+                <span class='fraction'>0/108</span>
             </div>
         
             
@@ -634,8 +634,7 @@
 <a name='L569'></a><a href='#L569'>569</a>
 <a name='L570'></a><a href='#L570'>570</a>
 <a name='L571'></a><a href='#L571'>571</a>
-<a name='L572'></a><a href='#L572'>572</a>
-<a name='L573'></a><a href='#L573'>573</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L572'></a><a href='#L572'>572</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -696,7 +695,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -736,7 +734,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -752,7 +749,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -908,6 +904,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1151,6 +1148,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1266,10 +1264,9 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
             enfermeirosPorMes: inst.enfermeiros / inst.mesesComDados,
             coberturaDados: (inst.mesesComDados / data.dadosBrutos.filter(<span class="fstat-no" title="function not covered" >r </span>=&gt; <span class="cstat-no" title="statement not covered" >r.InstituicaoID === inst.instituicaoId)</span>.length) * 100
           };
-        })
-        .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >b.totalAtendimentos - a.totalAtendimentos)</span>;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      setInstitutionRH(instArray);</span>
+        });
+      const instArraySorted = <span class="cstat-no" title="statement not covered" >[...instArray].sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >b.totalAtendimentos - a.totalAtendimentos)</span>;</span>
+<span class="cstat-no" title="statement not covered" >      setInstitutionRH(instArraySorted);</span>
 &nbsp;
       // Preparar série temporal RH
       const monthlyRH = <span class="cstat-no" title="statement not covered" >data.dadosBrutos</span>
@@ -1306,10 +1303,9 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
             atendimentosPorMedico: totalMedicos &gt; 0 ? item.totalAtendimentos / totalMedicos : 0,
             atendimentosPorEnfermeiro: item.enfermeiros &gt; 0 ? item.totalAtendimentos / item.enfermeiros : 0
           };
-        })
-        .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.period.localeCompare(b.period))</span>;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      setTimeSeriesRH(monthlyRH);</span>
+        });
+      const monthlyRHSorted = <span class="cstat-no" title="statement not covered" >[...monthlyRH].sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.period.localeCompare(b.period))</span>;</span>
+<span class="cstat-no" title="statement not covered" >      setTimeSeriesRH(monthlyRHSorted);</span>
 &nbsp;
       // Análise de produtividade
       const productivity = <span class="cstat-no" title="statement not covered" >instArray</span>
@@ -1322,10 +1318,9 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
           totalAtendimentos: inst.totalAtendimentos,
           totalMedicos: inst.totalMedicos,
           enfermeiros: inst.enfermeiros
-        }))
-        .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >b.atendimentosPorMedico - a.atendimentosPorMedico)</span>;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      setProductivityData(productivity);</span>
+        }));
+      const productivitySorted = <span class="cstat-no" title="statement not covered" >[...productivity].sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >b.atendimentosPorMedico - a.atendimentosPorMedico)</span>;</span>
+<span class="cstat-no" title="statement not covered" >      setProductivityData(productivitySorted);</span>
 &nbsp;
       // Dados por região
       const regions = <span class="cstat-no" title="statement not covered" >{};</span>
@@ -1421,7 +1416,7 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
     &lt;div className="fade-in"&gt;
       {/* KPIs RH */}
       &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"&gt;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}&gt;
           &lt;div className="metric-value" style={{ color: '#1e40af' }}&gt;
             {formatNumber(totalProfissionaisNacional)}
           &lt;/div&gt;
@@ -1431,7 +1426,7 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid '+ getRacioColor(racioNacional)}}&gt;
           &lt;div className="metric-value" style={{ color: getRacioColor(racioNacional) }}&gt;
             {formatDecimal(racioNacional)}
           &lt;/div&gt;
@@ -1441,7 +1436,7 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid #059669' }}&gt;
           &lt;div className="metric-value" style={{ color: '#059669' }}&gt;
             {formatNumber(Math.round(avgProductivity))}
           &lt;/div&gt;
@@ -1451,7 +1446,7 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}&gt;
           &lt;div className="metric-value" style={{ color: '#7c3aed' }}&gt;
             {institutionRH.length}
           &lt;/div&gt;
@@ -1461,6 +1456,7 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
+      &lt;div style={{ height: '20px' }}&gt;&lt;/div&gt;
 &nbsp;
       {/* Gráficos RH */}
       &lt;div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6"&gt;
@@ -1618,18 +1614,18 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
               &lt;tbody&gt;
                 {productivityData.slice(0, 10).map(<span class="fstat-no" title="function not covered" >(i</span>nst, index) =&gt; (
 <span class="cstat-no" title="statement not covered" >                  &lt;tr key={inst.instituicaoNome}&gt;</span>
-                    &lt;td className="font-medium"&gt;
+                    &lt;td className="font-medium" data-label="Instituição"&gt;
                       &lt;div className="flex items-center gap-2"&gt;
                         &lt;div&gt;
                           &lt;div&gt;{inst.instituicaoNome}&lt;/div&gt;
                           &lt;div className="text-xs text-gray-500 mobile-only"&gt;
-                            {inst.tipo} Rácio: {formatDecimal(inst.racioEnfermeiroMedico)}
+                            Total: {formatNumber(inst.totalAtendimentos)}
                           &lt;/div&gt;
                         &lt;/div&gt;
                       &lt;/div&gt;
                     &lt;/td&gt;
-                    &lt;td className="text-right"&gt;{inst.tipo}&lt;/td&gt;
-                    &lt;td className="text-right font-medium"&gt;
+                    &lt;td className="text-right" data-label="Tipo"&gt;{inst.tipo}&lt;/td&gt;
+                    &lt;td className="text-right font-medium" data-label="Atend./Médico"&gt;
                       &lt;span 
                         className="px-2 py-1 rounded text-xs font-medium"
                         style={{ 
@@ -1640,7 +1636,7 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
                         {formatNumber(inst.atendimentosPorMedico)}
                       &lt;/span&gt;
                     &lt;/td&gt;
-                    &lt;td className="text-right"&gt;
+                    &lt;td className="text-right" data-label="Rácio"&gt;
                       &lt;span 
                         className="px-2 py-1 rounded text-xs font-medium"
                         style={{ 
@@ -1674,7 +1670,7 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
                 &lt;/tr&gt;
               &lt;/thead&gt;
               &lt;tbody&gt;
-                {institutionRH
+                {[...institutionRH]
                   .filter(<span class="fstat-no" title="function not covered" >in</span>st =&gt; <span class="cstat-no" title="statement not covered" >inst.racioEnfermeiroMedico &lt; 1.5)</span>
                   .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.racioEnfermeiroMedico - b.racioEnfermeiroMedico)</span>
                   .slice(0, 10)
@@ -1682,7 +1678,7 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
                     const deficitEnfermeiros = <span class="cstat-no" title="statement not covered" >Math.max(0, inst.totalMedicos * 2 - inst.enfermeiros);</span>
 <span class="cstat-no" title="statement not covered" >                    return (</span>
                       &lt;tr key={inst.instituicaoId}&gt;
-                        &lt;td className="font-medium"&gt;
+                        &lt;td className="font-medium" data-label="Instituição"&gt;
                           &lt;div className="flex items-center gap-2"&gt;
                             &lt;div&gt;
                               &lt;div&gt;{inst.instituicaoNome}&lt;/div&gt;
@@ -1692,8 +1688,8 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
                             &lt;/div&gt;
                           &lt;/div&gt;
                         &lt;/td&gt;
-                        &lt;td className="text-right"&gt;{inst.tipo}&lt;/td&gt;
-                        &lt;td className="text-right"&gt;
+                        &lt;td className="text-right" data-label="Tipo"&gt;{inst.tipo}&lt;/td&gt;
+                        &lt;td className="text-right" data-label="Rácio"&gt;
                           &lt;span 
                             className="px-2 py-1 rounded text-xs font-medium text-white"
                             style={{ backgroundColor: '#dc2626' }}
@@ -1701,7 +1697,7 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
                             {formatDecimal(inst.racioEnfermeiroMedico)}
                           &lt;/span&gt;
                         &lt;/td&gt;
-                        &lt;td className="text-right font-medium text-red-600"&gt;
+                        &lt;td className="text-right font-medium text-red-600" data-label="Défice"&gt;
                           {formatNumber(deficitEnfermeiros)}
                         &lt;/td&gt;
                       &lt;/tr&gt;
@@ -1739,7 +1735,8 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
-        &lt;div className="mt-6"&gt;
+        &lt;div className="mt-6"&gt;                 
+          &lt;div style={{ height: '10px' }}&gt;&lt;/div&gt;
           &lt;h4 className="font-semibold mb-3"&gt;Projeção de Impacto - Meta OMS&lt;/h4&gt;
           &lt;div className="grid grid-cols-1 md:grid-cols-3 gap-4"&gt;
             &lt;div className="metric-card border-blue-200 bg-blue-50"&gt;
@@ -1786,7 +1783,7 @@ export default DashboardRH;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-18T22:09:15.363Z
+                at 2026-04-21T09:28:54.098Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/59</span>
+                <span class='fraction'>0/61</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/128</span>
+                <span class='fraction'>0/132</span>
             </div>
         
             
@@ -517,7 +517,8 @@
 <a name='L452'></a><a href='#L452'>452</a>
 <a name='L453'></a><a href='#L453'>453</a>
 <a name='L454'></a><a href='#L454'>454</a>
-<a name='L455'></a><a href='#L455'>455</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L455'></a><a href='#L455'>455</a>
+<a name='L456'></a><a href='#L456'>456</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -547,7 +548,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -581,7 +581,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -630,6 +629,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -999,10 +1001,9 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
             });
           }
 <span class="cstat-no" title="statement not covered" >          return acc;</span>
-        }, [])
-        .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.period.localeCompare(b.period))</span>;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      setTimeSeriesData(seriesData);</span>
+        }, []);
+      const seriesDataSorted = <span class="cstat-no" title="statement not covered" >[...seriesData].sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.period.localeCompare(b.period))</span>;</span>
+<span class="cstat-no" title="statement not covered" >      setTimeSeriesData(seriesDataSorted);</span>
 &nbsp;
       // Preparar dados para gráfico de triagem
       const triagem = <span class="cstat-no" title="statement not covered" >[</span>
@@ -1033,10 +1034,9 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
             });
           }
 <span class="cstat-no" title="statement not covered" >          return acc;</span>
-        }, [])
-        .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.period.localeCompare(b.period))</span>;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      setCovidTimeSeriesData(covidData);</span>
+        }, []);
+      const covidDataSorted = <span class="cstat-no" title="statement not covered" >[...covidData].sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.period.localeCompare(b.period))</span>;</span>
+<span class="cstat-no" title="statement not covered" >      setCovidTimeSeriesData(covidDataSorted);</span>
     }
   }, [data]);
 &nbsp;
@@ -1074,7 +1074,7 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
           &lt;/p&gt;
           &lt;div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg"&gt;
             &lt;div className="text-sm text-yellow-700"&gt;
-              &lt;strong&gt;Dica:&lt;/strong&gt; Os dados estão disponíveis de 2016 a 2026. 
+              &lt;strong&gt;Dica:&lt;/strong&gt; Os dados estão disponíveis de 2016 a 2026.
               Use o filtro "Todo o período" ou "Últimos 24 meses" para garantir dados.
             &lt;/div&gt;
           &lt;/div&gt;
@@ -1087,7 +1087,7 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
     &lt;div className="fade-in"&gt;
       {/* KPIs Principais */}
       &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"&gt;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}&gt;
           &lt;div className="metric-value" style={{ color: '#1e40af' }}&gt;
             {formatNumber(data.totalAtendimentos)}
           &lt;/div&gt;
@@ -1097,7 +1097,7 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid ' + getScoreColor(data.scoreIneficienciaGlobal) }}&gt;
           &lt;div className="metric-value" style={{ color: getScoreColor(data.scoreIneficienciaGlobal) }}&gt;
             {data.scoreIneficienciaGlobal?.toFixed(1) || '0'}
           &lt;/div&gt;
@@ -1107,7 +1107,7 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid ' + (data.percentUrgenciasFalsas &gt;= 35 ? '#dc2626' : data.percentUrgenciasFalsas &gt;= 25 ? '#ea580c' : '#16a34a') }}&gt;
           &lt;div className="metric-value" style={{ color: data.percentUrgenciasFalsas &gt;= 35 ? '#dc2626' : data.percentUrgenciasFalsas &gt;= 25 ? '#ea580c' : '#16a34a' }}&gt;
             {formatPercent(data.percentUrgenciasFalsas)}
           &lt;/div&gt;
@@ -1117,7 +1117,7 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid #059669' }}&gt;
           &lt;div className="metric-value" style={{ color: '#059669' }}&gt;
             {formatCurrency(data.custoDesperdicadoEstimado)}
           &lt;/div&gt;
@@ -1128,9 +1128,11 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
         &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
+&nbsp;
       {/* KPIs COVID-19 */}
       {data.totalCasosCovid &gt; 0 &amp;&amp; (
         &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"&gt;
+          &lt;div style={{ height: '1px' }}&gt;&lt;/div&gt;
           &lt;div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}&gt;
             &lt;div className="metric-value" style={{ color: '#7c3aed' }}&gt;
               {formatNumber(data.totalCasosCovid)}
@@ -1172,6 +1174,7 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
           &lt;/div&gt;
         &lt;/div&gt;
       )}
+      &lt;div style={{ height: '20px' }}&gt;&lt;/div&gt;
 &nbsp;
       {/* Gráficos Principais */}
       &lt;div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6"&gt;
@@ -1181,34 +1184,34 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
           &lt;ResponsiveContainer width="100%" height={300}&gt;
             &lt;LineChart data={timeSeriesData}&gt;
               &lt;CartesianGrid strokeDasharray="3 3" /&gt;
-              &lt;XAxis 
-                dataKey="period" 
+              &lt;XAxis
+                dataKey="period"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
                 height={60}
               /&gt;
               &lt;YAxis tick={{ fontSize: 12 }} /&gt;
-              &lt;Tooltip 
+              &lt;Tooltip
                 formatter={<span class="fstat-no" title="function not covered" >(v</span>alue, name) =&gt; <span class="cstat-no" title="statement not covered" >[</span>
-                  formatNumber(value), 
-                  name === 'totalAtendimentos' ? 'Total Atendimentos' : 
-                  name === 'urgenciasFalsas' ? 'Urgências Falsas' : name
+                  formatNumber(value),
+                  name === 'totalAtendimentos' ? 'Total Atendimentos' :
+                    name === 'urgenciasFalsas' ? 'Urgências Falsas' : name
                 ]}
                 labelFormatter={<span class="fstat-no" title="function not covered" >(l</span>abel) =&gt; <span class="cstat-no" title="statement not covered" >`Período: ${label}`}</span>
               /&gt;
               &lt;Legend /&gt;
-              &lt;Line 
-                type="monotone" 
-                dataKey="totalAtendimentos" 
-                stroke="#1e40af" 
+              &lt;Line
+                type="monotone"
+                dataKey="totalAtendimentos"
+                stroke="#1e40af"
                 strokeWidth={2}
                 name="Total Atendimentos"
               /&gt;
-              &lt;Line 
-                type="monotone" 
-                dataKey="urgenciasFalsas" 
-                stroke="#dc2626" 
+              &lt;Line
+                type="monotone"
+                dataKey="urgenciasFalsas"
+                stroke="#dc2626"
                 strokeWidth={2}
                 name="Urgências Falsas"
               /&gt;
@@ -1311,19 +1314,19 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
             &lt;div className="flex justify-between items-center"&gt;
               &lt;span className="text-sm text-gray-600"&gt;% Desperdício&lt;/span&gt;
               &lt;span className="font-semibold" style={{ marginLeft: '0.5rem', letterSpacing: '0.02em' }}&gt;
-                {data.despesaTotalEstimada &gt; 0 ? 
-                  formatPercent((data.custoDesperdicadoEstimado / data.despesaTotalEstimada) * 100) : 
+                {data.despesaTotalEstimada &gt; 0 ?
+                  formatPercent((data.custoDesperdicadoEstimado / data.despesaTotalEstimada) * 100) :
                   'N/A'
                 }
               &lt;/span&gt;
             &lt;/div&gt;
             &lt;div className="mt-2"&gt;
               &lt;div className="w-full bg-gray-200 rounded-full h-2"&gt;
-                &lt;div 
-                  className="bg-red-600 h-2 rounded-full" 
-                  style={{ 
-                    width: `${data.despesaTotalEstimada &gt; 0 ? 
-                      (data.custoDesperdicadoEstimado / data.despesaTotalEstimada) * 100 : 0}%` 
+                &lt;div
+                  className="bg-red-600 h-2 rounded-full"
+                  style={{
+                    width: `${data.despesaTotalEstimada &gt; 0 ?
+                      (data.custoDesperdicadoEstimado / data.despesaTotalEstimada) * 100 : 0}%`
                   }}
                 &gt;&lt;/div&gt;
               &lt;/div&gt;
@@ -1339,44 +1342,44 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
           &lt;ResponsiveContainer width="100%" height={300}&gt;
             &lt;LineChart data={covidTimeSeriesData}&gt;
               &lt;CartesianGrid strokeDasharray="3 3" /&gt;
-              &lt;XAxis 
-                dataKey="period" 
+              &lt;XAxis
+                dataKey="period"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
                 height={60}
               /&gt;
               &lt;YAxis tick={{ fontSize: 12 }} /&gt;
-              &lt;Tooltip 
+              &lt;Tooltip
                 formatter={<span class="fstat-no" title="function not covered" >(v</span>alue, name) =&gt; <span class="cstat-no" title="statement not covered" >[</span>
-                  formatNumber(value), 
-                  name === 'casosCovid' ? 'Casos COVID' : 
-                  name === 'obitosCovid' ? 'Óbitos COVID' : 
-                  name === 'internamentosCovid' ? 'Internamentos COVID' : name
+                  formatNumber(value),
+                  name === 'casosCovid' ? 'Casos COVID' :
+                    name === 'obitosCovid' ? 'Óbitos COVID' :
+                      name === 'internamentosCovid' ? 'Internamentos COVID' : name
                 ]}
                 labelFormatter={<span class="fstat-no" title="function not covered" >(l</span>abel) =&gt; <span class="cstat-no" title="statement not covered" >`Período: ${label}`}</span>
               /&gt;
               &lt;Legend /&gt;
-              &lt;Line 
-                type="monotone" 
-                dataKey="casosCovid" 
-                stroke="#f97316" 
+              &lt;Line
+                type="monotone"
+                dataKey="casosCovid"
+                stroke="#f97316"
                 strokeWidth={3}
                 dot={{ fill: '#f97316', strokeWidth: 2, r: 4 }}
                 name="Casos COVID"
               /&gt;
-              &lt;Line 
-                type="monotone" 
-                dataKey="obitosCovid" 
-                stroke="#dc2626" 
+              &lt;Line
+                type="monotone"
+                dataKey="obitosCovid"
+                stroke="#dc2626"
                 strokeWidth={3}
                 dot={{ fill: '#dc2626', strokeWidth: 2, r: 4 }}
                 name="Óbitos COVID"
               /&gt;
-              &lt;Line 
-                type="monotone" 
-                dataKey="internamentosCovid" 
-                stroke="#0891b2" 
+              &lt;Line
+                type="monotone"
+                dataKey="internamentosCovid"
+                stroke="#0891b2"
                 strokeWidth={3}
                 dot={{ fill: '#0891b2', strokeWidth: 2, r: 4 }}
                 name="Internamentos COVID"
@@ -1395,25 +1398,25 @@ const DashboardExecutivo = <span class="cstat-no" title="statement not covered" 
           &lt;div className="space-y-2"&gt;
             {data.percentUrgenciasFalsas &gt;= 35 &amp;&amp; (
               &lt;div className="text-sm text-orange-700"&gt;
-                &lt;strong&gt;Crítico:&lt;/strong&gt; Percentagem de urgências falsas muito elevada. 
+                &lt;strong&gt;Crítico:&lt;/strong&gt; Percentagem de urgências falsas muito elevada.
                 Recomenda-se campanha de sensibilização e reforço de cuidados de saúde primários.
               &lt;/div&gt;
             )}
             {data.racioEnfermeiroMedico &lt; 1.5 &amp;&amp; (
               &lt;div className="text-sm text-orange-700"&gt;
-                &lt;strong&gt;Recursos Humanos:&lt;/strong&gt; Défice crítico de enfermeiros. 
+                &lt;strong&gt;Recursos Humanos:&lt;/strong&gt; Défice crítico de enfermeiros.
                 Rácio recomendado OMS: 2:1 (enfermeiros:médicos).
               &lt;/div&gt;
             )}
             {data.tempoEsperaMedio &gt; 90 &amp;&amp; (
               &lt;div className="text-sm text-orange-700"&gt;
-                &lt;strong&gt;Tempos de Espera:&lt;/strong&gt; Valores perigosos acima de 90 minutos. 
+                &lt;strong&gt;Tempos de Espera:&lt;/strong&gt; Valores perigosos acima de 90 minutos.
                 Necessária intervenção imediata no fluxo de triagem.
               &lt;/div&gt;
             )}
             {data.scoreIneficienciaGlobal &gt;= 50 &amp;&amp; (
               &lt;div className="text-sm text-orange-700"&gt;
-                &lt;strong&gt;Score Global:&lt;/strong&gt; Sistema com baixa eficiência geral. 
+                &lt;strong&gt;Score Global:&lt;/strong&gt; Sistema com baixa eficiência geral.
                 Recomenda-se auditoria completa e plano de melhoria.
               &lt;/div&gt;
             )}
@@ -1432,7 +1435,7 @@ export default DashboardExecutivo;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-18T22:09:15.363Z
+                at 2026-04-21T09:28:54.098Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

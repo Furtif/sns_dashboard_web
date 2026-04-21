@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/94</span>
+                <span class='fraction'>0/96</span>
             </div>
         
             
@@ -621,11 +621,7 @@
 <a name='L556'></a><a href='#L556'>556</a>
 <a name='L557'></a><a href='#L557'>557</a>
 <a name='L558'></a><a href='#L558'>558</a>
-<a name='L559'></a><a href='#L559'>559</a>
-<a name='L560'></a><a href='#L560'>560</a>
-<a name='L561'></a><a href='#L561'>561</a>
-<a name='L562'></a><a href='#L562'>562</a>
-<a name='L563'></a><a href='#L563'>563</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L559'></a><a href='#L559'>559</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -698,7 +694,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -760,7 +755,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -912,6 +906,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1027,7 +1023,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1086,10 +1081,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1097,6 +1088,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1216,7 +1208,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
 <span class="cstat-no" title="statement not covered" >        if (regions[row.RegiaoID]) {</span>
           const totalAtendimentos = <span class="cstat-no" title="statement not covered" >row.TotalAtendimentos || 0;</span>
           const urgenciasFalsas = <span class="cstat-no" title="statement not covered" >(row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0);</span>
-          
+&nbsp;
 <span class="cstat-no" title="statement not covered" >          regions[row.RegiaoID].totalAtendimentos += totalAtendimentos;</span>
 <span class="cstat-no" title="statement not covered" >          regions[row.RegiaoID].urgenciasFalsas += urgenciasFalsas;</span>
 <span class="cstat-no" title="statement not covered" >          regions[row.RegiaoID].custoTotal += totalAtendimentos * 150;</span>
@@ -1239,7 +1231,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           const existing = <span class="cstat-no" title="statement not covered" >acc.find(<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item.period === row.Período)</span>;</span>
           const totalAtendimentos = <span class="cstat-no" title="statement not covered" >row.TotalAtendimentos || 0;</span>
           const urgenciasFalsas = <span class="cstat-no" title="statement not covered" >(row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0);</span>
-          
+&nbsp;
 <span class="cstat-no" title="statement not covered" >          if (existing) {</span>
 <span class="cstat-no" title="statement not covered" >            existing.custoTotal += totalAtendimentos * 150;</span>
 <span class="cstat-no" title="statement not covered" >            existing.custoDesperdicado += urgenciasFalsas * 120;</span>
@@ -1258,10 +1250,9 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           ...item,
           percentDesperdicio: item.custoTotal &gt; 0 ? (item.custoDesperdicado / item.custoTotal) * 100 : 0,
           custoMedioPorAtendimento: item.totalAtendimentos &gt; 0 ? item.custoTotal / item.totalAtendimentos : 0
-        }))
-        .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.period.localeCompare(b.period))</span>;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      setCostEvolution(monthly);</span>
+        }));
+      const monthlySorted = <span class="cstat-no" title="statement not covered" >[...monthly].sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.period.localeCompare(b.period))</span>;</span>
+<span class="cstat-no" title="statement not covered" >      setCostEvolution(monthlySorted);</span>
 &nbsp;
       // Análise de desperdício por tipo de instituição
       const wasteByType = <span class="cstat-no" title="statement not covered" >{};</span>
@@ -1281,7 +1272,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
 <span class="cstat-no" title="statement not covered" >        if (institution &amp;&amp; wasteByType[institution.Tipo]) {</span>
           const totalAtendimentos = <span class="cstat-no" title="statement not covered" >row.TotalAtendimentos || 0;</span>
           const urgenciasFalsas = <span class="cstat-no" title="statement not covered" >(row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0);</span>
-          
+&nbsp;
 <span class="cstat-no" title="statement not covered" >          wasteByType[institution.Tipo].totalAtendimentos += totalAtendimentos;</span>
 <span class="cstat-no" title="statement not covered" >          wasteByType[institution.Tipo].urgenciasFalsas += urgenciasFalsas;</span>
 <span class="cstat-no" title="statement not covered" >          wasteByType[institution.Tipo].custoTotal += totalAtendimentos * 150;</span>
@@ -1306,7 +1297,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           const existing = <span class="cstat-no" title="statement not covered" >acc.find(<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item.period === row.Período)</span>;</span>
           const covidCost = <span class="cstat-no" title="statement not covered" >(row.CasosCovid || 0) * 200;</span> // Custo estimado COVID: 200€
           const covidWaste = <span class="cstat-no" title="statement not covered" >(row.CasosCovid || 0) * 80;</span> // Desperdício adicional COVID
-          
+&nbsp;
 <span class="cstat-no" title="statement not covered" >          if (existing) {</span>
 <span class="cstat-no" title="statement not covered" >            existing.custoCovid += covidCost;</span>
 <span class="cstat-no" title="statement not covered" >            existing.desperdicioCovid += covidWaste;</span>
@@ -1320,10 +1311,9 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
             });
           }
 <span class="cstat-no" title="statement not covered" >          return acc;</span>
-        }, [])
-        .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.period.localeCompare(b.period))</span>;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      setCovidCostData(covidCosts);</span>
+        }, []);
+      const covidCostsSorted = <span class="cstat-no" title="statement not covered" >[...covidCosts].sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.period.localeCompare(b.period))</span>;</span>
+<span class="cstat-no" title="statement not covered" >      setCovidCostData(covidCostsSorted);</span>
     }
   }, [data]);
 &nbsp;
@@ -1353,7 +1343,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           &lt;/p&gt;
           &lt;div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg"&gt;
             &lt;div className="text-sm text-yellow-700"&gt;
-              &lt;strong&gt;Dica:&lt;/strong&gt; Os dados estão disponíveis de 2016 a 2026. 
+              &lt;strong&gt;Dica:&lt;/strong&gt; Os dados estão disponíveis de 2016 a 2026.
               Use o filtro "Todo o período" ou "Últimos 24 meses" para garantir dados.
             &lt;/div&gt;
           &lt;/div&gt;
@@ -1370,7 +1360,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
     &lt;div className="fade-in"&gt;
       {/* KPIs Financeiros */}
       &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"&gt;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}&gt;
           &lt;div className="metric-value" style={{ color: '#1e40af' }}&gt;
             {formatCurrency(totalCustoNacional)}
           &lt;/div&gt;
@@ -1380,7 +1370,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid ' + getWasteColor(percentDesperdicioNacional) }}&gt;
           &lt;div className="metric-value" style={{ color: getWasteColor(percentDesperdicioNacional) }}&gt;
             {formatCurrency(totalDesperdicioNacional)}
           &lt;/div&gt;
@@ -1390,7 +1380,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid #059669' }}&gt;
           &lt;div className="metric-value" style={{ color: '#059669' }}&gt;
             {formatCurrency(data.custoEstimadoPorEpisodio)}
           &lt;/div&gt;
@@ -1400,7 +1390,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
-        &lt;div className="metric-card"&gt;
+        &lt;div className="metric-card" style={{ borderLeft: '4px solid #ea580c' }}&gt;
           &lt;div className="metric-value" style={{ color: '#ea580c' }}&gt;
             {formatCurrency(120)}
           &lt;/div&gt;
@@ -1414,6 +1404,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
       {/* KPIs COVID-19 Financeiro */}
       {data.totalCasosCovid &gt; 0 &amp;&amp; (
         &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"&gt;
+          &lt;div style={{ height: '1px' }}&gt;&lt;/div&gt;
           &lt;div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}&gt;
             &lt;div className="metric-value" style={{ color: '#7c3aed' }}&gt;
               {formatCurrency(data.totalCasosCovid * 200)}
@@ -1455,6 +1446,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           &lt;/div&gt;
         &lt;/div&gt;
       )}
+      &lt;div style={{ height: '20px' }}&gt;&lt;/div&gt;
 &nbsp;
       {/* Gráficos Financeiros */}
       &lt;div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6"&gt;
@@ -1464,8 +1456,8 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           &lt;ResponsiveContainer width="100%" height={300}&gt;
             &lt;LineChart data={costEvolution}&gt;
               &lt;CartesianGrid strokeDasharray="3 3" /&gt;
-              &lt;XAxis 
-                dataKey="period" 
+              &lt;XAxis
+                dataKey="period"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
@@ -1473,37 +1465,37 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
               /&gt;
               &lt;YAxis yAxisId="left" tick={{ fontSize: 12 }} /&gt;
               &lt;YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} /&gt;
-              &lt;Tooltip 
+              &lt;Tooltip
                 formatter={<span class="fstat-no" title="function not covered" >(v</span>alue, name) =&gt; <span class="cstat-no" title="statement not covered" >[</span>
-                  name.includes('percent') ? formatPercent(value) : formatCurrency(value), 
+                  name.includes('percent') ? formatPercent(value) : formatCurrency(value),
                   name === 'custoTotal' ? 'Custo Total' :
-                  name === 'custoDesperdicado' ? 'Custo Desperdiçado' :
-                  name === 'percentDesperdicio' ? '% Desperdício' : name
+                    name === 'custoDesperdicado' ? 'Custo Desperdiçado' :
+                      name === 'percentDesperdicio' ? '% Desperdício' : name
                 ]}
                 labelFormatter={<span class="fstat-no" title="function not covered" >(l</span>abel) =&gt; <span class="cstat-no" title="statement not covered" >`Período: ${label}`}</span>
               /&gt;
               &lt;Legend /&gt;
-              &lt;Line 
+              &lt;Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="custoTotal" 
-                stroke="#1e40af" 
+                type="monotone"
+                dataKey="custoTotal"
+                stroke="#1e40af"
                 strokeWidth={2}
                 name="Custo Total"
               /&gt;
-              &lt;Line 
+              &lt;Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="custoDesperdicado" 
-                stroke="#dc2626" 
+                type="monotone"
+                dataKey="custoDesperdicado"
+                stroke="#dc2626"
                 strokeWidth={2}
                 name="Custo Desperdiçado"
               /&gt;
-              &lt;Line 
+              &lt;Line
                 yAxisId="right"
-                type="monotone" 
-                dataKey="percentDesperdicio" 
-                stroke="#ea580c" 
+                type="monotone"
+                dataKey="percentDesperdicio"
+                stroke="#ea580c"
                 strokeWidth={2}
                 name="% Desperdício"
               /&gt;
@@ -1554,19 +1546,19 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
                 &lt;/tr&gt;
               &lt;/thead&gt;
               &lt;tbody&gt;
-                {regionData
+                {[...regionData]
                   .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >b.custoDesperdicado - a.custoDesperdicado)</span>
                   .map(<span class="fstat-no" title="function not covered" >(r</span>egion) =&gt; (
 <span class="cstat-no" title="statement not covered" >                    &lt;tr key={region.regiaoId}&gt;</span>
-                      &lt;td className="font-medium"&gt;{region.regiaoNome}&lt;/td&gt;
-                      &lt;td className="text-right"&gt;{formatCurrency(region.custoTotal)}&lt;/td&gt;
-                      &lt;td className="text-right font-medium text-red-600"&gt;
+                      &lt;td className="font-medium" data-label="Região"&gt;{region.regiaoNome}&lt;/td&gt;
+                      &lt;td className="text-right" data-label="Custo Total"&gt;{formatCurrency(region.custoTotal)}&lt;/td&gt;
+                      &lt;td className="text-right font-medium text-red-600" data-label="Desperdício"&gt;
                         {formatCurrency(region.custoDesperdicado)}
                       &lt;/td&gt;
-                      &lt;td className="text-right"&gt;
-                        &lt;span 
+                      &lt;td className="text-right" data-label="% Desperdício"&gt;
+                        &lt;span
                           className="px-2 py-1 rounded text-xs font-medium"
-                          style={{ 
+                          style={{
                             backgroundColor: getWasteColor(region.percentDesperdicio) + '20',
                             color: getWasteColor(region.percentDesperdicio)
                           }}
@@ -1586,26 +1578,22 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           &lt;div className="card-header"&gt;
             &lt;h3 className="card-title"&gt;Desperdício por Tipo de Instituição&lt;/h3&gt;
           &lt;/div&gt;
-          &lt;div className="space-y-4"&gt;
+          &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"&gt;
             {wasteAnalysis.map(<span class="fstat-no" title="function not covered" >(t</span>ype) =&gt; (
-<span class="cstat-no" title="statement not covered" >              &lt;div key={type.tipo} className="border rounded-lg p-4"&gt;</span>
-                &lt;div className="flex justify-between items-center mb-2"&gt;
-                  &lt;h4 className="font-semibold text-lg"&gt;{type.tipo}&lt;/h4&gt;
-                  &lt;span className="text-sm text-gray-500"&gt;{type.instituicoes} instituições&lt;/span&gt;
+<span class="cstat-no" title="statement not covered" >              &lt;div key={type.tipo} className="metric-card"&gt;</span>
+                &lt;div className="metric-value" style={{ color: '#1e40af' }}&gt;
+                  {type.tipo}
                 &lt;/div&gt;
-                
-                &lt;div className="grid grid-cols-2 gap-4 mb-3"&gt;
-                  &lt;div&gt;
-                    &lt;div className="text-sm text-gray-600"&gt;Custo Total&lt;/div&gt;
-                    &lt;div className="font-medium"&gt;{formatCurrency(type.custoTotal)}&lt;/div&gt;
+                &lt;div className="metric-label"&gt;{type.instituicoes} instituições&lt;/div&gt;
+                &lt;div className="mt-3 space-y-2"&gt;
+                  &lt;div className="flex justify-between text-sm"&gt;
+                    &lt;span className="text-gray-600"&gt;Custo Total: &lt;/span&gt;
+                    &lt;span className="font-medium"&gt;{formatCurrency(type.custoTotal)}&lt;/span&gt;
                   &lt;/div&gt;
-                  &lt;div&gt;
-                    &lt;div className="text-sm text-gray-600"&gt;Desperdício&lt;/div&gt;
-                    &lt;div className="font-medium text-red-600"&gt;{formatCurrency(type.custoDesperdicado)}&lt;/div&gt;
+                  &lt;div className="flex justify-between text-sm"&gt;
+                    &lt;span className="text-gray-600"&gt;Desperdício: &lt;/span&gt;
+                    &lt;span className="font-medium text-red-600"&gt;{formatCurrency(type.custoDesperdicado)}&lt;/span&gt;
                   &lt;/div&gt;
-                &lt;/div&gt;
-&nbsp;
-                &lt;div className="space-y-2"&gt;
                   &lt;div className="flex justify-between text-sm"&gt;
                     &lt;span className="text-gray-600"&gt;% Urgências Falsas: &lt;/span&gt;
                     &lt;span className="font-medium"&gt;{formatPercent(type.percentUrgenciasFalsas)}&lt;/span&gt;
@@ -1615,18 +1603,17 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
                     &lt;span className="font-medium"&gt;{formatPercent(type.percentDesperdicio)}&lt;/span&gt;
                   &lt;/div&gt;
                 &lt;/div&gt;
-&nbsp;
                 &lt;div className="mt-3"&gt;
                   &lt;div className="w-full bg-gray-200 rounded-full h-2"&gt;
-                    &lt;div 
-                      className="bg-red-600 h-2 rounded-full transition-all duration-300" 
+                    &lt;div
+                      className="bg-red-600 h-2 rounded-full transition-all duration-300"
                       style={{ width: `${Math.min(type.percentDesperdicio, 100)}%` }}
                     &gt;&lt;/div&gt;
                   &lt;/div&gt;
                   &lt;div className="text-xs text-gray-500 mt-1"&gt;
-                    {type.percentDesperdicio &gt;= 20 ? 'Crítico' : 
-                     type.percentDesperdicio &gt;= 15 ? 'Elevado' :
-                     type.percentDesperdicio &gt;= 10 ? 'Moderado' : 'Aceitável'}
+                    {type.percentDesperdicio &gt;= 20 ? 'Crítico' :
+                      type.percentDesperdicio &gt;= 15 ? 'Elevado' :
+                        type.percentDesperdicio &gt;= 10 ? 'Moderado' : 'Aceitável'}
                   &lt;/div&gt;
                 &lt;/div&gt;
               &lt;/div&gt;
@@ -1642,8 +1629,8 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
           &lt;ResponsiveContainer width="100%" height={300}&gt;
             &lt;LineChart data={covidCostData}&gt;
               &lt;CartesianGrid strokeDasharray="3 3" /&gt;
-              &lt;XAxis 
-                dataKey="period" 
+              &lt;XAxis
+                dataKey="period"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
@@ -1651,39 +1638,39 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
               /&gt;
               &lt;YAxis yAxisId="left" tick={{ fontSize: 12 }} /&gt;
               &lt;YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} /&gt;
-              &lt;Tooltip 
+              &lt;Tooltip
                 formatter={<span class="fstat-no" title="function not covered" >(v</span>alue, name) =&gt; <span class="cstat-no" title="statement not covered" >[</span>
-                  name.includes('custo') || name.includes('desperdicio') ? formatCurrency(value) : formatNumber(value), 
+                  name.includes('custo') || name.includes('desperdicio') ? formatCurrency(value) : formatNumber(value),
                   name === 'custoCovid' ? 'Custo COVID' :
-                  name === 'desperdicioCovid' ? 'Desperdício COVID' :
-                  name === 'casosCovid' ? 'Casos COVID' : name
+                    name === 'desperdicioCovid' ? 'Desperdício COVID' :
+                      name === 'casosCovid' ? 'Casos COVID' : name
                 ]}
                 labelFormatter={<span class="fstat-no" title="function not covered" >(l</span>abel) =&gt; <span class="cstat-no" title="statement not covered" >`Período: ${label}`}</span>
               /&gt;
               &lt;Legend /&gt;
-              &lt;Line 
+              &lt;Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="custoCovid" 
-                stroke="#f97316" 
+                type="monotone"
+                dataKey="custoCovid"
+                stroke="#f97316"
                 strokeWidth={3}
                 dot={{ fill: '#f97316', strokeWidth: 2, r: 4 }}
                 name="Custo COVID"
               /&gt;
-              &lt;Line 
+              &lt;Line
                 yAxisId="left"
-                type="monotone" 
-                dataKey="desperdicioCovid" 
-                stroke="#dc2626" 
+                type="monotone"
+                dataKey="desperdicioCovid"
+                stroke="#dc2626"
                 strokeWidth={3}
                 dot={{ fill: '#dc2626', strokeWidth: 2, r: 4 }}
                 name="Desperdício COVID"
               /&gt;
-              &lt;Line 
+              &lt;Line
                 yAxisId="right"
-                type="monotone" 
-                dataKey="casosCovid" 
-                stroke="#0891b2" 
+                type="monotone"
+                dataKey="casosCovid"
+                stroke="#0891b2"
                 strokeWidth={3}
                 dot={{ fill: '#0891b2', strokeWidth: 2, r: 4 }}
                 name="Casos COVID"
@@ -1734,6 +1721,7 @@ const DashboardFinanceiro = <span class="cstat-no" title="statement not covered"
         &lt;/div&gt;
 &nbsp;
         &lt;div className="mt-6 p-4 bg-orange-50 border border-orange-200 rounded-lg"&gt;
+          &lt;div style={{ height: '10px' }}&gt;&lt;/div&gt;
           &lt;h4 className="font-semibold text-orange-800 mb-2"&gt;💡 Recomendações Financeiras&lt;/h4&gt;
           &lt;ul className="text-sm text-orange-700 space-y-1"&gt;
             &lt;li&gt; Investir em cuidados de saúde primários para reduzir urgências falsas&lt;/li&gt;
@@ -1756,7 +1744,7 @@ export default DashboardFinanceiro;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-18T22:09:15.363Z
+                at 2026-04-21T09:28:54.098Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

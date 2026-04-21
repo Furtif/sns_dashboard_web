@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">32% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>12/42</span>
+                <span class='fraction'>16/50</span>
             </div>
         
             
@@ -304,7 +304,34 @@
 <a name='L239'></a><a href='#L239'>239</a>
 <a name='L240'></a><a href='#L240'>240</a>
 <a name='L241'></a><a href='#L241'>241</a>
-<a name='L242'></a><a href='#L242'>242</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a>
+<a name='L250'></a><a href='#L250'>250</a>
+<a name='L251'></a><a href='#L251'>251</a>
+<a name='L252'></a><a href='#L252'>252</a>
+<a name='L253'></a><a href='#L253'>253</a>
+<a name='L254'></a><a href='#L254'>254</a>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a>
+<a name='L258'></a><a href='#L258'>258</a>
+<a name='L259'></a><a href='#L259'>259</a>
+<a name='L260'></a><a href='#L260'>260</a>
+<a name='L261'></a><a href='#L261'>261</a>
+<a name='L262'></a><a href='#L262'>262</a>
+<a name='L263'></a><a href='#L263'>263</a>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a>
+<a name='L269'></a><a href='#L269'>269</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">6x</span>
@@ -489,6 +516,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -525,6 +576,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -582,17 +636,17 @@ const PeriodFilter = ({ onDateRangeChange, disabled = <span class="branch-0 cbra
 <span class="cstat-no" title="statement not covered" >    switch (value) {</span>
       case 'last12':
 <span class="cstat-no" title="statement not covered" >        start = new Date(now.getFullYear(), now.getMonth() - 12, 1);</span>
-<span class="cstat-no" title="statement not covered" >        end = new Date(now.getFullYear(), now.getMonth() + 1, 0);</span>
+<span class="cstat-no" title="statement not covered" >        end = now;</span>
 <span class="cstat-no" title="statement not covered" >        break;</span>
-        
+&nbsp;
       case 'last24':
 <span class="cstat-no" title="statement not covered" >        start = new Date(now.getFullYear(), now.getMonth() - 24, 1);</span>
-<span class="cstat-no" title="statement not covered" >        end = new Date(now.getFullYear(), now.getMonth() + 1, 0);</span>
+<span class="cstat-no" title="statement not covered" >        end = now;</span>
 <span class="cstat-no" title="statement not covered" >        break;</span>
-        
+&nbsp;
       case 'last36':
 <span class="cstat-no" title="statement not covered" >        start = new Date(now.getFullYear(), now.getMonth() - 36, 1);</span>
-<span class="cstat-no" title="statement not covered" >        end = new Date(now.getFullYear(), now.getMonth() + 1, 0);</span>
+<span class="cstat-no" title="statement not covered" >        end = now;</span>
 <span class="cstat-no" title="statement not covered" >        break;</span>
         
       case 'currentYear':
@@ -609,13 +663,13 @@ const PeriodFilter = ({ onDateRangeChange, disabled = <span class="branch-0 cbra
         
       case 'last2years':
 <span class="cstat-no" title="statement not covered" >        start = new Date(now.getFullYear(), now.getMonth() - 24, 1);</span>
-<span class="cstat-no" title="statement not covered" >        end = new Date(now.getFullYear(), now.getMonth() + 1, 0);</span>
+<span class="cstat-no" title="statement not covered" >        end = now;</span>
 <span class="cstat-no" title="statement not covered" >        break;</span>
         
       case 'all':
         // Dados desde 2016 até hoje (data atual)
 <span class="cstat-no" title="statement not covered" >        start = new Date(2016, 0, 1);</span>
-<span class="cstat-no" title="statement not covered" >        end = new Date(now.getFullYear(), now.getMonth(), now.getDate());</span>
+<span class="cstat-no" title="statement not covered" >        end = now;</span>
 <span class="cstat-no" title="statement not covered" >        break;</span>
         
       case 'custom':
@@ -711,14 +765,38 @@ const PeriodFilter = ({ onDateRangeChange, disabled = <span class="branch-0 cbra
             ))}
           &lt;/select&gt;
           
-          {/* Indicador visual para períodos mais longos */}
-          {quickSelect === 'last36' || quickSelect === 'last2years' ? (
+          {/* Indicador visual para período selecionado */}
+          {quickSelect === 'last12' ? (
 <span class="branch-0 cbranch-no" title="branch not covered" >            &lt;div className="text-xs text-blue-600 mt-1"&gt;</span>
-              {quickSelect === 'last36' ? '⏱️ 3 anos de dados' : '📊 Análise bienal'}
+              ⏱️ 1 ano de dados
+            &lt;/div&gt;
+          ) : quickSelect === 'last24' ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;div className="text-xs text-blue-600 mt-1"&gt;</span>
+              ⏱️ 2 anos de dados
+            &lt;/div&gt;
+          ) : quickSelect === 'last36' ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;div className="text-xs text-blue-600 mt-1"&gt;</span>
+              ⏱️ 3 anos de dados
+            &lt;/div&gt;
+          ) : quickSelect === 'last2years' ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;div className="text-xs text-blue-600 mt-1"&gt;</span>
+              📊 Análise bienal
             &lt;/div&gt;
           ) : quickSelect === 'currentYear' ? (
 <span class="branch-0 cbranch-no" title="branch not covered" >            &lt;div className="text-xs text-green-600 mt-1"&gt;</span>
-              ✅ Último ano completo disponível
+              ✅ Ano corrente ({new Date().getFullYear()})
+            &lt;/div&gt;
+          ) : quickSelect === 'lastYear' ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;div className="text-xs text-purple-600 mt-1"&gt;</span>
+              📅 Ano anterior (2025)
+            &lt;/div&gt;
+          ) : quickSelect === 'all' ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;div className="text-xs text-orange-600 mt-1"&gt;</span>
+              📊 Período completo (2016-2026)
+            &lt;/div&gt;
+          ) : quickSelect === 'custom' ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;div className="text-xs text-gray-600 mt-1"&gt;</span>
+              ⚙️ Período personalizado
             &lt;/div&gt;
           ) : null}
         &lt;/div&gt;
@@ -770,11 +848,14 @@ const PeriodFilter = ({ onDateRangeChange, disabled = <span class="branch-0 cbra
       &lt;/div&gt;
 &nbsp;
       {/* Informações Adicionais */}
-      &lt;div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg"&gt;
+      &lt;div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg"&gt;        
+        &lt;div style={{ height: '10px' }}&gt;&lt;/div&gt;
         &lt;div className="text-sm text-blue-700"&gt;
           &lt;strong&gt;ℹ️ Informações:&lt;/strong&gt;
           &lt;ul className="mt-1 ml-4 list-disc"&gt;
-            &lt;li&gt;Período completo dos dados: Janeiro 2016 a Dezembro 2026&lt;/li&gt;
+            &lt;li&gt;Período completo dos dados: Janeiro 2016 até {new Date().toLocaleDateString('pt-PT', { month: 'long', year: 'numeric' })}&lt;/li&gt;
+            &lt;li&gt;Dados de atendimentos: baseados em dados públicos do SNS (transparência.sns.gov.pt)&lt;/li&gt;
+            &lt;li&gt;Dados COVID-19: estimados algoritmicamente com base em padrões históricos reais de Portugal&lt;/li&gt;
             &lt;li&gt;Use seleção rápida para filtros predefinidos&lt;/li&gt;
             &lt;li&gt;Personalizado permite datas específicas&lt;/li&gt;
             &lt;li&gt;Filtros afetam todos os dashboards simultaneamente&lt;/li&gt;
@@ -793,7 +874,7 @@ export default PeriodFilter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-18T22:09:15.363Z
+                at 2026-04-21T09:28:54.098Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
