@@ -274,12 +274,12 @@ function App() {
               </div>
               <div className="footer-data-info">
                 <a
-                  href="https://www.gp-informatique.com"
+                  href="https://furtif.github.io"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-link"
                 >
-                  George Pereira | GP Informatique
+                  --=FurtiF™=--
                 </a>
               </div>
             </div>
@@ -296,6 +296,22 @@ function App() {
                   className="footer-link"
                 >
                   Portal Transparência SNS
+                </a>
+              </div>
+            </div>
+            <div className="footer-brand">
+              <div className="footer-logo">
+                <span className="footer-icon">📊</span>
+                <strong>Creditos:</strong>
+              </div>
+              <div className="footer-data-info">
+                <a
+                  href="https://github.com/JoaojPereira"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  JoaojPereira
                 </a>
               </div>
             </div>
