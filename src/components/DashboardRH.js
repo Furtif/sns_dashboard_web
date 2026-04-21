@@ -219,7 +219,7 @@ const DashboardRH = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card" style={{ borderLeft: '4px solid #9b6411ff' }}>
+        <div className="metric-card" style={{ borderLeft: '4px solid '+ getRacioColor(racioNacional)}}>
           <div className="metric-value" style={{ color: getRacioColor(racioNacional) }}>
             {formatDecimal(racioNacional)}
           </div>

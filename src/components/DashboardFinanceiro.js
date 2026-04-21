@@ -189,7 +189,7 @@ const DashboardFinanceiro = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+        <div className="metric-card" style={{ borderLeft: '4px solid ' + getWasteColor(percentDesperdicioNacional) }}>
           <div className="metric-value" style={{ color: getWasteColor(percentDesperdicioNacional) }}>
             {formatCurrency(totalDesperdicioNacional)}
           </div>

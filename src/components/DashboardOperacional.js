@@ -200,7 +200,7 @@ const DashboardOperacional = ({ data }) => {
 
       {/* KPIs Operacionais */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
+        <div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}>
           <div className="metric-value" style={{ color: '#1e40af' }}>
             {filteredInstitutions.length}
           </div>
@@ -210,7 +210,9 @@ const DashboardOperacional = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card" style={{ borderLeft: '4px solid #8f2800ff' }}>
+        <div className="metric-card" style={{ borderLeft: '4px solid ' + getEfficiencyColor(
+              filteredInstitutions.reduce((sum, inst) => sum + inst.percentUrgenciasFalsas, 0) / filteredInstitutions.length
+            ) }}>
           <div className="metric-value" style={{
             color: getEfficiencyColor(
               filteredInstitutions.reduce((sum, inst) => sum + inst.percentUrgenciasFalsas, 0) / filteredInstitutions.length
@@ -227,7 +229,10 @@ const DashboardOperacional = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card" style={{ borderLeft: '4px solid #3aed4979' }}>
+        <div className="metric-card" style={{ borderLeft: '4px solid ' + getRacioColor(
+              filteredInstitutions.filter(i => i.racioEnfermeiroMedico > 0)
+                .reduce((sum, inst) => sum + inst.racioEnfermeiroMedico, 0) /
+              filteredInstitutions.filter(i => i.racioEnfermeiroMedico > 0).length) }}>
           <div className="metric-value" style={{
             color: getRacioColor(
               filteredInstitutions.filter(i => i.racioEnfermeiroMedico > 0)

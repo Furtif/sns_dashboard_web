@@ -122,7 +122,7 @@ const DashboardExecutivo = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
+        <div className="metric-card" style={{ borderLeft: '4px solid ' + getScoreColor(data.scoreIneficienciaGlobal) }}>
           <div className="metric-value" style={{ color: getScoreColor(data.scoreIneficienciaGlobal) }}>
             {data.scoreIneficienciaGlobal?.toFixed(1) || '0'}
           </div>
@@ -132,7 +132,7 @@ const DashboardExecutivo = ({ data }) => {
           </div>
         </div>
 
-        <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+        <div className="metric-card" style={{ borderLeft: '4px solid ' + (data.percentUrgenciasFalsas >= 35 ? '#dc2626' : data.percentUrgenciasFalsas >= 25 ? '#ea580c' : '#16a34a') }}>
           <div className="metric-value" style={{ color: data.percentUrgenciasFalsas >= 35 ? '#dc2626' : data.percentUrgenciasFalsas >= 25 ? '#ea580c' : '#16a34a' }}>
             {formatPercent(data.percentUrgenciasFalsas)}
           </div>
