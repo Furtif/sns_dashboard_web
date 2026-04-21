@@ -164,14 +164,38 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
             ))}
           </select>
           
-          {/* Indicador visual para períodos mais longos */}
-          {quickSelect === 'last36' || quickSelect === 'last2years' ? (
+          {/* Indicador visual para período selecionado */}
+          {quickSelect === 'last12' ? (
             <div className="text-xs text-blue-600 mt-1">
-              {quickSelect === 'last36' ? '⏱️ 3 anos de dados' : '📊 Análise bienal'}
+              ⏱️ 1 ano de dados
+            </div>
+          ) : quickSelect === 'last24' ? (
+            <div className="text-xs text-blue-600 mt-1">
+              ⏱️ 2 anos de dados
+            </div>
+          ) : quickSelect === 'last36' ? (
+            <div className="text-xs text-blue-600 mt-1">
+              ⏱️ 3 anos de dados
+            </div>
+          ) : quickSelect === 'last2years' ? (
+            <div className="text-xs text-blue-600 mt-1">
+              📊 Análise bienal
             </div>
           ) : quickSelect === 'currentYear' ? (
             <div className="text-xs text-green-600 mt-1">
-              ✅ Último ano completo disponível
+              ✅ Ano corrente ({new Date().getFullYear()})
+            </div>
+          ) : quickSelect === 'lastYear' ? (
+            <div className="text-xs text-purple-600 mt-1">
+              📅 Ano anterior (2025)
+            </div>
+          ) : quickSelect === 'all' ? (
+            <div className="text-xs text-orange-600 mt-1">
+              📊 Período completo (2016-2026)
+            </div>
+          ) : quickSelect === 'custom' ? (
+            <div className="text-xs text-gray-600 mt-1">
+              ⚙️ Período personalizado
             </div>
           ) : null}
         </div>
