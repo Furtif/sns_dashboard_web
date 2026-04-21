@@ -114,6 +114,12 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: Copy README and LICENSE to dist
+        run: |
+          cp README.md dist/
+          cp LICENSE.md dist/ 2>/dev/null || echo "LICENSE.md not found, skipping"
+          echo "Documentation files copied to dist/"
+
       - name: Deploy to web_pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:
