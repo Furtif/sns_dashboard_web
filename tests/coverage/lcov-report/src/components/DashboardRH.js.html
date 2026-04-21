@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">10.18% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/108</span>
+                <span class='fraction'>11/108</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">5.71% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/105</span>
+                <span class='fraction'>6/105</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">5.71% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/35</span>
+                <span class='fraction'>2/35</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">11.45% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/96</span>
+                <span class='fraction'>11/96</span>
             </div>
         
             
@@ -638,14 +638,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -796,21 +796,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1209,14 +1209,14 @@
 import { BarChart, Bar, LineChart, Line, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 import { formatNumber, formatCurrency, formatDecimal } from '../utils/formatters';
 &nbsp;
-const DashboardRH = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> data }) =&gt; {</span>
-  const [institutionRH, setInstitutionRH] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
-  const [timeSeriesRH, setTimeSeriesRH] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
-  const [productivityData, setProductivityData] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
-  const [regionRH, setRegionRH] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
+const DashboardRH = ({ data }) =&gt; {
+  const [institutionRH, setInstitutionRH] = useState([]);
+  const [timeSeriesRH, setTimeSeriesRH] = useState([]);
+  const [productivityData, setProductivityData] = useState([]);
+  const [regionRH, setRegionRH] = useState([]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (data &amp;&amp; data.dadosBrutos &amp;&amp; data.instituicoes) {</span>
+  useEffect(() =&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (data &amp;&amp; data.dadosBrutos &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >data.instituicoes)</span> {
       // Preparar dados RH por instituição
       const institutions = <span class="cstat-no" title="statement not covered" >{};</span>
 <span class="cstat-no" title="statement not covered" >      data.dadosBrutos.forEach(<span class="fstat-no" title="function not covered" >ro</span>w =&gt; {</span>
@@ -1367,21 +1367,21 @@ const DashboardRH = <span class="cstat-no" title="statement not covered" ><span 
   }, [data]);
 &nbsp;
 &nbsp;
-  const getRacioColor = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(r</span>acio) =&gt; {</span>
+  const getRacioColor = <span class="fstat-no" title="function not covered" >(r</span>acio) =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (racio &lt; 1.5) <span class="cstat-no" title="statement not covered" >return '#dc2626';</span></span>
 <span class="cstat-no" title="statement not covered" >    if (racio &lt; 2) <span class="cstat-no" title="statement not covered" >return '#ea580c';</span></span>
 <span class="cstat-no" title="statement not covered" >    return '#16a34a';</span>
   };
 &nbsp;
-  const getProductivityColor = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>roductivity) =&gt; {</span>
+  const getProductivityColor = <span class="fstat-no" title="function not covered" >(p</span>roductivity) =&gt; {
     const avg = <span class="cstat-no" title="statement not covered" >productivityData.reduce(<span class="fstat-no" title="function not covered" >(s</span>um, p) =&gt; <span class="cstat-no" title="statement not covered" >sum + p.atendimentosPorMedico,</span> 0) / productivityData.length;</span>
 <span class="cstat-no" title="statement not covered" >    if (productivity &lt; avg * 0.8) <span class="cstat-no" title="statement not covered" >return '#dc2626';</span></span>
 <span class="cstat-no" title="statement not covered" >    if (productivity &lt; avg) <span class="cstat-no" title="statement not covered" >return '#ea580c';</span></span>
 <span class="cstat-no" title="statement not covered" >    return '#16a34a';</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!data || !data.totalAtendimentos || data.totalAtendimentos === 0) {</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!data || !data.totalAtendimentos || <span class="branch-2 cbranch-no" title="branch not covered" >data.totalAtendimentos === 0)</span> {
+    return (
       &lt;div className="card"&gt;
         &lt;div className="card-header"&gt;
           &lt;h3 className="card-title"&gt;👥 Dashboard Recursos Humanos&lt;/h3&gt;
@@ -1783,7 +1783,7 @@ export default DashboardRH;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-21T10:18:50.702Z
+                at 2026-04-21T10:47:20.709Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

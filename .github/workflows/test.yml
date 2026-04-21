@@ -44,6 +44,16 @@ jobs:
           path: tests/coverage/
           retention-days: 30
 
+      - name: Upload coverage to Codecov
+        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '22.x'
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./tests/coverage/lcov.info
+          flags: unittests
+          name: sns-dashboard-coverage
+          fail_ci_if_error: false
+          verbose: true
+
   build:
     name: Build Application
     runs-on: ubuntu-latest

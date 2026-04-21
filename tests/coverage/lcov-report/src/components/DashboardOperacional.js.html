@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12.29% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/122</span>
+                <span class='fraction'>15/122</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">3.52% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/170</span>
+                <span class='fraction'>6/170</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">4.08% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/49</span>
+                <span class='fraction'>2/49</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">14.28% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/105</span>
+                <span class='fraction'>15/105</span>
             </div>
         
             
@@ -678,15 +678,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -788,32 +788,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1289,15 +1289,15 @@
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter } from 'recharts';
 import { formatNumber, formatPercent } from '../utils/formatters';
 &nbsp;
-const DashboardOperacional = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> data }) =&gt; {</span>
-  const [selectedRegion, setSelectedRegion] = <span class="cstat-no" title="statement not covered" >useState('');</span>
-  const [selectedInstitution, setSelectedInstitution] = <span class="cstat-no" title="statement not covered" >useState('');</span>
-  const [institutionData, setInstitutionData] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
-  const [monthlyData, setMonthlyData] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
-  const [covidOperationalData, setCovidOperationalData] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
+const DashboardOperacional = ({ data }) =&gt; {
+  const [selectedRegion, setSelectedRegion] = useState('');
+  const [selectedInstitution, setSelectedInstitution] = useState('');
+  const [institutionData, setInstitutionData] = useState([]);
+  const [monthlyData, setMonthlyData] = useState([]);
+  const [covidOperationalData, setCovidOperationalData] = useState([]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (data &amp;&amp; data.dadosBrutos) {</span>
+  useEffect(() =&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (data &amp;&amp; data.dadosBrutos) {
       // Preparar dados mensais
       const monthly = <span class="cstat-no" title="statement not covered" >data.dadosBrutos</span>
         .filter(<span class="fstat-no" title="function not covered" >ro</span>w =&gt; <span class="cstat-no" title="statement not covered" >row.TotalAtendimentos &gt; 0)</span>
@@ -1399,32 +1399,32 @@ const DashboardOperacional = <span class="cstat-no" title="statement not covered
   }, [data]);
 &nbsp;
 &nbsp;
-  const getEfficiencyColor = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>ercent) =&gt; {</span>
+  const getEfficiencyColor = <span class="fstat-no" title="function not covered" >(p</span>ercent) =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (percent &gt;= 35) <span class="cstat-no" title="statement not covered" >return '#ec4899';</span></span>
 <span class="cstat-no" title="statement not covered" >    if (percent &gt;= 25) <span class="cstat-no" title="statement not covered" >return '#ea580c';</span></span>
 <span class="cstat-no" title="statement not covered" >    if (percent &gt;= 15) <span class="cstat-no" title="statement not covered" >return '#ca8a04';</span></span>
 <span class="cstat-no" title="statement not covered" >    return '#16a34a';</span>
   };
 &nbsp;
-  const getRacioColor = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(r</span>acio) =&gt; {</span>
+  const getRacioColor = <span class="fstat-no" title="function not covered" >(r</span>acio) =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (racio &lt; 1.5) <span class="cstat-no" title="statement not covered" >return '#ec4899';</span></span>
 <span class="cstat-no" title="statement not covered" >    if (racio &lt; 2) <span class="cstat-no" title="statement not covered" >return '#ea580c';</span></span>
 <span class="cstat-no" title="statement not covered" >    return '#16a34a';</span>
   };
 &nbsp;
-  const filteredInstitutions = <span class="cstat-no" title="statement not covered" >institutionData.filter(<span class="fstat-no" title="function not covered" >in</span>st =&gt; {</span>
+  const filteredInstitutions = institutionData.filter(<span class="fstat-no" title="function not covered" >in</span>st =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (selectedRegion &amp;&amp; inst.regiaoId !== parseInt(selectedRegion)) <span class="cstat-no" title="statement not covered" >return false;</span></span>
 <span class="cstat-no" title="statement not covered" >    if (selectedInstitution &amp;&amp; inst.instituicaoId !== parseInt(selectedInstitution)) <span class="cstat-no" title="statement not covered" >return false;</span></span>
 <span class="cstat-no" title="statement not covered" >    return true;</span>
   });
 &nbsp;
-  const topInstitutions = <span class="cstat-no" title="statement not covered" >filteredInstitutions.slice(0, 10);</span>
-  const worstEfficiency = <span class="cstat-no" title="statement not covered" >[...filteredInstitutions]</span>
+  const topInstitutions = filteredInstitutions.slice(0, 10);
+  const worstEfficiency = [...filteredInstitutions]
     .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >b.percentUrgenciasFalsas - a.percentUrgenciasFalsas)</span>
     .slice(0, 10);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!data || !data.totalAtendimentos || data.totalAtendimentos === 0) {</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!data || !data.totalAtendimentos || <span class="branch-2 cbranch-no" title="branch not covered" >data.totalAtendimentos === 0)</span> {
+    return (
       &lt;div className="card"&gt;
         &lt;div className="card-header"&gt;
           &lt;h3 className="card-title"&gt;⚙️ Dashboard Operacional&lt;/h3&gt;
@@ -1903,7 +1903,7 @@ export default DashboardOperacional;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-21T10:18:50.702Z
+                at 2026-04-21T10:47:20.709Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
