@@ -282,44 +282,25 @@ const DashboardRH = ({ data, dateRange }) => {
       {/* Distribuição por Grupos Profissionais */}
       {trabalhadoresData && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">🥧 Distribuição por Grupos Profissionais</h3>
+          <h3 className="chart-title">📊 Distribuição por Grupos Profissionais</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={[
-                  { name: 'Médicos', value: (trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0), color: '#3b82f6' },
-                  { name: 'Enfermeiros', value: trabalhadoresData.totals?.enfermeiros || 0, color: '#10b981' },
-                  { name: 'Téc. Sup. Saúde', value: trabalhadoresData.totals?.tecnicosSuperioresSaude || 0, color: '#f59e0b' },
-                  { name: 'Farmacêuticos', value: (trabalhadoresData.totals?.farmaceuticos || 0) + (trabalhadoresData.totals?.farmaceuticosResidentes || 0), color: '#8b5cf6' },
-                  { name: 'TSDT', value: trabalhadoresData.totals?.tsdt || 0, color: '#ec4899' },
-                  { name: 'Assist. Técnicos', value: trabalhadoresData.totals?.assistentesTecnicos || 0, color: '#06b6d4' },
-                  { name: 'Assist. Oper./Téc. Aux.', value: (trabalhadoresData.totals?.assistentesOperacionais || 0) + (trabalhadoresData.totals?.tecnicosAuxiliares || 0), color: '#84cc16' },
-                  { name: 'Informáticos', value: trabalhadoresData.totals?.informaticos || 0, color: '#14b8a6' },
-                  { name: 'Outros', value: trabalhadoresData.totals?.outros || 0, color: '#6b7280' }
-                ]}
-                cx="50%"
-                cy="50%"
-                labelLine={true}
-                label={({ name, value }) => {
-                  const keyMap = {
-                    'Médicos': 'medicos',
-                    'Enfermeiros': 'enfermeiros',
-                    'Téc. Sup. Saúde': 'tecnicosSuperioresSaude',
-                    'Farmacêuticos': 'farmaceuticos',
-                    'TSDT': 'tsdt',
-                    'Assist. Técnicos': 'assistentesTecnicos',
-                    'Assist. Oper./Téc. Aux.': 'assistentesOperacionais',
-                    'Informáticos': 'informaticos',
-                    'Outros': 'outros'
-                  };
-                  const percentage = trabalhadoresData.percentages?.[keyMap[name]] || 0;
-                  return `${name}: ${formatPercent(percentage)}`;
-                }}
-                outerRadius={70}
-                fill="#8884d8"
-                dataKey="value"
-                labelStyle={{ fontSize: '10px' }}
-              >
+            <BarChart data={[
+              { name: 'Médicos', value: (trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0), color: '#3b82f6' },
+              { name: 'Enfermeiros', value: trabalhadoresData.totals?.enfermeiros || 0, color: '#10b981' },
+              { name: 'Téc. Sup. Saúde', value: trabalhadoresData.totals?.tecnicosSuperioresSaude || 0, color: '#f59e0b' },
+              { name: 'Farmacêuticos', value: (trabalhadoresData.totals?.farmaceuticos || 0) + (trabalhadoresData.totals?.farmaceuticosResidentes || 0), color: '#8b5cf6' },
+              { name: 'TSDT', value: trabalhadoresData.totals?.tsdt || 0, color: '#ec4899' },
+              { name: 'Assist. Técnicos', value: trabalhadoresData.totals?.assistentesTecnicos || 0, color: '#06b6d4' },
+              { name: 'Assist. Oper./Téc. Aux.', value: (trabalhadoresData.totals?.assistentesOperacionais || 0) + (trabalhadoresData.totals?.tecnicosAuxiliares || 0), color: '#84cc16' },
+              { name: 'Informáticos', value: trabalhadoresData.totals?.informaticos || 0, color: '#14b8a6' },
+              { name: 'Outros', value: trabalhadoresData.totals?.outros || 0, color: '#6b7280' }
+            ]} layout="vertical">
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" />
+              <YAxis type="category" dataKey="name" width={120} tick={{ fontSize: 10 }} />
+              <Tooltip formatter={(value) => formatNumber(value)} />
+              <Legend />
+              <Bar dataKey="value" name="Profissionais">
                 {[
                   { name: 'Médicos', value: (trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0), color: '#3b82f6' },
                   { name: 'Enfermeiros', value: trabalhadoresData.totals?.enfermeiros || 0, color: '#10b981' },
@@ -333,10 +314,8 @@ const DashboardRH = ({ data, dateRange }) => {
                 ].map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
-              </Pie>
-              <Tooltip formatter={(value) => formatNumber(value)} />
-              <Legend verticalAlign="bottom" height={36} />
-            </PieChart>
+              </Bar>
+            </BarChart>
           </ResponsiveContainer>
         </div>
       )}

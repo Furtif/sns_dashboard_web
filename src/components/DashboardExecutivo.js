@@ -294,27 +294,20 @@ const DashboardExecutivo = ({ data, dateRange }) => {
 
         {/* Distribuição por Triagem */}
         <div className="chart-container">
-          <h3 className="chart-title">🥧 Distribuição por Triagem Manchester</h3>
+          <h3 className="chart-title">📊 Distribuição por Triagem Manchester</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={triagemData}
-                cx="50%"
-                cy="50%"
-                labelLine={true}
-                label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
-                outerRadius={70}
-                fill="#8884d8"
-                dataKey="value"
-                labelStyle={{ fontSize: '11px' }}
-              >
+            <BarChart data={triagemData} layout="vertical">
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" />
+              <YAxis type="category" dataKey="name" width={80} tick={{ fontSize: 11 }} />
+              <Tooltip formatter={(value) => formatNumber(value)} />
+              <Legend />
+              <Bar dataKey="value" name="Atendimentos">
                 {triagemData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
-              </Pie>
-              <Tooltip formatter={(value) => formatNumber(value)} />
-              <Legend verticalAlign="bottom" height={36} />
-            </PieChart>
+              </Bar>
+            </BarChart>
           </ResponsiveContainer>
         </div>
       </div>

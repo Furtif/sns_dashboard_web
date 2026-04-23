@@ -368,27 +368,22 @@ const DashboardOperacional = ({ data, dateRange }) => {
       {/* Distribuição por Triagem Manchester */}
       {triagemData && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">🥧 Distribuição por Triagem Manchester</h3>
+          <h3 className="chart-title">📊 Distribuição por Triagem Manchester</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={[
-                  { name: 'Vermelha', value: triagemData.totals?.vermelha || 0, color: '#dc2626' },
-                  { name: 'Laranja', value: triagemData.totals?.laranja || 0, color: '#ea580c' },
-                  { name: 'Amarela', value: triagemData.totals?.amarela || 0, color: '#eab308' },
-                  { name: 'Verde', value: triagemData.totals?.verde || 0, color: '#16a34a' },
-                  { name: 'Azul', value: triagemData.totals?.azul || 0, color: '#2563eb' },
-                  { name: 'Branca', value: triagemData.totals?.branca || 0, color: '#6b7280' }
-                ]}
-                cx="50%"
-                cy="50%"
-                labelLine={true}
-                label={({ name, value }) => `${name}: ${formatPercent(triagemData.percentages?.[name.toLowerCase()] || 0)}`}
-                outerRadius={70}
-                fill="#8884d8"
-                dataKey="value"
-                labelStyle={{ fontSize: '11px' }}
-              >
+            <BarChart data={[
+              { name: 'Vermelha', value: triagemData.totals?.vermelha || 0, color: '#dc2626' },
+              { name: 'Laranja', value: triagemData.totals?.laranja || 0, color: '#ea580c' },
+              { name: 'Amarela', value: triagemData.totals?.amarela || 0, color: '#eab308' },
+              { name: 'Verde', value: triagemData.totals?.verde || 0, color: '#16a34a' },
+              { name: 'Azul', value: triagemData.totals?.azul || 0, color: '#2563eb' },
+              { name: 'Branca', value: triagemData.totals?.branca || 0, color: '#6b7280' }
+            ]} layout="vertical">
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" />
+              <YAxis type="category" dataKey="name" width={80} tick={{ fontSize: 11 }} />
+              <Tooltip formatter={(value) => formatNumber(value)} />
+              <Legend />
+              <Bar dataKey="value" name="Atendimentos">
                 {[
                   { name: 'Vermelha', value: triagemData.totals?.vermelha || 0, color: '#dc2626' },
                   { name: 'Laranja', value: triagemData.totals?.laranja || 0, color: '#ea580c' },
@@ -399,10 +394,8 @@ const DashboardOperacional = ({ data, dateRange }) => {
                 ].map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
-              </Pie>
-              <Tooltip formatter={(value) => formatNumber(value)} />
-              <Legend verticalAlign="bottom" height={36} />
-            </PieChart>
+              </Bar>
+            </BarChart>
           </ResponsiveContainer>
         </div>
       )}

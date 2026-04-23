@@ -323,28 +323,20 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
 
         {/* Distribuição por Região */}
         <div className="chart-container">
-          <h3 className="chart-title">🥧 Distribuição de Custos por Região</h3>
+          <h3 className="chart-title">📊 Distribuição de Custos por Região</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={regionData}
-                cx="50%"
-                cy="50%"
-                labelLine={true}
-                label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
-                outerRadius={70}
-                fill="#8884d8"
-                dataKey="custoTotal"
-                nameKey="regiaoNome"
-                labelStyle={{ fontSize: '11px' }}
-              >
+            <BarChart data={regionData} layout="vertical">
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" />
+              <YAxis type="category" dataKey="regiaoNome" width={100} tick={{ fontSize: 11 }} />
+              <Tooltip formatter={(value) => formatCurrency(value)} />
+              <Legend />
+              <Bar dataKey="custoTotal" name="Custo Total">
                 {regionData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={pieColors[index % pieColors.length]} />
                 ))}
-              </Pie>
-              <Tooltip formatter={(value) => formatCurrency(value)} />
-              <Legend verticalAlign="bottom" height={36} />
-            </PieChart>
+              </Bar>
+            </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
