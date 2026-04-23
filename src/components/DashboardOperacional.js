@@ -517,8 +517,8 @@ const DashboardOperacional = ({ data, dateRange }) => {
                 textAnchor="end"
                 height={60}
               />
-              <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
+              <YAxis yAxisId="left" tick={{ fontSize: 12 }} tickFormatter={(value) => formatNumber(value)} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} tickFormatter={(value) => formatNumber(value)} />
               <Tooltip
                 formatter={(value, name) => [
                   name.includes('percent') ? formatPercent(value) : formatNumber(value),
@@ -605,8 +605,8 @@ const DashboardOperacional = ({ data, dateRange }) => {
                 textAnchor="end"
                 height={60}
               />
-              <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
+              <YAxis yAxisId="left" tick={{ fontSize: 12 }} tickFormatter={(value) => formatNumber(value)} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} tickFormatter={(value) => formatNumber(value)} />
               <Tooltip
                 formatter={(value, name) => [
                   name.includes('percent') ? formatPercent(value) : formatNumber(value),

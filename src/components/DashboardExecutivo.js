@@ -264,7 +264,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
                 textAnchor="end"
                 height={60}
               />
-              <YAxis tick={{ fontSize: 12 }} />
+              <YAxis tick={{ fontSize: 12 }} tickFormatter={(value) => formatNumber(value)} />
               <Tooltip
                 formatter={(value, name) => [
                   formatNumber(value),
@@ -492,7 +492,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
                 textAnchor="end"
                 height={60}
               />
-              <YAxis tick={{ fontSize: 12 }} />
+              <YAxis tick={{ fontSize: 12 }} tickFormatter={(value) => formatNumber(value)} />
               <Tooltip
                 formatter={(value, name) => [
                   formatNumber(value),

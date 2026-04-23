@@ -281,8 +281,8 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
                 textAnchor="end"
                 height={60}
               />
-              <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
+              <YAxis yAxisId="left" tick={{ fontSize: 11 }} width={110} tickFormatter={(value) => formatNumber(value)} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11 }} width={110} tickFormatter={(value) => formatNumber(value)} />
               <Tooltip
                 formatter={(value, name) => [
                   name.includes('percent') ? formatPercent(value) : formatCurrency(value),
@@ -391,45 +391,50 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
             <h3 className="card-title">🏛️ Desperdício por Tipo de Instituição</h3>
           </div>
           <div className="grid grid-cols-4 gap-4">
-            {wasteAnalysis.map((type) => (
-              <div key={type.tipo} className="metric-card">
-                <div className="metric-value" style={{ color: '#1e40af' }}>
-                  {type.tipo}
+            {wasteAnalysis.map((type) => {
+              const statusClass = type.percentDesperdicio >= 35 ? 'negative' : type.percentDesperdicio >= 25 ? 'neutral' : 'positive';
+              const statusText = type.percentDesperdicio >= 35 ? 'Crítico' : type.percentDesperdicio >= 25 ? 'Moderado' : 'Bom';
+              const borderColor = type.percentDesperdicio >= 35 ? '#dc2626' : type.percentDesperdicio >= 25 ? '#ea580c' : '#16a34a';
+              const barColor = type.percentDesperdicio >= 35 ? '#dc2626' : type.percentDesperdicio >= 25 ? '#ea580c' : '#16a34a';
+
+              return (
+                <div key={type.tipo} className="metric-card" style={{ borderLeft: '4px solid ' + borderColor }}>
+                  <div className="metric-value" style={{ color: borderColor }}>
+                    {type.tipo}
+                  </div>
+                  <div className="metric-label">{type.instituicoes} instituições</div>
+                  <div className="mt-3 space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Custo Total: </span>
+                      <span className="font-medium">{formatCurrency(type.custoTotal)}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Desperdício: </span>
+                      <span className="font-medium" style={{ color: borderColor }}>{formatCurrency(type.custoDesperdicado)}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">% Urgências Falsas: </span>
+                      <span className="font-medium">{formatPercent(type.percentUrgenciasFalsas)}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">% Desperdício: </span>
+                      <span className="font-medium">{formatPercent(type.percentDesperdicio)}</span>
+                    </div>
+                  </div>
+                  <div className="mt-3">
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        className="h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${Math.min(type.percentDesperdicio, 100)}%`, backgroundColor: barColor }}
+                      ></div>
+                    </div>
+                  </div>
+                  <div className={`metric-change ${statusClass}`}>
+                    {statusText}
+                  </div>
                 </div>
-                <div className="metric-label">{type.instituicoes} instituições</div>
-                <div className="mt-3 space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Custo Total: </span>
-                    <span className="font-medium">{formatCurrency(type.custoTotal)}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Desperdício: </span>
-                    <span className="font-medium text-red-600">{formatCurrency(type.custoDesperdicado)}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">% Urgências Falsas: </span>
-                    <span className="font-medium">{formatPercent(type.percentUrgenciasFalsas)}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">% Desperdício: </span>
-                    <span className="font-medium">{formatPercent(type.percentDesperdicio)}</span>
-                  </div>
-                </div>
-                <div className="mt-3">
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      className="bg-red-600 h-2 rounded-full transition-all duration-300"
-                      style={{ width: `${Math.min(type.percentDesperdicio, 100)}%` }}
-                    ></div>
-                  </div>
-                  <div className="text-xs text-gray-500 mt-1">
-                    {type.percentDesperdicio >= 20 ? 'Crítico' :
-                      type.percentDesperdicio >= 15 ? 'Elevado' :
-                        type.percentDesperdicio >= 10 ? 'Moderado' : 'Aceitável'}
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
@@ -448,8 +453,8 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
                 textAnchor="end"
                 height={60}
               />
-              <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
+              <YAxis yAxisId="left" tick={{ fontSize: 11 }} width={110} tickFormatter={(value) => formatNumber(value)} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11 }} width={110} tickFormatter={(value) => formatNumber(value)} />
               <Tooltip
                 formatter={(value, name) => [
                   name.includes('custo') || name.includes('desperdicio') ? formatCurrency(value) : formatNumber(value),
