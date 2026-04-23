@@ -736,7 +736,7 @@ const DashboardRH = ({ data, dateRange }) => {
 
             <div className="metric-card border-purple-200 bg-purple-50">
               <div className="metric-value" style={{ color: '#7c3aed' }}>
-                {formatCurrency((totalMedicosNacional * 2 - totalEnfermeirosNacional) * 50000)}
+                {formatCurrency(Math.max(0, totalMedicosNacional * 2 - totalEnfermeirosNacional) * 40000)}
               </div>
               <div className="metric-label">Investimento Estimado</div>
               <div className="text-sm text-purple-700 mt-2">
