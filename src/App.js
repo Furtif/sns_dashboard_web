@@ -88,14 +88,19 @@ function App() {
       };
       const completeMetrics = calculateMetrics(completeData);
 
+      // Processar trabalhadores filtrados pelo período
+      const filteredTrabalhadores = processTrabalhadoresData(rawData.trabalhadores, start, end);
+      const filteredTriagem = processTriagemData(rawData.atendimentosTriagem, start, end);
+      const filteredMonitorizacaoCSH = processMonitorizacaoCSH(rawData.monitorizacaoCSH, start, end);
+
       // Combinar: métricas filtradas + dados filtrados para gráficos + dados processados extras
       setData({
         ...metrics,
         dadosBrutos: metrics.dadosBrutos, // Usar dados filtrados para respeitar período selecionado
         dadosCovidCompletos: completeMetrics.dadosCovidCompletos,
-        trabalhadoresProcessed: rawData.trabalhadoresProcessed,
-        triagemProcessed: rawData.triagemProcessed,
-        monitorizacaoCSHProcessed: rawData.monitorizacaoCSHProcessed
+        trabalhadoresProcessed: filteredTrabalhadores,
+        triagemProcessed: filteredTriagem,
+        monitorizacaoCSHProcessed: filteredMonitorizacaoCSH
       });
     } else if (rawData) {
       // Se não houver filtro, usar todos os dados

@@ -134,7 +134,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
       const covidCostsSorted = [...covidCosts].sort((a, b) => a.period.localeCompare(b.period));
       setCovidCostData(covidCostsSorted);
     }
-  }, [data]);
+  }, [data, dateRange]);
 
 
   const getWasteColor = (percent) => {

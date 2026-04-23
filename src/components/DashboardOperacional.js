@@ -161,7 +161,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
         byInstitution: Object.values(triagemByInstitution).sort((a, b) => b.total - a.total)
       });
     }
-  }, [data]);
+  }, [data, dateRange]);
 
 
   const getEfficiencyColor = (percent) => {
@@ -772,21 +772,38 @@ const DashboardOperacional = ({ data, dateRange }) => {
               .reduce((sum, inst) => sum + inst.racioEnfermeiroMedico, 0) /
               tipoData.filter(i => i.racioEnfermeiroMedico > 0).length;
 
+            // Classificação baseada em % Falsas (prioridade) e Rácio
+            const statusClass = avgPercentFalsas >= 35 ? 'negative' : avgPercentFalsas >= 25 ? 'neutral' : 'positive';
+            const statusText = avgPercentFalsas >= 35 ? 'Crítico' : avgPercentFalsas >= 25 ? 'Moderado' : 'Bom';
+            const borderColor = avgPercentFalsas >= 35 ? '#dc2626' : avgPercentFalsas >= 25 ? '#ea580c' : '#16a34a';
+            const barColor = avgPercentFalsas >= 35 ? '#dc2626' : avgPercentFalsas >= 25 ? '#ea580c' : '#16a34a';
+
             return (
-              <div key={tipo} className="metric-card">
-                <div className="metric-value" style={{ color: '#1e40af' }}>
+              <div key={tipo} className="metric-card" style={{ borderLeft: '4px solid ' + borderColor }}>
+                <div className="metric-value" style={{ color: borderColor }}>
                   {tipo}
                 </div>
                 <div className="metric-label">{tipoData.length} instituições</div>
                 <div className="mt-3 space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">% Falsas médio: </span>
-                    <span className="font-medium">{formatPercent(avgPercentFalsas)}</span>
+                    <span className="font-medium" style={{ color: borderColor }}>{formatPercent(avgPercentFalsas)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">Rácio médio: </span>
                     <span className="font-medium">{avgRacio.toFixed(2)}</span>
                   </div>
+                </div>
+                <div className="mt-3">
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      className="h-2 rounded-full transition-all duration-300"
+                      style={{ width: `${Math.min(avgPercentFalsas, 100)}%`, backgroundColor: barColor }}
+                    ></div>
+                  </div>
+                </div>
+                <div className={`metric-change ${statusClass}`}>
+                  {statusText}
                 </div>
               </div>
             );

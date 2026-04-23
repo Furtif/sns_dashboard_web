@@ -543,8 +543,23 @@ export const calculateRankings = (data) => {
 };
 
 // Processar dados de trabalhadores por grupo profissional
-export const processTrabalhadoresData = (trabalhadores) => {
+export const processTrabalhadoresData = (trabalhadores, startDate = null, endDate = null) => {
   if (!trabalhadores || trabalhadores.length === 0) return null;
+
+  // Filtrar por período se fornecido
+  let filteredTrabalhadores = trabalhadores;
+  if (startDate && endDate) {
+    filteredTrabalhadores = trabalhadores.filter(row => {
+      const period = row['Período'];
+      if (!period) return false;
+      
+      // Converter período "YYYY-MM" para data
+      const [year, month] = period.split('-').map(Number);
+      const rowDate = new Date(year, month - 1);
+      
+      return rowDate >= startDate && rowDate <= endDate;
+    });
+  }
 
   const byInstitution = {};
   const totals = {
@@ -554,7 +569,7 @@ export const processTrabalhadoresData = (trabalhadores) => {
     tecnicosAuxiliares: 0, informaticos: 0, outros: 0, total: 0
   };
 
-  trabalhadores.forEach(row => {
+  filteredTrabalhadores.forEach(row => {
     const institution = row['Instituição'];
     const region = row['Região'];
 
@@ -682,13 +697,28 @@ export const mergeAtendimentos = (factData, manchesterData) => {
 };
 
 // Processar dados de triagem Manchester
-export const processTriagemData = (atendimentosTriagem) => {
+export const processTriagemData = (atendimentosTriagem, startDate = null, endDate = null) => {
   if (!atendimentosTriagem || atendimentosTriagem.length === 0) return null;
+
+  // Filtrar por período se fornecido
+  let filteredTriagem = atendimentosTriagem;
+  if (startDate && endDate) {
+    filteredTriagem = atendimentosTriagem.filter(row => {
+      const period = row['Período'];
+      if (!period) return false;
+      
+      // Converter período "YYYY-MM" para data
+      const [year, month] = period.split('-').map(Number);
+      const rowDate = new Date(year, month - 1);
+      
+      return rowDate >= startDate && rowDate <= endDate;
+    });
+  }
 
   const byInstitution = {};
   const totals = { vermelha: 0, laranja: 0, amarela: 0, verde: 0, azul: 0, branca: 0, semTriagem: 0, total: 0 };
 
-  atendimentosTriagem.forEach(row => {
+  filteredTriagem.forEach(row => {
     const institution = row['Instituição'];
     const region = row['Região'];
 
@@ -735,12 +765,27 @@ export const processTriagemData = (atendimentosTriagem) => {
 };
 
 // Processar dados de monitorização sazonal CSH
-export const processMonitorizacaoCSH = (monitorizacaoCSH) => {
+export const processMonitorizacaoCSH = (monitorizacaoCSH, startDate = null, endDate = null) => {
   if (!monitorizacaoCSH || monitorizacaoCSH.length === 0) return null;
+
+  // Filtrar por período se fornecido
+  let filteredCSH = monitorizacaoCSH;
+  if (startDate && endDate) {
+    filteredCSH = monitorizacaoCSH.filter(row => {
+      const period = row['Período'];
+      if (!period) return false;
+      
+      // Converter período "YYYY-MM" para data
+      const [year, month] = period.split('-').map(Number);
+      const rowDate = new Date(year, month - 1);
+      
+      return rowDate >= startDate && rowDate <= endDate;
+    });
+  }
 
   const byIndicator = {};
 
-  monitorizacaoCSH.forEach(row => {
+  filteredCSH.forEach(row => {
     const indicator = row['Indicador'];
     const value = parseFloat(row['Valor']) || 0;
 

@@ -185,7 +185,7 @@ const DashboardRH = ({ data, dateRange }) => {
         setTrabalhadoresData(trabalhadoresWithPercentages);
       }
     }
-  }, [data]);
+  }, [data, dateRange]);
 
 
   const getRacioColor = (racio) => {

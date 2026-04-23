@@ -112,7 +112,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       const covidDataSorted = [...covidData].sort((a, b) => a.period.localeCompare(b.period));
       setCovidTimeSeriesData(covidDataSorted);
     }
-  }, [data]);
+  }, [data, dateRange]);
 
 
   const getScoreColor = (score) => {
