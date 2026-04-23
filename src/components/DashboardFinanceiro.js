@@ -178,7 +178,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
   return (
     <div className="fade-in">
       {/* KPIs Financeiros */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-4 gap-4 mb-6">
         <div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}>
           <div className="metric-value" style={{ color: '#1e40af' }}>
             {formatCurrency(totalCustoNacional)}
@@ -222,8 +222,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
 
       {/* KPIs COVID-19 Financeiro */}
       {data.totalCasosCovid > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div style={{ height: '1px' }}></div>
+        <div className="grid grid-cols-4 gap-4 mb-6">
           <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
             <div className="metric-value" style={{ color: '#7c3aed' }}>
               {formatCurrency(data.totalCasosCovid * 200)}
@@ -268,7 +267,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
       <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Financeiros */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Evolução de Custos */}
         <div className="chart-container">
           <h3 className="chart-title">📈 Evolução de Custos e Desperdício (2016 - {new Date().getFullYear()})</h3>
@@ -351,7 +350,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
       </div>
 
       {/* Análise de Desperdício */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Desperdício por Região */}
         <div className="card">
           <div className="card-header">
@@ -400,7 +399,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
           <div className="card-header">
             <h3 className="card-title">🏛️ Desperdício por Tipo de Instituição</h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-4">
             {wasteAnalysis.map((type) => (
               <div key={type.tipo} className="metric-card">
                 <div className="metric-value" style={{ color: '#1e40af' }}>
@@ -507,7 +506,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
         <div className="card-header">
           <h3 className="card-title">🎯 Projeções e Impacto de Melhorias</h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-6">
           {/* Cenário Otimista */}
           <div className="metric-card border-green-200 bg-green-50">
             <div className="metric-value" style={{ color: '#059669' }}>

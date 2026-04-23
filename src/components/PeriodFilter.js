@@ -148,9 +148,9 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-4">
         {/* Seleção Rápida */}
-        <div className="md:col-span-2 lg:col-span-1">
+        <div>
           <label className="filter-label">Seleção Rápida: </label>
           <select 
             className="filter-select"
@@ -164,41 +164,6 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
               </option>
             ))}
           </select>
-          
-          {/* Indicador visual para período selecionado */}
-          {quickSelect === 'last12' ? (
-            <div className="text-xs text-blue-600 mt-1">
-              ⏱️ 1 ano de dados
-            </div>
-          ) : quickSelect === 'last24' ? (
-            <div className="text-xs text-blue-600 mt-1">
-              ⏱️ 2 anos de dados
-            </div>
-          ) : quickSelect === 'last36' ? (
-            <div className="text-xs text-blue-600 mt-1">
-              ⏱️ 3 anos de dados
-            </div>
-          ) : quickSelect === 'last2years' ? (
-            <div className="text-xs text-blue-600 mt-1">
-              📊 Análise bienal
-            </div>
-          ) : quickSelect === 'currentYear' ? (
-            <div className="text-xs text-green-600 mt-1">
-              ✅ Ano corrente ({new Date().getFullYear()})
-            </div>
-          ) : quickSelect === 'lastYear' ? (
-            <div className="text-xs text-purple-600 mt-1">
-              📅 Ano anterior (2025)
-            </div>
-          ) : quickSelect === 'all' ? (
-            <div className="text-xs text-orange-600 mt-1">
-              📊 Período completo (2016-2026)
-            </div>
-          ) : quickSelect === 'custom' ? (
-            <div className="text-xs text-gray-600 mt-1">
-              ⚙️ Período personalizado
-            </div>
-          ) : null}
         </div>
 
         {/* Data de Início */}

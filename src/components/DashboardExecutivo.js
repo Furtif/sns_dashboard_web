@@ -160,7 +160,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
   return (
     <div className="fade-in">
       {/* KPIs Principais */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-4 gap-4 mb-6">
         <div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}>
           <div className="metric-value" style={{ color: '#1e40af' }}>
             {formatNumber(data.totalAtendimentos)}
@@ -205,8 +205,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
 
       {/* KPIs COVID-19 */}
       {data.totalCasosCovid > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div style={{ height: '1px' }}></div>
+        <div className="grid grid-cols-4 gap-4 mb-6">
           <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
             <div className="metric-value" style={{ color: '#7c3aed' }}>
               {formatNumber(data.totalCasosCovid)}
@@ -251,7 +250,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Principais */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Evolução Temporal */}
         <div className="chart-container">
           <h3 className="chart-title">📈 Evolução dos Atendimentos (2016 - {new Date().getFullYear()})</h3>
@@ -326,7 +325,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
           <div className="card-header">
             <h3 className="card-title">🚑 Triagem Manchester Detalhada ({formatPeriodRange(dateRange)})</h3>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-4">
+          <div className="grid grid-cols-4 gap-4">
             <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
               <div className="metric-value text-red-600">{formatNumber(triagemData.find(t => t.name === 'Vermelha')?.value || 0)}</div>
               <div className="metric-label">Vermelha</div>
@@ -397,7 +396,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       )}
 
       {/* Métricas Operacionais */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <div className="grid grid-cols-3 gap-6 mb-6">
         <div className="card">
           <div className="card-header">
             <h3 className="card-title">👥 Recursos Humanos</h3>

@@ -236,7 +236,7 @@ const DashboardRH = ({ data, dateRange }) => {
   return (
     <div className="fade-in">
       {/* KPIs RH */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-4 gap-4 mb-6">
         <div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}>
           <div className="metric-value" style={{ color: '#1e40af' }}>
             {formatNumber(totalProfissionaisNacional)}
@@ -348,7 +348,7 @@ const DashboardRH = ({ data, dateRange }) => {
           <div className="card-header">
             <h3 className="card-title">👷 Grupos Profissionais Detalhados ({formatPeriodRange(dateRange)})</h3>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+          <div className="grid grid-cols-4 gap-4 mb-4">
             <div className="metric-card" style={{ borderLeft: '4px solid #3b82f6' }}>
               <div className="metric-value text-blue-600">
                 {formatNumber((trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0))}
@@ -456,7 +456,7 @@ const DashboardRH = ({ data, dateRange }) => {
       )}
 
       {/* Gráficos RH */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Evolução Temporal RH */}
         <div className="chart-container">
           <h3 className="chart-title">📈 Evolução de Recursos Humanos (2016 - {new Date().getFullYear()})</h3>
@@ -560,7 +560,7 @@ const DashboardRH = ({ data, dateRange }) => {
         <div className="card-header">
           <h3 className="card-title">🗺️ Análise de Recursos Humanos por Região</h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           {regionRH.map((region) => (
             <div key={region.regiaoId} className="metric-card">
               <div className="metric-value" style={{ color: '#1e40af' }}>
@@ -592,7 +592,7 @@ const DashboardRH = ({ data, dateRange }) => {
       </div>
 
       {/* Rankings de Produtividade */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Top Produtividade */}
         <div className="card">
           <div className="card-header">
@@ -711,7 +711,7 @@ const DashboardRH = ({ data, dateRange }) => {
         <div className="card-header">
           <h3 className="card-title">💡 Recomendações de Recursos Humanos</h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-6">
           <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
             <h4 className="font-semibold text-red-800 mb-2">🚨 Alertas Críticos</h4>
             <ul className="text-sm text-red-700 space-y-1">
@@ -735,7 +735,7 @@ const DashboardRH = ({ data, dateRange }) => {
         <div className="mt-6">                 
           <div style={{ height: '10px' }}></div>
           <h4 className="font-semibold mb-3">🎯 Projeção de Impacto - Meta OMS</h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <div className="metric-card border-blue-200 bg-blue-50">
               <div className="metric-value" style={{ color: '#1e40af' }}>
                 {formatNumber(Math.max(0, totalMedicosNacional * 2 - totalEnfermeirosNacional))}

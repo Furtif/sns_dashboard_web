@@ -329,23 +329,30 @@ main {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.grid-cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
 @media (max-width: 640px) {
   .grid-cols-2,
   .grid-cols-3,
-  .grid-cols-4 {
+  .grid-cols-4,
+  .grid-cols-6 {
     grid-template-columns: 1fr;
   }
 }
 
 @media (min-width: 641px) and (max-width: 768px) {
   .grid-cols-3,
-  .grid-cols-4 {
+  .grid-cols-4,
+  .grid-cols-6 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .grid-cols-4 {
+  .grid-cols-4,
+  .grid-cols-6 {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -358,6 +365,10 @@ main {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
 }
 
 .metric-card:hover {
@@ -634,6 +645,8 @@ main {
   font-weight: 500;
   color: #374151;
   min-width: 100px;
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
 .filter-select {
@@ -643,6 +656,7 @@ main {
   border-radius: 0.5rem;
   background-color: white;
   font-size: 0.875rem;
+  width: 100%;
   transition: border-color 0.2s ease;
 }
 

@@ -251,7 +251,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
       </div>
 
       {/* KPIs Operacionais */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-4 gap-4 mb-6">
         <div className="metric-card" style={{ borderLeft: '4px solid #1e40af' }}>
           <div className="metric-value" style={{ color: '#1e40af' }}>
             {filteredInstitutions.length}
@@ -321,8 +321,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
 
       {/* KPIs COVID-19 Operacional */}
       {data.totalCasosCovid > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div style={{ height: '1px' }}></div>
+        <div className="grid grid-cols-4 gap-4 mb-6">
           <div className="metric-card" style={{ borderLeft: '4px solid #7c3aed' }}>
             <div className="metric-value" style={{ color: '#7c3aed' }}>
               {formatNumber(data.totalCasosCovid)}
@@ -416,7 +415,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
             <h3 className="card-title">🚑 Triagem Manchester Detalhada ({formatPeriodRange(dateRange)})</h3>
           </div>
           <div className="p-4">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-4">
+            <div className="grid grid-cols-6 gap-4 mb-4">
               <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
                 <div className="metric-value text-red-600">
                   {formatNumber(triagemData.totals?.vermelha || 0)}
@@ -512,7 +511,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
       <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Operacionais */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Evolução Mensal */}
         <div className="chart-container">
           <h3 className="chart-title">📈 Evolução Mensal de Indicadores (2016 - {new Date().getFullYear()})</h3>
@@ -669,7 +668,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
       )}
 
       {/* Tabelas de Ranking */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Top Instituições por Volume */}
         <div className="card">
           <div className="card-header">
@@ -770,10 +769,11 @@ const DashboardOperacional = ({ data, dateRange }) => {
         <div className="card-header">
           <h3 className="card-title">🏛️ Análise por Tipo de Instituição</h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {['CH', 'CHU', 'ULS', 'Hospital'].map(tipo => {
-            const tipoData = filteredInstitutions.filter(inst => inst.tipo === tipo);
-            if (tipoData.length === 0) return null;
+        <div className="grid grid-cols-4 gap-4">
+          {['CH', 'CHU', 'ULS', 'Hospital']
+            .filter(tipo => filteredInstitutions.filter(inst => inst.tipo === tipo).length > 0)
+            .map(tipo => {
+              const tipoData = filteredInstitutions.filter(inst => inst.tipo === tipo);
 
             const avgPercentFalsas = tipoData.reduce((sum, inst) => sum + inst.percentUrgenciasFalsas, 0) / tipoData.length;
             const avgRacio = tipoData.filter(i => i.racioEnfermeiroMedico > 0)
