@@ -14,8 +14,31 @@ const PeriodSummary = ({ data, dateRange }) => {
     }).format(date);
   };
 
-  const monthsDiff = Math.round((dateRange.end - dateRange.start) / (1000 * 60 * 60 * 24 * 30));
-  const yearsDiff = isFinite(monthsDiff) ? (monthsDiff / 12).toFixed(1) : '0.0';
+  // Cálculo preciso usando meses reais do calendário
+  const startYear = dateRange.start.getFullYear();
+  const startMonth = dateRange.start.getMonth();
+  const startDay = dateRange.start.getDate();
+  const endYear = dateRange.end.getFullYear();
+  const endMonth = dateRange.end.getMonth();
+  const endDay = dateRange.end.getDate();
+
+  // Diferença em meses completos
+  let monthsDiff = (endYear - startYear) * 12 + (endMonth - startMonth);
+
+  // Verificar se o dia final é o último dia do mês
+  const lastDayOfEndMonth = new Date(endYear, endMonth + 1, 0).getDate();
+  const isEndOfMonth = endDay === lastDayOfEndMonth;
+
+  // Se começamos no dia 1 e acabamos no último dia do mês, é um período de meses completos
+  if (startDay === 1 && isEndOfMonth) {
+    monthsDiff += 1;
+  } else if (endDay < startDay) {
+    // Ajuste para períodos que não começam no dia 1
+    monthsDiff -= 1;
+  }
+
+  // Converter para anos com 1 casa decimal
+  const yearsDiff = (monthsDiff / 12).toFixed(1);
 
   return (
     <div className="period-filter-summary">

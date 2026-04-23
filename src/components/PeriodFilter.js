@@ -61,8 +61,9 @@ const PeriodFilter = ({ onDateRangeChange, disabled = false }) => {
         break;
         
       case 'last2years':
-        start = new Date(now.getFullYear(), now.getMonth() - 24, 1);
-        end = now;
+        // De janeiro do ano atual - 2 até dezembro do ano anterior (2 anos completos)
+        start = new Date(now.getFullYear() - 2, 0, 1);
+        end = new Date(now.getFullYear() - 1, 11, 31);
         break;
         
       case 'all':
