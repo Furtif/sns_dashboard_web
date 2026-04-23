@@ -331,17 +331,20 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
                 data={regionData}
                 cx="50%"
                 cy="50%"
-                labelLine={false}
-                label={({ regiaoNome, percent }) => `${regiaoNome}: ${(percent * 100).toFixed(1)}%`}
-                outerRadius={80}
+                labelLine={true}
+                label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
+                outerRadius={70}
                 fill="#8884d8"
                 dataKey="custoTotal"
+                nameKey="regiaoNome"
+                labelStyle={{ fontSize: '11px' }}
               >
                 {regionData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={pieColors[index % pieColors.length]} />
                 ))}
               </Pie>
               <Tooltip formatter={(value) => formatCurrency(value)} />
+              <Legend />
             </PieChart>
           </ResponsiveContainer>
         </div>

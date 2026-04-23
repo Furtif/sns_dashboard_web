@@ -383,11 +383,12 @@ const DashboardOperacional = ({ data, dateRange }) => {
                 ]}
                 cx="50%"
                 cy="50%"
-                labelLine={false}
-                label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
-                outerRadius={80}
+                labelLine={true}
+                label={({ name, value }) => `${name}: ${formatPercent(triagemData.percentages?.[name.toLowerCase()] || 0)}`}
+                outerRadius={70}
                 fill="#8884d8"
                 dataKey="value"
+                labelStyle={{ fontSize: '11px' }}
               >
                 {[
                   { name: 'Vermelha', value: triagemData.totals?.vermelha || 0, color: '#dc2626' },
@@ -401,6 +402,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
                 ))}
               </Pie>
               <Tooltip formatter={(value) => formatNumber(value)} />
+              <Legend />
             </PieChart>
           </ResponsiveContainer>
         </div>

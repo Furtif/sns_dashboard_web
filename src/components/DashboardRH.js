@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, LineChart, Line, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, PieChart, Pie, Cell } from 'recharts';
-import { formatNumber, formatCurrency, formatDecimal, formatPeriodRange } from '../utils/formatters';
+import { formatNumber, formatCurrency, formatDecimal, formatPercent, formatPeriodRange } from '../utils/formatters';
 
 const DashboardRH = ({ data, dateRange }) => {
   const [institutionRH, setInstitutionRH] = useState([]);
@@ -162,7 +162,27 @@ const DashboardRH = ({ data, dateRange }) => {
 
       // Dados de trabalhadores por grupo profissional (CSV extra)
       if (data.trabalhadoresProcessed) {
-        setTrabalhadoresData(data.trabalhadoresProcessed);
+        const trabalhadoresWithPercentages = {
+          ...data.trabalhadoresProcessed,
+          percentages: {}
+        };
+        
+        const total = trabalhadoresWithPercentages.totals?.total || 0;
+        if (total > 0) {
+          trabalhadoresWithPercentages.percentages = {
+            medicos: ((trabalhadoresWithPercentages.totals?.medicos || 0) + (trabalhadoresWithPercentages.totals?.medicosInternos || 0)) / total * 100,
+            enfermeiros: (trabalhadoresWithPercentages.totals?.enfermeiros || 0) / total * 100,
+            tecnicosSuperioresSaude: (trabalhadoresWithPercentages.totals?.tecnicosSuperioresSaude || 0) / total * 100,
+            farmaceuticos: ((trabalhadoresWithPercentages.totals?.farmaceuticos || 0) + (trabalhadoresWithPercentages.totals?.farmaceuticosResidentes || 0)) / total * 100,
+            tsdt: (trabalhadoresWithPercentages.totals?.tsdt || 0) / total * 100,
+            assistentesTecnicos: (trabalhadoresWithPercentages.totals?.assistentesTecnicos || 0) / total * 100,
+            assistentesOperacionais: ((trabalhadoresWithPercentages.totals?.assistentesOperacionais || 0) + (trabalhadoresWithPercentages.totals?.tecnicosAuxiliares || 0)) / total * 100,
+            informaticos: (trabalhadoresWithPercentages.totals?.informaticos || 0) / total * 100,
+            outros: (trabalhadoresWithPercentages.totals?.outros || 0) / total * 100
+          };
+        }
+        
+        setTrabalhadoresData(trabalhadoresWithPercentages);
       }
     }
   }, [data]);
@@ -269,37 +289,53 @@ const DashboardRH = ({ data, dateRange }) => {
                 data={[
                   { name: 'Médicos', value: (trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0), color: '#3b82f6' },
                   { name: 'Enfermeiros', value: trabalhadoresData.totals?.enfermeiros || 0, color: '#10b981' },
-                  { name: 'Técnicos Superiores de Saúde', value: trabalhadoresData.totals?.tecnicosSuperioresSaude || 0, color: '#f59e0b' },
-                  { name: 'Farmacêuticos', value: trabalhadoresData.totals?.farmaceuticos || 0, color: '#8b5cf6' },
-                  { name: 'Técnicos Superiores de Diagnóstico e Terapêutica', value: trabalhadoresData.totals?.tecnicosSuperioresDiagnosticoTerapeutica || 0, color: '#ec4899' },
-                  { name: 'Assistentes Técnicos', value: trabalhadoresData.totals?.assistentesTecnicos || 0, color: '#06b6d4' },
-                  { name: 'Assistentes Operacionais', value: trabalhadoresData.totals?.assistentesOperacionais || 0, color: '#84cc16' },
-                  { name: 'Técnicos Auxiliares de Saúde', value: trabalhadoresData.totals?.tecnicosAuxiliaresSaude || 0, color: '#f97316' },
+                  { name: 'Téc. Sup. Saúde', value: trabalhadoresData.totals?.tecnicosSuperioresSaude || 0, color: '#f59e0b' },
+                  { name: 'Farmacêuticos', value: (trabalhadoresData.totals?.farmaceuticos || 0) + (trabalhadoresData.totals?.farmaceuticosResidentes || 0), color: '#8b5cf6' },
+                  { name: 'TSDT', value: trabalhadoresData.totals?.tsdt || 0, color: '#ec4899' },
+                  { name: 'Assist. Técnicos', value: trabalhadoresData.totals?.assistentesTecnicos || 0, color: '#06b6d4' },
+                  { name: 'Assist. Oper./Téc. Aux.', value: (trabalhadoresData.totals?.assistentesOperacionais || 0) + (trabalhadoresData.totals?.tecnicosAuxiliares || 0), color: '#84cc16' },
+                  { name: 'Informáticos', value: trabalhadoresData.totals?.informaticos || 0, color: '#14b8a6' },
                   { name: 'Outros', value: trabalhadoresData.totals?.outros || 0, color: '#6b7280' }
                 ]}
                 cx="50%"
                 cy="50%"
-                labelLine={false}
-                label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
-                outerRadius={80}
+                labelLine={true}
+                label={({ name, value }) => {
+                  const keyMap = {
+                    'Médicos': 'medicos',
+                    'Enfermeiros': 'enfermeiros',
+                    'Téc. Sup. Saúde': 'tecnicosSuperioresSaude',
+                    'Farmacêuticos': 'farmaceuticos',
+                    'TSDT': 'tsdt',
+                    'Assist. Técnicos': 'assistentesTecnicos',
+                    'Assist. Oper./Téc. Aux.': 'assistentesOperacionais',
+                    'Informáticos': 'informaticos',
+                    'Outros': 'outros'
+                  };
+                  const percentage = trabalhadoresData.percentages?.[keyMap[name]] || 0;
+                  return `${name}: ${formatPercent(percentage)}`;
+                }}
+                outerRadius={70}
                 fill="#8884d8"
                 dataKey="value"
+                labelStyle={{ fontSize: '10px' }}
               >
                 {[
                   { name: 'Médicos', value: (trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0), color: '#3b82f6' },
                   { name: 'Enfermeiros', value: trabalhadoresData.totals?.enfermeiros || 0, color: '#10b981' },
-                  { name: 'Técnicos Superiores de Saúde', value: trabalhadoresData.totals?.tecnicosSuperioresSaude || 0, color: '#f59e0b' },
-                  { name: 'Farmacêuticos', value: trabalhadoresData.totals?.farmaceuticos || 0, color: '#8b5cf6' },
-                  { name: 'Técnicos Superiores de Diagnóstico e Terapêutica', value: trabalhadoresData.totals?.tecnicosSuperioresDiagnosticoTerapeutica || 0, color: '#ec4899' },
-                  { name: 'Assistentes Técnicos', value: trabalhadoresData.totals?.assistentesTecnicos || 0, color: '#06b6d4' },
-                  { name: 'Assistentes Operacionais', value: trabalhadoresData.totals?.assistentesOperacionais || 0, color: '#84cc16' },
-                  { name: 'Técnicos Auxiliares de Saúde', value: trabalhadoresData.totals?.tecnicosAuxiliaresSaude || 0, color: '#f97316' },
+                  { name: 'Téc. Sup. Saúde', value: trabalhadoresData.totals?.tecnicosSuperioresSaude || 0, color: '#f59e0b' },
+                  { name: 'Farmacêuticos', value: (trabalhadoresData.totals?.farmaceuticos || 0) + (trabalhadoresData.totals?.farmaceuticosResidentes || 0), color: '#8b5cf6' },
+                  { name: 'TSDT', value: trabalhadoresData.totals?.tsdt || 0, color: '#ec4899' },
+                  { name: 'Assist. Técnicos', value: trabalhadoresData.totals?.assistentesTecnicos || 0, color: '#06b6d4' },
+                  { name: 'Assist. Oper./Téc. Aux.', value: (trabalhadoresData.totals?.assistentesOperacionais || 0) + (trabalhadoresData.totals?.tecnicosAuxiliares || 0), color: '#84cc16' },
+                  { name: 'Informáticos', value: trabalhadoresData.totals?.informaticos || 0, color: '#14b8a6' },
                   { name: 'Outros', value: trabalhadoresData.totals?.outros || 0, color: '#6b7280' }
                 ].map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip formatter={(value) => formatNumber(value)} />
+              <Legend />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -321,18 +357,21 @@ const DashboardRH = ({ data, dateRange }) => {
               <div className="text-xs text-gray-500 mt-1">
                 {formatNumber(trabalhadoresData.totals?.medicos || 0)} s/ internos + {formatNumber(trabalhadoresData.totals?.medicosInternos || 0)} internos
               </div>
+              <div className="text-xs text-gray-500">{formatPercent(trabalhadoresData.percentages?.medicos || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #10b981' }}>
               <div className="metric-value text-green-600">
                 {formatNumber(trabalhadoresData.totals?.enfermeiros || 0)}
               </div>
               <div className="metric-label">Enfermeiros</div>
+              <div className="text-xs text-gray-500">{formatPercent(trabalhadoresData.percentages?.enfermeiros || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #f59e0b' }}>
               <div className="metric-value text-yellow-600">
                 {formatNumber(trabalhadoresData.totals?.tecnicosSuperioresSaude || 0)}
               </div>
               <div className="metric-label">Técnicos Superiores de Saúde</div>
+              <div className="text-xs text-gray-500">{formatPercent(trabalhadoresData.percentages?.tecnicosSuperioresSaude || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #8b5cf6' }}>
               <div className="metric-value text-purple-600">
@@ -342,36 +381,42 @@ const DashboardRH = ({ data, dateRange }) => {
               <div className="text-xs text-gray-500 mt-1">
                 {formatNumber(trabalhadoresData.totals?.farmaceuticos || 0)} + {formatNumber(trabalhadoresData.totals?.farmaceuticosResidentes || 0)} residentes
               </div>
+              <div className="text-xs text-gray-500">{formatPercent(trabalhadoresData.percentages?.farmaceuticos || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #ec4899' }}>
               <div className="metric-value text-pink-600">
                 {formatNumber(trabalhadoresData.totals?.tsdt || 0)}
               </div>
               <div className="metric-label">TSDT</div>
+              <div className="text-xs text-gray-500">{formatPercent(trabalhadoresData.percentages?.tsdt || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #6b7280' }}>
               <div className="metric-value text-gray-600">
                 {formatNumber(trabalhadoresData.totals?.assistentesTecnicos || 0)}
               </div>
               <div className="metric-label">Assistentes Técnicos</div>
+              <div className="text-xs text-gray-500">{formatPercent(trabalhadoresData.percentages?.assistentesTecnicos || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #0891b2' }}>
               <div className="metric-value text-cyan-600">
                 {formatNumber((trabalhadoresData.totals?.assistentesOperacionais || 0) + (trabalhadoresData.totals?.tecnicosAuxiliares || 0))}
               </div>
               <div className="metric-label">Assistentes Operacionais / Téc. Auxiliares</div>
+              <div className="text-xs text-gray-500">{formatPercent(trabalhadoresData.percentages?.assistentesOperacionais || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #14b8a6' }}>
               <div className="metric-value text-teal-600">
                 {formatNumber(trabalhadoresData.totals?.informaticos || 0)}
               </div>
               <div className="metric-label">Informáticos</div>
+              <div className="text-xs text-gray-500">{formatPercent(trabalhadoresData.percentages?.informaticos || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #a855f7' }}>
               <div className="metric-value text-violet-600">
                 {formatNumber(trabalhadoresData.totals?.outros || 0)}
               </div>
               <div className="metric-label">Outros</div>
+              <div className="text-xs text-gray-500">{formatPercent(trabalhadoresData.percentages?.outros || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #1e3a8a' }}>
               <div className="metric-value text-blue-800">

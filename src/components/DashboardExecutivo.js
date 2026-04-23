@@ -5,6 +5,7 @@ import { formatNumber, formatCurrency, formatPercent, formatPeriodRange } from '
 const DashboardExecutivo = ({ data, dateRange }) => {
   const [timeSeriesData, setTimeSeriesData] = useState([]);
   const [triagemData, setTriagemData] = useState([]);
+  const [triagemPercentages, setTriagemPercentages] = useState({});
   const [covidTimeSeriesData, setCovidTimeSeriesData] = useState([]);
   const [triagemProcessedData, setTriagemProcessedData] = useState([]);
 
@@ -39,8 +40,19 @@ const DashboardExecutivo = ({ data, dateRange }) => {
         acc.verde += row.Atendimentos_Verde || 0;
         acc.azul += row.Atendimentos_Azul || 0;
         acc.branca += row.Atendimentos_Branca || 0;
+        acc.total += row.TotalAtendimentos || 0;
         return acc;
-      }, { vermelha: 0, laranja: 0, amarela: 0, verde: 0, azul: 0, branca: 0 });
+      }, { vermelha: 0, laranja: 0, amarela: 0, verde: 0, azul: 0, branca: 0, total: 0 });
+
+      const totalComTriagem = triagemTotals.total;
+      const triagemPercentages = totalComTriagem > 0 ? {
+        vermelha: (triagemTotals.vermelha / totalComTriagem) * 100,
+        laranja: (triagemTotals.laranja / totalComTriagem) * 100,
+        amarela: (triagemTotals.amarela / totalComTriagem) * 100,
+        verde: (triagemTotals.verde / totalComTriagem) * 100,
+        azul: (triagemTotals.azul / totalComTriagem) * 100,
+        branca: (triagemTotals.branca / totalComTriagem) * 100
+      } : {};
 
       const triagem = [
         { name: 'Vermelha', value: triagemTotals.vermelha, color: '#dc2626' },
@@ -52,6 +64,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       ].filter(item => item.value > 0);
 
       setTriagemData(triagem);
+      setTriagemPercentages(triagemPercentages);
 
       // Preparar dados de triagem por instituição (a partir de dadosBrutos merged)
       const triagemByInstitution = {};
@@ -289,17 +302,19 @@ const DashboardExecutivo = ({ data, dateRange }) => {
                 data={triagemData}
                 cx="50%"
                 cy="50%"
-                labelLine={false}
+                labelLine={true}
                 label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
-                outerRadius={80}
+                outerRadius={70}
                 fill="#8884d8"
                 dataKey="value"
+                labelStyle={{ fontSize: '11px' }}
               >
                 {triagemData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip formatter={(value) => formatNumber(value)} />
+              <Legend />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -315,26 +330,32 @@ const DashboardExecutivo = ({ data, dateRange }) => {
             <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
               <div className="metric-value text-red-600">{formatNumber(triagemData.find(t => t.name === 'Vermelha')?.value || 0)}</div>
               <div className="metric-label">Vermelha</div>
+              <div className="text-xs text-gray-500">{formatPercent(triagemPercentages?.vermelha || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #ea580c' }}>
               <div className="metric-value text-orange-600">{formatNumber(triagemData.find(t => t.name === 'Laranja')?.value || 0)}</div>
               <div className="metric-label">Laranja</div>
+              <div className="text-xs text-gray-500">{formatPercent(triagemPercentages?.laranja || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #eab308' }}>
               <div className="metric-value text-yellow-600">{formatNumber(triagemData.find(t => t.name === 'Amarela')?.value || 0)}</div>
               <div className="metric-label">Amarela</div>
+              <div className="text-xs text-gray-500">{formatPercent(triagemPercentages?.amarela || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #16a34a' }}>
               <div className="metric-value text-green-600">{formatNumber(triagemData.find(t => t.name === 'Verde')?.value || 0)}</div>
               <div className="metric-label">Verde (Falsa)</div>
+              <div className="text-xs text-gray-500">{formatPercent(triagemPercentages?.verde || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
               <div className="metric-value text-blue-600">{formatNumber(triagemData.find(t => t.name === 'Azul')?.value || 0)}</div>
               <div className="metric-label">Azul (Falsa)</div>
+              <div className="text-xs text-gray-500">{formatPercent(triagemPercentages?.azul || 0)}</div>
             </div>
             <div className="metric-card" style={{ borderLeft: '4px solid #6b7280' }}>
               <div className="metric-value text-gray-600">{formatNumber(triagemData.find(t => t.name === 'Branca')?.value || 0)}</div>
               <div className="metric-label">Branca (Falsa)</div>
+              <div className="text-xs text-gray-500">{formatPercent(triagemPercentages?.branca || 0)}</div>
             </div>
           </div>
           <div style={{ height: '20px' }}></div>
