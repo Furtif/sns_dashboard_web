@@ -1,7 +1,7 @@
 # SNS Dashboard - Portugal
 
 [![Test Build](https://github.com/Furtif/sns_dashboard_web/actions/workflows/test.yml/badge.svg)](https://github.com/Furtif/sns_dashboard_web/actions/workflows/test.yml)
-[![Coverage](https://img.shields.io/badge/coverage-29%25-orange.svg)](tests/coverage/lcov-report/index.html)
+[![Coverage](https://img.shields.io/badge/coverage-28%25-orange.svg)](tests/coverage/lcov-report/index.html)
 [![License](https://img.shields.io/badge/license-ECL--2.0-blue.svg)](LICENSE.md)
 [![React](https://img.shields.io/badge/react-19.2.4-blue.svg)](https://reactjs.org/)
 [![Node](https://img.shields.io/badge/node-20%2B-green.svg)]()
