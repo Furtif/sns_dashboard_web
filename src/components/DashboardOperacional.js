@@ -379,10 +379,9 @@ const DashboardOperacional = ({ data, dateRange }) => {
               { name: 'Branca', value: triagemData.totals?.branca || 0, color: '#6b7280' }
             ]} layout="vertical">
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" />
+              <XAxis type="number" tickFormatter={(value) => formatNumber(value)} />
               <YAxis type="category" dataKey="name" width={80} tick={{ fontSize: 11 }} />
               <Tooltip formatter={(value) => formatNumber(value)} />
-              <Legend />
               <Bar dataKey="value" name="Atendimentos">
                 {[
                   { name: 'Vermelha', value: triagemData.totals?.vermelha || 0, color: '#dc2626' },

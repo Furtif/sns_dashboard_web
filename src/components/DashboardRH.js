@@ -296,10 +296,9 @@ const DashboardRH = ({ data, dateRange }) => {
               { name: 'Outros', value: trabalhadoresData.totals?.outros || 0, color: '#6b7280' }
             ]} layout="vertical">
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" />
+              <XAxis type="number" tickFormatter={(value) => formatNumber(value)} />
               <YAxis type="category" dataKey="name" width={120} tick={{ fontSize: 10 }} />
               <Tooltip formatter={(value) => formatNumber(value)} />
-              <Legend />
               <Bar dataKey="value" name="Profissionais">
                 {[
                   { name: 'Médicos', value: (trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0), color: '#3b82f6' },

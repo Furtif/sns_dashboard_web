@@ -298,10 +298,9 @@ const DashboardExecutivo = ({ data, dateRange }) => {
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={triagemData} layout="vertical">
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" />
+              <XAxis type="number" tickFormatter={(value) => formatNumber(value)} />
               <YAxis type="category" dataKey="name" width={80} tick={{ fontSize: 11 }} />
               <Tooltip formatter={(value) => formatNumber(value)} />
-              <Legend />
               <Bar dataKey="value" name="Atendimentos">
                 {triagemData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
