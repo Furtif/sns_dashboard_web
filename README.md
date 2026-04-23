@@ -1,8 +1,8 @@
 # SNS Dashboard - Portugal
 
 [![Test Build](https://github.com/Furtif/sns_dashboard_web/actions/workflows/test.yml/badge.svg)](https://github.com/Furtif/sns_dashboard_web/actions/workflows/test.yml)
-[![Coverage](https://img.shields.io/badge/coverage-30%25-orange.svg)](tests/coverage/lcov-report/index.html)
-[![Tests](https://img.shields.io/badge/tests-47%20passed-brightgreen.svg)]()
+[![Coverage](https://img.shields.io/badge/coverage-0%25-orange.svg)](tests/coverage/lcov-report/index.html)
+[![Tests](https://img.shields.io/badge/tests-Jest%20Suite-brightgreen.svg)]()
 [![License](https://img.shields.io/badge/license-ECL--2.0-blue.svg)](LICENSE.md)
 [![React](https://img.shields.io/badge/react-19.2.4-blue.svg)](https://reactjs.org/)
 [![Node](https://img.shields.io/badge/node-20%2B-green.svg)]()
@@ -30,7 +30,7 @@ Este projeto converteu o dashboard Power BI original para uma aplicação web mo
 sns_dashboard_web/
 ├── public/
 │   ├── index.html
-│   └── data/           # 8 arquivos CSV de dados hospitalares
+│   └── data/           # 5 arquivos CSV principais + 3 arquivos de dimensão
 │       ├── fact_atendimentos_urgencia_mensal.csv
 │       ├── fact_monitorizacao_sazonal.csv
 │       ├── atendimentos_urgencia_triagem_manchester.csv
@@ -49,11 +49,11 @@ sns_dashboard_web/
 │   │   ├── PeriodFilter.js            # Filtro de período temporal
 │   │   └── PeriodSummary.js           # Resumo do período filtrado
 │   ├── utils/          # Utilitários de processamento de dados
-│   │   ├── dataLoader.js            # Carregamento e cache de CSVs
-│   │   └── formatters.js            # Formatação de números e moeda
+│   │   ├── dataLoader.js            # Carregamento e cache de CSVs (769 linhas)
+│   │   └── formatters.js            # Formatação de números e moeda (44 linhas)
 │   ├── App.js          # Componente principal com navegação
 │   ├── index.js        # Ponto de entrada React
-│   └── styles.css      # Estilos responsivos (1070 linhas)
+│   └── styles.css      # Estilos responsivos (1321 linhas)
 ├── tests/               # Testes unitários e de integração
 │   ├── setup/           # Configuração de testes
 │   │   └── setupTests.js
@@ -79,7 +79,7 @@ sns_dashboard_web/
 ## 🚀 Como Usar
 
 ### Pré-requisitos
-- Node.js 16+ instalado
+- Node.js 20+ instalado
 - NPM ou Yarn
 
 ### Instalação e Execução
@@ -173,10 +173,10 @@ O dashboard foi projetado com uma abordagem mobile-first:
 ##  Fonte de Dados
 
 - **Origem**: Portal da Transparência do SNS (transparencia.sns.gov.pt)
-- **Período**: 2016-2026 (10 anos de dados históricos)
-- **Volume**: 8 arquivos CSV com dados hospitalares
-- **Atualização**: Diária para monitorização, mensal para atendimentos
-- **Estrutura**: Star Schema preservado do Power BI original
+- **Período**: 2016-2026 (dados históricos com geração até data atual)
+- **Volume**: 5 arquivos CSV principais + 3 arquivos de dimensão
+- **Atualização**: Scripts Python disponíveis para atualização local
+- **Estrutura**: Star Schema com tabelas fato e dimensão
 
 ## 🎨 Tecnologias Utilizadas
 
@@ -184,7 +184,7 @@ O dashboard foi projetado com uma abordagem mobile-first:
 - **React 19.2.4**: Biblioteca principal de componentes com hooks modernos
 - **React DOM 19.2.4**: Renderização eficiente no browser
 - **Recharts 3.7.0**: Biblioteca completa para gráficos interativos SVG
-- **CSS3 Puro**: 1070 linhas de estilos responsivos sem frameworks externos
+- **CSS3 Puro**: 1321 linhas de estilos responsivos sem frameworks externos
 
 ### Build & Development
 - **Webpack 5.105.0**: Bundler moderno com otimizações
@@ -236,7 +236,7 @@ O dashboard implementa métricas baseadas nas medidas DAX originais:
 
 ### Personalização
 - **Cores e Temas**: CSS com variáveis customizáveis
-- **Métricas**: Configuradas em `utils/dataLoader.js` (339 linhas)
+- **Métricas**: Configuradas em `utils/dataLoader.js` (769 linhas)
 - **Layout**: CSS Grid system com breakpoints responsivos
 - **Gráficos**: Configurações Recharts em cada componente
 
@@ -255,23 +255,18 @@ O dashboard implementa métricas baseadas nas medidas DAX originais:
 - **Responsividade**: Adaptada de desktop-first para mobile-first
 
 ### Arquitetura de Componentes
-- **App.js**: Componente principal (245 linhas) com gerenciamento de estado global
+- **App.js**: Componente principal (351 linhas) com gerenciamento de estado global
 - **Dashboards**: 4 componentes especializados com métricas específicas
 - **PeriodFilter/Summary**: Componentes reutilizáveis para filtragem temporal
-- **Utils**: dataLoader.js (339 linhas) e formatters.js (37 linhas)
+- **Utils**: dataLoader.js (769 linhas) e formatters.js (44 linhas)
 
 ## 🧪 Testes
 
 O projeto inclui uma suite completa de testes unitários com Jest e Testing Library.
 
-### Cobertura Atual
+### Cobertura de Testes
 
-| Módulo | Statements | Branch | Functions | Lines |
-|--------|-----------|--------|-----------|-------|
-| **formatters.js** | 100% | 100% | 100% | 100% |
-| **dataLoader.js** | 88% | 86% | 90% | 91% |
-| **PeriodSummary.js** | 87.5% | 71% | 100% | 87.5% |
-| **PeriodFilter.js** | 25% | 29% | 43% | 23% |
+O projeto possui testes unitários para componentes e utilitários. Execute `npm run test:coverage` para ver o relatório atualizado.
 
 ### Executar Testes
 
@@ -294,11 +289,16 @@ tests/
 │   └── setupTests.js          # Configuração global do Testing Library
 ├── unit/
 │   ├── components/            # Testes de componentes React
+│   │   ├── DashboardExecutivo.test.js
+│   │   ├── DashboardFinanceiro.test.js
+│   │   ├── DashboardOperacional.test.js
+│   │   ├── DashboardRH.test.js
 │   │   ├── PeriodFilter.simple.test.js
 │   │   └── PeriodSummary.test.js
 │   └── utils/                 # Testes de utilitários
 │       ├── dataLoader.test.js
-│       └── formatters.test.js
+│       ├── formatters.test.js
+│       └── formatters.additional.test.js
 └── coverage/                  # Relatórios LCOV gerados automaticamente
 ```
 
@@ -376,9 +376,9 @@ Este projeto é uma conversão do dashboard Power BI original mantendo:
 
 - **Versão**: 1.0.0  
 - **Tecnologia**: React 19.2.4 + Webpack 5.105.0
-- **Linhas de Código**: ~3000+ linhas (JS + CSS)
+- **Linhas de Código**: ~5400+ linhas (JS + CSS)
 - **Componentes**: 6 componentes React
-- **Arquivos de Dados**: 8 CSVs
+- **Arquivos de Dados**: 5 CSVs principais + 3 arquivos de dimensão
 - **Métricas**: 50+ indicadores de performance hospitalar
 - **Licença**: ECL-2.0 (Educational Community License)
 
