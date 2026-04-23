@@ -262,7 +262,7 @@ const DashboardRH = ({ data, dateRange }) => {
       {/* Distribuição por Grupos Profissionais */}
       {trabalhadoresData && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">Distribuição por Grupos Profissionais</h3>
+          <h3 className="chart-title">🥧 Distribuição por Grupos Profissionais</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -381,7 +381,7 @@ const DashboardRH = ({ data, dateRange }) => {
             </div>
           </div>
           <div style={{ height: '20px' }}></div>
-          <h4 className="font-semibold mb-2 px-4">Top 10 Instituições por Volume</h4>
+          <h4 className="font-semibold mb-2 px-4">🏥 Top 10 Instituições por Volume</h4>
           <div className="table-container">
             <table className="table">
               <thead>
@@ -414,7 +414,7 @@ const DashboardRH = ({ data, dateRange }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução Temporal RH */}
         <div className="chart-container">
-          <h3 className="chart-title">Evolução de Recursos Humanos (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">📈 Evolução de Recursos Humanos (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={timeSeriesRH}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -468,7 +468,7 @@ const DashboardRH = ({ data, dateRange }) => {
 
         {/* Produtividade vs Rácio */}
         <div className="chart-container">
-          <h3 className="chart-title">Análise de Produtividade vs Rácio Enf./Méd.</h3>
+          <h3 className="chart-title">📊 Análise de Produtividade vs Rácio Enf./Méd.</h3>
           <ResponsiveContainer width="100%" height={300}>
             <ScatterChart data={productivityData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -513,7 +513,7 @@ const DashboardRH = ({ data, dateRange }) => {
       {/* Análise por Região */}
       <div className="card mb-6">
         <div className="card-header">
-          <h3 className="card-title">Análise de Recursos Humanos por Região</h3>
+          <h3 className="card-title">🗺️ Análise de Recursos Humanos por Região</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {regionRH.map((region) => (
@@ -551,7 +551,7 @@ const DashboardRH = ({ data, dateRange }) => {
         {/* Top Produtividade */}
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Top 10 - Maior Produtividade (Atend./Médico)</h3>
+            <h3 className="card-title">🏆 Top 10 - Maior Produtividade (Atend./Médico)</h3>
           </div>
           <div className="table-container">
             <table className="table">
@@ -609,7 +609,7 @@ const DashboardRH = ({ data, dateRange }) => {
         {/* Instituições com Défice de Enfermeiros */}
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Défice Crítico de Enfermeiros (Rácio &lt; 1.5)</h3>
+            <h3 className="card-title">🚨 Défice Crítico de Enfermeiros (Rácio &lt; 1.5)</h3>
           </div>
           <div className="table-container">
             <table className="table">
@@ -664,7 +664,7 @@ const DashboardRH = ({ data, dateRange }) => {
       {/* Recomendações RH */}
       <div className="card">
         <div className="card-header">
-          <h3 className="card-title">Recomendações de Recursos Humanos</h3>
+          <h3 className="card-title">💡 Recomendações de Recursos Humanos</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
@@ -689,7 +689,7 @@ const DashboardRH = ({ data, dateRange }) => {
 
         <div className="mt-6">                 
           <div style={{ height: '10px' }}></div>
-          <h4 className="font-semibold mb-3">Projeção de Impacto - Meta OMS</h4>
+          <h4 className="font-semibold mb-3">🎯 Projeção de Impacto - Meta OMS</h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="metric-card border-blue-200 bg-blue-50">
               <div className="metric-value" style={{ color: '#1e40af' }}>

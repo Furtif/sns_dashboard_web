@@ -241,7 +241,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução Temporal */}
         <div className="chart-container">
-          <h3 className="chart-title">Evolução dos Atendimentos (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">📈 Evolução dos Atendimentos (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={timeSeriesData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -282,7 +282,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
 
         {/* Distribuição por Triagem */}
         <div className="chart-container">
-          <h3 className="chart-title">Distribuição por Triagem Manchester</h3>
+          <h3 className="chart-title">🥧 Distribuição por Triagem Manchester</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -338,7 +338,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
             </div>
           </div>
           <div style={{ height: '20px' }}></div>
-          <h4 className="font-semibold mb-2 px-4">Top 10 Instituições por Volume (Manchester)</h4>
+          <h4 className="font-semibold mb-2 px-4">🏥 Top 10 Instituições por Volume (Manchester)</h4>
           <div className="table-container">
             <table className="table">
               <thead>
@@ -379,7 +379,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Recursos Humanos</h3>
+            <h3 className="card-title">👥 Recursos Humanos</h3>
           </div>
           <div className="space-y-4">
             <div className="flex justify-between items-center">
@@ -404,7 +404,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
 
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Tempos de Espera</h3>
+            <h3 className="card-title">⏱️ Tempos de Espera</h3>
           </div>
           <div className="space-y-4">
             <div className="flex justify-between items-center">
@@ -431,7 +431,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
 
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Impacto Financeiro</h3>
+            <h3 className="card-title">💰 Impacto Financeiro</h3>
           </div>
           <div className="space-y-4">
             <div className="flex justify-between items-center">
@@ -469,7 +469,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       {/* Gráfico COVID-19 */}
       {covidTimeSeriesData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">Evolução COVID-19 e Gripe Sazonal nas Urgências (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">🦠 Evolução COVID-19 e Gripe Sazonal nas Urgências (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidTimeSeriesData}>
               <CartesianGrid strokeDasharray="3 3" />

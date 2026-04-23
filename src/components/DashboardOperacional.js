@@ -369,7 +369,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
       {/* Distribuição por Triagem Manchester */}
       {triagemData && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">Distribuição por Triagem Manchester</h3>
+          <h3 className="chart-title">🥧 Distribuição por Triagem Manchester</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -471,7 +471,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
               </div>
             </div>
             <div style={{ height: '20px' }}></div>
-            <h4 className="font-semibold mb-2">Top 20 Instituições por Volume</h4>
+            <h4 className="font-semibold mb-2">🏥 Top 20 Instituições por Volume</h4>
             <div className="table-container">
               <table className="table">
                 <thead>
@@ -513,7 +513,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução Mensal */}
         <div className="chart-container">
-          <h3 className="chart-title">Evolução Mensal de Indicadores (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">📈 Evolução Mensal de Indicadores (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={monthlyData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -558,7 +558,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
 
         {/* Dispersão: Eficiência vs Volume */}
         <div className="chart-container">
-          <h3 className="chart-title">Análise de Eficiência vs Volume</h3>
+          <h3 className="chart-title">📊 Análise de Eficiência vs Volume</h3>
           <ResponsiveContainer width="100%" height={300}>
             <ScatterChart data={filteredInstitutions}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -601,7 +601,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
       {/* Gráfico COVID-19 Operacional */}
       {covidOperationalData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">Evolução Operacional COVID-19 e Gripe Sazonal (2013 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">🦠 Evolução Operacional COVID-19 e Gripe Sazonal (2013 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidOperationalData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -671,7 +671,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
         {/* Top Instituições por Volume */}
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Top 10 Instituições por Volume</h3>
+            <h3 className="card-title">🏆 Top 10 Instituições por Volume</h3>
           </div>
           <div className="table-container">
             <table className="table">
@@ -717,7 +717,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
         {/* Pior Eficiência */}
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Maior Percentagem de Urgências Falsas</h3>
+            <h3 className="card-title">⚠️ Maior Percentagem de Urgências Falsas</h3>
           </div>
           <div className="table-container">
             <table className="table">
@@ -766,7 +766,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
       {/* Análise por Tipo de Instituição */}
       <div className="card">
         <div className="card-header">
-          <h3 className="card-title">Análise por Tipo de Instituição</h3>
+          <h3 className="card-title">🏛️ Análise por Tipo de Instituição</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {['CH', 'CHU', 'ULS', 'Hospital'].map(tipo => {

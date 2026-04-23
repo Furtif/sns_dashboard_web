@@ -271,7 +271,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução de Custos */}
         <div className="chart-container">
-          <h3 className="chart-title">Evolução de Custos e Desperdício (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">📈 Evolução de Custos e Desperdício (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={costEvolution}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -324,7 +324,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
 
         {/* Distribuição por Região */}
         <div className="chart-container">
-          <h3 className="chart-title">Distribuição de Custos por Região</h3>
+          <h3 className="chart-title">🥧 Distribuição de Custos por Região</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -352,7 +352,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
         {/* Desperdício por Região */}
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Análise de Desperdício por Região</h3>
+            <h3 className="card-title">🗺️ Análise de Desperdício por Região</h3>
           </div>
           <div className="table-container">
             <table className="table">
@@ -395,7 +395,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
         {/* Desperdício por Tipo de Instituição */}
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Desperdício por Tipo de Instituição</h3>
+            <h3 className="card-title">🏛️ Desperdício por Tipo de Instituição</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {wasteAnalysis.map((type) => (
@@ -444,7 +444,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
       {/* Gráfico COVID-19 Financeiro */}
       {covidCostData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">Impacto Financeiro COVID-19 e Gripe Sazonal (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">🦠 Impacto Financeiro COVID-19 e Gripe Sazonal (2016 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidCostData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -502,7 +502,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
       {/* Projeções e Impacto */}
       <div className="card">
         <div className="card-header">
-          <h3 className="card-title">Projeções e Impacto de Melhorias</h3>
+          <h3 className="card-title">🎯 Projeções e Impacto de Melhorias</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Cenário Otimista */}
