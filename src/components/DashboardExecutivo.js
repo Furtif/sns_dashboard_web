@@ -247,7 +247,6 @@ const DashboardExecutivo = ({ data, dateRange }) => {
           </div>
         </div>
       )}
-      <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Principais */}
       <div className="grid grid-cols-2 gap-6 mb-6">
@@ -317,7 +316,8 @@ const DashboardExecutivo = ({ data, dateRange }) => {
           <div className="card-header">
             <h3 className="card-title">🚑 Triagem Manchester Detalhada ({formatPeriodRange(dateRange)})</h3>
           </div>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="p-4">
+            <div className="grid grid-cols-4 gap-4 mb-4">
             <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
               <div className="metric-value text-red-600">{formatNumber(triagemData.find(t => t.name === 'Vermelha')?.value || 0)}</div>
               <div className="metric-label">Vermelha</div>
@@ -349,7 +349,6 @@ const DashboardExecutivo = ({ data, dateRange }) => {
               <div className="text-xs text-gray-500">{formatPercent(triagemPercentages?.branca || 0)}</div>
             </div>
           </div>
-          <div style={{ height: '20px' }}></div>
           <h4 className="font-semibold mb-2 px-4">🏥 Top 10 Instituições por Volume (Manchester)</h4>
           <div className="table-container">
             <table className="table">
@@ -385,6 +384,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
             </table>
           </div>
         </div>
+      </div>
       )}
 
       {/* Métricas Operacionais */}

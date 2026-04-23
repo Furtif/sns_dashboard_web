@@ -264,7 +264,6 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
           </div>
         </div>
       )}
-      <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Financeiros */}
       <div className="grid grid-cols-2 gap-6 mb-6">

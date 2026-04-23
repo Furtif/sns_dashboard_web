@@ -363,7 +363,6 @@ const DashboardOperacional = ({ data, dateRange }) => {
           </div>
         </div>
       )}
-      <div style={{ height: '20px' }}></div>
 
       {/* Distribuição por Triagem Manchester */}
       {triagemData && (
@@ -398,9 +397,8 @@ const DashboardOperacional = ({ data, dateRange }) => {
           </ResponsiveContainer>
         </div>
       )}
-      <div style={{ height: '20px' }}></div>
 
-      {/* Dados Detalhados Triagem Manchester */}
+      {/* Triagem Manchester Detalhada */}
       {triagemData && (
         <div className="card mb-6">
           <div className="card-header">
@@ -463,7 +461,6 @@ const DashboardOperacional = ({ data, dateRange }) => {
                 </div>
               </div>
             </div>
-            <div style={{ height: '20px' }}></div>
             <h4 className="font-semibold mb-2">🏥 Top 20 Instituições por Volume</h4>
             <div className="table-container">
               <table className="table">
@@ -500,7 +497,6 @@ const DashboardOperacional = ({ data, dateRange }) => {
           </div>
         </div>
       )}
-      <div style={{ height: '20px' }}></div>
 
       {/* Gráficos Operacionais */}
       <div className="grid grid-cols-2 gap-6 mb-6">

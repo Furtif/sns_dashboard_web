@@ -277,8 +277,6 @@ const DashboardRH = ({ data, dateRange }) => {
           </div>
         </div>
       </div>
-      <div style={{ height: '20px' }}></div>
-
       {/* Distribuição por Grupos Profissionais */}
       {trabalhadoresData && (
         <div className="chart-container mb-6">
@@ -318,7 +316,6 @@ const DashboardRH = ({ data, dateRange }) => {
           </ResponsiveContainer>
         </div>
       )}
-      <div style={{ height: '20px' }}></div>
 
       {/* Dados de Grupos Profissionais */}
       {trabalhadoresData && (
@@ -326,7 +323,8 @@ const DashboardRH = ({ data, dateRange }) => {
           <div className="card-header">
             <h3 className="card-title">👷 Grupos Profissionais Detalhados ({formatPeriodRange(dateRange)})</h3>
           </div>
-          <div className="grid grid-cols-4 gap-4 mb-4">
+          <div className="p-4">
+            <div className="grid grid-cols-4 gap-4 mb-4">
             <div className="metric-card" style={{ borderLeft: '4px solid #3b82f6' }}>
               <div className="metric-value text-blue-600">
                 {formatNumber((trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0))}
@@ -403,7 +401,6 @@ const DashboardRH = ({ data, dateRange }) => {
               <div className="metric-label">Total Geral</div>
             </div>
           </div>
-          <div style={{ height: '20px' }}></div>
           <h4 className="font-semibold mb-2 px-4">🏥 Top 10 Instituições por Volume</h4>
           <div className="table-container">
             <table className="table">
@@ -431,6 +428,7 @@ const DashboardRH = ({ data, dateRange }) => {
             </table>
           </div>
         </div>
+      </div>
       )}
 
       {/* Gráficos RH */}
