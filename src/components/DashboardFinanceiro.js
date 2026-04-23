@@ -344,7 +344,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
                 ))}
               </Pie>
               <Tooltip formatter={(value) => formatCurrency(value)} />
-              <Legend />
+              <Legend verticalAlign="bottom" height={36} />
             </PieChart>
           </ResponsiveContainer>
         </div>

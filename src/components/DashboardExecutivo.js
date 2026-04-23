@@ -314,7 +314,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
                 ))}
               </Pie>
               <Tooltip formatter={(value) => formatNumber(value)} />
-              <Legend />
+              <Legend verticalAlign="bottom" height={36} />
             </PieChart>
           </ResponsiveContainer>
         </div>

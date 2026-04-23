@@ -596,6 +596,7 @@ main {
   .table td:first-child .mobile-only {
     font-size: 0.8rem;
     color: #6b7280;
+    display: none;
   }
 }
 
