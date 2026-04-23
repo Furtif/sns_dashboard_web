@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart, Bar, LineChart, Line, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
-import { formatNumber, formatCurrency, formatDecimal } from '../utils/formatters';
+import { BarChart, Bar, LineChart, Line, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, PieChart, Pie, Cell } from 'recharts';
+import { formatNumber, formatCurrency, formatDecimal, formatPeriodRange } from '../utils/formatters';
 
-const DashboardRH = ({ data }) => {
+const DashboardRH = ({ data, dateRange }) => {
   const [institutionRH, setInstitutionRH] = useState([]);
   const [timeSeriesRH, setTimeSeriesRH] = useState([]);
   const [productivityData, setProductivityData] = useState([]);
   const [regionRH, setRegionRH] = useState([]);
+  const [trabalhadoresData, setTrabalhadoresData] = useState(null);
 
   useEffect(() => {
     if (data && data.dadosBrutos && data.instituicoes) {
-      // Preparar dados RH por instituição
+      // Preparar dados RH por instituição (ignorar 2013-2015 que não têm dados de RH)
       const institutions = {};
-      data.dadosBrutos.forEach(row => {
+      data.dadosBrutos
+        .filter(row => row.Período >= '2016' && (row.Médicos > 0 || row.Enfermeiros > 0))
+        .forEach(row => {
         const instId = row.InstituicaoID;
         if (!institutions[instId]) {
           const institution = data.instituicoes.find(i => i.InstituicaoID === instId);
@@ -156,6 +159,11 @@ const DashboardRH = ({ data }) => {
         });
 
       setRegionRH(regionArray);
+
+      // Dados de trabalhadores por grupo profissional (CSV extra)
+      if (data.trabalhadoresProcessed) {
+        setTrabalhadoresData(data.trabalhadoresProcessed);
+      }
     }
   }, [data]);
 
@@ -189,7 +197,7 @@ const DashboardRH = ({ data }) => {
           </p>
           <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
             <div className="text-sm text-yellow-700">
-              <strong>Dica:</strong> Os dados estão disponíveis de 2016 a 2026. 
+              <strong>Dica:</strong> Os dados de RH estão disponíveis de 2016 a 2026. 
               Use o filtro "Todo o período" ou "Últimos 24 meses" para garantir dados.
             </div>
           </div>
@@ -250,6 +258,157 @@ const DashboardRH = ({ data }) => {
         </div>
       </div>
       <div style={{ height: '20px' }}></div>
+
+      {/* Distribuição por Grupos Profissionais */}
+      {trabalhadoresData && (
+        <div className="chart-container mb-6">
+          <h3 className="chart-title">Distribuição por Grupos Profissionais</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={[
+                  { name: 'Médicos', value: (trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0), color: '#3b82f6' },
+                  { name: 'Enfermeiros', value: trabalhadoresData.totals?.enfermeiros || 0, color: '#10b981' },
+                  { name: 'Técnicos Superiores de Saúde', value: trabalhadoresData.totals?.tecnicosSuperioresSaude || 0, color: '#f59e0b' },
+                  { name: 'Farmacêuticos', value: trabalhadoresData.totals?.farmaceuticos || 0, color: '#8b5cf6' },
+                  { name: 'Técnicos Superiores de Diagnóstico e Terapêutica', value: trabalhadoresData.totals?.tecnicosSuperioresDiagnosticoTerapeutica || 0, color: '#ec4899' },
+                  { name: 'Assistentes Técnicos', value: trabalhadoresData.totals?.assistentesTecnicos || 0, color: '#06b6d4' },
+                  { name: 'Assistentes Operacionais', value: trabalhadoresData.totals?.assistentesOperacionais || 0, color: '#84cc16' },
+                  { name: 'Técnicos Auxiliares de Saúde', value: trabalhadoresData.totals?.tecnicosAuxiliaresSaude || 0, color: '#f97316' },
+                  { name: 'Outros', value: trabalhadoresData.totals?.outros || 0, color: '#6b7280' }
+                ]}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+              >
+                {[
+                  { name: 'Médicos', value: (trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0), color: '#3b82f6' },
+                  { name: 'Enfermeiros', value: trabalhadoresData.totals?.enfermeiros || 0, color: '#10b981' },
+                  { name: 'Técnicos Superiores de Saúde', value: trabalhadoresData.totals?.tecnicosSuperioresSaude || 0, color: '#f59e0b' },
+                  { name: 'Farmacêuticos', value: trabalhadoresData.totals?.farmaceuticos || 0, color: '#8b5cf6' },
+                  { name: 'Técnicos Superiores de Diagnóstico e Terapêutica', value: trabalhadoresData.totals?.tecnicosSuperioresDiagnosticoTerapeutica || 0, color: '#ec4899' },
+                  { name: 'Assistentes Técnicos', value: trabalhadoresData.totals?.assistentesTecnicos || 0, color: '#06b6d4' },
+                  { name: 'Assistentes Operacionais', value: trabalhadoresData.totals?.assistentesOperacionais || 0, color: '#84cc16' },
+                  { name: 'Técnicos Auxiliares de Saúde', value: trabalhadoresData.totals?.tecnicosAuxiliaresSaude || 0, color: '#f97316' },
+                  { name: 'Outros', value: trabalhadoresData.totals?.outros || 0, color: '#6b7280' }
+                ].map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip formatter={(value) => formatNumber(value)} />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      )}
+      <div style={{ height: '20px' }}></div>
+
+      {/* Dados de Grupos Profissionais */}
+      {trabalhadoresData && (
+        <div className="card mb-6">
+          <div className="card-header">
+            <h3 className="card-title">👷 Grupos Profissionais Detalhados ({formatPeriodRange(dateRange)})</h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+            <div className="metric-card" style={{ borderLeft: '4px solid #3b82f6' }}>
+              <div className="metric-value text-blue-600">
+                {formatNumber((trabalhadoresData.totals?.medicos || 0) + (trabalhadoresData.totals?.medicosInternos || 0))}
+              </div>
+              <div className="metric-label">Médicos</div>
+              <div className="text-xs text-gray-500 mt-1">
+                {formatNumber(trabalhadoresData.totals?.medicos || 0)} s/ internos + {formatNumber(trabalhadoresData.totals?.medicosInternos || 0)} internos
+              </div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #10b981' }}>
+              <div className="metric-value text-green-600">
+                {formatNumber(trabalhadoresData.totals?.enfermeiros || 0)}
+              </div>
+              <div className="metric-label">Enfermeiros</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #f59e0b' }}>
+              <div className="metric-value text-yellow-600">
+                {formatNumber(trabalhadoresData.totals?.tecnicosSuperioresSaude || 0)}
+              </div>
+              <div className="metric-label">Técnicos Superiores de Saúde</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #8b5cf6' }}>
+              <div className="metric-value text-purple-600">
+                {formatNumber((trabalhadoresData.totals?.farmaceuticos || 0) + (trabalhadoresData.totals?.farmaceuticosResidentes || 0))}
+              </div>
+              <div className="metric-label">Farmacêuticos</div>
+              <div className="text-xs text-gray-500 mt-1">
+                {formatNumber(trabalhadoresData.totals?.farmaceuticos || 0)} + {formatNumber(trabalhadoresData.totals?.farmaceuticosResidentes || 0)} residentes
+              </div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #ec4899' }}>
+              <div className="metric-value text-pink-600">
+                {formatNumber(trabalhadoresData.totals?.tsdt || 0)}
+              </div>
+              <div className="metric-label">TSDT</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #6b7280' }}>
+              <div className="metric-value text-gray-600">
+                {formatNumber(trabalhadoresData.totals?.assistentesTecnicos || 0)}
+              </div>
+              <div className="metric-label">Assistentes Técnicos</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #0891b2' }}>
+              <div className="metric-value text-cyan-600">
+                {formatNumber((trabalhadoresData.totals?.assistentesOperacionais || 0) + (trabalhadoresData.totals?.tecnicosAuxiliares || 0))}
+              </div>
+              <div className="metric-label">Assistentes Operacionais / Téc. Auxiliares</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #14b8a6' }}>
+              <div className="metric-value text-teal-600">
+                {formatNumber(trabalhadoresData.totals?.informaticos || 0)}
+              </div>
+              <div className="metric-label">Informáticos</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #a855f7' }}>
+              <div className="metric-value text-violet-600">
+                {formatNumber(trabalhadoresData.totals?.outros || 0)}
+              </div>
+              <div className="metric-label">Outros</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #1e3a8a' }}>
+              <div className="metric-value text-blue-800">
+                {formatNumber(trabalhadoresData.totals?.total || 0)}
+              </div>
+              <div className="metric-label">Total Geral</div>
+            </div>
+          </div>
+          <div style={{ height: '20px' }}></div>
+          <h4 className="font-semibold mb-2 px-4">Top 10 Instituições por Volume</h4>
+          <div className="table-container">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Instituição</th>
+                  <th className="text-right">Total</th>
+                  <th className="text-right">Médicos</th>
+                  <th className="text-right">Enfermeiros</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trabalhadoresData.byInstitution.slice(0, 10).map((inst, idx) => (
+                  <tr key={idx}>
+                    <td className="font-medium" data-label="Instituição">
+                      <div>{inst.name}</div>
+                      <div className="text-xs text-gray-500 mobile-only">{inst.region}</div>
+                    </td>
+                    <td className="text-right font-medium" data-label="Total">{formatNumber(inst.total)}</td>
+                    <td className="text-right" data-label="Médicos">{formatNumber(inst.medicos + inst.medicosInternos)}</td>
+                    <td className="text-right" data-label="Enfermeiros">{formatNumber(inst.enfermeiros)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {/* Gráficos RH */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -564,6 +723,7 @@ const DashboardRH = ({ data }) => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

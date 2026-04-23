@@ -40,13 +40,19 @@ export const loadAllData = async () => {
   try {
     const [
       atendimentos,
+      atendimentosTriagem,
       monitorizacao,
+      monitorizacaoCSH,
+      trabalhadores,
       instituicoes,
       regioes,
       indicadores
     ] = await Promise.all([
       loadCSV('fact_atendimentos_urgencia_mensal.csv'),
+      loadCSV('atendimentos_urgencia_triagem_manchester.csv'),
       loadCSV('fact_monitorizacao_sazonal.csv'),
+      loadCSV('monitorizacao_sazonal_csh.csv'),
+      loadCSV('trabalhadores_grupo_profissional.csv'),
       loadCSV('dim/dim_instituicao.csv'),
       loadCSV('dim/dim_regiao.csv'),
       loadCSV('dim/dim_indicador.csv')
@@ -54,7 +60,10 @@ export const loadAllData = async () => {
 
     return {
       atendimentos,
+      atendimentosTriagem,
       monitorizacao,
+      monitorizacaoCSH,
+      trabalhadores,
       instituicoes,
       regioes,
       indicadores
@@ -531,4 +540,229 @@ export const calculateRankings = (data) => {
     topProdutividade: rankingProdutividade.slice(0, 10),
     bottomRacio: rankingRacio.slice(0, 10)
   };
+};
+
+// Processar dados de trabalhadores por grupo profissional
+export const processTrabalhadoresData = (trabalhadores) => {
+  if (!trabalhadores || trabalhadores.length === 0) return null;
+
+  const byInstitution = {};
+  const totals = {
+    medicos: 0, medicosInternos: 0, enfermeiros: 0,
+    tecnicosSuperioresSaude: 0, farmaceuticos: 0, farmaceuticosResidentes: 0,
+    tsdt: 0, assistentesTecnicos: 0, assistentesOperacionais: 0,
+    tecnicosAuxiliares: 0, informaticos: 0, outros: 0, total: 0
+  };
+
+  trabalhadores.forEach(row => {
+    const institution = row['Instituição'];
+    const region = row['Região'];
+
+    if (!byInstitution[institution]) {
+      byInstitution[institution] = {
+        name: institution, region, medicos: 0, medicosInternos: 0, enfermeiros: 0,
+        tecnicosSuperioresSaude: 0, farmaceuticos: 0, farmaceuticosResidentes: 0,
+        tsdt: 0, assistentesTecnicos: 0, assistentesOperacionais: 0,
+        tecnicosAuxiliares: 0, informaticos: 0, outros: 0, total: 0
+      };
+    }
+
+    const groups = [byInstitution[institution], totals];
+    groups.forEach(g => {
+      g.medicos += parseFloat(row['Médicos S/ Internos']) || 0;
+      g.medicosInternos += parseFloat(row['Médicos Internos']) || 0;
+      g.enfermeiros += parseFloat(row['Enfermeiros']) || 0;
+      g.tecnicosSuperioresSaude += parseFloat(row['Técnicos Superiores de Saúde']) || 0;
+      g.farmaceuticos += parseFloat(row['Farmacêuticos']) || 0;
+      g.farmaceuticosResidentes += parseFloat(row['Farmacêuticos Residentes']) || 0;
+      g.tsdt += parseFloat(row['Técnicos Superiores de Diagnóstico e Terapêutica']) || 0;
+      g.assistentesTecnicos += parseFloat(row['Assistentes Técnicos']) || 0;
+      g.assistentesOperacionais += (parseFloat(row['Assistentes Operacionais/Técnicos Auxiliares de Saúde']) || 0) + (parseFloat(row['Assistentes Operacionais']) || 0);
+      g.tecnicosAuxiliares += parseFloat(row['Técnicos Auxiliares de Saúde']) || 0;
+      g.informaticos += parseFloat(row['Informáticos']) || 0;
+      g.outros += parseFloat(row['Outros']) || 0;
+      g.total += parseFloat(row['Total Geral']) || 0;
+    });
+  });
+
+  return {
+    byInstitution: Object.values(byInstitution).sort((a, b) => b.total - a.total),
+    totals,
+    categories: [
+      { key: 'medicos', label: 'Médicos', color: '#3b82f6' },
+      { key: 'medicosInternos', label: 'Médicos Internos', color: '#60a5fa' },
+      { key: 'enfermeiros', label: 'Enfermeiros', color: '#10b981' },
+      { key: 'tecnicosSuperioresSaude', label: 'Técnicos Superiores de Saúde', color: '#f59e0b' },
+      { key: 'farmaceuticos', label: 'Farmacêuticos', color: '#8b5cf6' },
+      { key: 'tsdt', label: 'TSDT', color: '#ec4899' },
+      { key: 'assistentesTecnicos', label: 'Assistentes Técnicos', color: '#6b7280' },
+      { key: 'outros', label: 'Outros', color: '#4b5563' }
+    ]
+  };
+};
+
+// Normalizar dados Manchester (nomes → IDs) para compatibilidade com fact
+export const normalizeTriagemData = (atendimentosTriagem, instituicoes, regioes) => {
+  if (!atendimentosTriagem || atendimentosTriagem.length === 0) return [];
+
+  // Criar mapas nome → ID (case-insensitive, trim)
+  const instMap = {};
+  (instituicoes || []).forEach(inst => {
+    const nome = (inst.InstituicaoNome || '').trim().toLowerCase();
+    instMap[nome] = inst.InstituicaoID;
+  });
+
+  const regiaoMap = {};
+  (regioes || []).forEach(reg => {
+    const nome = (reg.RegiaoNome || '').trim().toLowerCase();
+    regiaoMap[nome] = reg.RegiaoID;
+  });
+
+  return atendimentosTriagem.map(row => {
+    const instNome = (row['Instituição'] || '').trim().toLowerCase();
+    const regiaoNome = (row['Região'] || '').trim().toLowerCase();
+
+    let instId = instMap[instNome];
+    let regiaoId = regiaoMap[regiaoNome];
+
+    // Fallback: fuzzy match por nome parcial
+    if (!instId) {
+      const partial = Object.keys(instMap).find(k => k.includes(instNome) || instNome.includes(k));
+      if (partial) instId = instMap[partial];
+    }
+    if (!regiaoId) {
+      const partial = Object.keys(regiaoMap).find(k => k.includes(regiaoNome) || regiaoNome.includes(k));
+      if (partial) regiaoId = regiaoMap[partial];
+    }
+
+    const period = row['Período'] || '';
+    const timeKey = period ? parseInt(period.replace('-', '') + '01') : 0;
+
+    return {
+      Período: period,
+      TimeKey: timeKey,
+      RegiaoID: regiaoId || 0,
+      InstituicaoID: instId || 0,
+      Atendimentos_Vermelha: parseInt(row['Vermelha']) || 0,
+      Atendimentos_Laranja: parseInt(row['Laranja']) || 0,
+      Atendimentos_Amarela: parseInt(row['Amarela']) || 0,
+      Atendimentos_Verde: parseInt(row['Verde']) || 0,
+      Atendimentos_Azul: parseInt(row['Azul']) || 0,
+      Atendimentos_Branca: parseInt(row['Branca']) || 0,
+      Atendimentos_SemTriagem: parseInt(row['SemTriagem']) || 0,
+      TotalAtendimentos: parseInt(row['TotalAtendimentos']) || 0,
+      // Manchester não tem dados de RH/custo → 0
+      Médicos: 0, MedicosInternos: 0, Enfermeiros: 0,
+      Despesa: 0, NumDoentes: 0, CustoMedio: 0,
+      _source: 'manchester'
+    };
+  }).filter(row => row.InstituicaoID > 0 && row.RegiaoID > 0);
+};
+
+// Merge dados fact + Manchester (remove duplicados: prefere fact quando ambos existem)
+export const mergeAtendimentos = (factData, manchesterData) => {
+  if (!manchesterData || manchesterData.length === 0) return factData || [];
+  if (!factData || factData.length === 0) return manchesterData || [];
+
+  const mergedMap = new Map();
+
+  // Adicionar Manchester primeiro (dados históricos 2013-2015)
+  manchesterData.forEach(row => {
+    const key = `${row.Período}|${row.InstituicaoID}|${row.RegiaoID}`;
+    mergedMap.set(key, row);
+  });
+
+  // Sobrescrever com fact (dados mais recentes 2016+)
+  factData.forEach(row => {
+    const key = `${row.Período}|${row.InstituicaoID}|${row.RegiaoID}`;
+    mergedMap.set(key, row);
+  });
+
+  return Array.from(mergedMap.values());
+};
+
+// Processar dados de triagem Manchester
+export const processTriagemData = (atendimentosTriagem) => {
+  if (!atendimentosTriagem || atendimentosTriagem.length === 0) return null;
+
+  const byInstitution = {};
+  const totals = { vermelha: 0, laranja: 0, amarela: 0, verde: 0, azul: 0, branca: 0, semTriagem: 0, total: 0 };
+
+  atendimentosTriagem.forEach(row => {
+    const institution = row['Instituição'];
+    const region = row['Região'];
+
+    if (!byInstitution[institution]) {
+      byInstitution[institution] = {
+        name: institution, region,
+        vermelha: 0, laranja: 0, amarela: 0, verde: 0, azul: 0, branca: 0, semTriagem: 0, total: 0
+      };
+    }
+
+    const groups = [byInstitution[institution], totals];
+    groups.forEach(g => {
+      g.vermelha += parseInt(row['Vermelha']) || 0;
+      g.laranja += parseInt(row['Laranja']) || 0;
+      g.amarela += parseInt(row['Amarela']) || 0;
+      g.verde += parseInt(row['Verde']) || 0;
+      g.azul += parseInt(row['Azul']) || 0;
+      g.branca += parseInt(row['Branca']) || 0;
+      g.semTriagem += parseInt(row['SemTriagem']) || 0;
+      g.total += parseInt(row['TotalAtendimentos']) || 0;
+    });
+  });
+
+  // Calcular percentuais para totals
+  const totalComTriagem = totals.total - totals.semTriagem;
+  const percentages = totalComTriagem > 0 ? {
+    vermelha: (totals.vermelha / totalComTriagem) * 100,
+    laranja: (totals.laranja / totalComTriagem) * 100,
+    amarela: (totals.amarela / totalComTriagem) * 100,
+    verde: (totals.verde / totalComTriagem) * 100,
+    azul: (totals.azul / totalComTriagem) * 100,
+    branca: (totals.branca / totalComTriagem) * 100
+  } : {};
+
+  return {
+    byInstitution: Object.values(byInstitution).sort((a, b) => b.total - a.total),
+    totals,
+    percentages,
+    colors: {
+      vermelha: '#dc2626', laranja: '#ea580c', amarela: '#eab308',
+      verde: '#16a34a', azul: '#2563eb', branca: '#6b7280', semTriagem: '#9ca3af'
+    }
+  };
+};
+
+// Processar dados de monitorização sazonal CSH
+export const processMonitorizacaoCSH = (monitorizacaoCSH) => {
+  if (!monitorizacaoCSH || monitorizacaoCSH.length === 0) return null;
+
+  const byIndicator = {};
+
+  monitorizacaoCSH.forEach(row => {
+    const indicator = row['Indicador'];
+    const value = parseFloat(row['Valor']) || 0;
+
+    if (!byIndicator[indicator]) {
+      byIndicator[indicator] = { values: [], unit: row['Unidade'] };
+    }
+    byIndicator[indicator].values.push(value);
+  });
+
+  const indicatorStats = {};
+  Object.entries(byIndicator).forEach(([indicator, data]) => {
+    const values = data.values;
+    const sorted = [...values].sort((a, b) => a - b);
+    indicatorStats[indicator] = {
+      unit: data.unit,
+      count: values.length,
+      avg: values.reduce((a, b) => a + b, 0) / values.length,
+      min: sorted[0],
+      max: sorted[sorted.length - 1],
+      median: sorted[Math.floor(sorted.length / 2)]
+    };
+  });
+
+  return { indicatorStats };
 };

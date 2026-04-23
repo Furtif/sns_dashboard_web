@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter } from 'recharts';
-import { formatNumber, formatPercent } from '../utils/formatters';
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter, PieChart, Pie, Cell } from 'recharts';
+import { formatNumber, formatPercent, formatPeriodRange } from '../utils/formatters';
 
-const DashboardOperacional = ({ data }) => {
+const DashboardOperacional = ({ data, dateRange }) => {
   const [selectedRegion, setSelectedRegion] = useState('');
   const [selectedInstitution, setSelectedInstitution] = useState('');
   const [institutionData, setInstitutionData] = useState([]);
   const [monthlyData, setMonthlyData] = useState([]);
   const [covidOperationalData, setCovidOperationalData] = useState([]);
+  const [triagemData, setTriagemData] = useState(null);
 
   useEffect(() => {
     if (data && data.dadosBrutos) {
-      // Preparar dados mensais
+      // Preparar dados mensais (usar dados com RH 2016-2026)
       const monthly = data.dadosBrutos
-        .filter(row => row.TotalAtendimentos > 0)
+        .filter(row => row.TotalAtendimentos > 0 && (row.Médicos > 0 || row.Enfermeiros > 0))
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           if (existing) {
@@ -43,9 +44,11 @@ const DashboardOperacional = ({ data }) => {
       const monthlySorted = [...monthly].sort((a, b) => a.period.localeCompare(b.period));
       setMonthlyData(monthlySorted);
 
-      // Preparar dados por instituição
+      // Preparar dados por instituição (ignorar 2013-2015 que não têm dados de RH)
       const institutions = {};
-      data.dadosBrutos.forEach(row => {
+      data.dadosBrutos
+        .filter(row => row.Período >= '2016' && (row.Médicos > 0 || row.Enfermeiros > 0))
+        .forEach(row => {
         const instId = row.InstituicaoID;
         if (!institutions[instId]) {
           const institution = data.instituicoes.find(i => i.InstituicaoID === instId);
@@ -80,7 +83,7 @@ const DashboardOperacional = ({ data }) => {
       const instArraySorted = [...instArray].sort((a, b) => b.totalAtendimentos - a.totalAtendimentos);
       setInstitutionData(instArraySorted);
 
-      // Preparar dados operacionais COVID-19 (2016-atualidade)
+      // Preparar dados operacionais COVID-19 (2013-atualidade)
       const covidOpData = (data.dadosCovidCompletos || [])
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
@@ -108,6 +111,55 @@ const DashboardOperacional = ({ data }) => {
         }, []);
       const covidOpDataSorted = [...covidOpData].sort((a, b) => a.period.localeCompare(b.period));
       setCovidOperationalData(covidOpDataSorted);
+
+      // Calcular dados de triagem a partir de dadosBrutos merged (consistente com Executivo)
+      const triagemTotals = data.dadosBrutos.reduce((acc, row) => {
+        acc.vermelha += row.Atendimentos_Vermelha || 0;
+        acc.laranja += row.Atendimentos_Laranja || 0;
+        acc.amarela += row.Atendimentos_Amarela || 0;
+        acc.verde += row.Atendimentos_Verde || 0;
+        acc.azul += row.Atendimentos_Azul || 0;
+        acc.branca += row.Atendimentos_Branca || 0;
+        acc.semTriagem += row.Atendimentos_SemTriagem || 0;
+        acc.total += row.TotalAtendimentos || 0;
+        return acc;
+      }, { vermelha: 0, laranja: 0, amarela: 0, verde: 0, azul: 0, branca: 0, semTriagem: 0, total: 0 });
+
+      const totalComTriagem = triagemTotals.total - triagemTotals.semTriagem;
+      const percentages = totalComTriagem > 0 ? {
+        vermelha: (triagemTotals.vermelha / totalComTriagem) * 100,
+        laranja: (triagemTotals.laranja / totalComTriagem) * 100,
+        amarela: (triagemTotals.amarela / totalComTriagem) * 100,
+        verde: (triagemTotals.verde / totalComTriagem) * 100,
+        azul: (triagemTotals.azul / totalComTriagem) * 100,
+        branca: (triagemTotals.branca / totalComTriagem) * 100
+      } : {};
+
+      const triagemByInstitution = {};
+      data.dadosBrutos.forEach(row => {
+        const instId = row.InstituicaoID;
+        if (!triagemByInstitution[instId]) {
+          const institution = data.instituicoes?.find(i => i.InstituicaoID === instId);
+          triagemByInstitution[instId] = {
+            name: institution?.InstituicaoNome || `Instituição ${instId}`,
+            region: data.regioes?.find(r => r.RegiaoID === row.RegiaoID)?.RegiaoNome || '',
+            vermelha: 0, laranja: 0, amarela: 0, verde: 0, azul: 0, branca: 0, total: 0
+          };
+        }
+        triagemByInstitution[instId].vermelha += row.Atendimentos_Vermelha || 0;
+        triagemByInstitution[instId].laranja += row.Atendimentos_Laranja || 0;
+        triagemByInstitution[instId].amarela += row.Atendimentos_Amarela || 0;
+        triagemByInstitution[instId].verde += row.Atendimentos_Verde || 0;
+        triagemByInstitution[instId].azul += row.Atendimentos_Azul || 0;
+        triagemByInstitution[instId].branca += row.Atendimentos_Branca || 0;
+        triagemByInstitution[instId].total += row.TotalAtendimentos || 0;
+      });
+
+      setTriagemData({
+        totals: triagemTotals,
+        percentages,
+        byInstitution: Object.values(triagemByInstitution).sort((a, b) => b.total - a.total)
+      });
     }
   }, [data]);
 
@@ -152,7 +204,7 @@ const DashboardOperacional = ({ data }) => {
           </p>
           <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
             <div className="text-sm text-yellow-700">
-              <strong>Dica:</strong> Os dados estão disponíveis de 2016 a 2026.
+              <strong>Dica:</strong> Os dados operacionais estão disponíveis de 2016 a 2026.
               Use o filtro "Todo o período" ou "Últimos 24 meses" para garantir dados.
             </div>
           </div>
@@ -314,6 +366,149 @@ const DashboardOperacional = ({ data }) => {
       )}
       <div style={{ height: '20px' }}></div>
 
+      {/* Distribuição por Triagem Manchester */}
+      {triagemData && (
+        <div className="chart-container mb-6">
+          <h3 className="chart-title">Distribuição por Triagem Manchester</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={[
+                  { name: 'Vermelha', value: triagemData.totals?.vermelha || 0, color: '#dc2626' },
+                  { name: 'Laranja', value: triagemData.totals?.laranja || 0, color: '#ea580c' },
+                  { name: 'Amarela', value: triagemData.totals?.amarela || 0, color: '#eab308' },
+                  { name: 'Verde', value: triagemData.totals?.verde || 0, color: '#16a34a' },
+                  { name: 'Azul', value: triagemData.totals?.azul || 0, color: '#2563eb' },
+                  { name: 'Branca', value: triagemData.totals?.branca || 0, color: '#6b7280' }
+                ]}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+              >
+                {[
+                  { name: 'Vermelha', value: triagemData.totals?.vermelha || 0, color: '#dc2626' },
+                  { name: 'Laranja', value: triagemData.totals?.laranja || 0, color: '#ea580c' },
+                  { name: 'Amarela', value: triagemData.totals?.amarela || 0, color: '#eab308' },
+                  { name: 'Verde', value: triagemData.totals?.verde || 0, color: '#16a34a' },
+                  { name: 'Azul', value: triagemData.totals?.azul || 0, color: '#2563eb' },
+                  { name: 'Branca', value: triagemData.totals?.branca || 0, color: '#6b7280' }
+                ].map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip formatter={(value) => formatNumber(value)} />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      )}
+      <div style={{ height: '20px' }}></div>
+
+      {/* Dados Detalhados Triagem Manchester */}
+      {triagemData && (
+        <div className="card mb-6">
+          <div className="card-header">
+            <h3 className="card-title">🚑 Triagem Manchester Detalhada ({formatPeriodRange(dateRange)})</h3>
+          </div>
+          <div className="p-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-4">
+              <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+                <div className="metric-value text-red-600">
+                  {formatNumber(triagemData.totals?.vermelha || 0)}
+                </div>
+                <div className="metric-label">Vermelha (Imediata)</div>
+                <div className="text-xs text-gray-500">
+                  {formatPercent(triagemData.percentages?.vermelha || 0)}
+                </div>
+              </div>
+              <div className="metric-card" style={{ borderLeft: '4px solid #ea580c' }}>
+                <div className="metric-value text-orange-600">
+                  {formatNumber(triagemData.totals?.laranja || 0)}
+                </div>
+                <div className="metric-label">Laranja (Muito Urgente)</div>
+                <div className="text-xs text-gray-500">
+                  {formatPercent(triagemData.percentages?.laranja || 0)}
+                </div>
+              </div>
+              <div className="metric-card" style={{ borderLeft: '4px solid #eab308' }}>
+                <div className="metric-value text-yellow-600">
+                  {formatNumber(triagemData.totals?.amarela || 0)}
+                </div>
+                <div className="metric-label">Amarela (Urgente)</div>
+                <div className="text-xs text-gray-500">
+                  {formatPercent(triagemData.percentages?.amarela || 0)}
+                </div>
+              </div>
+              <div className="metric-card" style={{ borderLeft: '4px solid #16a34a' }}>
+                <div className="metric-value text-green-600">
+                  {formatNumber(triagemData.totals?.verde || 0)}
+                </div>
+                <div className="metric-label">Verde (Pouco Urgente)</div>
+                <div className="text-xs text-gray-500">
+                  {formatPercent(triagemData.percentages?.verde || 0)}
+                </div>
+              </div>
+              <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
+                <div className="metric-value text-blue-600">
+                  {formatNumber(triagemData.totals?.azul || 0)}
+                </div>
+                <div className="metric-label">Azul (Não Urgente)</div>
+                <div className="text-xs text-gray-500">
+                  {formatPercent(triagemData.percentages?.azul || 0)}
+                </div>
+              </div>
+              <div className="metric-card" style={{ borderLeft: '4px solid #6b7280' }}>
+                <div className="metric-value text-gray-600">
+                  {formatNumber(triagemData.totals?.branca || 0)}
+                </div>
+                <div className="metric-label">Branca (Não Urgente)</div>
+                <div className="text-xs text-gray-500">
+                  {formatPercent(triagemData.percentages?.branca || 0)}
+                </div>
+              </div>
+            </div>
+            <div style={{ height: '20px' }}></div>
+            <h4 className="font-semibold mb-2">Top 20 Instituições por Volume</h4>
+            <div className="table-container">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Instituição</th>
+                    <th>Região</th>
+                    <th className="text-right">Total</th>
+                    <th className="text-right">Vermelha</th>
+                    <th className="text-right">Laranja</th>
+                    <th className="text-right">Amarela</th>
+                    <th className="text-right">Verde</th>
+                    <th className="text-right">Azul</th>
+                    <th className="text-right">Branca</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {triagemData.byInstitution.slice(0, 20).map((inst, idx) => (
+                    <tr key={idx}>
+                      <td className="font-medium" data-label="Instituição">{inst.name}</td>
+                      <td className="text-sm text-gray-500" data-label="Região">{inst.region}</td>
+                      <td className="text-right font-medium" data-label="Total">{formatNumber(inst.total)}</td>
+                      <td className="text-right" data-label="Vermelha">{formatNumber(inst.vermelha)}</td>
+                      <td className="text-right" data-label="Laranja">{formatNumber(inst.laranja)}</td>
+                      <td className="text-right" data-label="Amarela">{formatNumber(inst.amarela)}</td>
+                      <td className="text-right" data-label="Verde">{formatNumber(inst.verde)}</td>
+                      <td className="text-right" data-label="Azul">{formatNumber(inst.azul)}</td>
+                      <td className="text-right" data-label="Branca">{formatNumber(inst.branca)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
+      <div style={{ height: '20px' }}></div>
+
       {/* Gráficos Operacionais */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Evolução Mensal */}
@@ -406,7 +601,7 @@ const DashboardOperacional = ({ data }) => {
       {/* Gráfico COVID-19 Operacional */}
       {covidOperationalData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">Evolução Operacional COVID-19 e Gripe Sazonal (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">Evolução Operacional COVID-19 e Gripe Sazonal (2013 - {new Date().getFullYear()})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidOperationalData}>
               <CartesianGrid strokeDasharray="3 3" />

@@ -28,9 +28,16 @@ export const formatDecimal = (num) => {
   return num.toFixed(2).replace('.', ',');
 };
 
-export const formatPercent = (num) => {
-  if (num === null || num === undefined || isNaN(num)) {
-    return '0,0%';
+export const formatPercent = (value) => {
+  if (value === null || value === undefined || isNaN(value)) return '0,0%';
+  return `${value.toFixed(1).replace('.', ',')}%`;
+};
+
+export const formatPeriodRange = (dateRange) => {
+  if (!dateRange || !dateRange.start || !dateRange.end) {
+    return '2016-2026';
   }
-  return `${parseFloat(num).toFixed(1).replace('.', ',')}%`;
+  const startYear = dateRange.start.getFullYear();
+  const endYear = dateRange.end.getFullYear();
+  return `${startYear}-${endYear}`;
 };

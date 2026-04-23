@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { formatNumber, formatCurrency, formatPercent } from '../utils/formatters';
+import { formatNumber, formatCurrency, formatPercent, formatPeriodRange } from '../utils/formatters';
 
-const DashboardExecutivo = ({ data }) => {
+const DashboardExecutivo = ({ data, dateRange }) => {
   const [timeSeriesData, setTimeSeriesData] = useState([]);
   const [triagemData, setTriagemData] = useState([]);
   const [covidTimeSeriesData, setCovidTimeSeriesData] = useState([]);
+  const [triagemProcessedData, setTriagemProcessedData] = useState([]);
 
   useEffect(() => {
     if (data && data.dadosBrutos) {
@@ -30,17 +31,52 @@ const DashboardExecutivo = ({ data }) => {
       const seriesDataSorted = [...seriesData].sort((a, b) => a.period.localeCompare(b.period));
       setTimeSeriesData(seriesDataSorted);
 
-      // Preparar dados para gráfico de triagem
+      // Preparar dados para gráfico de triagem (a partir de dadosBrutos merged para consistência)
+      const triagemTotals = data.dadosBrutos.reduce((acc, row) => {
+        acc.vermelha += row.Atendimentos_Vermelha || 0;
+        acc.laranja += row.Atendimentos_Laranja || 0;
+        acc.amarela += row.Atendimentos_Amarela || 0;
+        acc.verde += row.Atendimentos_Verde || 0;
+        acc.azul += row.Atendimentos_Azul || 0;
+        acc.branca += row.Atendimentos_Branca || 0;
+        return acc;
+      }, { vermelha: 0, laranja: 0, amarela: 0, verde: 0, azul: 0, branca: 0 });
+
       const triagem = [
-        { name: 'Vermelha', value: data.atendimentosVermelha || 0, color: '#dc2626' },
-        { name: 'Laranja', value: data.atendimentosLaranja || 0, color: '#ea580c' },
-        { name: 'Amarela', value: data.atendimentosAmarela || 0, color: '#ca8a04' },
-        { name: 'Verde', value: data.atendimentosVerde || 0, color: '#16a34a' },
-        { name: 'Azul', value: data.atendimentosAzul || 0, color: '#2563eb' },
-        { name: 'Branca', value: data.atendimentosBranca || 0, color: '#6b7280' }
+        { name: 'Vermelha', value: triagemTotals.vermelha, color: '#dc2626' },
+        { name: 'Laranja', value: triagemTotals.laranja, color: '#ea580c' },
+        { name: 'Amarela', value: triagemTotals.amarela, color: '#ca8a04' },
+        { name: 'Verde', value: triagemTotals.verde, color: '#16a34a' },
+        { name: 'Azul', value: triagemTotals.azul, color: '#2563eb' },
+        { name: 'Branca', value: triagemTotals.branca, color: '#6b7280' }
       ].filter(item => item.value > 0);
 
       setTriagemData(triagem);
+
+      // Preparar dados de triagem por instituição (a partir de dadosBrutos merged)
+      const triagemByInstitution = {};
+      data.dadosBrutos.forEach(row => {
+        const instId = row.InstituicaoID;
+        if (!triagemByInstitution[instId]) {
+          const institution = data.instituicoes?.find(i => i.InstituicaoID === instId);
+          triagemByInstitution[instId] = {
+            name: institution?.InstituicaoNome || `Instituição ${instId}`,
+            region: data.regioes?.find(r => r.RegiaoID === row.RegiaoID)?.RegiaoNome || '',
+            vermelha: 0, laranja: 0, amarela: 0, verde: 0, azul: 0, branca: 0, total: 0
+          };
+        }
+        triagemByInstitution[instId].vermelha += row.Atendimentos_Vermelha || 0;
+        triagemByInstitution[instId].laranja += row.Atendimentos_Laranja || 0;
+        triagemByInstitution[instId].amarela += row.Atendimentos_Amarela || 0;
+        triagemByInstitution[instId].verde += row.Atendimentos_Verde || 0;
+        triagemByInstitution[instId].azul += row.Atendimentos_Azul || 0;
+        triagemByInstitution[instId].branca += row.Atendimentos_Branca || 0;
+        triagemByInstitution[instId].total += row.TotalAtendimentos || 0;
+      });
+
+      const triagemByInstitutionArray = Object.values(triagemByInstitution)
+        .sort((a, b) => b.total - a.total);
+      setTriagemProcessedData(triagemByInstitutionArray);
 
       // Preparar dados COVID-19 para série temporal (2016-atualidade, independente do filtro)
       const covidData = (data.dadosCovidCompletos || [])
@@ -268,6 +304,76 @@ const DashboardExecutivo = ({ data }) => {
           </ResponsiveContainer>
         </div>
       </div>
+
+      {/* Dados Detalhados Triagem Manchester (merged 2013-2026) */}
+      {triagemProcessedData.length > 0 && (
+        <div className="card mb-6">
+          <div className="card-header">
+            <h3 className="card-title">🚑 Triagem Manchester Detalhada ({formatPeriodRange(dateRange)})</h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-4">
+            <div className="metric-card" style={{ borderLeft: '4px solid #dc2626' }}>
+              <div className="metric-value text-red-600">{formatNumber(triagemData.find(t => t.name === 'Vermelha')?.value || 0)}</div>
+              <div className="metric-label">Vermelha</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #ea580c' }}>
+              <div className="metric-value text-orange-600">{formatNumber(triagemData.find(t => t.name === 'Laranja')?.value || 0)}</div>
+              <div className="metric-label">Laranja</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #eab308' }}>
+              <div className="metric-value text-yellow-600">{formatNumber(triagemData.find(t => t.name === 'Amarela')?.value || 0)}</div>
+              <div className="metric-label">Amarela</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #16a34a' }}>
+              <div className="metric-value text-green-600">{formatNumber(triagemData.find(t => t.name === 'Verde')?.value || 0)}</div>
+              <div className="metric-label">Verde (Falsa)</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #2563eb' }}>
+              <div className="metric-value text-blue-600">{formatNumber(triagemData.find(t => t.name === 'Azul')?.value || 0)}</div>
+              <div className="metric-label">Azul (Falsa)</div>
+            </div>
+            <div className="metric-card" style={{ borderLeft: '4px solid #6b7280' }}>
+              <div className="metric-value text-gray-600">{formatNumber(triagemData.find(t => t.name === 'Branca')?.value || 0)}</div>
+              <div className="metric-label">Branca (Falsa)</div>
+            </div>
+          </div>
+          <div style={{ height: '20px' }}></div>
+          <h4 className="font-semibold mb-2 px-4">Top 10 Instituições por Volume (Manchester)</h4>
+          <div className="table-container">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Instituição</th>
+                  <th className="text-right">Total</th>
+                  <th className="text-right">Vermelha</th>
+                  <th className="text-right">Laranja</th>
+                  <th className="text-right">Amarela</th>
+                  <th className="text-right">Verde</th>
+                  <th className="text-right">Azul</th>
+                  <th className="text-right">Branca</th>
+                </tr>
+              </thead>
+              <tbody>
+                {triagemProcessedData.slice(0, 10).map((inst, idx) => (
+                  <tr key={idx}>
+                    <td className="font-medium" data-label="Instituição">
+                      <div>{inst.name}</div>
+                      <div className="text-xs text-gray-500 mobile-only">{inst.region}</div>
+                    </td>
+                    <td className="text-right font-medium" data-label="Total">{formatNumber(inst.total)}</td>
+                    <td className="text-right" data-label="Vermelha">{formatNumber(inst.vermelha)}</td>
+                    <td className="text-right" data-label="Laranja">{formatNumber(inst.laranja)}</td>
+                    <td className="text-right" data-label="Amarela">{formatNumber(inst.amarela)}</td>
+                    <td className="text-right" data-label="Verde">{formatNumber(inst.verde)}</td>
+                    <td className="text-right" data-label="Azul">{formatNumber(inst.azul)}</td>
+                    <td className="text-right" data-label="Branca">{formatNumber(inst.branca)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {/* Métricas Operacionais */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">

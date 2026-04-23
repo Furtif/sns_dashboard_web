@@ -5,7 +5,10 @@ import DashboardFinanceiro from './components/DashboardFinanceiro';
 import DashboardRH from './components/DashboardRH';
 import PeriodFilter from './components/PeriodFilter';
 import PeriodSummary from './components/PeriodSummary';
-import { loadAllData, calculateMetrics, clearCache, filterByPeriod, filterMonitorizacaoByPeriod } from './utils/dataLoader';
+import {
+  loadAllData, calculateMetrics, clearCache, filterByPeriod, filterMonitorizacaoByPeriod,
+  processTrabalhadoresData, processTriagemData, processMonitorizacaoCSH
+} from './utils/dataLoader';
 import { formatNumber } from './utils/formatters';
 
 function App() {
@@ -24,10 +27,25 @@ function App() {
       clearCache(); // Limpar cache para garantir dados frescos
 
       const rawDataLoaded = await loadAllData();
-      setRawData(rawDataLoaded);
 
-      const metrics = calculateMetrics(rawDataLoaded);
-      setData(metrics);
+      // Dados enriquecidos (usar apenas fact_atendimentos 2016-2026 para consistência)
+      const enrichedData = {
+        ...rawDataLoaded,
+        atendimentos: rawDataLoaded.atendimentos,
+        trabalhadoresProcessed: processTrabalhadoresData(rawDataLoaded.trabalhadores),
+        triagemProcessed: processTriagemData(rawDataLoaded.atendimentosTriagem),
+        monitorizacaoCSHProcessed: processMonitorizacaoCSH(rawDataLoaded.monitorizacaoCSH)
+      };
+
+      setRawData(enrichedData);
+
+      const metrics = calculateMetrics(enrichedData);
+      setData({
+        ...metrics,
+        trabalhadoresProcessed: enrichedData.trabalhadoresProcessed,
+        triagemProcessed: enrichedData.triagemProcessed,
+        monitorizacaoCSHProcessed: enrichedData.monitorizacaoCSHProcessed
+      });
     } catch (err) {
       console.error('Erro ao carregar dados:', err);
       setError('Não foi possível carregar os dados. Por favor, tente novamente.');
@@ -59,11 +77,10 @@ function App() {
       };
       const metrics = calculateMetrics(filteredData);
 
-      // MAS manter dados completos (2016-atualidade) para gráficos temporais
-      // Isso garante que gráficos mostrem evolução completa independente do filtro
+      // MAS manter dados completos (2013-atualidade) para gráficos temporais
       const completeData = {
         ...rawData,
-        atendimentos: rawData.atendimentos, // Dados completos para gráficos
+        atendimentos: rawData.atendimentos,
         monitorizacao: filteredMonitorizacao,
         instituicoes: rawData.instituicoes,
         regioes: rawData.regioes,
@@ -71,16 +88,24 @@ function App() {
       };
       const completeMetrics = calculateMetrics(completeData);
 
-      // Combinar: métricas filtradas + dados filtrados para gráficos + dados completos apenas para COVID
+      // Combinar: métricas filtradas + dados filtrados para gráficos + dados processados extras
       setData({
         ...metrics,
-        dadosBrutos: metrics.dadosBrutos, // Dados filtrados para gráficos de atendimentos
-        dadosCovidCompletos: completeMetrics.dadosCovidCompletos // Dados completos apenas para gráfico COVID
+        dadosBrutos: metrics.dadosBrutos, // Usar dados filtrados para respeitar período selecionado
+        dadosCovidCompletos: completeMetrics.dadosCovidCompletos,
+        trabalhadoresProcessed: rawData.trabalhadoresProcessed,
+        triagemProcessed: rawData.triagemProcessed,
+        monitorizacaoCSHProcessed: rawData.monitorizacaoCSHProcessed
       });
     } else if (rawData) {
       // Se não houver filtro, usar todos os dados
       const metrics = calculateMetrics(rawData);
-      setData(metrics);
+      setData({
+        ...metrics,
+        trabalhadoresProcessed: rawData.trabalhadoresProcessed,
+        triagemProcessed: rawData.triagemProcessed,
+        monitorizacaoCSHProcessed: rawData.monitorizacaoCSHProcessed
+      });
     }
   };
 

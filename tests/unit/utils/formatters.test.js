@@ -1,4 +1,4 @@
-import { formatCurrency, formatNumber, formatDecimal, formatPercent } from '../../../src/utils/formatters';
+import { formatCurrency, formatNumber, formatDecimal, formatPercent, formatPeriodRange } from '../../../src/utils/formatters';
 
 describe('formatters', () => {
   describe('formatCurrency', () => {
@@ -53,6 +53,26 @@ describe('formatters', () => {
     it('handles invalid values', () => {
       expect(formatPercent(null)).toBe('0,0%');
       expect(formatPercent(undefined)).toBe('0,0%');
+    });
+  });
+
+  describe('formatPeriodRange', () => {
+    it('formats a date range as year range', () => {
+      const dateRange = { start: new Date(2020, 0, 1), end: new Date(2025, 11, 31) };
+      expect(formatPeriodRange(dateRange)).toBe('2020-2025');
+    });
+
+    it('returns default range when dateRange is null', () => {
+      expect(formatPeriodRange(null)).toBe('2016-2026');
+    });
+
+    it('returns default range when dateRange is undefined', () => {
+      expect(formatPeriodRange(undefined)).toBe('2016-2026');
+    });
+
+    it('returns default range when start or end is missing', () => {
+      expect(formatPeriodRange({ start: new Date(2020, 0, 1) })).toBe('2016-2026');
+      expect(formatPeriodRange({ end: new Date(2025, 11, 31) })).toBe('2016-2026');
     });
   });
 });
