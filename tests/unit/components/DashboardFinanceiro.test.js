@@ -15,4 +15,10 @@ describe('DashboardFinanceiro', () => {
     render(<DashboardFinanceiro data={{ totalAtendimentos: 0 }} />);
     expect(screen.getByText('Sem dados para o período selecionado')).toBeInTheDocument();
   });
+
+  it('renders dashboard title when data is null', () => {
+    render(<DashboardFinanceiro data={null} />);
+    expect(screen.getByText('💰 Dashboard Financeiro')).toBeInTheDocument();
+    expect(screen.getByText('Sem dados para o período selecionado')).toBeInTheDocument();
+  });
 });

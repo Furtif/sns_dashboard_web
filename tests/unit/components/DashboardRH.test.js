@@ -16,6 +16,11 @@ describe('DashboardRH', () => {
     expect(screen.getByText('Sem dados para o período selecionado')).toBeInTheDocument();
   });
 
+  it('renders without data message when totalAtendimentos is 0', () => {
+    render(<DashboardRH data={{ totalAtendimentos: 0 }} />);
+    expect(screen.getByText('Sem dados para o período selecionado')).toBeInTheDocument();
+  });
+
   it('renders dashboard title when data is null', () => {
     render(<DashboardRH data={null} />);
     expect(screen.getByText('👥 Dashboard Recursos Humanos')).toBeInTheDocument();
