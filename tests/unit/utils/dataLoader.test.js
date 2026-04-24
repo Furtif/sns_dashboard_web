@@ -8,7 +8,10 @@ import {
   filterByInstitution,
   filterByRegion,
   groupByPeriod,
-  calculateRankings
+  calculateRankings,
+  processTrabalhadoresData,
+  processTriagemData,
+  processMonitorizacaoCSH
 } from '../../../src/utils/dataLoader';
 
 // Mock PapaParse
@@ -484,6 +487,175 @@ describe('dataLoader', () => {
       const hospitalB = rankings.rankingUrgenciasFalsas.find(r => r.InstituicaoID === 2);
       expect(hospitalB.totalAtendimentos).toBe(0);
       expect(hospitalB.percentUrgenciasFalsas).toBe(0);
+    });
+  });
+
+  describe('processTrabalhadoresData', () => {
+    it('returns null for empty data', () => {
+      expect(processTrabalhadoresData(null)).toBeNull();
+      expect(processTrabalhadoresData([])).toBeNull();
+    });
+
+    it('processes trabalhadores data correctly', () => {
+      const data = [
+        { Período: '2024-01', 'Médicos': 100, 'Enfermeiros': 200, InstituicaoID: 1 },
+        { Período: '2024-02', 'Médicos': 105, 'Enfermeiros': 205, InstituicaoID: 1 }
+      ];
+
+      const result = processTrabalhadoresData(data);
+
+      expect(result).toBeDefined();
+      expect(result.totals).toBeDefined();
+      expect(result.byInstitution).toBeDefined();
+    });
+  });
+
+  describe('processTriagemData', () => {
+    it('returns null for empty data', () => {
+      expect(processTriagemData(null)).toBeNull();
+      expect(processTriagemData([])).toBeNull();
+    });
+
+    it('processes triagem data correctly', () => {
+      const data = [
+        { Período: '2024-01', Vermelha: 10, Laranja: 20, Verde: 30, InstituicaoID: 1 },
+        { Período: '2024-02', Vermelha: 15, Laranja: 25, Verde: 35, InstituicaoID: 1 }
+      ];
+
+      const result = processTriagemData(data);
+
+      expect(result).toBeDefined();
+      expect(result.totals).toBeDefined();
+      expect(result.byInstitution).toBeDefined();
+    });
+  });
+
+  describe('processMonitorizacaoCSH', () => {
+    it('returns null for empty data', () => {
+      expect(processMonitorizacaoCSH(null)).toBeNull();
+      expect(processMonitorizacaoCSH([])).toBeNull();
+    });
+
+    it('processes monitorizacao data correctly', () => {
+      const data = [
+        { Data: '2024-01-15', Indicador: 'A', Valor: 100 },
+        { Data: '2024-02-15', Indicador: 'A', Valor: 150 }
+      ];
+
+      const result = processMonitorizacaoCSH(data);
+
+      expect(result).toBeDefined();
+      expect(result.indicatorStats).toBeDefined();
+    });
+
+    it('returns null for data without required fields', () => {
+      const data = [
+        { Data: '2024-01-15' },
+        { Indicador: 'A' }
+      ];
+
+      const result = processMonitorizacaoCSH(data);
+
+      expect(result).toBeDefined();
+    });
+  });
+
+  describe('processTrabalhadoresData', () => {
+    it('returns null for empty data', () => {
+      expect(processTrabalhadoresData(null)).toBeNull();
+      expect(processTrabalhadoresData([])).toBeNull();
+    });
+
+    it('returns null for data without date range', () => {
+      const data = [
+        { Ano: 2024, Trabalhadores: 100 }
+      ];
+
+      const result = processTrabalhadoresData(data);
+
+      expect(result).toBeDefined();
+    });
+  });
+
+  describe('processTriagemData', () => {
+    it('returns null for empty data', () => {
+      expect(processTriagemData(null)).toBeNull();
+      expect(processTriagemData([])).toBeNull();
+    });
+
+    it('returns null for data without date range', () => {
+      const data = [
+        { Período: '2024-01', Vermelha: 10 }
+      ];
+
+      const result = processTriagemData(data);
+
+      expect(result).toBeDefined();
+    });
+
+    it('returns null for data with missing Período', () => {
+      const data = [
+        { Vermelha: 10 },
+        { Verde: 20 }
+      ];
+
+      const result = processTriagemData(data);
+
+      expect(result).toBeDefined();
+    });
+
+    it('returns null for data with null values', () => {
+      const data = [
+        { Período: null, Vermelha: 10 }
+      ];
+
+      const result = processTriagemData(data);
+
+      expect(result).toBeDefined();
+    });
+  });
+
+  describe('processMonitorizacaoCSH', () => {
+    it('returns null for data with null values', () => {
+      const data = [
+        { Data: null, Indicador: 'A' }
+      ];
+
+      const result = processMonitorizacaoCSH(data);
+
+      expect(result).toBeDefined();
+    });
+
+    it('returns null for data with undefined values', () => {
+      const data = [
+        { Data: undefined, Indicador: 'A' }
+      ];
+
+      const result = processMonitorizacaoCSH(data);
+
+      expect(result).toBeDefined();
+    });
+  });
+
+  describe('processTrabalhadoresData', () => {
+    it('returns null for data with null values', () => {
+      const data = [
+        { Ano: null, Trabalhadores: 100 }
+      ];
+
+      const result = processTrabalhadoresData(data);
+
+      expect(result).toBeDefined();
+    });
+
+    it('returns null for data with undefined values', () => {
+      const data = [
+        { Ano: undefined, Trabalhadores: 100 }
+      ];
+
+      const result = processTrabalhadoresData(data);
+
+      expect(result).toBeDefined();
     });
   });
 });
