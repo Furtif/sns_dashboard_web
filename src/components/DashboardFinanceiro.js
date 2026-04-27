@@ -59,7 +59,10 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
 
       // Preparar evolução de custos mensais (filtrar pelo período selecionado)
       const monthly = data.dadosBrutos
-        .filter(row => row.Período >= startYear && row.Período <= endYear && row.TotalAtendimentos > 0)
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear && row.TotalAtendimentos > 0;
+        })
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           const totalAtendimentos = row.TotalAtendimentos || 0;
