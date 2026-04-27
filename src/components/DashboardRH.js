@@ -147,13 +147,20 @@ const DashboardRH = ({ data, dateRange }) => {
         };
       });
 
+      const countedInstitutions = new Set();
       instArray.forEach(inst => {
         if (regions[inst.regiaoId]) {
           regions[inst.regiaoId].totalAtendimentos += inst.totalAtendimentos;
           regions[inst.regiaoId].medicos += inst.medicos;
           regions[inst.regiaoId].medicosInternos += inst.medicosInternos;
           regions[inst.regiaoId].enfermeiros += inst.enfermeiros;
-          regions[inst.regiaoId].instituicoes++;
+
+          // Count unique institutions only
+          const instKey = `${inst.regiaoId}-${inst.instituicaoId}`;
+          if (!countedInstitutions.has(instKey)) {
+            countedInstitutions.add(instKey);
+            regions[inst.regiaoId].instituicoes++;
+          }
         }
       });
 

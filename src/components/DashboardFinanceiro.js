@@ -89,6 +89,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
 
       // Análise de desperdício por tipo de instituição
       const wasteByType = {};
+      const countedInstitutions = new Set();
       ['CH', 'CHU', 'ULS', 'Hospital'].forEach(tipo => {
         wasteByType[tipo] = {
           tipo,
@@ -115,7 +116,13 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
           wasteByType[institution.Tipo].urgenciasFalsas += urgenciasFalsas;
           wasteByType[institution.Tipo].custoTotal += totalAtendimentos * 150;
           wasteByType[institution.Tipo].custoDesperdicado += urgenciasFalsas * 120;
-          wasteByType[institution.Tipo].instituicoes++;
+
+          // Count unique institutions only
+          const instKey = `${institution.Tipo}-${institution.InstituicaoID}`;
+          if (!countedInstitutions.has(instKey)) {
+            countedInstitutions.add(instKey);
+            wasteByType[institution.Tipo].instituicoes++;
+          }
         }
       });
 

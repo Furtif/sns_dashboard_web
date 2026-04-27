@@ -61,7 +61,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
       data.dadosBrutos
         .filter(row => {
           const periodYear = row.Período.substring(0, 4);
-          return periodYear >= startYear && periodYear <= endYear && (row.Médicos > 0 || row.Enfermeiros > 0);
+          return periodYear >= startYear && periodYear <= endYear && row.TotalAtendimentos > 0;
         })
         .forEach(row => {
         const instId = row.InstituicaoID;
