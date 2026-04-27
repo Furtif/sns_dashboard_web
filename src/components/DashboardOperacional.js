@@ -66,7 +66,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
         .forEach(row => {
         const instId = row.InstituicaoID;
         if (!institutions[instId]) {
-          const institution = data.instituicoes.find(i => i.InstituicaoID === instId);
+          const institution = data.instituicoes?.find(i => i.InstituicaoID === instId);
           institutions[instId] = {
             instituicaoId: instId,
             instituicaoNome: institution?.InstituicaoNome || `Instituição ${instId}`,
