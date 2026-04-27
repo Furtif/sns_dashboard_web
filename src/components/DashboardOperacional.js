@@ -12,9 +12,21 @@ const DashboardOperacional = ({ data, dateRange }) => {
 
   useEffect(() => {
     if (data && data.dadosBrutos) {
-      // Preparar dados mensais (usar dados com RH 2016-2026)
+      // Determinar range de anos baseado no dateRange selecionado
+      let startYear = '2016';
+      let endYear = '2026';
+      
+      if (dateRange && dateRange.start && dateRange.end) {
+        startYear = dateRange.start.getFullYear().toString();
+        endYear = dateRange.end.getFullYear().toString();
+      }
+      
+      // Preparar dados mensais (filtrar pelo período selecionado)
       const monthly = data.dadosBrutos
-        .filter(row => row.TotalAtendimentos > 0 && (row.Médicos > 0 || row.Enfermeiros > 0))
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear && row.TotalAtendimentos > 0 && (row.Médicos > 0 || row.Enfermeiros > 0);
+        })
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           if (existing) {
@@ -44,10 +56,13 @@ const DashboardOperacional = ({ data, dateRange }) => {
       const monthlySorted = [...monthly].sort((a, b) => a.period.localeCompare(b.period));
       setMonthlyData(monthlySorted);
 
-      // Preparar dados por instituição (ignorar 2013-2015 que não têm dados de RH)
+      // Preparar dados por instituição (filtrar pelo período selecionado)
       const institutions = {};
       data.dadosBrutos
-        .filter(row => row.Período >= '2016' && (row.Médicos > 0 || row.Enfermeiros > 0))
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear && (row.Médicos > 0 || row.Enfermeiros > 0);
+        })
         .forEach(row => {
         const instId = row.InstituicaoID;
         if (!institutions[instId]) {
@@ -83,8 +98,12 @@ const DashboardOperacional = ({ data, dateRange }) => {
       const instArraySorted = [...instArray].sort((a, b) => b.totalAtendimentos - a.totalAtendimentos);
       setInstitutionData(instArraySorted);
 
-      // Preparar dados operacionais COVID-19 (2013-atualidade)
+      // Preparar dados operacionais COVID-19 (filtrar pelo período selecionado)
       const covidOpData = (data.dadosCovidCompletos || [])
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear;
+        })
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           if (existing) {
@@ -112,8 +131,16 @@ const DashboardOperacional = ({ data, dateRange }) => {
       const covidOpDataSorted = [...covidOpData].sort((a, b) => a.period.localeCompare(b.period));
       setCovidOperationalData(covidOpDataSorted);
 
-      // Calcular dados de triagem a partir de dadosBrutos merged (consistente com Executivo)
-      const triagemTotals = data.dadosBrutos.reduce((acc, row) => {
+      // Calcular dados de triagem a partir de dadosBrutos (filtrar pelo período selecionado e filtros de região/instituição)
+      const triagemTotals = data.dadosBrutos
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          const matchesDate = periodYear >= startYear && periodYear <= endYear;
+          const matchesRegion = !selectedRegion || row.RegiaoID === parseInt(selectedRegion);
+          const matchesInstitution = !selectedInstitution || row.InstituicaoID === parseInt(selectedInstitution);
+          return matchesDate && matchesRegion && matchesInstitution;
+        })
+        .reduce((acc, row) => {
         acc.vermelha += row.Atendimentos_Vermelha || 0;
         acc.laranja += row.Atendimentos_Laranja || 0;
         acc.amarela += row.Atendimentos_Amarela || 0;
@@ -136,7 +163,15 @@ const DashboardOperacional = ({ data, dateRange }) => {
       } : {};
 
       const triagemByInstitution = {};
-      data.dadosBrutos.forEach(row => {
+      data.dadosBrutos
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          const matchesDate = periodYear >= startYear && periodYear <= endYear;
+          const matchesRegion = !selectedRegion || row.RegiaoID === parseInt(selectedRegion);
+          const matchesInstitution = !selectedInstitution || row.InstituicaoID === parseInt(selectedInstitution);
+          return matchesDate && matchesRegion && matchesInstitution;
+        })
+        .forEach(row => {
         const instId = row.InstituicaoID;
         if (!triagemByInstitution[instId]) {
           const institution = data.instituicoes?.find(i => i.InstituicaoID === instId);
@@ -161,7 +196,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
         byInstitution: Object.values(triagemByInstitution).sort((a, b) => b.total - a.total)
       });
     }
-  }, [data, dateRange]);
+  }, [data, dateRange, selectedRegion, selectedInstitution]);
 
 
   const getEfficiencyColor = (percent) => {
@@ -502,7 +537,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
       <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Evolução Mensal */}
         <div className="chart-container">
-          <h3 className="chart-title">📈 Evolução Mensal de Indicadores (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">📈 Evolução Mensal de Indicadores ({formatPeriodRange(dateRange)})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={monthlyData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -590,7 +625,7 @@ const DashboardOperacional = ({ data, dateRange }) => {
       {/* Gráfico COVID-19 Operacional */}
       {covidOperationalData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">🦠 Evolução Operacional COVID-19 e Gripe Sazonal (2013 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">🦠 Evolução Operacional COVID-19 e Gripe Sazonal ({formatPeriodRange(dateRange)})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidOperationalData}>
               <CartesianGrid strokeDasharray="3 3" />
