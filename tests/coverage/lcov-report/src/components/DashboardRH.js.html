@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.14% </span>
+                <span class="strong">82.17% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>99/122</span>
+                <span class='fraction'>106/129</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">49.17% </span>
+                <span class="strong">50.4% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>119/242</span>
+                <span class='fraction'>126/250</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.72% </span>
+                <span class="strong">83.76% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>91/110</span>
+                <span class='fraction'>98/117</span>
             </div>
         
             
@@ -815,7 +815,22 @@
 <a name='L750'></a><a href='#L750'>750</a>
 <a name='L751'></a><a href='#L751'>751</a>
 <a name='L752'></a><a href='#L752'>752</a>
-<a name='L753'></a><a href='#L753'>753</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L753'></a><a href='#L753'>753</a>
+<a name='L754'></a><a href='#L754'>754</a>
+<a name='L755'></a><a href='#L755'>755</a>
+<a name='L756'></a><a href='#L756'>756</a>
+<a name='L757'></a><a href='#L757'>757</a>
+<a name='L758'></a><a href='#L758'>758</a>
+<a name='L759'></a><a href='#L759'>759</a>
+<a name='L760'></a><a href='#L760'>760</a>
+<a name='L761'></a><a href='#L761'>761</a>
+<a name='L762'></a><a href='#L762'>762</a>
+<a name='L763'></a><a href='#L763'>763</a>
+<a name='L764'></a><a href='#L764'>764</a>
+<a name='L765'></a><a href='#L765'>765</a>
+<a name='L766'></a><a href='#L766'>766</a>
+<a name='L767'></a><a href='#L767'>767</a>
+<a name='L768'></a><a href='#L768'>768</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -831,7 +846,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -883,7 +910,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -1580,10 +1610,22 @@ const DashboardRH = ({ data, dateRange }) =&gt; {
 &nbsp;
   useEffect(() =&gt; {
     if (data &amp;&amp; data.dadosBrutos &amp;&amp; data.instituicoes) {
-      // Preparar dados RH por instituição (ignorar 2013-2015 que não têm dados de RH)
+      // Determinar range de anos baseado no dateRange selecionado
+      let startYear = '2016';
+      let endYear = '2026';
+      
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (dateRange &amp;&amp; dateRange.start &amp;&amp; dateRange.end) {
+        startYear = dateRange.start.getFullYear().toString();
+        endYear = dateRange.end.getFullYear().toString();
+      }
+      
+      // Preparar dados RH por instituição (filtrar pelo período selecionado)
       const institutions = {};
       data.dadosBrutos
-        .filter(row =&gt; row.Período &gt;= '2016' &amp;&amp; (row.Médicos &gt; 0 || <span class="branch-2 cbranch-no" title="branch not covered" >row.Enfermeiros &gt; 0)</span>)
+        .filter(row =&gt; {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear &gt;= startYear &amp;&amp; periodYear &lt;= endYear &amp;&amp; (row.Médicos &gt; 0 || <span class="branch-3 cbranch-no" title="branch not covered" >row.Enfermeiros &gt; 0)</span>;
+        })
         .forEach(row =&gt; {
         const instId = row.InstituicaoID;
         if (!institutions[instId]) {
@@ -1633,9 +1675,12 @@ const DashboardRH = ({ data, dateRange }) =&gt; {
       const instArraySorted = [...instArray].sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >b.totalAtendimentos - a.totalAtendimentos)</span>;
       setInstitutionRH(instArraySorted);
 &nbsp;
-      // Preparar série temporal RH
+      // Preparar série temporal RH (filtrar pelo período selecionado)
       const monthlyRH = data.dadosBrutos
-        .filter(row =&gt; (row.Médicos || <span class="branch-1 cbranch-no" title="branch not covered" >0)</span> &gt; 0 || <span class="branch-1 cbranch-no" title="branch not covered" >(row.Enfermeiros || 0) &gt; 0)</span>
+        .filter(row =&gt; {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear &gt;= startYear &amp;&amp; periodYear &lt;= endYear &amp;&amp; ((row.Médicos || <span class="branch-1 cbranch-no" title="branch not covered" >0)</span> &gt; 0 || <span class="branch-3 cbranch-no" title="branch not covered" >(row.Enfermeiros || 0) &gt; 0)</span>;
+        })
         .reduce((acc, row) =&gt; {
           const existing = acc.find(item =&gt; item.period === row.Período);
           <span class="missing-if-branch" title="if path not taken" >I</span>if (existing) {
@@ -2004,7 +2049,7 @@ const DashboardRH = ({ data, dateRange }) =&gt; {
       &lt;div className="grid grid-cols-2 gap-6 mb-6"&gt;
         {/* Evolução Temporal RH */}
         &lt;div className="chart-container"&gt;
-          &lt;h3 className="chart-title"&gt;📈 Evolução de Recursos Humanos (2016 - {new Date().getFullYear()})&lt;/h3&gt;
+          &lt;h3 className="chart-title"&gt;📈 Evolução de Recursos Humanos ({formatPeriodRange(dateRange)})&lt;/h3&gt;
           &lt;ResponsiveContainer width="100%" height={300}&gt;
             &lt;LineChart data={timeSeriesRH}&gt;
               &lt;CartesianGrid strokeDasharray="3 3" /&gt;
@@ -2303,7 +2348,7 @@ const DashboardRH = ({ data, dateRange }) =&gt; {
 &nbsp;
             &lt;div className="metric-card border-purple-200 bg-purple-50"&gt;
               &lt;div className="metric-value" style={{ color: '#7c3aed' }}&gt;
-                {formatCurrency(Math.max(0, totalMedicosNacional * 2 - totalEnfermeirosNacional) * 40000)}
+                {formatCurrency(Math.max(0, totalMedicosNacional * 2 - totalEnfermeirosNacional) * 50000)}
               &lt;/div&gt;
               &lt;div className="metric-label"&gt;Investimento Estimado&lt;/div&gt;
               &lt;div className="text-sm text-purple-700 mt-2"&gt;
@@ -2326,7 +2371,7 @@ export default DashboardRH;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-24T01:28:01.699Z
+                at 2026-04-27T16:41:45.492Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

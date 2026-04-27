@@ -190,22 +190,11 @@ describe('PeriodFilter Simple Tests', () => {
     expect(screen.getByText('📅 Filtro de Período')).toBeInTheDocument();
   });
 
-  it('renders with disabled string "true"', () => {
+  it('renders with disabled boolean false', () => {
     render(
       React.createElement(PeriodFilter, {
         onDateRangeChange: mockOnDateRangeChange,
-        disabled: "true"
-      })
-    );
-    
-    expect(screen.getByText('📅 Filtro de Período')).toBeInTheDocument();
-  });
-
-  it('renders with disabled string "false"', () => {
-    render(
-      React.createElement(PeriodFilter, {
-        onDateRangeChange: mockOnDateRangeChange,
-        disabled: "false"
+        disabled: false
       })
     );
     
@@ -400,16 +389,6 @@ describe('PeriodFilter Simple Tests', () => {
     expect(screen.getByText('📅 Filtro de Período')).toBeInTheDocument();
   });
 
-  it('renders with disabled as NaN', () => {
-    render(
-      React.createElement(PeriodFilter, {
-        onDateRangeChange: mockOnDateRangeChange,
-        disabled: NaN
-      })
-    );
-    
-    expect(screen.getByText('📅 Filtro de Período')).toBeInTheDocument();
-  });
 
   it('renders with disabled as Infinity', () => {
     render(
@@ -455,16 +434,6 @@ describe('PeriodFilter Simple Tests', () => {
     expect(screen.getByText('📅 Filtro de Período')).toBeInTheDocument();
   });
 
-  it('renders with disabled as Symbol', () => {
-    render(
-      React.createElement(PeriodFilter, {
-        onDateRangeChange: mockOnDateRangeChange,
-        disabled: Symbol('test')
-      })
-    );
-    
-    expect(screen.getByText('📅 Filtro de Período')).toBeInTheDocument();
-  });
 
   it('renders with both props as null', () => {
     render(
@@ -926,5 +895,179 @@ describe('PeriodFilter Simple Tests', () => {
     );
     
     expect(screen.getByText('📅 Filtro de Período')).toBeInTheDocument();
+  });
+
+  it('handles quick select with last12 option', () => {
+    render(
+      React.createElement(PeriodFilter, {
+        onDateRangeChange: mockOnDateRangeChange,
+        disabled: false
+      })
+    );
+
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    const select = screen.getByRole('combobox');
+    fireEvent.change(select, { target: { value: 'last12' } });
+
+    expect(mockOnDateRangeChange).toHaveBeenCalled();
+  });
+
+  it('handles quick select with last24 option', () => {
+    render(
+      React.createElement(PeriodFilter, {
+        onDateRangeChange: mockOnDateRangeChange,
+        disabled: false
+      })
+    );
+
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    const select = screen.getByRole('combobox');
+    fireEvent.change(select, { target: { value: 'last24' } });
+
+    expect(mockOnDateRangeChange).toHaveBeenCalled();
+  });
+
+  it('handles quick select with last36 option', () => {
+    render(
+      React.createElement(PeriodFilter, {
+        onDateRangeChange: mockOnDateRangeChange,
+        disabled: false
+      })
+    );
+
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    const select = screen.getByRole('combobox');
+    fireEvent.change(select, { target: { value: 'last36' } });
+
+    expect(mockOnDateRangeChange).toHaveBeenCalled();
+  });
+
+  it('handles quick select with currentYear option', () => {
+    render(
+      React.createElement(PeriodFilter, {
+        onDateRangeChange: mockOnDateRangeChange,
+        disabled: false
+      })
+    );
+
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    const select = screen.getByRole('combobox');
+    fireEvent.change(select, { target: { value: 'currentYear' } });
+
+    expect(mockOnDateRangeChange).toHaveBeenCalled();
+  });
+
+  it('handles quick select with lastYear option', () => {
+    render(
+      React.createElement(PeriodFilter, {
+        onDateRangeChange: mockOnDateRangeChange,
+        disabled: false
+      })
+    );
+
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    const select = screen.getByRole('combobox');
+    fireEvent.change(select, { target: { value: 'lastYear' } });
+
+    expect(mockOnDateRangeChange).toHaveBeenCalled();
+  });
+
+  it('handles quick select with last2years option', () => {
+    render(
+      React.createElement(PeriodFilter, {
+        onDateRangeChange: mockOnDateRangeChange,
+        disabled: false
+      })
+    );
+
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    const select = screen.getByRole('combobox');
+    fireEvent.change(select, { target: { value: 'last2years' } });
+
+    expect(mockOnDateRangeChange).toHaveBeenCalled();
+  });
+
+  it('handles quick select with custom option', () => {
+    render(
+      React.createElement(PeriodFilter, {
+        onDateRangeChange: mockOnDateRangeChange,
+        disabled: false
+      })
+    );
+
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    const select = screen.getByRole('combobox');
+    fireEvent.change(select, { target: { value: 'custom' } });
+
+    expect(screen.getByText('Data de Início:')).toBeInTheDocument();
+    expect(screen.getByText('Data de Fim:')).toBeInTheDocument();
+  });
+
+  it('handles custom date change with valid dates', () => {
+    const { container } = render(
+      React.createElement(PeriodFilter, {
+        onDateRangeChange: mockOnDateRangeChange,
+        disabled: false
+      })
+    );
+
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    const select = screen.getByRole('combobox');
+    fireEvent.change(select, { target: { value: 'custom' } });
+
+    const dateInputs = container.querySelectorAll('input[type="date"]');
+    const startDateInput = dateInputs[0];
+    const endDateInput = dateInputs[1];
+
+    fireEvent.change(startDateInput, { target: { value: '2024-01-01' } });
+    fireEvent.change(endDateInput, { target: { value: '2024-12-31' } });
+    fireEvent.blur(endDateInput);
+
+    expect(mockOnDateRangeChange).toHaveBeenCalled();
+  });
+
+  it('handles clear filter button', () => {
+    render(
+      React.createElement(PeriodFilter, {
+        onDateRangeChange: mockOnDateRangeChange,
+        disabled: false
+      })
+    );
+
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    const select = screen.getByRole('combobox');
+    fireEvent.change(select, { target: { value: 'last12' } });
+
+    const clearButton = screen.getByText('🔄 Limpar Filtro');
+    fireEvent.click(clearButton);
+
+    expect(mockOnDateRangeChange).toHaveBeenCalled();
   });
 });

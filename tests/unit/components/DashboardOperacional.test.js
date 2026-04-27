@@ -541,4 +541,195 @@ describe('DashboardOperacional', () => {
     render(<DashboardOperacional data={mockData} dateRange={dateRangeWithUndefinedEnd} />);
     expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
   });
+
+  it('renders with dadosBrutos with same period (triggers reduce accumulation)', () => {
+    const dataWithSamePeriod = {
+      ...mockData,
+      dadosBrutos: [
+        {
+          Período: '2024-01',
+          InstituicaoID: 1,
+          RegiaoID: 1,
+          TotalAtendimentos: 5000,
+          Atendimentos_Vermelha: 100,
+          Atendimentos_Laranja: 200,
+          Atendimentos_Amarela: 300,
+          Atendimentos_Verde: 1000,
+          Atendimentos_Azul: 500,
+          Atendimentos_Branca: 300,
+          Médicos: 50,
+          Enfermeiros: 100
+        },
+        {
+          Período: '2024-01',
+          InstituicaoID: 2,
+          RegiaoID: 2,
+          TotalAtendimentos: 3000,
+          Atendimentos_Vermelha: 50,
+          Atendimentos_Laranja: 100,
+          Atendimentos_Amarela: 150,
+          Atendimentos_Verde: 600,
+          Atendimentos_Azul: 300,
+          Atendimentos_Branca: 200,
+          Médicos: 30,
+          Enfermeiros: 60
+        }
+      ]
+    };
+    render(<DashboardOperacional data={dataWithSamePeriod} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with dadosCovidCompletos data', () => {
+    const dataWithCovid = {
+      ...mockData,
+      dadosCovidCompletos: [
+        {
+          Período: '2024-01',
+          CasosCovid: 100,
+          ObitosCovid: 5,
+          InternamentosCovid: 20,
+          TotalAtendimentos: 5000,
+          Atendimentos_Verde: 1000,
+          Atendimentos_Azul: 500,
+          Atendimentos_Branca: 300
+        }
+      ]
+    };
+    render(<DashboardOperacional data={dataWithCovid} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with dadosCovidCompletos with same period (triggers reduce accumulation)', () => {
+    const dataWithCovidSamePeriod = {
+      ...mockData,
+      dadosCovidCompletos: [
+        {
+          Período: '2024-01',
+          CasosCovid: 100,
+          ObitosCovid: 5,
+          InternamentosCovid: 20,
+          TotalAtendimentos: 5000,
+          Atendimentos_Verde: 1000,
+          Atendimentos_Azul: 500,
+          Atendimentos_Branca: 300
+        },
+        {
+          Período: '2024-01',
+          CasosCovid: 50,
+          ObitosCovid: 2,
+          InternamentosCovid: 10,
+          TotalAtendimentos: 3000,
+          Atendimentos_Verde: 600,
+          Atendimentos_Azul: 300,
+          Atendimentos_Branca: 200
+        }
+      ]
+    };
+    render(<DashboardOperacional data={dataWithCovidSamePeriod} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with instituicoes missing InstituicaoNome', () => {
+    const dataWithMissingNome = {
+      ...mockData,
+      instituicoes: [{ InstituicaoID: 1, Tipo: 'CH', RegiaoID: 1 }]
+    };
+    render(<DashboardOperacional data={dataWithMissingNome} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with instituicoes missing Tipo', () => {
+    const dataWithMissingTipo = {
+      ...mockData,
+      instituicoes: [{ InstituicaoID: 1, InstituicaoNome: 'Hospital A', RegiaoID: 1 }]
+    };
+    render(<DashboardOperacional data={dataWithMissingTipo} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with dadosBrutos with zero Médicos and Enfermeiros', () => {
+    const dataWithZeroRH = {
+      ...mockData,
+      dadosBrutos: [
+        {
+          Período: '2024-01',
+          InstituicaoID: 1,
+          RegiaoID: 1,
+          TotalAtendimentos: 5000,
+          Atendimentos_Vermelha: 100,
+          Atendimentos_Laranja: 200,
+          Atendimentos_Amarela: 300,
+          Atendimentos_Verde: 1000,
+          Atendimentos_Azul: 500,
+          Atendimentos_Branca: 300,
+          Médicos: 0,
+          Enfermeiros: 0
+        }
+      ]
+    };
+    render(<DashboardOperacional data={dataWithZeroRH} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with dadosBrutos with only Médicos (no Enfermeiros)', () => {
+    const dataWithOnlyMedicos = {
+      ...mockData,
+      dadosBrutos: [
+        {
+          Período: '2024-01',
+          InstituicaoID: 1,
+          RegiaoID: 1,
+          TotalAtendimentos: 5000,
+          Atendimentos_Vermelha: 100,
+          Atendimentos_Laranja: 200,
+          Atendimentos_Amarela: 300,
+          Atendimentos_Verde: 1000,
+          Atendimentos_Azul: 500,
+          Atendimentos_Branca: 300,
+          Médicos: 50,
+          Enfermeiros: 0
+        }
+      ]
+    };
+    render(<DashboardOperacional data={dataWithOnlyMedicos} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with dadosBrutos with only Enfermeiros (no Médicos)', () => {
+    const dataWithOnlyEnfermeiros = {
+      ...mockData,
+      dadosBrutos: [
+        {
+          Período: '2024-01',
+          InstituicaoID: 1,
+          RegiaoID: 1,
+          TotalAtendimentos: 5000,
+          Atendimentos_Vermelha: 100,
+          Atendimentos_Laranja: 200,
+          Atendimentos_Amarela: 300,
+          Atendimentos_Verde: 1000,
+          Atendimentos_Azul: 500,
+          Atendimentos_Branca: 300,
+          Médicos: 0,
+          Enfermeiros: 100
+        }
+      ]
+    };
+    render(<DashboardOperacional data={dataWithOnlyEnfermeiros} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with null dadosCovidCompletos', () => {
+    const dataWithNullCovid = { ...mockData, dadosCovidCompletos: null };
+    render(<DashboardOperacional data={dataWithNullCovid} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with empty dadosCovidCompletos array', () => {
+    const dataWithEmptyCovid = { ...mockData, dadosCovidCompletos: [] };
+    render(<DashboardOperacional data={dataWithEmptyCovid} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
 });

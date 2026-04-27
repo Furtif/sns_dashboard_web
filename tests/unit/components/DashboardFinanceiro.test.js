@@ -66,4 +66,82 @@ describe('DashboardFinanceiro', () => {
     render(<DashboardFinanceiro data={mockData} dateRange={mockDateRange} />);
     expect(screen.queryByText('Sem dados para o período selecionado')).not.toBeInTheDocument();
   });
+
+  it('renders with dadosBrutos having same period', () => {
+    const dataWithSamePeriod = {
+      ...mockData,
+      dadosBrutos: [
+        {
+          Período: '2024-01',
+          InstituicaoID: 1,
+          RegiaoID: 1,
+          TotalAtendimentos: 5000,
+          Atendimentos_Verde: 1000,
+          Atendimentos_Azul: 500,
+          Atendimentos_Branca: 300
+        },
+        {
+          Período: '2024-01',
+          InstituicaoID: 2,
+          RegiaoID: 2,
+          TotalAtendimentos: 4000,
+          Atendimentos_Verde: 800,
+          Atendimentos_Azul: 400,
+          Atendimentos_Branca: 200
+        }
+      ]
+    };
+    render(<DashboardFinanceiro data={dataWithSamePeriod} dateRange={mockDateRange} />);
+    expect(screen.queryByText('Sem dados para o período selecionado')).not.toBeInTheDocument();
+  });
+
+  it('renders with dadosCovidCompletos data', () => {
+    const dataWithCovid = {
+      ...mockData,
+      dadosCovidCompletos: [
+        {
+          Período: '2024-01',
+          CasosCovid: 100,
+          ObitosCovid: 5,
+          InternamentosCovid: 20
+        }
+      ]
+    };
+    render(<DashboardFinanceiro data={dataWithCovid} dateRange={mockDateRange} />);
+    expect(screen.queryByText('Sem dados para o período selecionado')).not.toBeInTheDocument();
+  });
+
+  it('renders with dadosCovidCompletos having same period', () => {
+    const dataWithCovidSamePeriod = {
+      ...mockData,
+      dadosCovidCompletos: [
+        {
+          Período: '2024-01',
+          CasosCovid: 100,
+          ObitosCovid: 5,
+          InternamentosCovid: 20
+        },
+        {
+          Período: '2024-01',
+          CasosCovid: 50,
+          ObitosCovid: 2,
+          InternamentosCovid: 10
+        }
+      ]
+    };
+    render(<DashboardFinanceiro data={dataWithCovidSamePeriod} dateRange={mockDateRange} />);
+    expect(screen.queryByText('Sem dados para o período selecionado')).not.toBeInTheDocument();
+  });
+
+  it('renders with null dadosCovidCompletos', () => {
+    const dataWithNullCovid = { ...mockData, dadosCovidCompletos: null };
+    render(<DashboardFinanceiro data={dataWithNullCovid} dateRange={mockDateRange} />);
+    expect(screen.queryByText('Sem dados para o período selecionado')).not.toBeInTheDocument();
+  });
+
+  it('renders with empty dadosCovidCompletos array', () => {
+    const dataWithEmptyCovid = { ...mockData, dadosCovidCompletos: [] };
+    render(<DashboardFinanceiro data={dataWithEmptyCovid} dateRange={mockDateRange} />);
+    expect(screen.queryByText('Sem dados para o período selecionado')).not.toBeInTheDocument();
+  });
 });

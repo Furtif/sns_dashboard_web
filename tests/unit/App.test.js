@@ -5,6 +5,23 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import App from '../../src/App';
 
+// Suppress React act warnings for async useEffect state updates
+// These are development-mode warnings that don't affect test functionality
+const originalError = console.error;
+beforeAll(() => {
+  console.error = (...args) => {
+    const firstArg = args[0];
+    if (typeof firstArg === 'string' && firstArg.includes('not wrapped in act')) {
+      return;
+    }
+    originalError.apply(console, args);
+  };
+});
+
+afterAll(() => {
+  console.error = originalError;
+});
+
 // Mock the dataLoader functions
 jest.mock('../../src/utils/dataLoader', () => ({
   loadAllData: jest.fn(() => Promise.resolve({
@@ -132,7 +149,7 @@ describe('App', () => {
     fireEvent.click(rhTab);
   });
 
-  it('renders PeriodFilter component', async () => {
+  it('renders PeriodFilter component with emoji', async () => {
     render(<App />);
 
     await waitFor(() => {
@@ -142,7 +159,7 @@ describe('App', () => {
     expect(screen.getByText('📅 Filtro de Período')).toBeInTheDocument();
   });
 
-  it('renders footer', async () => {
+  it('renders footer with development info', async () => {
     render(<App />);
 
     await waitFor(() => {
@@ -152,7 +169,7 @@ describe('App', () => {
     expect(screen.getByText(/Desenvolvimento:/i)).toBeInTheDocument();
   });
 
-  it('renders mobile menu button', async () => {
+  it('renders mobile menu button label', async () => {
     render(<App />);
 
     await waitFor(() => {
@@ -160,5 +177,103 @@ describe('App', () => {
     });
 
     expect(screen.getByLabelText('Menu')).toBeInTheDocument();
+  });
+
+  it('renders error state when data loading fails', async () => {
+    const { loadAllData } = require('../../src/utils/dataLoader');
+    
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+    
+    loadAllData.mockImplementationOnce(() => 
+      Promise.reject(new Error('Network error'))
+    );
+
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Erro ao Carregar Dados/i)).toBeInTheDocument();
+    });
+    
+    console.error.mockRestore();
+  });
+
+  it('handles retry button click on error', async () => {
+    const { loadAllData } = require('../../src/utils/dataLoader');
+    
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+    
+    loadAllData.mockImplementationOnce(() => 
+      Promise.reject(new Error('Network error'))
+    );
+
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Erro ao Carregar Dados/i)).toBeInTheDocument();
+    });
+
+    const retryButton = screen.getByText(/Tentar Novamente/i);
+    await act(async () => {
+      fireEvent.click(retryButton);
+    });
+    
+    console.error.mockRestore();
+  });
+
+  it('handles date range change with valid dates', async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.queryByText(/A carregar dados/i)).not.toBeInTheDocument();
+    });
+
+    const periodFilter = screen.getByText(/Filtro de Período/i);
+    expect(periodFilter).toBeInTheDocument();
+  });
+});
+
+describe('App with fake timers', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
+  it('triggers handleDateRangeChange via PeriodFilter useEffect', async () => {
+    const { calculateMetrics } = require('../../src/utils/dataLoader');
+
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.queryByText(/A carregar dados/i)).not.toBeInTheDocument();
+    });
+
+    act(() => {
+      jest.advanceTimersByTime(150);
+    });
+
+    expect(calculateMetrics).toHaveBeenCalled();
+  });
+
+  it('clicks mobile menu tab to switch tabs', async () => {
+    const { container } = render(<App />);
+
+    await waitFor(() => {
+      expect(screen.queryByText(/A carregar dados/i)).not.toBeInTheDocument();
+    });
+
+    const mobileMenuBtn = screen.getByLabelText('Menu');
+    await act(async () => {
+      fireEvent.click(mobileMenuBtn);
+    });
+
+    const mobileNavTabs = container.querySelectorAll('.mobile-nav-tab');
+    if (mobileNavTabs.length > 0) {
+      await act(async () => {
+        fireEvent.click(mobileNavTabs[0]);
+      });
+    }
   });
 });

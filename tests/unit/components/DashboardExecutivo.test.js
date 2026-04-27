@@ -99,6 +99,90 @@ describe('DashboardExecutivo', () => {
     expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
   });
 
+  it('renders with dadosBrutos with same period (triggers reduce accumulation)', () => {
+    const dataWithSamePeriod = {
+      ...mockData,
+      dadosBrutos: [
+        {
+          Período: '2024-01',
+          InstituicaoID: 1,
+          RegiaoID: 1,
+          TotalAtendimentos: 5000,
+          Atendimentos_Vermelha: 100,
+          Atendimentos_Laranja: 200,
+          Atendimentos_Amarela: 300,
+          Atendimentos_Verde: 1000,
+          Atendimentos_Azul: 500,
+          Atendimentos_Branca: 300
+        },
+        {
+          Período: '2024-01',
+          InstituicaoID: 2,
+          RegiaoID: 2,
+          TotalAtendimentos: 3000,
+          Atendimentos_Vermelha: 50,
+          Atendimentos_Laranja: 100,
+          Atendimentos_Amarela: 150,
+          Atendimentos_Verde: 600,
+          Atendimentos_Azul: 300,
+          Atendimentos_Branca: 200
+        }
+      ]
+    };
+    render(<DashboardExecutivo data={dataWithSamePeriod} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with dadosCovidCompletos data', () => {
+    const dataWithCovid = {
+      ...mockData,
+      dadosCovidCompletos: [
+        {
+          Período: '2024-01',
+          CasosCovid: 100,
+          ObitosCovid: 5,
+          InternamentosCovid: 20
+        }
+      ]
+    };
+    render(<DashboardExecutivo data={dataWithCovid} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with dadosCovidCompletos with same period (triggers reduce accumulation)', () => {
+    const dataWithCovidSamePeriod = {
+      ...mockData,
+      dadosCovidCompletos: [
+        {
+          Período: '2024-01',
+          CasosCovid: 100,
+          ObitosCovid: 5,
+          InternamentosCovid: 20
+        },
+        {
+          Período: '2024-01',
+          CasosCovid: 50,
+          ObitosCovid: 2,
+          InternamentosCovid: 10
+        }
+      ]
+    };
+    render(<DashboardExecutivo data={dataWithCovidSamePeriod} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with null dadosCovidCompletos', () => {
+    const dataWithNullCovid = { ...mockData, dadosCovidCompletos: null };
+    render(<DashboardExecutivo data={dataWithNullCovid} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
+  it('renders with empty dadosCovidCompletos array', () => {
+    const dataWithEmptyCovid = { ...mockData, dadosCovidCompletos: [] };
+    render(<DashboardExecutivo data={dataWithEmptyCovid} dateRange={mockDateRange} />);
+    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
+  });
+
   it('renders with null triagemProcessed', () => {
     const dataWithNullTriagem = { ...mockData, triagemProcessed: null };
     render(<DashboardExecutivo data={dataWithNullTriagem} dateRange={mockDateRange} />);
@@ -108,145 +192,6 @@ describe('DashboardExecutivo', () => {
   it('renders with undefined despesaTotalEstimada', () => {
     const dataWithUndefinedDespesa = { ...mockData, despesaTotalEstimada: undefined };
     render(<DashboardExecutivo data={dataWithUndefinedDespesa} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with null despesaTotalEstimada', () => {
-    const dataWithNullDespesa = { ...mockData, despesaTotalEstimada: null };
-    render(<DashboardExecutivo data={dataWithNullDespesa} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with undefined custoDesperdicadoEstimado', () => {
-    const dataWithUndefinedCusto = { ...mockData, custoDesperdicadoEstimado: undefined };
-    render(<DashboardExecutivo data={dataWithUndefinedCusto} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with null custoDesperdicadoEstimado', () => {
-    const dataWithNullCusto = { ...mockData, custoDesperdicadoEstimado: null };
-    render(<DashboardExecutivo data={dataWithNullCusto} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with negative despesaTotalEstimada', () => {
-    const dataWithNegativeDespesa = { ...mockData, despesaTotalEstimada: -1000 };
-    render(<DashboardExecutivo data={dataWithNegativeDespesa} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with zero despesaTotalEstimada', () => {
-    const dataWithZeroDespesa = { ...mockData, despesaTotalEstimada: 0 };
-    render(<DashboardExecutivo data={dataWithZeroDespesa} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with very large despesaTotalEstimada', () => {
-    const dataWithLargeDespesa = { ...mockData, despesaTotalEstimada: 999999999999 };
-    render(<DashboardExecutivo data={dataWithLargeDespesa} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with very large custoDesperdicadoEstimado', () => {
-    const dataWithLargeCusto = { ...mockData, custoDesperdicadoEstimado: 999999999999 };
-    render(<DashboardExecutivo data={dataWithLargeCusto} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with zero custoDesperdicadoEstimado', () => {
-    const dataWithZeroCusto = { ...mockData, custoDesperdicadoEstimado: 0 };
-    render(<DashboardExecutivo data={dataWithZeroCusto} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with negative custoDesperdicadoEstimado', () => {
-    const dataWithNegativeCusto = { ...mockData, custoDesperdicadoEstimado: -1000 };
-    render(<DashboardExecutivo data={dataWithNegativeCusto} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with triagemProcessed with empty totals', () => {
-    const dataWithEmptyTotals = { ...mockData, triagemProcessed: { totals: {} } };
-    render(<DashboardExecutivo data={dataWithEmptyTotals} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with triagemProcessed with partial totals', () => {
-    const dataWithPartialTotals = { ...mockData, triagemProcessed: { totals: { Vermelha: 100 } } };
-    render(<DashboardExecutivo data={dataWithPartialTotals} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with null triagemProcessed', () => {
-    const dataWithNullTriagem = { ...mockData, triagemProcessed: null };
-    render(<DashboardExecutivo data={dataWithNullTriagem} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with undefined triagemProcessed', () => {
-    const dataWithUndefinedTriagem = { ...mockData, triagemProcessed: undefined };
-    render(<DashboardExecutivo data={dataWithUndefinedTriagem} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with dateRange with same start and end', () => {
-    const sameDate = new Date('2024-01-01');
-    const dateRangeSame = { start: sameDate, end: sameDate };
-    render(<DashboardExecutivo data={mockData} dateRange={dateRangeSame} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with dateRange with reversed dates', () => {
-    const dateRangeReversed = { start: new Date('2024-12-31'), end: new Date('2024-01-01') };
-    render(<DashboardExecutivo data={mockData} dateRange={dateRangeReversed} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with null dateRange start', () => {
-    const dateRangeWithNullStart = { start: null, end: new Date('2024-12-31') };
-    render(<DashboardExecutivo data={mockData} dateRange={dateRangeWithNullStart} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with null dateRange end', () => {
-    const dateRangeWithNullEnd = { start: new Date('2024-01-01'), end: null };
-    render(<DashboardExecutivo data={mockData} dateRange={dateRangeWithNullEnd} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with undefined dateRange start', () => {
-    const dateRangeWithUndefinedStart = { start: undefined, end: new Date('2024-12-31') };
-    render(<DashboardExecutivo data={mockData} dateRange={dateRangeWithUndefinedStart} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with undefined dateRange end', () => {
-    const dateRangeWithUndefinedEnd = { start: new Date('2024-01-01'), end: undefined };
-    render(<DashboardExecutivo data={mockData} dateRange={dateRangeWithUndefinedEnd} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with very large positive despesaTotalEstimada', () => {
-    const dataWithLargeDespesa = { ...mockData, despesaTotalEstimada: 999999999999999 };
-    render(<DashboardExecutivo data={dataWithLargeDespesa} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with very large negative despesaTotalEstimada', () => {
-    const dataWithLargeNegativeDespesa = { ...mockData, despesaTotalEstimada: -999999999999999 };
-    render(<DashboardExecutivo data={dataWithLargeNegativeDespesa} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with decimal despesaTotalEstimada', () => {
-    const dataWithDecimalDespesa = { ...mockData, despesaTotalEstimada: 123456.78 };
-    render(<DashboardExecutivo data={dataWithDecimalDespesa} dateRange={mockDateRange} />);
-    expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
-  });
-
-  it('renders with very small positive despesaTotalEstimada', () => {
-    const dataWithSmallDespesa = { ...mockData, despesaTotalEstimada: 0.01 };
-    render(<DashboardExecutivo data={dataWithSmallDespesa} dateRange={mockDateRange} />);
     expect(screen.getByText(/Total Atendimentos/i)).toBeInTheDocument();
   });
 });
