@@ -11,10 +11,22 @@ const DashboardRH = ({ data, dateRange }) => {
 
   useEffect(() => {
     if (data && data.dadosBrutos && data.instituicoes) {
-      // Preparar dados RH por instituição (ignorar 2013-2015 que não têm dados de RH)
+      // Determinar range de anos baseado no dateRange selecionado
+      let startYear = '2016';
+      let endYear = '2026';
+      
+      if (dateRange && dateRange.start && dateRange.end) {
+        startYear = dateRange.start.getFullYear().toString();
+        endYear = dateRange.end.getFullYear().toString();
+      }
+      
+      // Preparar dados RH por instituição (filtrar pelo período selecionado)
       const institutions = {};
       data.dadosBrutos
-        .filter(row => row.Período >= '2016' && (row.Médicos > 0 || row.Enfermeiros > 0))
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear && (row.Médicos > 0 || row.Enfermeiros > 0);
+        })
         .forEach(row => {
         const instId = row.InstituicaoID;
         if (!institutions[instId]) {
@@ -64,9 +76,12 @@ const DashboardRH = ({ data, dateRange }) => {
       const instArraySorted = [...instArray].sort((a, b) => b.totalAtendimentos - a.totalAtendimentos);
       setInstitutionRH(instArraySorted);
 
-      // Preparar série temporal RH
+      // Preparar série temporal RH (filtrar pelo período selecionado)
       const monthlyRH = data.dadosBrutos
-        .filter(row => (row.Médicos || 0) > 0 || (row.Enfermeiros || 0) > 0)
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear && ((row.Médicos || 0) > 0 || (row.Enfermeiros || 0) > 0);
+        })
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           if (existing) {
@@ -435,7 +450,7 @@ const DashboardRH = ({ data, dateRange }) => {
       <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Evolução Temporal RH */}
         <div className="chart-container">
-          <h3 className="chart-title">📈 Evolução de Recursos Humanos (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">📈 Evolução de Recursos Humanos ({formatPeriodRange(dateRange)})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={timeSeriesRH}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -718,7 +733,7 @@ const DashboardRH = ({ data, dateRange }) => {
               </div>
               <div className="metric-label">Enfermeiros Necessários</div>
               <div className="text-sm text-blue-700 mt-2">
-                Para atingir rácio 2:1
+                Para atingir rácio 2.1
               </div>
             </div>
 
@@ -734,7 +749,7 @@ const DashboardRH = ({ data, dateRange }) => {
 
             <div className="metric-card border-purple-200 bg-purple-50">
               <div className="metric-value" style={{ color: '#7c3aed' }}>
-                {formatCurrency(Math.max(0, totalMedicosNacional * 2 - totalEnfermeirosNacional) * 40000)}
+                {formatCurrency(Math.max(0, totalMedicosNacional * 2 - totalEnfermeirosNacional) * 50000)}
               </div>
               <div className="metric-label">Investimento Estimado</div>
               <div className="text-sm text-purple-700 mt-2">
