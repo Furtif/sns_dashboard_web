@@ -11,9 +11,21 @@ const DashboardExecutivo = ({ data, dateRange }) => {
 
   useEffect(() => {
     if (data && data.dadosBrutos) {
-      // Preparar dados para série temporal
+      // Determinar range de anos baseado no dateRange selecionado
+      let startYear = '2013';
+      let endYear = '2026';
+      
+      if (dateRange && dateRange.start && dateRange.end) {
+        startYear = dateRange.start.getFullYear().toString();
+        endYear = dateRange.end.getFullYear().toString();
+      }
+      
+      // Preparar dados para série temporal (filtrar pelo período selecionado)
       const seriesData = data.dadosBrutos
-        .filter(row => row.TotalAtendimentos > 0)
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear && row.TotalAtendimentos > 0;
+        })
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           if (existing) {
@@ -32,8 +44,13 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       const seriesDataSorted = [...seriesData].sort((a, b) => a.period.localeCompare(b.period));
       setTimeSeriesData(seriesDataSorted);
 
-      // Preparar dados para gráfico de triagem (a partir de dadosBrutos merged para consistência)
-      const triagemTotals = data.dadosBrutos.reduce((acc, row) => {
+      // Preparar dados para gráfico de triagem (filtrar pelo período selecionado)
+      const triagemTotals = data.dadosBrutos
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear;
+        })
+        .reduce((acc, row) => {
         acc.vermelha += row.Atendimentos_Vermelha || 0;
         acc.laranja += row.Atendimentos_Laranja || 0;
         acc.amarela += row.Atendimentos_Amarela || 0;
@@ -66,9 +83,14 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       setTriagemData(triagem);
       setTriagemPercentages(triagemPercentages);
 
-      // Preparar dados de triagem por instituição (a partir de dadosBrutos merged)
+      // Preparar dados de triagem por instituição (filtrar pelo período selecionado)
       const triagemByInstitution = {};
-      data.dadosBrutos.forEach(row => {
+      data.dadosBrutos
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear;
+        })
+        .forEach(row => {
         const instId = row.InstituicaoID;
         if (!triagemByInstitution[instId]) {
           const institution = data.instituicoes?.find(i => i.InstituicaoID === instId);
@@ -91,8 +113,12 @@ const DashboardExecutivo = ({ data, dateRange }) => {
         .sort((a, b) => b.total - a.total);
       setTriagemProcessedData(triagemByInstitutionArray);
 
-      // Preparar dados COVID-19 para série temporal (2016-atualidade, independente do filtro)
+      // Preparar dados COVID-19 para série temporal (filtrar pelo período selecionado)
       const covidData = (data.dadosCovidCompletos || [])
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear;
+        })
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           if (existing) {
@@ -252,7 +278,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Evolução Temporal */}
         <div className="chart-container">
-          <h3 className="chart-title">📈 Evolução dos Atendimentos (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">📈 Evolução dos Atendimentos ({formatPeriodRange(dateRange)})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={timeSeriesData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -481,7 +507,7 @@ const DashboardExecutivo = ({ data, dateRange }) => {
       {/* Gráfico COVID-19 */}
       {covidTimeSeriesData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">🦠 Evolução COVID-19 e Gripe Sazonal nas Urgências (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">🦠 Evolução COVID-19 e Gripe Sazonal nas Urgências ({formatPeriodRange(dateRange)})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidTimeSeriesData}>
               <CartesianGrid strokeDasharray="3 3" />

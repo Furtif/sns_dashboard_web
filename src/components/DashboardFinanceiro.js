@@ -10,7 +10,16 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
 
   useEffect(() => {
     if (data && data.dadosBrutos && data.instituicoes) {
-      // Preparar dados por região
+      // Determinar range de anos baseado no dateRange selecionado
+      let startYear = '2013';
+      let endYear = '2026';
+      
+      if (dateRange && dateRange.start && dateRange.end) {
+        startYear = dateRange.start.getFullYear().toString();
+        endYear = dateRange.end.getFullYear().toString();
+      }
+      
+      // Preparar dados por região (filtrar pelo período selecionado)
       const regions = {};
       data.regioes?.forEach(regiao => {
         regions[regiao.RegiaoID] = {
@@ -23,7 +32,12 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
         };
       });
 
-      data.dadosBrutos.forEach(row => {
+      data.dadosBrutos
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear;
+        })
+        .forEach(row => {
         if (regions[row.RegiaoID]) {
           const totalAtendimentos = row.TotalAtendimentos || 0;
           const urgenciasFalsas = (row.Atendimentos_Verde || 0) + (row.Atendimentos_Azul || 0) + (row.Atendimentos_Branca || 0);
@@ -43,9 +57,9 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
 
       setRegionData(regionArray);
 
-      // Preparar evolução de custos mensais
+      // Preparar evolução de custos mensais (filtrar pelo período selecionado)
       const monthly = data.dadosBrutos
-        .filter(row => row.TotalAtendimentos > 0)
+        .filter(row => row.Período >= startYear && row.Período <= endYear && row.TotalAtendimentos > 0)
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           const totalAtendimentos = row.TotalAtendimentos || 0;
@@ -86,7 +100,12 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
         };
       });
 
-      data.dadosBrutos.forEach(row => {
+      data.dadosBrutos
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear;
+        })
+        .forEach(row => {
         const institution = data.instituicoes.find(i => i.InstituicaoID === row.InstituicaoID);
         if (institution && wasteByType[institution.Tipo]) {
           const totalAtendimentos = row.TotalAtendimentos || 0;
@@ -110,8 +129,12 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
 
       setWasteAnalysis(wasteArray);
 
-      // Preparar dados de custos COVID-19 por período (2016-atualidade)
+      // Preparar dados de custos COVID-19 por período (filtrar pelo período selecionado)
       const covidCosts = (data.dadosCovidCompletos || [])
+        .filter(row => {
+          const periodYear = row.Período.substring(0, 4);
+          return periodYear >= startYear && periodYear <= endYear;
+        })
         .reduce((acc, row) => {
           const existing = acc.find(item => item.period === row.Período);
           const covidCost = (row.CasosCovid || 0) * 200; // Custo estimado COVID: 200€
@@ -269,7 +292,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
       <div className="grid grid-cols-2 gap-6 mb-6">
         {/* Evolução de Custos */}
         <div className="chart-container">
-          <h3 className="chart-title">📈 Evolução de Custos e Desperdício (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">📈 Evolução de Custos e Desperdício ({formatPeriodRange(dateRange)})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={costEvolution}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -441,7 +464,7 @@ const DashboardFinanceiro = ({ data, dateRange }) => {
       {/* Gráfico COVID-19 Financeiro */}
       {covidCostData.length > 0 && (
         <div className="chart-container mb-6">
-          <h3 className="chart-title">🦠 Impacto Financeiro COVID-19 e Gripe Sazonal (2016 - {new Date().getFullYear()})</h3>
+          <h3 className="chart-title">🦠 Impacto Financeiro COVID-19 e Gripe Sazonal ({formatPeriodRange(dateRange)})</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={covidCostData}>
               <CartesianGrid strokeDasharray="3 3" />
