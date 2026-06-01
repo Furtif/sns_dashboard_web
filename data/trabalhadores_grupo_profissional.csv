@@ -1604,6 +1604,16 @@
 2026-03;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, E.P.E.;38.8218941, -9.1764105;434;234;687;10;12;8;128;364;;413;28;67;4;23;2412
 2026-03;Região de Saúde Norte;Unidade Local de Saúde de Santo António, E.P.E.;41.1475731, -8.6195786;1148;715;2193;44;43;30;393;649;;1079;103;161;18;51;6627
 2026-03;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, E.P.E.;38.9773686, -8.9849248;277;132;633;20;4;6;157;323;;261;101;70;3;21;2008
+2026-04;Região de Saúde do Centro;Instituto Português de Oncologia de Coimbra Francisco Gentil, E.P.E.;40.2162514, -8.4103814;177;61;293;17;12;8;113;114;;183;78;40;5;11;1112
+2026-04;Região de Saúde Norte;Instituto Português de Oncologia do Porto Francisco Gentil, E.P.E.;41.1785642, -8.6062881;387;124;837;45;25;18;222;231;;518;50;122;13;56;2648
+2026-04;Serviços Centrais;Secretaria Geral do Ministério da Saúde;;;;;;;;;11;;;9;28;2;9;59
+2026-04;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, E.P.E.;41.3828711, -8.7589945;260;100;498;13;5;2;64;172;;140;60;48;7;8;1377
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, E.P.E.;38.708454, -9.216985;947;579;1829;23;23;18;399;637;;876;172;139;18;71;5731
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, E.P.E.;38.8218941, -9.1764105;432;234;688;10;11;8;127;363;;413;28;68;4;23;2409
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Santo António, E.P.E.;41.1475731, -8.6195786;1146;713;2190;44;43;30;394;649;;1079;102;161;18;52;6621
+2026-04;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, E.P.E.;41.4387173, -8.3086907;568;286;1289;5;17;10;173;365;;481;42;74;10;27;3347
+2026-04;Região de Saúde Norte;Unidade Local de Saúde Alto Minho, E.P.E.;41.7056054, -8.8252713;515;232;1140;26;14;11;146;420;;554;75;81;15;14;3243
+2026-04;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, E.P.E.;39.478072, -8.5404429;271;94;1006;11;16;8;222;320;;541;71;74;14;34;2682
 2014-12;Região de Saúde do Algarve;Administração Regional de Saúde do Algarve, I.P.;37.027122, -7.946842;216;65;421;37;;;142;307;254;;;;;115;1557
 2014-12;Região de Saúde do Centro;Administração Regional de Saúde do Centro, I.P.;40.203782, -8.419176;920;277;1133;75;;;147;1005;523;;;;;235;4315
 2015-01;Serviços Centrais;Administração Central do Sistema de Saúde, I.P.;38.7569402, -9.1494097;2;0;2;1;;;0;37;4;;;;;107;153
@@ -3264,6 +3274,20 @@
 2026-03;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, E.P.E.;41.3423984, -8.4802503;359;154;769;8;8;2;104;261;;242;63;50;4;23;2047
 2026-03;Região de Saúde LVT;Unidade Local de Saúde do Oeste, E.P.E.;39.4054629, -9.1258493;258;101;903;3;9;3;180;409;;408;102;60;8;29;2473
 2026-03;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, E.P.E.;41.2494561, -8.264901;710;310;1551;29;9;6;238;567;;750;14;82;9;40;4315
+2026-04;Serviços Centrais;Instituto Nacional de Saúde Doutor Ricardo Jorge, I.P.;;6;;3;61;29;13;128;97;;36;19;157;9;88;646
+2026-04;Serviços Centrais;Instituto para os Comportamentos Aditivos e as Dependências, I.P.;;72;;235;117;;;7;256;;51;23;337;15;85;1198
+2026-04;Região de Saúde LVT;Instituto Português de Oncologia de Lisboa Francisco Gentil, E.P.E.;38.7396768, -9.1634516;290;107;633;22;21;11;228;265;;408;39;98;13;37;2172
+2026-04;Serviços Centrais;Serviços Partilhados do Ministério da Saúde, E.P.E.;;;;;;;;;70;;;3;268;14;49;404
+2026-04;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, E.P.E.;38.5283754, -8.8818638;383;188;1063;5;13;8;213;377;;578;199;65;9;37;3138
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde Guarda, E.P.E.;40.5309916, -7.2734793;207;93;813;11;16;12;163;258;;406;197;69;9;23;2277
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, E.P.E.;38.7422257, -9.2264834;740;410;1612;75;1;9;389;692;;950;115;130;11;44;5178
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Braga, E.P.E.;41.567832, -8.398936;856;473;1700;15;22;11;223;494;;703;193;141;8;10;4849
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, E.P.E.;40.2191523, -8.4098211;1402;854;3845;75;66;32;717;1019;;1697;323;282;39;65;10416
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, E.P.E.;38.7500861, -9.1616116;1094;762;2359;49;53;25;590;792;;1447;143;247;29;69;7659
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde de Viseu Dão-Lafões, E.P.E.;40.516364, -8.0827433;560;321;1306;22;17;14;220;416;;521;94;57;12;22;3582
+2026-04;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, E.P.E.;38.6554005, -9.0592392;284;153;860;11;8;6;204;298;;422;79;42;9;24;2400
+2026-04;Região de Saúde do Alentejo;Unidade Local de Saúde Litoral Alentejano, E.P.E.;38.0162314, -8.6956768;93;41;423;2;2;1;108;168;;225;15;43;8;12;1141
+2026-04;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, E.P.E.;41.3423984, -8.4802503;362;154;776;8;8;2;104;262;;239;61;50;4;23;2053
 2014-12;Serviços Centrais;Ação Governativa;38.7362218, -9.1463126;0;0;0;0;;;0;6;6;;;;;30;42
 2014-12;Serviços Centrais;Administração Central do Sistema de Saúde, I.P.;38.7569402, -9.1494097;2;0;2;1;;;0;37;5;;;;;106;153
 2014-12;Região de Saúde do Alentejo;Administração Regional de Saúde do Alentejo, I.P.;38.565715, -7.91162;112;22;179;18;;;26;185;99;;;;;87;728
@@ -4958,6 +4982,23 @@
 2026-03;Região de Saúde Norte;Unidade Local de Saúde Alto Minho, E.P.E.;41.7056054, -8.8252713;513;232;1140;26;14;11;146;418;;551;75;80;15;14;3235
 2026-03;Região de Saúde do Alentejo;Unidade Local de Saúde Litoral Alentejano, E.P.E.;38.0162314, -8.6956768;92;42;425;2;2;1;107;168;;225;15;43;8;12;1142
 2026-03;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, E.P.E.;39.478072, -8.5404429;271;94;1003;11;15;8;222;319;;545;72;74;14;34;2682
+2026-04;Serviços Centrais;Ação Governativa;;;;;;;;;8;;;5;;;22;35
+2026-04;Serviços Centrais;Direção Executiva do Serviço Nacional de Saúde, I.P.;;2;;16;2;7;;2;97;;;17;117;15;22;297
+2026-04;Serviços Centrais;Infarmed - Autoridade Nacional do Medicamento e Produtos de Saúde, I.P.;;2;;;;23;;2;68;;;7;291;;35;428
+2026-04;Serviços Centrais;Inspeção-Geral das Atividades em Saúde;;;;;;;;;13;;;1;9;1;45;69
+2026-04;Serviços Centrais;Instituto Português do Sangue e da Transplantação, I.P.;;18;;88;7;5;;140;81;;72;6;62;11;6;496
+2026-04;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, E.P.E.;39.2410946, -8.6937515;284;97;897;8;9;6;204;306;;412;100;63;11;28;2425
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, E.P.E.;39.7414812, -8.7982706;507;216;1373;16;9;9;204;459;;572;68;67;11;19;3530
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, E.P.E.;38.6658713, -9.1822554;646;343;1328;13;15;11;296;472;;627;101;104;13;48;4017
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, E.P.E.;41.5324234, -8.6171561;197;88;435;4;3;1;63;157;;119;51;34;4;12;1168
+2026-04;Região de Saúde Norte;Unidade Local de Saúde Matosinhos, E.P.E.;41.1794456, -8.6745115;544;286;1063;18;19;11;191;342;;440;58;66;10;34;3082
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de S. João, E.P.E.;41.1831056, -8.6010558;1347;800;2948;31;40;25;456;634;;1228;142;203;23;45;7922
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, E.P.E.;41.3031784, -7.7515252;588;296;1644;37;16;12;294;518;;627;163;94;17;16;4322
+2026-04;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, E.P.E.;37.0238973, -7.9281554;728;459;2338;21;33;21;584;991;;755;506;217;25;72;6750
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, E.P.E.;40.117897, -8.8586755;184;94;394;2;6;6;88;127;;144;16;28;2;16;1107
+2026-04;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, E.P.E.;38.9773686, -8.9849248;276;132;629;21;4;6;157;323;;260;100;70;3;20;2001
+2026-04;Região de Saúde LVT;Unidade Local de Saúde do Oeste, E.P.E.;39.4054629, -9.1258493;257;100;901;3;9;3;180;408;;408;101;60;7;29;2466
+2026-04;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, E.P.E.;41.2494561, -8.264901;707;311;1533;29;9;6;238;568;;739;14;82;9;40;4285
 2014-12;Região de Saúde LVT;Administração Regional de Saúde de Lisboa e Vale do Tejo, I.P.;38.748879, -9.139606;1796;543;2290;163;;;296;1813;737;;;;;398;8036
 2015-01;Região de Saúde do Alentejo;Administração Regional de Saúde do Alentejo, I.P.;38.565715, -7.91162;112;29;179;18;;;24;179;98;;;;;85;724
 2015-02;Região de Saúde do Algarve;Administração Regional de Saúde do Algarve, I.P.;37.027122, -7.946842;214;86;418;37;;;137;307;254;;;;;113;1566
@@ -6586,6 +6627,11 @@
 2026-03;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, E.P.E.;37.0238973, -7.9281554;728;468;2344;21;34;20;581;979;;762;488;211;25;72;6733
 2026-03;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, E.P.E.;41.4387173, -8.3086907;568;286;1290;5;17;10;173;366;;481;44;74;10;26;3350
 2026-03;Região de Saúde do Alentejo;Unidade Local de Saúde Baixo Alentejo, E.P.E.;38.014123, -7.8721227;139;53;672;20;10;5;152;259;;331;100;63;11;21;1836
+2026-04;Serviços Centrais;Administração Central do Sistema de Saúde, I.P.;;3;;4;;;;1;77;;;3;217;8;23;336
+2026-04;Serviços Centrais;Direção-Geral da Saúde;;28;;26;9;3;;16;38;;;16;71;4;18;229
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, E.P.E.;39.8212263, -7.4981271;142;58;564;8;10;7;116;190;;252;108;39;11;8;1513
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Gaia e Espinho, E.P.E.;41.1094138, -8.5972617;962;536;2108;33;27;18;347;528;;915;243;102;18;42;5879
+2026-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, E.P.E.;38.5684861, -7.9032848;325;125;879;10;7;8;239;300;;387;63;81;13;40;2477
 2014-12;Região de Saúde Norte;Administração Regional de Saúde do Norte, I.P.;41.157454, -8.604431;1776;699;2558;139;;;186;1864;874;;;;;421;8517
 2014-12;Serviços Centrais;Infarmed - Autoridade Nacional do Medicamento e Produtos de Saúde, I.P.;38.7582532, -9.1502867;1;0;0;7;;;2;82;7;;;;;262;361
 2015-01;Região de Saúde do Algarve;Administração Regional de Saúde do Algarve, I.P.;37.027122, -7.946842;217;85;419;37;;;140;307;254;;;;;113;1572
@@ -8287,3 +8333,11 @@
 2026-03;Região de Saúde Norte;Unidade Local de Saúde Matosinhos, E.P.E.;41.1794456, -8.6745115;548;287;1061;18;19;11;193;344;;442;55;66;10;35;3089
 2026-03;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, E.P.E.;38.7500861, -9.1616116;1090;768;2374;49;53;26;591;783;;1435;149;246;29;69;7662
 2026-03;Região de Saúde Norte;Unidade Local de Saúde Nordeste, E.P.E.;41.8056532, -6.7888197;208;84;754;20;9;3;162;298;;427;96;60;13;16;2150
+2026-04;Serviços Centrais;Instituto Nacional de Emergência Médica, I.P.;;22;;241;;;;;70;;;3;103;13;1117;1569
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, E.P.E.;40.2804158, -7.4922407;171;113;617;1;12;10;134;254;;331;49;63;7;20;1782
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, E.P.E.;40.6362453, -8.6543716;548;290;1180;25;12;10;168;355;;419;60;41;6;24;3138
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, E.P.E.;40.9293884, -8.5458794;618;331;1201;9;17;12;210;423;;537;237;84;15;28;3722
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de São José, E.P.E.;38.7166948, -9.1371248;1451;762;3107;78;57;18;818;1061;;2022;241;229;33;75;9952
+2026-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, E.P.E.;39.3003425, -7.4263845;146;31;626;1;10;4;144;260;;274;148;44;11;28;1727
+2026-04;Região de Saúde do Alentejo;Unidade Local de Saúde Baixo Alentejo, E.P.E.;38.014123, -7.8721227;142;51;676;20;10;5;152;261;;333;99;65;11;20;1845
+2026-04;Região de Saúde Norte;Unidade Local de Saúde Nordeste, E.P.E.;41.8056532, -6.7888197;209;83;753;20;9;3;162;297;;427;96;60;12;16;2147
