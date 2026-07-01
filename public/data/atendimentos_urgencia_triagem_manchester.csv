@@ -1,232 +1,4 @@
 ﻿Período;Região;Instituição;Vermelha;Laranja;Amarela;Verde;Azul;Branca;SemTriagem;TotalAtendimentos
-2024-01;Região de Saúde LVT;Hospital de Cascais, PPP;42;1618;3844;5298;63;15;0;10880
-2024-01;Região de Saúde do Centro;ULS Guarda;36;885;3999;3143;187;137;9;8387
-2024-01;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;39;512;2283;2367;87;1;246;5289
-2024-01;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;143;3788;10403;5048;203;801;2485;20386
-2024-01;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;65;2247;9493;6913;233;253;45;19204
-2024-01;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;35;1013;3726;4113;209;325;627;9421
-2024-01;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;33;1178;4758;2681;117;150;89;8917
-2024-01;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;33;1159;1926;1372;126;88;2699;4704
-2024-01;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;56;1240;5368;3923;116;251;31;10954
-2024-01;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;106;2248;6093;3233;116;1332;973;13128
-2025-01;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;64;1396;7811;5574;72;645;82;15562
-2025-01;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;147;3489;11548;4800;202;601;1289;20787
-2025-01;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;108;4264;14281;11278;370;1003;375;31304
-2025-01;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;59;1340;6427;3766;82;211;2;11885
-2025-01;Região de Saúde do Alentejo;ULS Baixo Alentejo;29;1057;5332;4000;132;70;31;10620
-2025-01;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;50;1300;5793;5240;116;450;37;12949
-2026-01;Região de Saúde LVT;Hospital de Cascais, PPP;32;1357;3681;4711;94;9;0;9884
-2026-01;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;13;433;3355;1401;19;171;2;5392
-2026-01;Região de Saúde do Centro;ULS Guarda;36;863;4285;3083;137;84;12;8488
-2026-01;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;76;1542;4802;1617;116;85;19;8238
-2026-01;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;99;1380;6942;3157;135;285;63;11998
-2026-01;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;128;2972;10648;4508;177;450;49;18883
-2026-01;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;52;1732;6504;3898;457;3;1168;12646
-2026-01;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;52;1965;8249;1572;52;6;10;11896
-2026-01;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;44;1229;3229;3196;153;364;24;8215
-2026-01;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;109;3488;12899;9987;451;715;258;27649
-2026-01;Região de Saúde do Alentejo;ULS Litoral Alentejano;21;643;3081;3088;115;178;0;7126
-2026-01;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;36;1012;5323;1633;47;139;0;8190
-2026-01;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;86;2330;7844;3323;200;521;959;14304
-2024-02;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;75;2727;7472;4444;153;688;1272;15559
-2024-02;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;115;3564;14079;7595;401;1182;70;26936
-2024-02;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;157;2710;12410;9691;308;753;127;26029
-2024-02;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;258;7244;21303;10435;445;1463;4815;41148
-2024-02;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;79;2824;10461;7867;301;1104;2831;22636
-2024-02;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;114;2247;10749;4649;413;928;3373;19100
-2024-02;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;147;3969;14706;6051;949;0;14828;25822
-2024-02;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;51;1483;6315;6189;162;285;0;14485
-2024-02;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;35;1918;9734;9613;231;1661;120;23192
-2024-02;Região de Saúde do Alentejo;ULS Baixo Alentejo;59;1819;9442;6897;235;137;104;18589
-2025-02;Região de Saúde LVT;Hospital de Cascais, PPP;58;2862;8156;11560;181;35;0;22852
-2025-02;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;23;783;5277;4816;229;321;9;11449
-2025-02;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;130;4328;11665;21278;610;685;123;38696
-2025-02;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;57;1812;9102;9126;473;637;1448;21207
-2025-02;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;46;1498;7440;5168;220;24;1973;14396
-2025-02;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;182;7891;27284;21836;792;1953;793;59938
-2025-02;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;55;2063;11004;9840;292;723;161;23977
-2025-02;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;31;887;6153;3384;20;149;39;10624
-2025-02;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;71;2921;12404;7463;297;277;699;23433
-2026-02;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;34;799;5414;4113;189;270;12;10819
-2026-02;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;25;766;6521;2749;49;318;3;10428
-2026-02;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;171;2566;13337;5965;239;525;103;22803
-2026-02;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;72;1620;7803;8546;418;585;1315;19044
-2026-02;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;103;2159;11749;3899;382;297;2563;18589
-2026-02;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;88;3208;20759;8096;173;970;2;33294
-2026-02;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;82;2298;16167;5364;171;673;122;24755
-2026-02;Região de Saúde do Alentejo;ULS Litoral Alentejano;37;1100;5593;5669;195;361;0;12955
-2026-02;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;172;4470;15372;6471;416;935;1898;27836
-2024-03;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;39;1077;9931;4999;56;841;20;16943
-2024-03;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;170;6342;17749;32895;1117;1014;482;59287
-2024-03;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;236;4495;24424;20499;254;1939;370;51847
-2024-03;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;405;11115;33372;16230;667;2245;7066;64034
-2024-03;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;202;5537;18697;17996;1085;609;568;44126
-2024-03;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;169;3440;17172;7131;600;1348;5218;29860
-2024-03;Região de Saúde do Alentejo;ULS Litoral Alentejano;19;1051;4856;5398;67;310;12243;11701
-2025-03;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;122;3675;14240;9652;356;1057;1416;29102
-2025-03;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;23;1282;10607;4832;47;636;22;17427
-2025-03;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;89;1606;7870;6560;242;0;58;16367
-2025-03;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;235;4152;21765;9195;399;1059;171;36805
-2025-03;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;386;9625;34690;13767;563;1673;1423;60704
-2025-03;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;149;4880;19785;12694;928;671;3583;39107
-2025-03;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;89;2782;14105;13105;736;958;2240;31775
-2025-03;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;70;2257;11314;7593;312;37;3106;21583
-2025-03;Região de Saúde Norte;ULS Matosinhos;66;3368;11390;3201;267;208;2146;18500
-2025-03;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;216;5851;21023;15127;692;666;792;43575
-2025-03;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;129;3565;27945;9485;457;920;248;42501
-2025-03;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;157;3942;18813;11098;285;570;8;34865
-2025-03;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;81;2982;16208;14407;414;1024;231;35116
-2025-03;Região de Saúde do Alentejo;ULS Litoral Alentejano;56;1816;9942;9788;439;689;0;22730
-2026-03;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;49;1241;8362;6259;291;463;19;16665
-2026-03;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;221;4130;30280;15671;973;828;1011;52103
-2026-03;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;296;10060;37906;30298;1357;2163;775;82080
-2024-04;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;227;7439;30924;16460;907;2558;150;58515
-2024-04;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;227;8523;24523;45278;1477;1442;856;81470
-2024-04;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;165;5855;21734;16412;624;2283;5855;47073
-2024-04;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;98;3894;15788;19562;921;1267;2939;41530
-2024-04;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;118;4746;20174;12117;487;488;428;38130
-2024-04;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;262;7303;25977;25143;1541;833;804;61059
-2024-04;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;228;3244;23284;16470;1308;283;38187;44817
-2024-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;97;2946;12960;12912;312;617;0;29844
-2024-04;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;69;3883;20486;20901;562;3352;266;49253
-2024-04;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;201;5081;25914;23093;414;897;19;55600
-2024-04;Região de Saúde do Alentejo;ULS Baixo Alentejo;118;3885;19885;14023;493;261;240;38665
-2024-04;Região de Saúde do Alentejo;ULS Litoral Alentejano;28;1457;6676;7456;99;426;16853;16142
-2024-04;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;147;6095;24094;25506;876;1344;310;58062
-2025-04;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;148;5188;17944;8716;352;2324;72;34672
-2025-04;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;54;1714;8984;8435;292;224;5;19703
-2025-04;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;499;12497;45892;18158;755;2273;1494;80074
-2025-04;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;85;2985;15003;9975;411;57;4445;28516
-2025-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;115;4927;12679;12677;620;956;116;31974
-2025-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;107;2849;14731;10149;281;732;42;28849
-2025-04;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;111;3867;21445;18672;551;1334;285;45980
-2025-04;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;63;1806;12180;6263;43;335;48;20690
-2025-04;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;340;9468;31638;12774;370;5087;9984;59677
-2024-05;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;43;1917;14824;13004;562;842;47;31192
-2024-05;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;140;7058;22896;17954;586;367;71;49001
-2024-05;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;113;2465;12142;12557;517;1;1139;27795
-2024-05;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;284;10726;31556;58384;1861;1869;898;104680
-2024-05;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;321;9127;33639;32588;1990;1041;1018;78706
-2024-05;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;279;4099;30193;21155;1627;354;48717;57707
-2024-05;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;203;8077;57722;26488;620;2732;4;95842
-2024-05;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;197;5867;41736;22856;845;2143;1607;73644
-2024-05;Região de Saúde do Alentejo;ULS Baixo Alentejo;155;4965;25815;18124;596;329;217;49984
-2024-05;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;49;2065;17182;10289;58;506;81;30149
-2024-05;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;242;6254;29352;23990;618;1498;185;61954
-2025-05;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;132;2549;13083;10634;387;1;105;26786
-2025-05;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;279;5521;30648;11355;872;1100;7081;49775
-2025-05;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;206;5902;46697;15577;727;1576;416;70685
-2025-05;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;485;19518;67964;53877;2072;5003;1752;148919
-2025-05;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;237;6724;31837;18122;460;980;15;58360
-2025-05;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;72;2240;15410;7816;64;420;63;26022
-2024-06;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;73;2287;21980;10210;118;1753;44;36421
-2024-06;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;159;8292;27585;21337;668;466;74;58507
-2024-06;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;136;2983;14843;14686;593;1;1173;33242
-2024-06;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;411;8405;39226;29308;912;2041;443;80303
-2024-06;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;53;2125;12702;17837;1017;341;23;34075
-2024-06;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;327;12204;55894;33692;1081;638;224;103836
-2024-06;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;166;6850;30405;17885;708;674;795;56688
-2024-06;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;395;10760;40724;39484;2406;1225;1262;94994
-2024-06;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;503;12268;47671;21476;3341;0;49726;85259
-2024-06;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;556;25137;80952;70230;2472;6840;1560;186187
-2024-06;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;287;7473;35688;29158;727;1825;213;75158
-2025-06;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;214;7050;28570;18416;812;2173;2662;57235
-2025-06;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;478;8073;43494;17839;803;2414;356;73101
-2025-06;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;387;8071;32117;20026;706;1939;202;63246
-2025-06;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;305;9763;40004;25215;2138;692;7364;78117
-2025-06;Região de Saúde Norte;ULS Matosinhos;130;6524;22885;6815;823;462;4473;37639
-2025-06;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;255;7019;55987;18574;870;1931;524;84636
-2025-06;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;161;4336;22417;15288;442;878;53;43522
-2024-07;Região de Saúde do Centro;ULS Guarda;211;5180;29842;22295;1459;1080;74;60067
-2024-07;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;949;25722;83202;38896;1593;5460;17331;155822
-2024-07;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;303;10347;39837;28974;1387;4180;9154;85028
-2024-07;Região de Saúde Norte;ULS Matosinhos;167;7881;25539;13256;847;699;5352;48389
-2024-07;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;473;12366;48129;46639;2876;1443;1483;111926
-2024-07;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;424;5615;42398;29983;2489;466;64830;81375
-2024-07;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;272;8243;59568;31332;1199;2743;1787;103357
-2024-07;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;330;8993;47553;41402;703;1634;29;100615
-2025-07;Região de Saúde LVT;Hospital de Cascais, PPP;223;9569;29902;38317;643;87;0;78741
-2025-07;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;540;9414;51048;20787;946;2944;433;85679
-2025-07;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;449;9297;37478;23398;843;2272;239;73737
-2025-07;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;547;9887;57279;42546;602;4736;680;115597
-2025-07;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;359;14363;68749;17825;763;159;141;102218
-2025-07;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;692;13507;53826;21072;3756;0;50631;92853
-2025-07;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;327;9557;45797;25964;655;1450;21;83750
-2025-07;Região de Saúde do Alentejo;ULS Baixo Alentejo;170;6833;34909;22738;800;656;184;66106
-2024-08;Região de Saúde do Centro;ULS Guarda;238;5993;34658;25490;1673;1240;94;69292
-2024-08;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;207;10644;36908;27802;846;643;99;77050
-2024-08;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;539;10996;51890;37828;1195;2786;611;105234
-2024-08;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;346;11795;45585;32597;1639;4855;10512;96817
-2024-08;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;165;7216;31395;39114;1961;2614;5982;82465
-2024-08;Região de Saúde Norte;ULS Matosinhos;189;8917;29159;15216;977;801;6192;55259
-2024-08;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;325;13022;96837;43291;1030;4392;7;158897
-2024-08;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;307;9233;67904;35885;1405;3130;2182;117864
-2024-08;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;371;10396;55335;47957;816;1938;31;116813
-2024-08;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;218;7651;44003;31076;579;2080;6;85607
-2024-08;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;395;9816;48093;39071;976;2615;276;100966
-2024-08;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;644;19369;59893;38281;1095;11412;10105;130694
-2025-08;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;626;14832;55593;43703;2046;1805;2178;118605
-2025-08;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;425;8719;50770;18692;1450;1696;11285;81752
-2025-08;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;202;7112;43370;35834;1255;2857;598;90630
-2025-08;Região de Saúde do Alentejo;ULS Litoral Alentejano;155;4908;26953;26870;1212;1879;0;61977
-2025-08;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;317;11725;50412;29123;1202;1253;2980;94032
-2024-09;Região de Saúde do Centro;ULS Guarda;261;6610;38717;28256;1838;1362;107;77044
-2024-09;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;477;18125;82658;45165;1461;709;290;148595
-2024-09;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;641;15708;61841;59344;3696;1843;1920;143073
-2024-09;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;472;9783;54045;24315;1893;4216;16064;94724
-2024-09;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;349;10339;76268;40078;1581;3477;2366;132092
-2024-09;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;273;9071;52255;36884;1874;1650;456;102007
-2024-09;Região de Saúde do Alentejo;ULS Litoral Alentejano;72;3408;16626;16941;191;1072;39401;38310
-2025-09;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;439;14721;61191;37587;3392;699;11331;118029
-2025-09;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;189;6651;34215;21162;871;162;10925;63250
-2025-09;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;267;10680;29448;27858;1424;2575;250;72252
-2025-09;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;209;6491;34342;22585;662;1491;87;65780
-2025-09;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;156;7829;45243;39374;1064;8675;533;102341
-2025-09;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;117;4106;29214;14104;135;760;121;48436
-2024-10;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;215;4987;24803;23634;978;4;1275;54621
-2024-10;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;663;13500;64545;46522;1486;3595;752;130311
-2024-10;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;514;20133;92112;49250;1613;734;307;164356
-2024-10;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;207;8879;39189;49116;2476;3264;7721;103131
-2024-10;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;843;20474;79678;36407;6103;0;77816;143505
-2024-10;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;223;7231;33161;33068;906;1736;0;76325
-2024-10;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;266;9409;54535;38303;703;2569;6;105785
-2025-10;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;106;4102;22270;22579;978;518;13;50553
-2025-10;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;210;7390;38017;23513;968;180;12139;70278
-2025-10;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;558;10888;64038;23349;1818;2000;14163;102651
-2025-10;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;451;16618;116622;47508;993;5662;10;187854
-2025-10;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;126;4542;32528;15627;158;835;142;53816
-2024-11;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;358;11566;61862;42648;1679;2029;12;120142
-2024-11;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;288;7692;57712;26750;751;3819;216;97012
-2024-11;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;407;16505;68859;69837;2399;3979;958;161986
-2025-11;Região de Saúde do Centro;ULS Guarda;280;8479;47647;30195;1566;1400;116;89567
-2025-11;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;671;23384;64996;101508;3193;3846;3027;197598
-2025-11;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;1359;32729;128518;51501;1990;6164;1911;222261
-2025-11;Região de Saúde Norte;ULS Matosinhos;242;11728;40925;13228;2056;678;8524;68857
-2025-11;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;436;12882;102528;34148;1576;3582;1201;155152
-2025-11;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;182;9719;55880;49428;1336;10662;623;127207
-2025-11;Região de Saúde do Alentejo;ULS Baixo Alentejo;269;10615;54785;34123;1211;1086;232;102089
-2025-11;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;521;12398;67648;49359;1110;5155;366;136191
-2024-12;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;275;6121;30137;28723;1161;5;1324;66422
-2024-12;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;506;17646;69753;47497;2580;7380;15760;145362
-2024-12;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;633;24225;110747;57703;1859;769;361;195936
-2024-12;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;1031;24214;94644;43006;7381;0;95315;170276
-2024-12;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;707;9356;74081;51366;4994;804;110018;141308
-2024-12;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;472;19442;141515;62986;1432;6576;9;232423
-2024-12;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;1165;50916;168559;138667;4750;13276;3426;377333
-2024-12;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;196;11258;61983;64785;1945;10540;1076;150707
-2024-12;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;526;15506;82573;68523;1194;2949;43;171271
-2024-12;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;109;5099;41028;23257;149;1149;182;70791
-2024-12;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;388;12780;67508;47229;1796;2455;12;132156
-2024-12;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;328;11359;66478;44530;853;2933;6;126481
-2025-12;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;450;14035;57792;37279;1571;4378;5294;115505
-2025-12;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;108;4817;43095;17066;228;2549;114;67863
-2025-12;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;410;15185;57726;21735;1192;6295;167;102543
-2025-12;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;727;25988;70873;110371;3412;4216;3104;215587
-2025-12;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;1487;36087;140430;56442;2154;6643;1977;243243
-2025-12;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;334;10197;53894;52539;2980;3900;8490;123844
-2025-12;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;1169;23667;94315;34889;6282;0;89200;160322
-2025-12;Região de Saúde do Alentejo;ULS Litoral Alentejano;230;7242;39832;39943;1807;2783;0;91837
-2025-12;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;591;13735;74243;54390;1164;5535;405;149658
 2013-01;Região de Saúde do Alentejo;ULS Litoral Alentejano;0;0;0;0;0;0;8247;0
 2013-01;Região de Saúde do Centro;CH Leiria;47;965;7370;7059;218;123;0;15782
 2013-01;Região de Saúde LVT;CHU Lisboa Central;62;1218;7628;11463;129;404;1831;20904
@@ -1280,219 +1052,239 @@
 2023-12;Região de Saúde LVT;Hospital Fernando Fonseca;658;23972;73471;138159;4603;5480;4872;246343
 2023-12;Região de Saúde Norte;CH Póvoa Varzim/Vila Conde;250;7032;30648;30930;1339;467;1596;70666
 2023-12;Região de Saúde Norte;CH Trás-os-Montes Alto Douro;568;18925;97834;61962;1789;10796;10;191874
-2024-01;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;60;1847;6910;3835;179;619;44;13450
-2024-01;Região de Saúde Norte;ULS Matosinhos;37;1154;3196;1570;109;108;647;6174
-2024-01;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;62;1245;5226;2276;184;524;1721;9517
-2024-01;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;84;2091;7063;3015;460;0;7165;12713
-2024-01;Região de Saúde do Alentejo;ULS Baixo Alentejo;30;966;4858;3757;132;73;68;9816
-2024-01;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;12;453;3308;1718;16;102;6;5609
-2024-01;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;28;1019;5344;3302;80;203;0;9976
-2025-01;Região de Saúde do Centro;ULS Guarda;32;847;4653;3445;153;130;25;9260
-2025-01;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;72;1910;8799;2235;171;710;20;13897
-2025-01;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;61;1743;6623;4332;211;652;1215;13622
-2025-01;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;59;2147;9702;3002;135;22;15;15067
-2025-01;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;57;1157;5843;2244;186;286;1418;9773
-2025-01;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;51;1807;11825;5112;106;615;0;19516
-2025-01;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;33;983;5088;3768;106;598;0;10576
-2025-01;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;30;1005;5876;1868;59;163;0;9001
-2026-01;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;41;604;2461;1825;93;0;13;5024
-2026-01;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;60;1551;5573;3062;136;414;17;10796
-2026-01;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;69;1255;7270;5400;76;601;86;14671
-2026-01;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;93;2061;7511;2521;420;0;7331;12606
-2026-01;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;75;1282;5864;4073;67;468;31;11829
-2024-02;Região de Saúde do Centro;ULS Guarda;79;1495;7640;5760;381;309;15;15664
-2024-02;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;56;914;4384;4881;213;1;565;10449
-2024-02;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;153;2956;15542;13250;179;1324;187;33404
-2024-02;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;103;4107;17992;12516;391;387;51;35496
-2024-02;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;52;2336;9711;5592;268;274;204;18233
-2024-02;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;137;3618;11768;10944;712;398;353;27577
-2024-02;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;96;3226;21201;9675;208;1020;1;35426
-2024-02;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;52;1777;9587;9273;447;699;1430;21835
-2024-02;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;22;808;6514;3648;23;198;25;11213
-2024-02;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;68;2177;10923;7939;336;367;81;21810
-2024-02;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;100;2363;10775;8216;216;465;63;22135
-2024-02;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;56;1405;9692;4776;135;590;45;16654
-2025-02;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;76;2362;9510;6512;205;718;1095;19383
-2025-02;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;63;1063;5224;4449;154;0;45;10953
-2025-02;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;159;2838;14367;6118;266;672;138;24420
-2025-02;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;24;861;4425;4140;149;104;3;9703
-2025-02;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;286;6477;22910;9314;391;1083;1364;40461
-2025-02;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;104;3253;13119;8585;558;660;2378;26279
-2025-02;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;100;3656;17017;5271;215;35;27;26294
-2025-02;Região de Saúde Norte;ULS Matosinhos;44;2279;7533;1986;134;132;1414;12108
-2025-02;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;115;2219;11413;4459;352;516;2576;19074
-2025-02;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;63;1787;9959;7220;210;1200;1;20439
-2025-02;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;67;1493;12193;2709;160;622;33;17244
-2026-02;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;68;1094;5140;3572;164;1;26;10039
-2026-02;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;149;4305;11185;15032;577;713;641;31961
-2026-02;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;145;3877;12379;8902;394;413;524;26110
-2026-02;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;42;1375;6050;5221;127;386;21;13201
-2026-02;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;26;940;5142;2317;23;143;27;8591
-2024-03;Região de Saúde LVT;Hospital de Cascais, PPP;112;4795;12771;17804;219;61;1;35762
-2024-03;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;114;4160;11896;7177;235;984;1965;24566
-2024-03;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;28;1091;5927;8699;650;204;10;16599
-2024-03;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;166;6194;28173;19473;591;560;168;55157
-2024-03;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;84;3633;14895;8860;399;363;328;28234
-2024-03;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;124;3436;23388;14001;511;1481;1320;42941
-2024-03;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;60;2896;15113;15285;371;2482;196;36207
-2024-03;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;153;3770;18972;16908;288;671;14;40762
-2024-03;Região de Saúde do Alentejo;ULS Baixo Alentejo;87;2856;14530;10498;360;204;147;28535
-2024-03;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;83;2966;16356;11342;175;711;2;31633
-2025-03;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;113;3946;13432;6958;272;1715;62;26436
-2025-03;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;231;4165;23447;17286;249;1894;259;47272
-2026-03;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;272;3925;21150;9684;420;724;159;36175
-2026-03;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;197;4443;17371;10328;447;1200;91;33986
-2026-03;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;138;4876;19483;11520;1316;8;3758;37341
-2026-03;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;159;5599;26508;5447;216;41;34;37970
-2026-03;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;64;2463;11886;5560;341;53;3715;20367
-2026-03;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;297;6021;22642;8117;1496;0;22534;38573
-2026-03;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;138;3526;26028;8990;300;1018;223;40000
-2026-03;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;69;2010;9444;8060;205;605;31;20393
-2026-03;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;170;4427;20296;9448;240;748;10;35329
-2026-03;Região de Saúde do Alentejo;ULS Baixo Alentejo;76;2916;14145;8459;302;337;47;26235
-2026-03;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;67;2144;13386;5078;267;1011;146;21953
-2026-03;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;188;3494;17595;12043;213;1329;90;34862
-2026-03;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;123;4633;17665;9645;335;377;1392;32778
-2026-03;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;263;7027;24571;10502;625;1600;2992;44588
-2024-04;Região de Saúde do Centro;ULS Guarda;119;2714;14602;11072;783;545;30;29835
-2024-04;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;302;5635;25940;19780;638;1427;291;53722
-2024-04;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;40;1414;8048;11710;772;252;15;22236
-2024-04;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;221;8162;37277;24269;794;587;182;71310
-2024-04;Região de Saúde Norte;ULS Matosinhos;97;4476;13959;7356;495;414;2915;26797
-2024-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;119;5590;12121;11704;859;343;442;30736
-2024-04;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;356;16395;50565;46108;1674;4653;925;119751
-2024-04;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;98;3673;19786;19437;868;1718;2673;45580
-2024-04;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;41;1626;13556;8059;54;404;65;23740
-2025-04;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;238;7422;34278;8145;736;2660;109;53479
-2025-04;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;212;8283;38743;11060;443;92;68;58833
-2025-04;Região de Saúde Norte;ULS Matosinhos;83;4405;15183;4264;437;303;2863;24675
-2025-04;Região de Saúde do Alentejo;ULS Litoral Alentejano;74;2383;13038;12819;574;904;0;29792
-2024-05;Região de Saúde do Centro;ULS Guarda;153;3775;20676;15844;1125;788;43;42361
-2024-05;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;360;7039;32840;24772;777;1751;359;67539
-2024-05;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;120;4904;20055;25186;1201;1635;3788;53101
-2024-05;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;79;4857;26188;27207;737;4215;352;63283
-2024-05;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;246;6409;33278;29458;494;1158;19;71043
-2024-05;Região de Saúde do Alentejo;ULS Litoral Alentejano;43;1827;8678;9633;123;558;21734;20862
-2024-05;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;142;3611;25554;12377;369;1648;93;43701
-2025-05;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;404;6767;36036;14956;691;1958;294;60812
-2025-05;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;303;10937;29297;49035;1466;1779;848;92817
-2025-05;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;145;4577;23197;21150;1205;1650;3815;51924
-2025-05;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;97;3836;18996;12733;512;75;5698;36249
-2025-05;Região de Saúde Norte;ULS Matosinhos;104;5493;18960;5559;643;382;3675;31141
-2025-05;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;224;8364;56518;23768;512;2853;3;92239
-2025-05;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;73;4474;24500;21353;547;4702;325;55649
-2025-05;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;199;7462;31183;18677;727;789;1827;59037
-2025-05;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;415;11924;40084;16079;468;6510;12476;75480
-2024-06;Região de Saúde LVT;Hospital de Cascais, PPP;194;9009;26299;38761;524;121;1;74908
-2024-06;Região de Saúde do Centro;ULS Guarda;180;4463;25128;19069;1299;921;296;51060
-2024-06;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;352;12720;37816;69703;2156;2305;1025;125052
-2024-06;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;252;8911;33096;25028;949;3470;8901;71706
-2024-06;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;320;6728;35923;15482;1216;2785;10953;62454
-2024-06;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;342;4905;36655;25923;2016;426;57738;70267
-2024-06;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;236;9585;70167;32081;767;3288;5;116124
-2024-06;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;292;7672;40386;35198;571;1415;21;85534
-2024-06;Região de Saúde do Alentejo;ULS Baixo Alentejo;179;5879;31117;21613;740;432;292;59960
-2024-06;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;167;4310;30966;14669;431;2028;115;52571
-2024-06;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;500;14423;44084;26993;818;8464;7686;95282
-2025-06;Região de Saúde LVT;Hospital de Cascais, PPP;191;8346;25631;33216;568;74;0;68026
-2025-06;Região de Saúde do Centro;ULS Guarda;158;4650;25724;16915;821;804;63;49072
-2025-06;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;211;7770;27624;11899;551;3539;103;51594
-2025-06;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;748;18312;69649;27923;1111;3482;1612;121225
-2025-06;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;308;12265;58481;15671;660;145;119;87530
-2025-06;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;592;11464;45549;17803;3158;0;44047;78566
-2025-06;Região de Saúde do Alentejo;ULS Litoral Alentejano;113;3598;19714;19493;876;1370;0;45164
-2025-06;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;302;7009;36147;27377;661;2769;199;74265
-2025-06;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;494;14273;48441;19395;555;7926;15170;91084
-2024-07;Região de Saúde LVT;Hospital de Cascais, PPP;227;10457;30708;45125;620;143;1;87280
-2024-07;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;153;3514;17419;16937;699;1;1192;38723
-2024-07;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;362;12928;56567;28556;1548;4687;252;104648
-2024-07;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;60;2487;14809;20933;1103;391;23;39783
-2024-07;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;536;10328;58828;49910;721;4771;955;125094
-2024-07;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;382;14298;65359;37810;1208;666;256;119723
-2024-07;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;277;11296;83022;37488;885;3812;6;136780
-2024-07;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;193;6029;35344;33900;1405;2644;4726;79515
-2024-07;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;192;4959;36436;16977;481;2410;138;61455
-2025-07;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;250;8099;33555;21378;959;2554;3347;66795
-2025-07;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;858;21107;81340;32995;1300;4038;1612;141638
-2025-07;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;145;5261;26653;17259;686;122;8321;50126
-2025-07;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;360;7621;43906;16210;1239;1505;9931;70841
-2025-07;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;309;11559;80274;33387;705;4023;7;130257
-2025-07;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;179;6375;38446;31916;1102;2434;513;80452
-2025-07;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;197;5050;40742;8980;482;2384;226;57835
-2025-07;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;269;10345;43787;25709;1072;1106;2560;82288
-2025-07;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;570;16737;57043;22846;665;9298;18020;107159
-2024-08;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;245;10421;34653;20430;666;2531;5322;68946
-2024-08;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;411;14509;64223;32131;1760;5500;281;118534
-2024-08;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;457;16533;50198;91610;2997;3117;2048;164912
-2024-08;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;66;2841;16898;23907;1213;447;28;45372
-2024-08;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;1062;28932;95015;44468;1858;6382;19798;177717
-2024-08;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;552;13831;54738;53093;3307;1636;1665;127157
-2024-08;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;487;6372;48886;34838;3053;527;73362;94163
-2024-08;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;218;5727;42468;19651;532;2839;153;71435
-2024-08;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;309;11856;49978;50454;1739;2867;655;117203
-2025-08;Região de Saúde LVT;Hospital de Cascais, PPP;251;10601;33787;43112;722;100;0;88573
-2025-08;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;514;10407;42599;26565;969;2588;286;83642
-2025-08;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;461;16551;46464;74504;2348;2842;2819;143170
-2025-08;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;234;9614;26238;24953;1295;2312;226;64646
-2025-08;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;132;6953;40071;35082;954;7680;484;90872
-2025-08;Região de Saúde do Alentejo;ULS Baixo Alentejo;194;7861;39982;25728;895;778;200;75438
-2024-09;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;376;13132;50799;35749;1827;5467;11810;107350
-2024-09;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;227;9626;44158;25355;1050;945;1145;81361
-2024-09;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;740;18432;71655;32707;5330;0;69420;128864
-2024-09;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;532;7077;54827;39056;3579;603;81187;105674
-2024-09;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;265;12149;27778;25897;1914;800;666;68803
-2024-09;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;147;8253;46470;48289;1441;7667;823;112267
-2024-09;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;714;21599;67236;42740;1180;12917;11317;146386
-2025-09;Região de Saúde do Centro;ULS Guarda;235;6996;39438;24950;1283;1187;93;74089
-2025-09;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;230;4542;23660;18596;755;1;194;47784
-2025-09;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;526;18860;52414;83014;2639;3198;2872;160651
-2025-09;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;484;9725;57260;21005;1656;1851;12663;91981
-2025-09;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;411;15013;105214;42753;892;5102;9;169385
-2025-09;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;362;13137;56498;32772;1362;1410;3433;105541
-2025-09;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;737;21046;73001;29612;897;12044;23566;137337
-2024-10;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;636;13618;45504;53829;3921;1497;1755;119005
-2024-10;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;731;17673;69390;65895;4077;2128;2224;159894
-2024-10;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;166;9162;51614;54080;1651;8663;908;125336
-2024-10;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;480;12020;59804;49209;1204;3370;353;126087
-2025-10;Região de Saúde LVT;Hospital de Cascais, PPP;349;14400;45867;59291;984;125;0;121016
-2025-10;Região de Saúde do Centro;ULS Guarda;253;7783;43537;27540;1433;1296;105;81842
-2025-10;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;247;5055;26348;20664;833;1;210;53148
-2025-10;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;599;21171;58790;92757;2939;3534;2980;179790
-2025-10;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;1232;29801;117042;47078;1843;5661;1865;202657
-2025-10;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;492;20549;97790;23949;1032;198;216;144010
-2025-10;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;169;8784;50763;44310;1214;9696;584;114936
-2025-10;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;242;8951;54043;44486;1526;3706;789;112954
-2025-10;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;245;7286;44621;22066;819;5124;225;80161
-2025-10;Região de Saúde do Alentejo;ULS Litoral Alentejano;192;6077;33385;33327;1504;2328;0;76813
-2025-10;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;280;9024;57670;19706;816;1621;12;89117
-2025-10;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;271;7276;59317;12937;666;3464;295;83931
-2024-11;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;304;14463;50809;36563;1174;952;284;104265
-2024-11;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;459;16059;63475;43507;2345;6736;14501;132581
-2024-11;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;440;17730;129555;57949;1331;6021;8;213026
-2024-11;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;422;12670;94377;50025;2005;4210;2397;163709
-2024-11;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;183;10178;56788;59627;1844;9590;1010;138210
-2024-11;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;288;9545;55995;53170;2029;4115;6742;125142
-2024-11;Região de Saúde do Alentejo;ULS Litoral Alentejano;97;4205;20443;20664;220;1298;48288;46927
-2025-11;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;119;4353;29809;24603;1234;1656;57;61774
-2025-11;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;542;20234;95066;21322;2109;7497;338;146770
-2025-11;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;698;14663;60193;37076;1445;3872;322;117947
-2025-11;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;111;4526;24648;24850;1062;570;17;55767
-2025-11;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;543;22540;107261;26076;1087;206;273;157713
-2025-11;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;289;9189;49437;47643;2776;3560;7962;112894
-2025-11;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;895;20591;76278;59470;2765;2477;3073;162476
-2025-11;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;330;13045;35996;34223;1749;3206;318;88549
-2025-11;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;954;42332;158497;122739;4796;10870;4865;340188
-2025-11;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;275;9899;59282;48661;1624;4065;901;123806
-2025-11;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;301;9914;63774;21590;875;1780;12;98234
-2025-11;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;450;16005;69097;40527;1639;1674;4210;129392
-2025-11;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;912;25828;90188;36702;1104;14283;28633;169017
-2024-12;Região de Saúde Norte;ULS Matosinhos;282;13243;44342;21734;1358;1229;9315;82188
-2024-12;Região de Saúde do Alentejo;ULS Litoral Alentejano;103;4721;22588;22569;237;1450;52794;51668
-2025-12;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;134;4795;32766;26742;1332;1828;67;67597
-2025-12;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;921;16634;96368;71582;1014;7968;1146;194487
-2025-12;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;990;22831;83080;64187;2963;2678;3313;176729
-2025-12;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;1067;45835;172208;134402;5097;11714;5059;370323
-2025-12;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;203;10905;61233;54054;1422;11581;685;139398
+2024-01;Região de Saúde LVT;Hospital de Cascais, PPP;42;1618;3844;5298;63;15;0;10880
+2024-01;Região de Saúde do Centro;ULS Guarda;36;885;3999;3143;187;137;9;8387
+2024-01;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;39;512;2283;2367;87;1;246;5289
+2024-01;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;143;3788;10403;5048;203;801;2485;20386
+2024-01;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;65;2247;9493;6913;233;253;45;19204
+2024-01;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;35;1013;3726;4113;209;325;627;9421
+2024-01;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;33;1178;4758;2681;117;150;89;8917
+2024-01;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;33;1159;1926;1372;126;88;2699;4704
+2024-01;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;56;1240;5368;3923;116;251;31;10954
+2024-01;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;106;2248;6093;3233;116;1332;973;13128
+2025-01;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;64;1396;7811;5574;72;645;82;15562
+2025-01;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;147;3489;11548;4800;202;601;1289;20787
+2025-01;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;108;4264;14281;11278;370;1003;375;31304
+2025-01;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;59;1340;6427;3766;82;211;2;11885
+2025-01;Região de Saúde do Alentejo;ULS Baixo Alentejo;29;1057;5332;4000;132;70;31;10620
+2025-01;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;50;1300;5793;5240;116;450;37;12949
+2026-01;Região de Saúde LVT;Hospital de Cascais, PPP;32;1357;3681;4711;94;9;0;9884
+2026-01;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;13;433;3355;1401;19;171;2;5392
+2026-01;Região de Saúde do Centro;ULS Guarda;36;863;4285;3083;137;84;12;8488
+2026-01;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;76;1542;4802;1617;116;85;19;8238
+2026-01;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;99;1380;6942;3157;135;285;63;11998
+2026-01;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;128;2972;10648;4508;177;450;49;18883
+2026-01;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;52;1732;6504;3898;457;3;1168;12646
+2026-01;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;52;1965;8249;1572;52;6;10;11896
+2026-01;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;44;1229;3229;3196;153;364;24;8215
+2026-01;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;109;3488;12899;9987;451;715;258;27649
+2026-01;Região de Saúde do Alentejo;ULS Litoral Alentejano;21;643;3081;3088;115;178;0;7126
+2026-01;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;36;1012;5323;1633;47;139;0;8190
+2026-01;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;86;2330;7844;3323;200;521;959;14304
+2024-02;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;75;2727;7472;4444;153;688;1272;15559
+2024-02;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;115;3564;14079;7595;401;1182;70;26936
+2024-02;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;157;2710;12410;9691;308;753;127;26029
+2024-02;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;258;7244;21303;10435;445;1463;4815;41148
+2024-02;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;79;2824;10461;7867;301;1104;2831;22636
+2024-02;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;114;2247;10749;4649;413;928;3373;19100
+2024-02;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;147;3969;14706;6051;949;0;14828;25822
+2024-02;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;51;1483;6315;6189;162;285;0;14485
+2024-02;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;35;1918;9734;9613;231;1661;120;23192
+2024-02;Região de Saúde do Alentejo;ULS Baixo Alentejo;59;1819;9442;6897;235;137;104;18589
+2025-02;Região de Saúde LVT;Hospital de Cascais, PPP;58;2862;8156;11560;181;35;0;22852
+2025-02;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;23;783;5277;4816;229;321;9;11449
+2025-02;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;130;4328;11665;21278;610;685;123;38696
+2025-02;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;57;1812;9102;9126;473;637;1448;21207
+2025-02;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;46;1498;7440;5168;220;24;1973;14396
+2025-02;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;182;7891;27284;21836;792;1953;793;59938
+2025-02;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;55;2063;11004;9840;292;723;161;23977
+2025-02;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;31;887;6153;3384;20;149;39;10624
+2025-02;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;71;2921;12404;7463;297;277;699;23433
+2026-02;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;34;799;5414;4113;189;270;12;10819
+2026-02;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;25;766;6521;2749;49;318;3;10428
+2026-02;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;171;2566;13337;5965;239;525;103;22803
+2026-02;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;72;1620;7803;8546;418;585;1315;19044
+2026-02;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;103;2159;11749;3899;382;297;2563;18589
+2026-02;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;88;3208;20759;8096;173;970;2;33294
+2026-02;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;82;2298;16167;5364;171;673;122;24755
+2026-02;Região de Saúde do Alentejo;ULS Litoral Alentejano;37;1100;5593;5669;195;361;0;12955
+2026-02;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;172;4470;15372;6471;416;935;1898;27836
+2024-03;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;39;1077;9931;4999;56;841;20;16943
+2024-03;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;170;6342;17749;32895;1117;1014;482;59287
+2024-03;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;236;4495;24424;20499;254;1939;370;51847
+2024-03;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;405;11115;33372;16230;667;2245;7066;64034
+2024-03;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;202;5537;18697;17996;1085;609;568;44126
+2024-03;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;169;3440;17172;7131;600;1348;5218;29860
+2024-03;Região de Saúde do Alentejo;ULS Litoral Alentejano;19;1051;4856;5398;67;310;12243;11701
+2025-03;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;122;3675;14240;9652;356;1057;1416;29102
+2025-03;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;23;1282;10607;4832;47;636;22;17427
+2025-03;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;89;1606;7870;6560;242;0;58;16367
+2025-03;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;235;4152;21765;9195;399;1059;171;36805
+2025-03;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;386;9625;34690;13767;563;1673;1423;60704
+2025-03;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;149;4880;19785;12694;928;671;3583;39107
+2025-03;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;89;2782;14105;13105;736;958;2240;31775
+2025-03;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;70;2257;11314;7593;312;37;3106;21583
+2025-03;Região de Saúde Norte;ULS Matosinhos;66;3368;11390;3201;267;208;2146;18500
+2025-03;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;216;5851;21023;15127;692;666;792;43575
+2025-03;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;129;3565;27945;9485;457;920;248;42501
+2025-03;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;157;3942;18813;11098;285;570;8;34865
+2025-03;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;81;2982;16208;14407;414;1024;231;35116
+2025-03;Região de Saúde do Alentejo;ULS Litoral Alentejano;56;1816;9942;9788;439;689;0;22730
+2026-03;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;49;1241;8362;6259;291;463;19;16665
+2026-03;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;221;4130;30280;15671;973;828;1011;52103
+2026-03;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;296;10060;37906;30298;1357;2163;775;82080
+2024-04;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;227;7439;30924;16460;907;2558;150;58515
+2024-04;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;227;8523;24523;45278;1477;1442;856;81470
+2024-04;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;165;5855;21734;16412;624;2283;5855;47073
+2024-04;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;98;3894;15788;19562;921;1267;2939;41530
+2024-04;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;118;4746;20174;12117;487;488;428;38130
+2024-04;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;262;7303;25977;25143;1541;833;804;61059
+2024-04;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;228;3244;23284;16470;1308;283;38187;44817
+2024-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;97;2946;12960;12912;312;617;0;29844
+2024-04;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;69;3883;20486;20901;562;3352;266;49253
+2024-04;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;201;5081;25914;23093;414;897;19;55600
+2024-04;Região de Saúde do Alentejo;ULS Baixo Alentejo;118;3885;19885;14023;493;261;240;38665
+2024-04;Região de Saúde do Alentejo;ULS Litoral Alentejano;28;1457;6676;7456;99;426;16853;16142
+2024-04;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;147;6095;24094;25506;876;1344;310;58062
+2025-04;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;148;5188;17944;8716;352;2324;72;34672
+2025-04;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;54;1714;8984;8435;292;224;5;19703
+2025-04;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;499;12497;45892;18158;755;2273;1494;80074
+2025-04;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;85;2985;15003;9975;411;57;4445;28516
+2025-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;115;4927;12679;12677;620;956;116;31974
+2025-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;107;2849;14731;10149;281;732;42;28849
+2025-04;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;111;3867;21445;18672;551;1334;285;45980
+2025-04;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;63;1806;12180;6263;43;335;48;20690
+2025-04;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;340;9468;31638;12774;370;5087;9984;59677
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;90;3477;16777;7848;481;75;5244;28748
+2026-04;Região de Saúde Norte;ULS Matosinhos;118;4262;13721;3977;951;46;3106;23075
+2026-04;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;213;5971;27321;12754;323;1020;10;47602
+2026-04;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;101;2845;18348;7170;364;1163;180;29991
+2026-04;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;339;9451;33512;14241;860;2225;4064;60628
+2024-05;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;43;1917;14824;13004;562;842;47;31192
+2024-05;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;140;7058;22896;17954;586;367;71;49001
+2024-05;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;113;2465;12142;12557;517;1;1139;27795
+2024-05;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;284;10726;31556;58384;1861;1869;898;104680
+2024-05;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;321;9127;33639;32588;1990;1041;1018;78706
+2024-05;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;279;4099;30193;21155;1627;354;48717;57707
+2024-05;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;203;8077;57722;26488;620;2732;4;95842
+2024-05;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;197;5867;41736;22856;845;2143;1607;73644
+2024-05;Região de Saúde do Alentejo;ULS Baixo Alentejo;155;4965;25815;18124;596;329;217;49984
+2024-05;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;49;2065;17182;10289;58;506;81;30149
+2024-05;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;242;6254;29352;23990;618;1498;185;61954
+2025-05;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;132;2549;13083;10634;387;1;105;26786
+2025-05;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;279;5521;30648;11355;872;1100;7081;49775
+2025-05;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;206;5902;46697;15577;727;1576;416;70685
+2025-05;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;485;19518;67964;53877;2072;5003;1752;148919
+2025-05;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;237;6724;31837;18122;460;980;15;58360
+2025-05;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;72;2240;15410;7816;64;420;63;26022
+2024-06;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;73;2287;21980;10210;118;1753;44;36421
+2024-06;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;159;8292;27585;21337;668;466;74;58507
+2024-06;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;136;2983;14843;14686;593;1;1173;33242
+2024-06;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;411;8405;39226;29308;912;2041;443;80303
+2024-06;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;53;2125;12702;17837;1017;341;23;34075
+2024-06;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;327;12204;55894;33692;1081;638;224;103836
+2024-06;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;166;6850;30405;17885;708;674;795;56688
+2024-06;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;395;10760;40724;39484;2406;1225;1262;94994
+2024-06;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;503;12268;47671;21476;3341;0;49726;85259
+2024-06;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;556;25137;80952;70230;2472;6840;1560;186187
+2024-06;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;287;7473;35688;29158;727;1825;213;75158
+2025-06;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;214;7050;28570;18416;812;2173;2662;57235
+2025-06;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;478;8073;43494;17839;803;2414;356;73101
+2025-06;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;387;8071;32117;20026;706;1939;202;63246
+2025-06;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;305;9763;40004;25215;2138;692;7364;78117
+2025-06;Região de Saúde Norte;ULS Matosinhos;130;6524;22885;6815;823;462;4473;37639
+2025-06;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;255;7019;55987;18574;870;1931;524;84636
+2025-06;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;161;4336;22417;15288;442;878;53;43522
+2024-07;Região de Saúde do Centro;ULS Guarda;211;5180;29842;22295;1459;1080;74;60067
+2024-07;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;949;25722;83202;38896;1593;5460;17331;155822
+2024-07;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;303;10347;39837;28974;1387;4180;9154;85028
+2024-07;Região de Saúde Norte;ULS Matosinhos;167;7881;25539;13256;847;699;5352;48389
+2024-07;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;473;12366;48129;46639;2876;1443;1483;111926
+2024-07;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;424;5615;42398;29983;2489;466;64830;81375
+2024-07;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;272;8243;59568;31332;1199;2743;1787;103357
+2024-07;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;330;8993;47553;41402;703;1634;29;100615
+2025-07;Região de Saúde LVT;Hospital de Cascais, PPP;223;9569;29902;38317;643;87;0;78741
+2025-07;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;540;9414;51048;20787;946;2944;433;85679
+2025-07;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;449;9297;37478;23398;843;2272;239;73737
+2025-07;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;547;9887;57279;42546;602;4736;680;115597
+2025-07;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;359;14363;68749;17825;763;159;141;102218
+2025-07;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;692;13507;53826;21072;3756;0;50631;92853
+2025-07;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;327;9557;45797;25964;655;1450;21;83750
+2025-07;Região de Saúde do Alentejo;ULS Baixo Alentejo;170;6833;34909;22738;800;656;184;66106
+2024-08;Região de Saúde do Centro;ULS Guarda;238;5993;34658;25490;1673;1240;94;69292
+2024-08;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;207;10644;36908;27802;846;643;99;77050
+2024-08;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;539;10996;51890;37828;1195;2786;611;105234
+2024-08;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;346;11795;45585;32597;1639;4855;10512;96817
+2024-08;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;165;7216;31395;39114;1961;2614;5982;82465
+2024-08;Região de Saúde Norte;ULS Matosinhos;189;8917;29159;15216;977;801;6192;55259
+2024-08;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;325;13022;96837;43291;1030;4392;7;158897
+2024-08;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;307;9233;67904;35885;1405;3130;2182;117864
+2024-08;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;371;10396;55335;47957;816;1938;31;116813
+2024-08;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;218;7651;44003;31076;579;2080;6;85607
+2024-08;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;395;9816;48093;39071;976;2615;276;100966
+2024-08;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;644;19369;59893;38281;1095;11412;10105;130694
+2025-08;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;626;14832;55593;43703;2046;1805;2178;118605
+2025-08;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;425;8719;50770;18692;1450;1696;11285;81752
+2025-08;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;202;7112;43370;35834;1255;2857;598;90630
+2025-08;Região de Saúde do Alentejo;ULS Litoral Alentejano;155;4908;26953;26870;1212;1879;0;61977
+2025-08;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;317;11725;50412;29123;1202;1253;2980;94032
+2024-09;Região de Saúde do Centro;ULS Guarda;261;6610;38717;28256;1838;1362;107;77044
+2024-09;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;477;18125;82658;45165;1461;709;290;148595
+2024-09;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;641;15708;61841;59344;3696;1843;1920;143073
+2024-09;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;472;9783;54045;24315;1893;4216;16064;94724
+2024-09;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;349;10339;76268;40078;1581;3477;2366;132092
+2024-09;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;273;9071;52255;36884;1874;1650;456;102007
+2024-09;Região de Saúde do Alentejo;ULS Litoral Alentejano;72;3408;16626;16941;191;1072;39401;38310
+2025-09;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;439;14721;61191;37587;3392;699;11331;118029
+2025-09;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;189;6651;34215;21162;871;162;10925;63250
+2025-09;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;267;10680;29448;27858;1424;2575;250;72252
+2025-09;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;209;6491;34342;22585;662;1491;87;65780
+2025-09;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;156;7829;45243;39374;1064;8675;533;102341
+2025-09;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;117;4106;29214;14104;135;760;121;48436
+2024-10;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;215;4987;24803;23634;978;4;1275;54621
+2024-10;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;663;13500;64545;46522;1486;3595;752;130311
+2024-10;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;514;20133;92112;49250;1613;734;307;164356
+2024-10;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;207;8879;39189;49116;2476;3264;7721;103131
+2024-10;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;843;20474;79678;36407;6103;0;77816;143505
+2024-10;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;223;7231;33161;33068;906;1736;0;76325
+2024-10;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;266;9409;54535;38303;703;2569;6;105785
+2025-10;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;106;4102;22270;22579;978;518;13;50553
+2025-10;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;210;7390;38017;23513;968;180;12139;70278
+2025-10;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;558;10888;64038;23349;1818;2000;14163;102651
+2025-10;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;451;16618;116622;47508;993;5662;10;187854
+2025-10;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;126;4542;32528;15627;158;835;142;53816
+2024-11;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;358;11566;61862;42648;1679;2029;12;120142
+2024-11;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;288;7692;57712;26750;751;3819;216;97012
+2024-11;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;407;16505;68859;69837;2399;3979;958;161986
+2025-11;Região de Saúde do Centro;ULS Guarda;280;8479;47647;30195;1566;1400;116;89567
+2025-11;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;671;23384;64996;101508;3193;3846;3027;197598
+2025-11;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;1359;32729;128518;51501;1990;6164;1911;222261
+2025-11;Região de Saúde Norte;ULS Matosinhos;242;11728;40925;13228;2056;678;8524;68857
+2025-11;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;436;12882;102528;34148;1576;3582;1201;155152
+2025-11;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;182;9719;55880;49428;1336;10662;623;127207
+2025-11;Região de Saúde do Alentejo;ULS Baixo Alentejo;269;10615;54785;34123;1211;1086;232;102089
+2025-11;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;521;12398;67648;49359;1110;5155;366;136191
+2024-12;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;275;6121;30137;28723;1161;5;1324;66422
+2024-12;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;506;17646;69753;47497;2580;7380;15760;145362
+2024-12;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;633;24225;110747;57703;1859;769;361;195936
+2024-12;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;1031;24214;94644;43006;7381;0;95315;170276
+2024-12;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;707;9356;74081;51366;4994;804;110018;141308
+2024-12;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;472;19442;141515;62986;1432;6576;9;232423
+2024-12;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;1165;50916;168559;138667;4750;13276;3426;377333
+2024-12;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;196;11258;61983;64785;1945;10540;1076;150707
+2024-12;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;526;15506;82573;68523;1194;2949;43;171271
+2024-12;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;109;5099;41028;23257;149;1149;182;70791
+2024-12;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;388;12780;67508;47229;1796;2455;12;132156
+2024-12;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;328;11359;66478;44530;853;2933;6;126481
+2025-12;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;450;14035;57792;37279;1571;4378;5294;115505
+2025-12;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;108;4817;43095;17066;228;2549;114;67863
+2025-12;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;410;15185;57726;21735;1192;6295;167;102543
+2025-12;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;727;25988;70873;110371;3412;4216;3104;215587
+2025-12;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;1487;36087;140430;56442;2154;6643;1977;243243
+2025-12;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;334;10197;53894;52539;2980;3900;8490;123844
+2025-12;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;1169;23667;94315;34889;6282;0;89200;160322
+2025-12;Região de Saúde do Alentejo;ULS Litoral Alentejano;230;7242;39832;39943;1807;2783;0;91837
+2025-12;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;591;13735;74243;54390;1164;5535;405;149658
 2013-01;Região de Saúde do Alentejo;ULS Norte Alentejano;35;880;2326;4441;26;224;25;7932
 2013-01;Região de Saúde do Centro;Centro Hospitalar do Baixo Vouga, EPE;93;2112;8150;3927;38;698;10;15018
 2013-01;Região de Saúde do Centro;ULS Guarda;28;679;2484;3375;40;429;321;7035
@@ -2553,6 +2345,228 @@
 2023-12;Região de Saúde LVT;Hospital Garcia de Orta;753;17752;57134;66822;5455;1666;906;149582
 2023-12;Região de Saúde Norte;Hospital Santa Maria Maior, EPE;137;4372;24266;34445;2458;840;74;66518
 2023-12;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;495;15050;80224;71524;1008;2609;157;170910
+2024-01;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;60;1847;6910;3835;179;619;44;13450
+2024-01;Região de Saúde Norte;ULS Matosinhos;37;1154;3196;1570;109;108;647;6174
+2024-01;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;62;1245;5226;2276;184;524;1721;9517
+2024-01;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;84;2091;7063;3015;460;0;7165;12713
+2024-01;Região de Saúde do Alentejo;ULS Baixo Alentejo;30;966;4858;3757;132;73;68;9816
+2024-01;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;12;453;3308;1718;16;102;6;5609
+2024-01;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;28;1019;5344;3302;80;203;0;9976
+2025-01;Região de Saúde do Centro;ULS Guarda;32;847;4653;3445;153;130;25;9260
+2025-01;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;72;1910;8799;2235;171;710;20;13897
+2025-01;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;61;1743;6623;4332;211;652;1215;13622
+2025-01;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;59;2147;9702;3002;135;22;15;15067
+2025-01;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;57;1157;5843;2244;186;286;1418;9773
+2025-01;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;51;1807;11825;5112;106;615;0;19516
+2025-01;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;33;983;5088;3768;106;598;0;10576
+2025-01;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;30;1005;5876;1868;59;163;0;9001
+2026-01;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;41;604;2461;1825;93;0;13;5024
+2026-01;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;60;1551;5573;3062;136;414;17;10796
+2026-01;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;69;1255;7270;5400;76;601;86;14671
+2026-01;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;93;2061;7511;2521;420;0;7331;12606
+2026-01;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;75;1282;5864;4073;67;468;31;11829
+2024-02;Região de Saúde do Centro;ULS Guarda;79;1495;7640;5760;381;309;15;15664
+2024-02;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;56;914;4384;4881;213;1;565;10449
+2024-02;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;153;2956;15542;13250;179;1324;187;33404
+2024-02;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;103;4107;17992;12516;391;387;51;35496
+2024-02;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;52;2336;9711;5592;268;274;204;18233
+2024-02;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;137;3618;11768;10944;712;398;353;27577
+2024-02;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;96;3226;21201;9675;208;1020;1;35426
+2024-02;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;52;1777;9587;9273;447;699;1430;21835
+2024-02;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;22;808;6514;3648;23;198;25;11213
+2024-02;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;68;2177;10923;7939;336;367;81;21810
+2024-02;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;100;2363;10775;8216;216;465;63;22135
+2024-02;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;56;1405;9692;4776;135;590;45;16654
+2025-02;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;76;2362;9510;6512;205;718;1095;19383
+2025-02;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;63;1063;5224;4449;154;0;45;10953
+2025-02;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;159;2838;14367;6118;266;672;138;24420
+2025-02;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;24;861;4425;4140;149;104;3;9703
+2025-02;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;286;6477;22910;9314;391;1083;1364;40461
+2025-02;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;104;3253;13119;8585;558;660;2378;26279
+2025-02;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;100;3656;17017;5271;215;35;27;26294
+2025-02;Região de Saúde Norte;ULS Matosinhos;44;2279;7533;1986;134;132;1414;12108
+2025-02;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;115;2219;11413;4459;352;516;2576;19074
+2025-02;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;63;1787;9959;7220;210;1200;1;20439
+2025-02;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;67;1493;12193;2709;160;622;33;17244
+2026-02;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;68;1094;5140;3572;164;1;26;10039
+2026-02;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;149;4305;11185;15032;577;713;641;31961
+2026-02;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;145;3877;12379;8902;394;413;524;26110
+2026-02;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;42;1375;6050;5221;127;386;21;13201
+2026-02;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;26;940;5142;2317;23;143;27;8591
+2024-03;Região de Saúde LVT;Hospital de Cascais, PPP;112;4795;12771;17804;219;61;1;35762
+2024-03;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;114;4160;11896;7177;235;984;1965;24566
+2024-03;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;28;1091;5927;8699;650;204;10;16599
+2024-03;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;166;6194;28173;19473;591;560;168;55157
+2024-03;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;84;3633;14895;8860;399;363;328;28234
+2024-03;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;124;3436;23388;14001;511;1481;1320;42941
+2024-03;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;60;2896;15113;15285;371;2482;196;36207
+2024-03;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;153;3770;18972;16908;288;671;14;40762
+2024-03;Região de Saúde do Alentejo;ULS Baixo Alentejo;87;2856;14530;10498;360;204;147;28535
+2024-03;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;83;2966;16356;11342;175;711;2;31633
+2025-03;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;113;3946;13432;6958;272;1715;62;26436
+2025-03;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;231;4165;23447;17286;249;1894;259;47272
+2026-03;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;272;3925;21150;9684;420;724;159;36175
+2026-03;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;197;4443;17371;10328;447;1200;91;33986
+2026-03;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;138;4876;19483;11520;1316;8;3758;37341
+2026-03;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;159;5599;26508;5447;216;41;34;37970
+2026-03;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;64;2463;11886;5560;341;53;3715;20367
+2026-03;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;297;6021;22642;8117;1496;0;22534;38573
+2026-03;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;138;3526;26028;8990;300;1018;223;40000
+2026-03;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;69;2010;9444;8060;205;605;31;20393
+2026-03;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;170;4427;20296;9448;240;748;10;35329
+2026-03;Região de Saúde do Alentejo;ULS Baixo Alentejo;76;2916;14145;8459;302;337;47;26235
+2026-03;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;67;2144;13386;5078;267;1011;146;21953
+2026-03;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;188;3494;17595;12043;213;1329;90;34862
+2026-03;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;123;4633;17665;9645;335;377;1392;32778
+2026-03;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;263;7027;24571;10502;625;1600;2992;44588
+2024-04;Região de Saúde do Centro;ULS Guarda;119;2714;14602;11072;783;545;30;29835
+2024-04;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;302;5635;25940;19780;638;1427;291;53722
+2024-04;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;40;1414;8048;11710;772;252;15;22236
+2024-04;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;221;8162;37277;24269;794;587;182;71310
+2024-04;Região de Saúde Norte;ULS Matosinhos;97;4476;13959;7356;495;414;2915;26797
+2024-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;119;5590;12121;11704;859;343;442;30736
+2024-04;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;356;16395;50565;46108;1674;4653;925;119751
+2024-04;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;98;3673;19786;19437;868;1718;2673;45580
+2024-04;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;41;1626;13556;8059;54;404;65;23740
+2025-04;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;238;7422;34278;8145;736;2660;109;53479
+2025-04;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;212;8283;38743;11060;443;92;68;58833
+2025-04;Região de Saúde Norte;ULS Matosinhos;83;4405;15183;4264;437;303;2863;24675
+2025-04;Região de Saúde do Alentejo;ULS Litoral Alentejano;74;2383;13038;12819;574;904;0;29792
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;58;1632;11388;8211;377;612;25;22278
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;260;5810;23797;14628;716;1620;884;46831
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;55;1707;8712;9075;431;188;4;20168
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;218;7638;36249;7312;311;60;49;51788
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;128;3373;16415;18638;927;1253;2821;40734
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;179;4703;35082;12235;428;1353;274;53980
+2026-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;110;4292;13180;11826;604;1266;97;31278
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, EPE;50;1910;11165;5126;51;307;48;18609
+2026-04;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;226;4618;23761;16280;295;1722;116;46902
+2024-05;Região de Saúde do Centro;ULS Guarda;153;3775;20676;15844;1125;788;43;42361
+2024-05;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;360;7039;32840;24772;777;1751;359;67539
+2024-05;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;120;4904;20055;25186;1201;1635;3788;53101
+2024-05;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;79;4857;26188;27207;737;4215;352;63283
+2024-05;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;246;6409;33278;29458;494;1158;19;71043
+2024-05;Região de Saúde do Alentejo;ULS Litoral Alentejano;43;1827;8678;9633;123;558;21734;20862
+2024-05;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;142;3611;25554;12377;369;1648;93;43701
+2025-05;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;404;6767;36036;14956;691;1958;294;60812
+2025-05;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;303;10937;29297;49035;1466;1779;848;92817
+2025-05;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;145;4577;23197;21150;1205;1650;3815;51924
+2025-05;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;97;3836;18996;12733;512;75;5698;36249
+2025-05;Região de Saúde Norte;ULS Matosinhos;104;5493;18960;5559;643;382;3675;31141
+2025-05;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;224;8364;56518;23768;512;2853;3;92239
+2025-05;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;73;4474;24500;21353;547;4702;325;55649
+2025-05;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;199;7462;31183;18677;727;789;1827;59037
+2025-05;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;415;11924;40084;16079;468;6510;12476;75480
+2024-06;Região de Saúde LVT;Hospital de Cascais, PPP;194;9009;26299;38761;524;121;1;74908
+2024-06;Região de Saúde do Centro;ULS Guarda;180;4463;25128;19069;1299;921;296;51060
+2024-06;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;352;12720;37816;69703;2156;2305;1025;125052
+2024-06;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;252;8911;33096;25028;949;3470;8901;71706
+2024-06;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;320;6728;35923;15482;1216;2785;10953;62454
+2024-06;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;342;4905;36655;25923;2016;426;57738;70267
+2024-06;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;236;9585;70167;32081;767;3288;5;116124
+2024-06;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;292;7672;40386;35198;571;1415;21;85534
+2024-06;Região de Saúde do Alentejo;ULS Baixo Alentejo;179;5879;31117;21613;740;432;292;59960
+2024-06;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;167;4310;30966;14669;431;2028;115;52571
+2024-06;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;500;14423;44084;26993;818;8464;7686;95282
+2025-06;Região de Saúde LVT;Hospital de Cascais, PPP;191;8346;25631;33216;568;74;0;68026
+2025-06;Região de Saúde do Centro;ULS Guarda;158;4650;25724;16915;821;804;63;49072
+2025-06;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;211;7770;27624;11899;551;3539;103;51594
+2025-06;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;748;18312;69649;27923;1111;3482;1612;121225
+2025-06;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;308;12265;58481;15671;660;145;119;87530
+2025-06;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;592;11464;45549;17803;3158;0;44047;78566
+2025-06;Região de Saúde do Alentejo;ULS Litoral Alentejano;113;3598;19714;19493;876;1370;0;45164
+2025-06;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;302;7009;36147;27377;661;2769;199;74265
+2025-06;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;494;14273;48441;19395;555;7926;15170;91084
+2024-07;Região de Saúde LVT;Hospital de Cascais, PPP;227;10457;30708;45125;620;143;1;87280
+2024-07;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;153;3514;17419;16937;699;1;1192;38723
+2024-07;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;362;12928;56567;28556;1548;4687;252;104648
+2024-07;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;60;2487;14809;20933;1103;391;23;39783
+2024-07;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;536;10328;58828;49910;721;4771;955;125094
+2024-07;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;382;14298;65359;37810;1208;666;256;119723
+2024-07;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;277;11296;83022;37488;885;3812;6;136780
+2024-07;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;193;6029;35344;33900;1405;2644;4726;79515
+2024-07;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;192;4959;36436;16977;481;2410;138;61455
+2025-07;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;250;8099;33555;21378;959;2554;3347;66795
+2025-07;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;858;21107;81340;32995;1300;4038;1612;141638
+2025-07;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;145;5261;26653;17259;686;122;8321;50126
+2025-07;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;360;7621;43906;16210;1239;1505;9931;70841
+2025-07;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;309;11559;80274;33387;705;4023;7;130257
+2025-07;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;179;6375;38446;31916;1102;2434;513;80452
+2025-07;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;197;5050;40742;8980;482;2384;226;57835
+2025-07;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;269;10345;43787;25709;1072;1106;2560;82288
+2025-07;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;570;16737;57043;22846;665;9298;18020;107159
+2024-08;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;245;10421;34653;20430;666;2531;5322;68946
+2024-08;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;411;14509;64223;32131;1760;5500;281;118534
+2024-08;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;457;16533;50198;91610;2997;3117;2048;164912
+2024-08;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;66;2841;16898;23907;1213;447;28;45372
+2024-08;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;1062;28932;95015;44468;1858;6382;19798;177717
+2024-08;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;552;13831;54738;53093;3307;1636;1665;127157
+2024-08;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;487;6372;48886;34838;3053;527;73362;94163
+2024-08;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;218;5727;42468;19651;532;2839;153;71435
+2024-08;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;309;11856;49978;50454;1739;2867;655;117203
+2025-08;Região de Saúde LVT;Hospital de Cascais, PPP;251;10601;33787;43112;722;100;0;88573
+2025-08;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;514;10407;42599;26565;969;2588;286;83642
+2025-08;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;461;16551;46464;74504;2348;2842;2819;143170
+2025-08;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;234;9614;26238;24953;1295;2312;226;64646
+2025-08;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;132;6953;40071;35082;954;7680;484;90872
+2025-08;Região de Saúde do Alentejo;ULS Baixo Alentejo;194;7861;39982;25728;895;778;200;75438
+2024-09;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;376;13132;50799;35749;1827;5467;11810;107350
+2024-09;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, EPE;227;9626;44158;25355;1050;945;1145;81361
+2024-09;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;740;18432;71655;32707;5330;0;69420;128864
+2024-09;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;532;7077;54827;39056;3579;603;81187;105674
+2024-09;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;265;12149;27778;25897;1914;800;666;68803
+2024-09;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;147;8253;46470;48289;1441;7667;823;112267
+2024-09;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;714;21599;67236;42740;1180;12917;11317;146386
+2025-09;Região de Saúde do Centro;ULS Guarda;235;6996;39438;24950;1283;1187;93;74089
+2025-09;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;230;4542;23660;18596;755;1;194;47784
+2025-09;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;526;18860;52414;83014;2639;3198;2872;160651
+2025-09;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;484;9725;57260;21005;1656;1851;12663;91981
+2025-09;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;411;15013;105214;42753;892;5102;9;169385
+2025-09;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;362;13137;56498;32772;1362;1410;3433;105541
+2025-09;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;737;21046;73001;29612;897;12044;23566;137337
+2024-10;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;636;13618;45504;53829;3921;1497;1755;119005
+2024-10;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;731;17673;69390;65895;4077;2128;2224;159894
+2024-10;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;166;9162;51614;54080;1651;8663;908;125336
+2024-10;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;480;12020;59804;49209;1204;3370;353;126087
+2025-10;Região de Saúde LVT;Hospital de Cascais, PPP;349;14400;45867;59291;984;125;0;121016
+2025-10;Região de Saúde do Centro;ULS Guarda;253;7783;43537;27540;1433;1296;105;81842
+2025-10;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;247;5055;26348;20664;833;1;210;53148
+2025-10;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;599;21171;58790;92757;2939;3534;2980;179790
+2025-10;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;1232;29801;117042;47078;1843;5661;1865;202657
+2025-10;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;492;20549;97790;23949;1032;198;216;144010
+2025-10;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;169;8784;50763;44310;1214;9696;584;114936
+2025-10;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;242;8951;54043;44486;1526;3706;789;112954
+2025-10;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;245;7286;44621;22066;819;5124;225;80161
+2025-10;Região de Saúde do Alentejo;ULS Litoral Alentejano;192;6077;33385;33327;1504;2328;0;76813
+2025-10;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;280;9024;57670;19706;816;1621;12;89117
+2025-10;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;271;7276;59317;12937;666;3464;295;83931
+2024-11;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;304;14463;50809;36563;1174;952;284;104265
+2024-11;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;459;16059;63475;43507;2345;6736;14501;132581
+2024-11;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;440;17730;129555;57949;1331;6021;8;213026
+2024-11;Região de Saúde Norte;Unidade Local de Saúde de Vila Nova de Gaia/Espinho, EPE;422;12670;94377;50025;2005;4210;2397;163709
+2024-11;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;183;10178;56788;59627;1844;9590;1010;138210
+2024-11;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;288;9545;55995;53170;2029;4115;6742;125142
+2024-11;Região de Saúde do Alentejo;ULS Litoral Alentejano;97;4205;20443;20664;220;1298;48288;46927
+2025-11;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;119;4353;29809;24603;1234;1656;57;61774
+2025-11;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;542;20234;95066;21322;2109;7497;338;146770
+2025-11;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;698;14663;60193;37076;1445;3872;322;117947
+2025-11;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;111;4526;24648;24850;1062;570;17;55767
+2025-11;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, EPE;543;22540;107261;26076;1087;206;273;157713
+2025-11;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, EPE;289;9189;49437;47643;2776;3560;7962;112894
+2025-11;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;895;20591;76278;59470;2765;2477;3073;162476
+2025-11;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, EPE;330;13045;35996;34223;1749;3206;318;88549
+2025-11;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;954;42332;158497;122739;4796;10870;4865;340188
+2025-11;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;275;9899;59282;48661;1624;4065;901;123806
+2025-11;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;301;9914;63774;21590;875;1780;12;98234
+2025-11;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;450;16005;69097;40527;1639;1674;4210;129392
+2025-11;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, EPE;912;25828;90188;36702;1104;14283;28633;169017
+2024-12;Região de Saúde Norte;ULS Matosinhos;282;13243;44342;21734;1358;1229;9315;82188
+2024-12;Região de Saúde do Alentejo;ULS Litoral Alentejano;103;4721;22588;22569;237;1450;52794;51668
+2025-12;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, EPE;134;4795;32766;26742;1332;1828;67;67597
+2025-12;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;921;16634;96368;71582;1014;7968;1146;194487
+2025-12;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;990;22831;83080;64187;2963;2678;3313;176729
+2025-12;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;1067;45835;172208;134402;5097;11714;5059;370323
+2025-12;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;203;10905;61233;54054;1422;11581;685;139398
 2013-01;Região de Saúde do Centro;CHU Coimbra;119;2856;9827;3947;38;469;8528;17256
 2013-01;Região de Saúde do Centro;CH Tondela-Viseu;96;2273;7214;4492;129;981;109;15185
 2013-01;Região de Saúde LVT;CH Setúbal;30;719;3547;1740;9;627;4990;6672
@@ -3695,6 +3709,16 @@
 2025-04;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;294;5711;41659;23491;1925;1342;651;74422
 2025-04;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, EPE;197;4822;23475;18536;472;1787;134;49289
 2025-04;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;126;2876;23542;5138;278;1323;115;33283
+2026-04;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;160;4874;19610;11297;430;1608;206;37979
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;43;1464;13905;5664;99;640;16;21815
+2026-04;Região de Saúde do Centro;ULS Guarda;111;2954;16685;11572;603;426;37;32351
+2026-04;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, EPE;122;2247;11320;6693;350;4;60;20736
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;215;7522;33276;7477;737;3020;132;52247
+2026-04;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;375;13592;51185;40909;1857;2974;1019;110892
+2026-04;Região de Saúde do Alentejo;ULS Baixo Alentejo;98;3869;19210;11310;408;435;58;35330
+2026-04;Região de Saúde do Alentejo;ULS Litoral Alentejano;79;2246;11954;12054;474;779;0;27586
+2026-04;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;120;3735;22171;7046;228;752;0;34052
+2026-04;Região de Saúde Norte;Unidade Local de Saúde do Nordeste, EPE;111;2947;22713;4866;237;1308;81;32182
 2024-05;Região de Saúde LVT;Hospital de Cascais, PPP;173;7715;22152;32223;405;92;1;62760
 2024-05;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, EPE;63;1902;18045;8543;103;1446;39;30102
 2024-05;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;385;7361;41822;35437;500;3387;649;88892
@@ -3918,6 +3942,14 @@
 2025-04;Região de Saúde do Alentejo;ULS Baixo Alentejo;89;3922;19407;13307;461;335;126;37521
 2025-04;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, EPE;107;3786;22856;7854;305;688;0;35596
 2025-04;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;167;6022;24943;14974;586;638;1425;47330
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, EPE;331;5279;28633;13336;591;946;208;49116
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, EPE;259;8944;23737;33190;1166;1629;901;68925
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, EPE;475;11502;43701;18656;710;1530;183;76574
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, EPE;323;8034;26534;19239;798;833;1122;55761
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de São João, EPE;399;8072;30869;11009;1968;0;30243;52317
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, EPE;155;6464;43307;17090;400;2071;3;69487
+2026-04;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, EPE;81;2710;12706;10953;267;851;41;27568
+2026-04;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, EPE;142;3790;19172;15952;482;1535;329;41073
 2024-05;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, EPE;174;6920;21555;12906;419;1606;3467;43580
 2024-05;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, EPE;285;9460;40099;21086;1156;3313;176;75399
 2024-05;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, EPE;48;1779;10374;14936;905;307;18;28349
@@ -5126,6 +5158,14 @@
 2025-04;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, EPE;392;15528;53557;42755;1636;3921;1418;117789
 2025-04;Região de Saúde Norte;Unidade Local de Saúde do Alto Minho, EPE;193;5340;24987;14611;364;790;8;46285
 2025-04;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, EPE;118;3268;18793;11464;345;2254;4;36242
+2026-04;Região de Saúde LVT;Hospital de Cascais, PPP;138;5101;15549;19443;315;23;0;40569
+2026-04;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, EPE;181;5246;19947;6608;499;413;74;32894
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Braga, EPE;283;5927;31825;16962;226;2363;322;57586
+2026-04;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;194;6530;26684;16188;1761;9;4537;51366
+2026-04;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;224;4580;26262;8996;1137;686;3057;41885
+2026-04;Região de Saúde LVT;Unidade Local de Saúde de São José, EPE;297;5494;41174;21699;1376;1171;1308;71211
+2026-04;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, EPE;75;3830;18973;18064;512;3638;183;45092
+2026-04;Região de Saúde LVT;Unidade Local de Saúde do Oeste, EPE;154;6033;23771;13366;491;491;2089;44306
 2024-05;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, EPE;300;7204;23355;28269;2291;667;313;62086
 2024-05;Região de Saúde do Centro;Unidade Local de Saúde de Dão-Lafões, EPE;211;7473;27731;20930;796;2914;7474;60055
 2024-05;Região de Saúde Norte;Unidade Local de Saúde de Santo António, EPE;273;5636;29922;12784;1010;2333;8993;51958
