@@ -1,4 +1,58 @@
 ﻿Período;Região;Instituição;Localização Geográfica;Médicos S/ Internos;Médicos Internos;Enfermeiros;Técnicos Superiores de Saúde;Farmacêuticos;Farmacêuticos Residentes;Técnicos Superiores de Diagnóstico e Terapêutica;Assistentes Técnicos;Assistentes Operacionais/Técnicos Auxiliares de Saúde;Técnicos Auxiliares de Saúde;Assistentes Operacionais;Técnicos Superiores;Informáticos;Outros;Total Geral
+2026-07;Serviços Centrais;Administração Central do Sistema de Saúde, I.P.;;3;;4;;;;1;74;;;3;219;9;23;336
+2026-07;Serviços Centrais;Instituto Nacional de Emergência Médica, I.P.;;27;;240;;1;;;72;;;3;105;15;1098;1561
+2026-07;Serviços Centrais;Instituto Português do Sangue e da Transplantação, I.P.;;17;;87;7;5;;138;79;;71;7;66;11;6;494
+2026-07;Serviços Centrais;Serviços Partilhados do Ministério da Saúde, E.P.E.;;;;;;;;;69;;;3;265;14;51;402
+2026-07;Região de Saúde LVT;Unidade Local de Saúde da Arrábida, E.P.E.;38.5283754, -8.8818638;382;175;1062;5;13;8;216;372;;568;211;65;9;38;3124
+2026-07;Região de Saúde do Centro;Unidade Local de Saúde da Região de Aveiro, E.P.E.;40.6362453, -8.6543716;566;260;1175;25;12;9;170;350;;424;53;41;6;23;3114
+2026-07;Região de Saúde do Centro;Unidade Local de Saúde da Região de Leiria, E.P.E.;39.7414812, -8.7982706;548;190;1383;14;9;9;206;461;;580;68;65;11;19;3563
+2026-07;Região de Saúde LVT;Unidade Local de Saúde de Almada-Seixal, E.P.E.;38.6658713, -9.1822554;669;302;1325;14;17;11;294;475;;634;98;95;13;49;3996
+2026-07;Região de Saúde LVT;Unidade Local de Saúde de Amadora/Sintra, E.P.E.;38.7422257, -9.2264834;773;361;1590;75;1;9;392;698;;955;114;129;11;45;5153
+2026-07;Região de Saúde Norte;Unidade Local de Saúde de Braga, E.P.E.;41.567832, -8.398936;885;435;1745;15;22;11;224;486;;707;196;142;8;9;4885
+2026-07;Região de Saúde do Centro;Unidade Local de Saúde Castelo Branco, E.P.E.;39.8212263, -7.4981271;147;52;568;8;10;7;117;189;;251;106;40;11;8;1514
+2026-07;Região de Saúde Norte;Unidade Local de Saúde de Santo António, E.P.E.;41.1475731, -8.6195786;1182;647;2211;44;43;30;391;659;;1083;108;165;18;52;6633
+2026-07;Região de Saúde LVT;Unidade Local de Saúde de São José, E.P.E.;38.7166948, -9.1371248;1471;708;3101;79;57;18;820;1064;;2023;244;234;32;73;9924
+2026-07;Região de Saúde Norte;Unidade Local de Saúde do Médio Ave, E.P.E.;41.3423984, -8.4802503;375;144;784;10;8;3;105;269;;237;58;48;4;25;2070
+2026-07;Região de Saúde LVT;Unidade Local de Saúde do Médio Tejo, E.P.E.;39.478072, -8.5404429;274;83;1014;11;16;9;226;314;;532;69;75;14;33;2670
+2026-07;Serviços Centrais;Direção Executiva do Serviço Nacional de Saúde, I.P.;;3;;16;2;6;;1;90;;;17;113;12;23;283
+2026-07;Região de Saúde do Centro;Instituto Português de Oncologia de Coimbra Francisco Gentil, E.P.E.;40.2162514, -8.4103814;179;62;293;17;12;8;115;113;;182;75;40;4;10;1110
+2026-07;Serviços Centrais;Secretaria Geral do Ministério da Saúde;;;;;;;;;11;;;9;26;2;9;57
+2026-07;Região de Saúde do Centro;Unidade Local de Saúde Guarda, E.P.E.;40.5309916, -7.2734793;218;82;826;11;17;12;163;263;;404;195;70;9;23;2293
+2026-07;Região de Saúde LVT;Unidade Local de Saúde de Loures-Odivelas, E.P.E.;38.8218941, -9.1764105;450;214;695;9;12;8;128;367;;412;28;65;4;21;2413
+2026-07;Região de Saúde Norte;Unidade Local de Saúde Matosinhos, E.P.E.;41.1794456, -8.6745115;547;263;1060;18;19;9;195;345;;442;54;66;10;33;3061
+2026-07;Região de Saúde Norte;Unidade Local de Saúde de S. João, E.P.E.;41.1831056, -8.6010558;1384;721;2937;31;40;25;459;634;;1268;129;197;22;44;7891
+2026-07;Região de Saúde Norte;Unidade Local de Saúde de Trás-os-Montes e Alto Douro, E.P.E.;41.3031784, -7.7515252;600;278;1655;36;16;12;297;523;;628;163;94;17;16;4335
+2026-07;Região de Saúde do Alentejo;Unidade Local de Saúde do Alto Alentejo, E.P.E.;39.3003425, -7.4263845;149;25;628;1;10;4;148;258;;281;148;46;11;28;1737
+2026-07;Região de Saúde do Alentejo;Unidade Local de Saúde Baixo Alentejo, E.P.E.;38.014123, -7.8721227;138;47;673;20;10;5;158;259;;335;103;67;11;20;1846
+2026-07;Região de Saúde do Alentejo;Unidade Local de Saúde Litoral Alentejano, E.P.E.;38.0162314, -8.6956768;95;36;418;3;2;1;110;167;;224;14;43;8;13;1134
+2026-07;Região de Saúde Norte;Unidade Local de Saúde Nordeste, E.P.E.;41.8056532, -6.7888197;213;75;752;19;9;3;162;295;;425;98;60;12;17;2140
+2026-07;Serviços Centrais;Direção-Geral da Saúde;;30;;26;8;3;;16;38;;;16;75;4;19;235
+2026-07;Serviços Centrais;Infarmed - Autoridade Nacional do Medicamento e Produtos de Saúde, I.P.;;2;;;;23;;2;67;;;5;294;;36;429
+2026-07;Região de Saúde LVT;Unidade Local de Saúde de Santa Maria, E.P.E.;38.7500861, -9.1616116;1127;680;2337;48;53;25;588;814;;1441;141;248;28;69;7599
+2026-07;Região de Saúde do Alentejo;Unidade Local de Saúde do Alentejo Central, E.P.E.;38.5684861, -7.9032848;319;112;872;10;7;8;236;302;;382;64;80;13;40;2445
+2026-07;Região de Saúde do Algarve;Unidade Local de Saúde do Algarve, E.P.E.;37.0238973, -7.9281554;736;434;2321;21;32;21;578;991;;744;521;221;24;76;6720
+2026-07;Região de Saúde Norte;Unidade Local de Saúde do Alto Ave, E.P.E.;41.4387173, -8.3086907;586;257;1304;5;17;10;177;368;;489;40;74;10;27;3364
+2026-07;Região de Saúde LVT;Unidade Local de Saúde do Estuário do Tejo, E.P.E.;38.9773686, -8.9849248;298;110;633;22;4;6;159;320;;257;114;70;3;23;2019
+2026-07;Serviços Centrais;Ação Governativa;;;;;;;;;7;;;6;;;25;38
+2026-07;Serviços Centrais;Instituto Nacional de Saúde Doutor Ricardo Jorge, I.P.;;6;;3;60;28;13;131;99;;36;18;158;8;88;648
+2026-07;Região de Saúde LVT;Instituto Português de Oncologia de Lisboa Francisco Gentil, E.P.E.;38.7396768, -9.1634516;286;97;619;21;22;11;230;269;;407;39;100;13;39;2153
+2026-07;Região de Saúde Norte;Instituto Português de Oncologia do Porto Francisco Gentil, E.P.E.;41.1785642, -8.6062881;397;108;851;46;26;19;223;238;;512;48;118;15;58;2659
+2026-07;Região de Saúde do Centro;Unidade Local de Saúde da Cova da Beira, E.P.E.;40.2804158, -7.4922407;177;106;632;1;12;10;140;254;;332;47;64;7;19;1801
+2026-07;Região de Saúde LVT;Unidade Local de Saúde da Lezíria, E.P.E.;39.2410946, -8.6937515;298;84;888;9;9;6;203;306;;409;99;66;10;26;2413
+2026-07;Região de Saúde do Centro;Unidade Local de Saúde de Viseu Dão-Lafões, E.P.E.;40.516364, -8.0827433;573;292;1315;22;18;14;227;419;;515;95;57;12;22;3581
+2026-07;Região de Saúde Norte;Unidade Local de Saúde Alto Minho, E.P.E.;41.7056054, -8.8252713;521;218;1159;26;14;10;147;415;;568;67;81;17;15;3258
+2026-07;Região de Saúde LVT;Unidade Local de Saúde do Oeste, E.P.E.;39.4054629, -9.1258493;264;89;891;3;9;3;180;399;;404;101;59;7;31;2440
+2026-07;Serviços Centrais;Inspeção-Geral das Atividades em Saúde;;;;;;;;;13;;;1;9;1;45;69
+2026-07;Serviços Centrais;Instituto para os Comportamentos Aditivos e as Dependências, I.P.;;71;;236;116;;;7;259;;49;22;336;14;85;1195
+2026-07;Região de Saúde Norte;Unidade Local de Saúde da Póvoa de Varzim/Vila do Conde, E.P.E.;41.3828711, -8.7589945;270;89;506;13;5;2;62;179;;141;59;50;7;8;1391
+2026-07;Região de Saúde Norte;Unidade Local de Saúde de Barcelos/Esposende, E.P.E.;41.5324234, -8.6171561;202;81;442;4;3;1;63;157;;123;51;31;4;17;1179
+2026-07;Região de Saúde do Centro;Unidade Local de Saúde de Coimbra, E.P.E.;40.2191523, -8.4098211;1448;747;3843;74;65;33;714;1014;;1693;319;277;40;74;10341
+2026-07;Região de Saúde Norte;Unidade Local de Saúde de Entre Douro e Vouga, E.P.E.;40.9293884, -8.5458794;632;308;1203;8;17;12;209;423;;540;242;85;14;30;3723
+2026-07;Região de Saúde Norte;Unidade Local de Saúde de Gaia e Espinho, E.P.E.;41.1094138, -8.5972617;983;494;2083;32;26;18;351;528;;909;203;102;18;42;5789
+2026-07;Região de Saúde LVT;Unidade Local de Saúde de Lisboa Ocidental, E.P.E.;38.708454, -9.216985;979;525;1816;23;24;18;406;635;;864;168;138;18;71;5685
+2026-07;Região de Saúde LVT;Unidade Local de Saúde do Arco Ribeirinho, E.P.E.;38.6554005, -9.0592392;284;138;866;13;8;6;205;305;;421;71;43;9;25;2394
+2026-07;Região de Saúde do Centro;Unidade Local de Saúde do Baixo Mondego, E.P.E.;40.117897, -8.8586755;193;82;387;2;6;6;87;129;;151;15;28;2;17;1105
+2026-07;Região de Saúde Norte;Unidade Local de Saúde do Tâmega e Sousa, E.P.E.;41.2494561, -8.264901;718;298;1621;29;9;6;237;582;;767;14;91;9;43;4424
 2026-06;Serviços Centrais;Direção Executiva do Serviço Nacional de Saúde, I.P.;;2;;16;2;7;;1;91;;;17;114;13;23;286
 2026-06;Serviços Centrais;Instituto Nacional de Saúde Doutor Ricardo Jorge, I.P.;;6;;3;61;28;13;127;98;;36;19;156;8;89;644
 2026-06;Região de Saúde do Centro;Instituto Português de Oncologia de Coimbra Francisco Gentil, E.P.E.;40.2162514, -8.4103814;176;62;293;17;12;8;114;113;;183;76;40;4;11;1109
